@@ -249,14 +249,14 @@ document.addEventListener('DOMContentLoaded', function () {
     // 检查当前页面
     const currentPage = window.location.pathname.split('/').pop();
     console.log(currentPage)
-    
+
     // 处理微课详情页
-    if (currentPage === 'course-detail.html') {
+    if (currentPage in 'course-detail.html') {
         loadCourseDetail();
     }
 
     // 处理游戏详情页
-    if (currentPage === 'game-detail.html') {
+    if (currentPage in 'game-detail.html') {
         loadGameDetail();
     }
 });
