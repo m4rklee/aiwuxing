@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>五行归类大挑战</title>
+    <link rel="stylesheet" href="css/game_style.css">
+</head>
+<body>
+    <div class="game-container">
+        <header>
+            <h1>五行归类大挑战</h1>
+            <div class="score-container">
+                <span>得分: </span>
+                <span id="score">0</span>
+            </div>
+            <div class="level-container">
+                <span>关卡: </span>
+                <span id="level">1</span>
+            </div>
+        </header>
+
+        <div class="game-area">
+            <div class="cards-container" id="cards-container">
+                <!-- 卡片将通过JS动态生成 -->
+            </div>
+            
+            <div class="elements-container">
+                <div class="element-box" data-element="木">
+                    <div class="element-icon">
+                        <img src="images/wood.png" alt="木">
+                    </div>
+                    <div class="element-name">木</div>
+                    <div class="element-drop-zone" id="wood-zone"></div>
+                </div>
+                
+                <div class="element-box" data-element="火">
+                    <div class="element-icon">
+                        <img src="images/fire.png" alt="火">
+                    </div>
+                    <div class="element-name">火</div>
+                    <div class="element-drop-zone" id="fire-zone"></div>
+                </div>
+                
+                <div class="element-box" data-element="土">
+                    <div class="element-icon">
+                        <img src="images/earth.png" alt="土">
+                    </div>
+                    <div class="element-name">土</div>
+                    <div class="element-drop-zone" id="earth-zone"></div>
+                </div>
+                
+                <div class="element-box" data-element="金">
+                    <div class="element-icon">
+                        <img src="images/metal.png" alt="金">
+                    </div>
+                    <div class="element-name">金</div>
+                    <div class="element-drop-zone" id="metal-zone"></div>
+                </div>
+                
+                <div class="element-box" data-element="水">
+                    <div class="element-icon">
+                        <img src="images/water.png" alt="水">
+                    </div>
+                    <div class="element-name">水</div>
+                    <div class="element-drop-zone" id="water-zone"></div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="feedback-container" id="feedback">
+            <!-- 反馈信息将在这里显示 -->
+        </div>
+        
+        <div class="controls">
+            <button id="next-level" disabled>下一关</button>
+            <button id="restart">重新开始</button>
+        </div>
+    </div>
+    
+    <!-- 游戏介绍弹窗 -->
+    <div class="modal" id="intro-modal">
+        <div class="modal-content">
+            <h2>五行归类大挑战</h2>
+            <p>在中医理论中，五行（木、火、土、金、水）是构成世界的基本元素，它们之间存在着相生相克的关系。</p>
+            <p>游戏规则：</p>
+            <ul>
+                <li>将左侧的中医概念卡片拖动到右侧对应的五行分类区域</li>
+                <li>正确分类得10分，错误分类扣5分</li>
+                <li>完成当前关卡所有卡片分类后，可进入下一关</li>
+            </ul>
+            <p>示例：肝属于木，心属于火，脾属于土，肺属于金，肾属于水</p>
+            <button id="start-game">开始游戏</button>
+        </div>
+    </div>
+    
+    <!-- 关卡过渡动画 -->
+    <div class="level-transition" id="level-transition">
+        <div class="transition-content">
+            <h2>恭喜通过第<span id="completed-level">1</span>关!</h2>
+            <p>即将进入第<span id="next-level-num">2</span>关</p>
+            <div class="loading-bar">
+                <div class="loading-progress"></div>
+            </div>
+        </div>
+    </div>
+    
+    <script src="js/game_script.js"></script>
+</body>
+</html>
