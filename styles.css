@@ -1891,3 +1891,278 @@ footer {
     }
 }
 
+
+/* 微课和游戏 */
+/* 微课和互动游戏通用样式 */
+.course-grid, .game-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 30px;
+    margin-top: 20px;
+}
+
+/* 微课卡片样式 */
+.course-card {
+    background-color: var(--color-background);
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    transition: var(--transition);
+    display: flex;
+    flex-direction: column;
+}
+
+.course-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+}
+
+.course-image {
+    position: relative;
+    height: 200px;
+    overflow: hidden;
+}
+
+.course-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: var(--transition);
+}
+
+.course-card:hover .course-image img {
+    transform: scale(1.1);
+}
+
+.course-duration {
+    position: absolute;
+    bottom: 10px;
+    right: 10px;
+    background-color: rgba(0, 0, 0, 0.7);
+    color: white;
+    padding: 5px 10px;
+    border-radius: 5px;
+    font-size: 0.9rem;
+}
+
+.course-info {
+    padding: 20px;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+.course-info h3 {
+    color: var(--color-primary);
+    margin-bottom: 10px;
+}
+
+.course-info p {
+    margin-bottom: 15px;
+    flex: 1;
+}
+
+/* 游戏卡片样式 */
+.game-card {
+    background-color: var(--color-background);
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    transition: var(--transition);
+    display: flex;
+    flex-direction: column;
+}
+
+.game-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+}
+
+.game-image {
+    position: relative;
+    height: 200px;
+    overflow: hidden;
+}
+
+.game-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: var(--transition);
+}
+
+.game-card:hover .game-image img {
+    transform: scale(1.1);
+}
+
+.game-difficulty {
+    position: absolute;
+    bottom: 10px;
+    right: 10px;
+    background-color: rgba(0, 0, 0, 0.7);
+    color: white;
+    padding: 5px 10px;
+    border-radius: 5px;
+    font-size: 0.9rem;
+}
+
+.game-difficulty .fas {
+    color: var(--color-highlight);
+}
+
+.game-info {
+    padding: 20px;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+.game-info h3 {
+    color: var(--color-primary);
+    margin-bottom: 10px;
+}
+
+.game-info p {
+    margin-bottom: 15px;
+    flex: 1;
+}
+
+/* 课程详情页样式 */
+.course-detail, .game-detail {
+    background-color: var(--color-background);
+    border-radius: 10px;
+    padding: 30px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+}
+
+.course-header, .game-header {
+    margin-bottom: 20px;
+    position: relative;
+}
+
+.back-link {
+    display: inline-block;
+    margin-bottom: 10px;
+    color: var(--color-primary);
+    transition: var(--transition);
+}
+
+.back-link:hover {
+    color: var(--color-accent);
+}
+
+.course-header h2, .game-header h2 {
+    color: var(--color-primary);
+    margin-bottom: 10px;
+}
+
+.course-video-container, .game-container {
+    margin-bottom: 30px;
+}
+
+.course-video, .game-frame {
+    width: 100%;
+    height: 0;
+    padding-bottom: 56.25%; /* 16:9 宽高比 */
+    position: relative;
+    background-color: #000;
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+.video-placeholder, .game-loading {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    font-size: 1.5rem;
+}
+
+.video-placeholder i, .game-loading i {
+    font-size: 4rem;
+    margin-bottom: 20px;
+}
+
+.course-content, .game-content {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+}
+
+.course-info-box, .game-info-box, .course-chapters, .game-instructions, .course-resources, .game-learning {
+    background-color: var(--color-light);
+    border-radius: 10px;
+    padding: 20px;
+}
+
+.course-info-box h3, .game-info-box h3, .course-chapters h3, .game-instructions h3, .course-resources h3, .game-learning h3 {
+    color: var(--color-primary);
+    margin-bottom: 15px;
+    padding-bottom: 10px;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+.chapter-list, .resource-list {
+    list-style: none;
+}
+
+.chapter-list li, .resource-list li {
+    margin-bottom: 15px;
+    padding-bottom: 15px;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+}
+
+.chapter-list li:last-child, .resource-list li:last-child {
+    margin-bottom: 0;
+    padding-bottom: 0;
+    border-bottom: none;
+}
+
+.related-courses-section, .related-games-section {
+    background-color: var(--color-background-light);
+    padding-top: 40px;
+    padding-bottom: 40px;
+}
+
+.related-courses-section h3, .related-games-section h3 {
+    color: var(--color-primary);
+    margin-bottom: 20px;
+}
+
+.related-courses, .related-games {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    gap: 20px;
+}
+
+/* 响应式调整 */
+@media screen and (max-width: 768px) {
+    .course-grid, .game-grid {
+        grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    }
+    
+    .course-content, .game-content {
+        grid-template-columns: 1fr;
+    }
+    
+    .related-courses, .related-games {
+        grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    }
+}
+
+@media screen and (max-width: 480px) {
+    .course-detail, .game-detail {
+        padding: 20px;
+    }
+    
+    .course-grid, .game-grid {
+        grid-template-columns: 1fr;
+    }
+}
+

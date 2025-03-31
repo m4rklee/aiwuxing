@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>微课详情 - 中医文化平台</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+    <!-- 导航栏 -->
+    <header>
+        <div class="container">
+            <div class="logo">
+                <img src="https://placeholder.pics/svg/150x50/A08052/FFFFFF/中医文化" alt="中医文化平台">
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="index.html"><i class="fas fa-home"></i> 首页</a></li>
+                    <li><a href="microcourses.html" class="active"><i class="fas fa-video"></i> 微课</a></li>
+                    <li><a href="games.html"><i class="fas fa-gamepad"></i> 互动游戏</a></li>
+                    <li><a href="index.html#history"><i class="fas fa-book-medical"></i> 中医发展史</a></li>
+                    <li><a href="index.html#herbs"><i class="fas fa-leaf"></i> 中药材库</a></li>
+                    <li><a href="index.html#meridians"><i class="fas fa-user"></i> 人体五脏</a></li>
+                    <li><a href="index.html#diagnosis"><i class="fas fa-stethoscope"></i> 诊疗方法</a></li>
+                    <li><a href="index.html#masters"><i class="fas fa-user-md"></i> 名医名篇</a></li>
+                    <li><a href="index.html#knowledge"><i class="fas fa-brain"></i> 五行知识</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- 微课详情 -->
+    <section class="section">
+        <div class="container">
+            <div class="course-detail">
+                <div class="course-header">
+                    <a href="microcourses.html" class="back-link"><i class="fas fa-arrow-left"></i> 返回微课列表</a>
+                    <h2 id="courseTitle">课程标题</h2>
+                </div>
+                
+                <div class="course-video-container">
+                    <div id="courseVideo" class="course-video">
+                        <div class="video-placeholder">
+                            <i class="fas fa-play-circle"></i>
+                            <p>视频加载中...</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="course-content">
+                    <div class="course-info-box">
+                        <h3>课程介绍</h3>
+                        <p id="courseDescription">课程介绍内容将在这里显示...</p>
+                    </div>
+                    
+                    <div class="course-chapters">
+                        <h3>课程章节</h3>
+                        <ul id="courseChapters" class="chapter-list">
+                            <!-- 章节内容将通过JavaScript动态加载 -->
+                        </ul>
+                    </div>
+                    
+                    <div class="course-resources">
+                        <h3>相关资源</h3>
+                        <ul id="courseResources" class="resource-list">
+                            <!-- 相关资源将通过JavaScript动态加载 -->
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 相关推荐 -->
+    <section class="section related-courses-section">
+        <div class="container">
+            <h3>相关微课推荐</h3>
+            <div class="related-courses" id="relatedCourses">
+                <!-- 相关微课将通过JavaScript动态加载 -->
+            </div>
+        </div>
+    </section>
+
+    <!-- 页脚 -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-logo">
+                    <img src="https://placeholder.pics/svg/150x50/FFFFFF/A08052/中医文化" alt="中医文化平台">
+                    <p>传承千年中医智慧，弘扬中华优秀传统文化。</p>
+                </div>
+                <div class="footer-links">
+                    <h4>快速链接</h4>
+                    <ul>
+                        <li><a href="index.html">首页</a></li>
+                        <li><a href="microcourses.html">微课</a></li>
+                        <li><a href="games.html">互动游戏</a></li>
+                        <li><a href="index.html#history">中医发展史</a></li>
+                        <li><a href="index.html#herbs">中药材库</a></li>
+                    </ul>
+                </div>
+                <div class="footer-links">
+                    <h4>学习资源</h4>
+                    <ul>
+                        <li><a href="index.html#meridians">人体五脏</a></li>
+                        <li><a href="index.html#diagnosis">诊疗方法</a></li>
+                        <li><a href="index.html#masters">名医名篇</a></li>
+                        <li><a href="index.html#knowledge">五行知识</a></li>
+                    </ul>
+                </div>
+                <div class="footer-newsletter">
+                    <h4>订阅更新</h4>
+                    <p>订阅我们的通讯，获取最新的中医知识和活动信息。</p>
+                    <form id="newsletterForm">
+                        <input type="email" placeholder="您的邮箱地址" required>
+                        <button type="submit"><i class="fas fa-paper-plane"></i></button>
+                    </form>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2023 中医文化平台. 保留所有权利.</p>
+                <div class="social-links">
+                    <a href="#"><i class="fab fa-weixin"></i></a>
+                    <a href="#"><i class="fab fa-weibo"></i></a>
+                    <a href="#"><i class="fab fa-qq"></i></a>
+                    <a href="#"><i class="fab fa-bilibili"></i></a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
+
