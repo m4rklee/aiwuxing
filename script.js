@@ -566,23 +566,23 @@ let volumeControl = null; // 音量控制元素引用
 const musicSources = {
     'wood': {
         title: '角调·疏肝解郁',
-        src: 'music/角肝.mp3' // 替换为实际的音乐文件URL
+        src: 'music/角肝.m4a' // 替换为实际的音乐文件URL
     },
     'fire': {
         title: '徵调·振奋心气',
-        src: 'music/心.mp3'
+        src: 'music/心.m4a'
     },
     'earth': {
         title: '宫调·健脾安神',
-        src: 'music/脾.mp3'
+        src: 'music/脾.m4a'
     },
     'metal': {
         title: '商调·宣肺理气',
-        src: 'music/商肺.mp3'
+        src: 'music/商肺.m4a'
     },
     'water': {
         title: '羽调·滋肾宁心',
-        src: 'music/肾水羽.mp3'
+        src: 'music/肾水羽.m4a'
     }
 };
 
