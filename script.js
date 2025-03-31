@@ -1171,7 +1171,7 @@ function loadGameDetail() {
     // 获取URL参数中的游戏ID
     const urlParams = new URLSearchParams(window.location.search);
     const gameId = urlParams.get('id');
-    print(gameId)
+    console.log(gameId)
     if (gameId && gameData[gameId]) {
         const game = gameData[gameId];
 
