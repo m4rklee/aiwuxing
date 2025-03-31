@@ -248,14 +248,15 @@ const gameData = {
 document.addEventListener('DOMContentLoaded', function () {
     // 检查当前页面
     const currentPage = window.location.pathname.split('/').pop();
+    console.log(currentPage)
 
     // 处理微课详情页
-    if (currentPage === 'course-detail.html') {
+    if ('course-detail.html'.includes(currentPage)) {
         loadCourseDetail();
     }
 
     // 处理游戏详情页
-    if (currentPage === 'game-detail.html') {
+    if ('game-detail.html'.includes(currentPage)) {
         loadGameDetail();
     }
 });
