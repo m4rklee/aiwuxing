@@ -251,12 +251,12 @@ document.addEventListener('DOMContentLoaded', function () {
     console.log(currentPage)
 
     // 处理微课详情页
-    if (currentPage in 'course-detail.html') {
+    if ('course-detail.html'.includes(currentPage)) {
         loadCourseDetail();
     }
 
     // 处理游戏详情页
-    if (currentPage in 'game-detail.html') {
+    if ('game-detail.html'.includes(currentPage)) {
         loadGameDetail();
     }
 });
