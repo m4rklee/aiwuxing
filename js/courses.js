@@ -176,27 +176,23 @@ const gameData = {
         ],
         related: ['herb-matching', 'meridian-explorer', 'tcm-quiz']
     },
-    'tcm-quiz': {
-        title: '中医知识竞赛',
-        description: '测试你的中医知识水平，涵盖中医基础理论、中药学、方剂学、诊断学等多个领域。游戏设置多种题型和难度级别，适合不同基础的学习者。',
-        difficulty: '中等',
-        instructions: `
-            <ol>
-                <li>选择竞赛类别和难度级别。</li>
-                <li>在规定时间内回答问题。</li>
-                <li>问题类型包括单选题、多选题、判断题和填空题。</li>
-                <li>答对得分，答错不扣分。</li>
-                <li>完成一轮竞赛后查看成绩和解析。</li>
-                <li>与其他玩家比较排名。</li>
-            </ol>
-        `,
-        learningPoints: [
-            '巩固中医基础理论知识',
-            '了解中药材的性味归经和功效',
-            '学习常用方剂的组成和应用',
-            '掌握中医诊断的基本方法'
+    "tcm-quiz": {
+        title: "中医知识竞赛",
+        description: "通过五行归类挑战，测试您的中医知识水平，了解中医五行相生相克的基本理论。",
+        instructions: [
+            "将左侧的中医概念卡片拖动到右侧对应的五行分类区域",
+            "正确分类得10分，错误分类扣5分",
+            "完成当前关卡所有卡片分类后，可进入下一关",
+            "游戏共有5个关卡，难度逐渐提升"
         ],
-        related: ['herb-matching', 'diagnosis-challenge', 'herb-recognition']
+        learningPoints: [
+            "了解中医五行理论的基本概念",
+            "掌握五脏、五味、五色、五情与五行的对应关系",
+            "理解五行相生相克的基本规律",
+            "加深对中医整体观念的认识"
+        ],
+        gameUrl: "games/tcm-quiz/index.html",
+        relatedGames: ["herb-matching", "five-elements-balance", "meridian-explorer"]
     },
     'five-elements-balance': {
         title: '五行平衡',
@@ -380,62 +376,96 @@ function loadCourseDetail() {
 // 加载游戏详情
 function loadGameDetail() {
     // 获取URL参数中的游戏ID
+    // const urlParams = new URLSearchParams(window.location.search);
+    // const gameId = urlParams.get('id');
+    // console.log(gameId)
+    // if (gameId && gameData[gameId]) {
+    //     const game = gameData[gameId];
+
+    //     // 更新页面标题
+    //     document.title = `${game.title} - 中医文化平台`;
+
+    //     // 更新游戏信息
+    //     document.getElementById('gameTitle').textContent = game.title;
+    //     document.getElementById('gameDescription').textContent = game.description;
+
+    //     // 模拟游戏加载
+    //     const gameFrame = document.getElementById('gameFrame');
+    //     setTimeout(() => {
+    //         gameFrame.innerHTML = `
+    //         <div class="game-placeholder">
+    //             <i class="fas fa-gamepad"></i>
+    //             <p>点击开始《${game.title}》</p>
+    //         </div>
+    //     `;
+
+    //         // 添加游戏点击事件
+    //         gameFrame.addEventListener('click', function () {
+    //             this.innerHTML = `
+    //             <div class="game-interface">
+    //                 <h3>游戏演示界面</h3>
+    //                 <p>这里将展示${game.title}的游戏界面</p>
+    //                 <div class="game-controls">
+    //                     <button class="game-button"><i class="fas fa-play"></i> 开始</button>
+    //                     <button class="game-button"><i class="fas fa-redo"></i> 重置</button>
+    //                     <button class="game-button"><i class="fas fa-question-circle"></i> 帮助</button>
+    //                 </div>
+    //             </div>
+    //         `;
+    //         });
+    //     }, 1500);
+    
+
+        // // 加载游戏规则
+        // const instructionsContainer = document.getElementById('gameInstructions');
+        // if (instructionsContainer) {
+        //     instructionsContainer.innerHTML = game.instructions;
+        // }
+
+        // // 加载学习要点
+        // const learningPointsContainer = document.getElementById('gameLearningPoints');
+        // if (learningPointsContainer && game.learningPoints) {
+        //     learningPointsContainer.innerHTML = '';
+        //     game.learningPoints.forEach(point => {
+        //         const li = document.createElement('li');
+        //         li.textContent = point;
+        //         learningPointsContainer.appendChild(li);
+        //     });
+        // }
+    // 获取URL参数
     const urlParams = new URLSearchParams(window.location.search);
     const gameId = urlParams.get('id');
-    console.log(gameId)
+    
     if (gameId && gameData[gameId]) {
         const game = gameData[gameId];
-
-        // 更新页面标题
-        document.title = `${game.title} - 中医文化平台`;
-
-        // 更新游戏信息
+        
+        // 更新页面标题和游戏信息
         document.getElementById('gameTitle').textContent = game.title;
         document.getElementById('gameDescription').textContent = game.description;
-
-        // 模拟游戏加载
+        
+        // 更新游戏规则
+        const instructionsEl = document.getElementById('gameInstructions');
+        instructionsEl.innerHTML = '';
+        const instructionsList = document.createElement('ul');
+        game.instructions.forEach(instruction => {
+            const li = document.createElement('li');
+            li.textContent = instruction;
+            instructionsList.appendChild(li);
+        });
+        instructionsEl.appendChild(instructionsList);
+        
+        // 更新学习要点
+        const learningPointsEl = document.getElementById('gameLearningPoints');
+        learningPointsEl.innerHTML = '';
+        game.learningPoints.forEach(point => {
+            const li = document.createElement('li');
+            li.textContent = point;
+            learningPointsEl.appendChild(li);
+        });
+        
+        // 加载游戏
         const gameFrame = document.getElementById('gameFrame');
-        setTimeout(() => {
-            gameFrame.innerHTML = `
-            <div class="game-placeholder">
-                <i class="fas fa-gamepad"></i>
-                <p>点击开始《${game.title}》</p>
-            </div>
-        `;
-
-            // 添加游戏点击事件
-            gameFrame.addEventListener('click', function () {
-                this.innerHTML = `
-                <div class="game-interface">
-                    <h3>游戏演示界面</h3>
-                    <p>这里将展示${game.title}的游戏界面</p>
-                    <div class="game-controls">
-                        <button class="game-button"><i class="fas fa-play"></i> 开始</button>
-                        <button class="game-button"><i class="fas fa-redo"></i> 重置</button>
-                        <button class="game-button"><i class="fas fa-question-circle"></i> 帮助</button>
-                    </div>
-                </div>
-            `;
-            });
-        }, 1500);
-
-        // 加载游戏规则
-        const instructionsContainer = document.getElementById('gameInstructions');
-        if (instructionsContainer) {
-            instructionsContainer.innerHTML = game.instructions;
-        }
-
-        // 加载学习要点
-        const learningPointsContainer = document.getElementById('gameLearningPoints');
-        if (learningPointsContainer && game.learningPoints) {
-            learningPointsContainer.innerHTML = '';
-            game.learningPoints.forEach(point => {
-                const li = document.createElement('li');
-                li.textContent = point;
-                learningPointsContainer.appendChild(li);
-            });
-        }
-
+        gameFrame.innerHTML = `<iframe src="${game.gameUrl}" width="100%" height="600" frameborder="0"></iframe>`;
         // 加载相关游戏
         const relatedContainer = document.getElementById('relatedGames');
         if (relatedContainer && game.related) {
