@@ -47,8 +47,8 @@ document.addEventListener('DOMContentLoaded', function () {
         showSlide(currentSlide - 1);
     }
 
-    nextBtn.addEventListener('click', nextSlide);
-    prevBtn.addEventListener('click', prevSlide);
+    // nextBtn.addEventListener('click', nextSlide);
+    // prevBtn.addEventListener('click', prevSlide);
 
     dots.forEach((dot, index) => {
         dot.addEventListener('click', () => {
