@@ -47,8 +47,8 @@ document.addEventListener('DOMContentLoaded', function () {
         showSlide(currentSlide - 1);
     }
 
-    // nextBtn.addEventListener('click', nextSlide);
-    // prevBtn.addEventListener('click', prevSlide);
+    nextBtn.addEventListener('click', nextSlide);
+    prevBtn.addEventListener('click', prevSlide);
 
     dots.forEach((dot, index) => {
         dot.addEventListener('click', () => {
@@ -1171,7 +1171,7 @@ function loadGameDetail() {
     // 获取URL参数中的游戏ID
     const urlParams = new URLSearchParams(window.location.search);
     const gameId = urlParams.get('id');
-
+    print(gameId)
     if (gameId && gameData[gameId]) {
         const game = gameData[gameId];
 
