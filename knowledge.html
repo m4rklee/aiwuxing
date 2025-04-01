@@ -1,0 +1,1295 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>中医文化平台</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+    <!-- 导航栏 -->
+    <header>
+        <div class="container">
+            <div class="logo">
+                <img src="https://placeholder.pics/svg/150x50/A08052/FFFFFF/中医文化" alt="中医文化平台">
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="index.html"><i class="fas fa-home"></i> 首页</a></li>
+                    <li><a href="knowledge.html" class="active"><i class="fas fa-brain"></i> 知识科普</a></li>
+                    <li><a href="microcourses.html"><i class="fas fa-video"></i> 微课</a></li>
+                    <li><a href="games.html"><i class="fas fa-gamepad"></i> 互动游戏</a></li>
+                    <li><a href="forum.html"><i class="fas fa-comments"></i> 社区分享</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- 中医发展史 -->
+    <section id="history" class="section">
+        <div class="container">
+            <div class="section-header">
+                <h2><i class="fas fa-history"></i> 中医发展史</h2>
+                <p>传承千年的中医文化历程</p>
+            </div>
+            <div class="tabs">
+                <div class="tab-header">
+                    <div class="tab-btn active" data-tab="origin">中医文化起源</div>
+                    <div class="tab-btn" data-tab="development">历史发展</div>
+                    <div class="tab-btn" data-tab="culture">文化内涵</div>
+                </div>
+                <div class="tab-content">
+                    <div class="tab-pane active" id="origin">
+                        <h3>中医起源</h3>
+                        <div class="content-with-image">
+                            <div class="text-content">
+                                <h4>远古时期</h4>
+                                <p>中医的起源可以追溯到远古时期，当时的先民在与自然和疾病的斗争中，逐渐积累了一些医疗经验和知识。例如，神农尝百草，伏羲制九针等传说，反映了中医的起源与古代人民的生活密切相关。</p>
+                                
+                                <h4>商周时期</h4>
+                                <p>甲骨文中已有许多病症名称的记载，同时开始有除虫、洗澡、洗脸等卫生知识。《周礼》中记载了食医、疾医、疡医及兽医等医事制度。</p>
+                                
+                                <h4>春秋战国时期</h4>
+                                <p>扁鹊创立"望、闻、问、切"四诊法，奠定了中医诊断学的基础。《黄帝内经》的成书标志着中医理论体系的初步形成。</p>
+                            </div>
+                            <div class="image">
+                                <img src="https://placeholder.pics/svg/400x300/F0C756/333333/中医起源插图" alt="中医起源">
+                                <!-- <div class="video-container">
+                                    <h4>相关视频</h4>
+                                    <div class="video-placeholder">
+                                        <i class="fas fa-play-circle"></i>
+                                        <p>中医起源历史视频</p>
+                                    </div>
+                                </div> -->
+                            </div>
+                        </div>
+                    </div>
+                    <div class="tab-pane" id="development">
+                        <h3>中医发展</h3>
+                        <div class="timeline">
+                            <div class="timeline-item">
+                                <div class="timeline-icon">
+                                    <i class="fas fa-scroll"></i>
+                                </div>
+                                <div class="timeline-content">
+                                    <h4>秦汉时期</h4>
+                                    <p>《神农本草经》总结了当时的用药经验，共载药物365种。张仲景著《伤寒杂病论》，确立了"辨证论治"原则，是中医临床的基本原则。</p>
+                                </div>
+                            </div>
+                            <div class="timeline-item">
+                                <div class="timeline-icon">
+                                    <i class="fas fa-book-medical"></i>
+                                </div>
+                                <div class="timeline-content">
+                                    <h4>三国、魏晋及南北朝时期</h4>
+                                    <p>葛洪著《肘后备急方》，最早记载一些传染病如天花、恙虫病症侯及诊治。皇甫谧著《针灸甲乙经》，系统总结了针灸学的理论和实践。</p>
+                                </div>
+                            </div>
+                            <div class="timeline-item">
+                                <div class="timeline-icon">
+                                    <i class="fas fa-mortar-pestle"></i>
+                                </div>
+                                <div class="timeline-content">
+                                    <h4>隋唐时期</h4>
+                                    <p>孙思邈著《千金要方》《千金翼方》，对中医药学的发展有重大贡献。</p>
+                                </div>
+                            </div>
+                            <div class="timeline-item">
+                                <div class="timeline-icon">
+                                    <i class="fas fa-pills"></i>
+                                </div>
+                                <div class="timeline-content">
+                                    <h4>宋元时期</h4>
+                                    <p>钱乙著《小儿药证直诀》，对儿科医学的发展有重要影响。李东垣著《脾胃论》，提出"脾胃内伤"学说。朱震亨著《丹溪心法》，对中医温病学的发展有重要影响。</p>
+                                </div>
+                            </div>
+                            <div class="timeline-item">
+                                <div class="timeline-icon">
+                                    <i class="fas fa-book"></i>
+                                </div>
+                                <div class="timeline-content">
+                                    <h4>明清时期</h4>
+                                    <p>李时珍著《本草纲目》，集我国16世纪之前药学成就之大成，是具有世界性影响的博物学著作。吴谦著《医宗金鉴》，对中医各科的理论和实践进行了系统的总结。</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="tab-pane" id="culture">
+                        <h3>中医的文化内涵</h3>
+                        <div class="culture-content">
+                            <div class="culture-item">
+                                <div class="culture-icon">
+                                    <i class="fas fa-yin-yang"></i>
+                                </div>
+                                <div class="culture-text">
+                                    <h4>整体观念</h4>
+                                    <p>中医强调人体是一个有机的整体，人体与自然环境也是一个统一的整体。人体的各个脏腑、组织和器官之间相互联系、相互影响，形成一个有机的整体。同时，人体的健康状态也受到自然环境的影响，如四季变化、气候变化等。</p>
+                                </div>
+                            </div>
+                            <div class="culture-item">
+                                <div class="culture-icon">
+                                    <i class="fas fa-balance-scale"></i>
+                                </div>
+                                <div class="culture-text">
+                                    <h4>辨证论治</h4>
+                                    <p>中医根据患者的具体症状和体征，进行综合分析，确定病因、病机和病位，制定相应的治疗方案。辨证论治是中医临床的基本原则，强调个体化治疗，根据患者的具体情况调整治疗方案。</p>
+                                </div>
+                            </div>
+                            <div class="culture-item">
+                                <div class="culture-icon">
+                                    <i class="fas fa-water"></i>
+                                </div>
+                                <div class="culture-text">
+                                    <h4>阴阳五行</h4>
+                                    <p>阴阳五行学说是中医理论的基础。阴阳学说认为，自然界的一切事物都可以分为阴阳两个方面，阴阳之间存在着对立、互根、消长和转化的关系。五行学说则将世界分为木、火、土、金、水五种基本物质，五行之间存在着相生、相克、相乘、相侮等关系。阴阳五行学说为中医的生理、病理、诊断和治疗提供了重要的理论基础。</p>
+                                </div>
+                            </div>
+                            <div class="culture-item">
+                                <div class="culture-icon">
+                                    <i class="fas fa-shield-alt"></i>
+                                </div>
+                                <div class="culture-text">
+                                    <h4>预防为主</h4>
+                                    <p>中医注重预防疾病，提倡"治未病"，通过养生保健的方法，增强体质，预防疾病的发生。中医的养生方法包括饮食调养、情志调节、运动锻炼、针灸推拿等。</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 中药材库 -->
+    <section id="herbs" class="section">
+        <div class="container">
+            <div class="section-header">
+                <h2><i class="fas fa-leaf"></i> 中药材库</h2>
+                <p>探索传统中药的神奇力量</p>
+            </div>
+            
+            <div class="medicine-cabinet">
+                <div class="cabinet-row">
+                    <div class="cabinet-drawer" data-herb="ginseng">
+                        <div class="drawer-front">
+                            <span>人参</span>
+                        </div>
+                    </div>
+                    <div class="cabinet-drawer" data-herb="astragalus">
+                        <div class="drawer-front">
+                            <span>黄芪</span>
+                        </div>
+                    </div>
+                    <div class="cabinet-drawer" data-herb="angelica">
+                        <div class="drawer-front">
+                            <span>当归</span>
+                        </div>
+                    </div>
+                    <div class="cabinet-drawer" data-herb="licorice">
+                        <div class="drawer-front">
+                            <span>甘草</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="cabinet-row">
+                    <div class="cabinet-drawer" data-herb="cinnamon">
+                        <div class="drawer-front">
+                            <span>肉桂</span>
+                        </div>
+                    </div>
+                    <div class="cabinet-drawer" data-herb="ginger">
+                        <div class="drawer-front">
+                            <span>生姜</span>
+                        </div>
+                    </div>
+                    <div class="cabinet-drawer" data-herb="rhubarb">
+                        <div class="drawer-front">
+                            <span>大黄</span>
+                        </div>
+                    </div>
+                    <div class="cabinet-drawer" data-herb="peony">
+                        <div class="drawer-front">
+                            <span>白芍</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="cabinet-row">
+                    <div class="cabinet-drawer" data-herb="chrysanthemum">
+                        <div class="drawer-front">
+                            <span>菊花</span>
+                        </div>
+                    </div>
+                    <div class="cabinet-drawer" data-herb="wolfberry">
+                        <div class="drawer-front">
+                            <span>枸杞</span>
+                        </div>
+                    </div>
+                    <div class="cabinet-drawer" data-herb="poria">
+                        <div class="drawer-front">
+                            <span>茯苓</span>
+                        </div>
+                    </div>
+                    <div class="cabinet-drawer" data-herb="atractylodes">
+                        <div class="drawer-front">
+                            <span>白术</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- 药材详情弹出层 -->
+            <div class="herb-modal" id="herbModal">
+                <div class="herb-modal-content">
+                    <span class="close-modal">&times;</span>
+                    <div class="herb-info">
+                        <h3 id="herbName"></h3>
+                        <div class="herb-details">
+                            <div class="herb-image">
+                                <img id="herbImage" src="" alt="">
+                            </div>
+                            <div class="herb-properties">
+                                <p><strong>性味：</strong><span id="herbNature"></span></p>
+                                <p><strong>归经：</strong><span id="herbMeridian"></span></p>
+                                <p><strong>功效：</strong><span id="herbEffect"></span></p>
+                            </div>
+                        </div>
+                        <div class="herb-description">
+                            <h4>药材介绍</h4>
+                            <p id="herbDescription"></p>
+                        </div>
+                        <div class="herb-usage">
+                            <h4>用法用量</h4>
+                            <p id="herbUsage"></p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="meridians" class="section">
+        <div class="container">
+            <div class="section-header">
+                <h2><i class="fas fa-user"></i> 人体五脏</h2>
+                <p>探索人体的神秘地图</p>
+            </div>
+            
+            <div class="meridian-container">
+                <div class="meridian-image">
+                    <img src="pics/人体结构/人体结构.png" alt="人体经络图" id="meridianImage" width="200" height="300">
+                    <!-- 经络穴位热点区域 -->
+                    <div class="hotspot" data-organ="heart" style="top: 45%; left: 50%;" title="心"></div>
+                    <div class="hotspot" data-organ="liver" style="top: 55%; left: 45%;" title="肝"></div>
+                    <div class="hotspot" data-organ="spleen" style="top: 55%; left: 60%;" title="脾"></div>
+                    <div class="hotspot" data-organ="lung" style="top: 40%; left: 45%;" title="肺"></div>
+                    <div class="hotspot" data-organ="kidney" style="top: 65%; left: 45%;" title="肾"></div>
+                </div>
+                
+                <div class="meridian-info">
+                    <h3>五行与脏腑对应</h3>
+                    <p>点击人体图上的穴位，了解相关脏腑的五行属性和中医文化内涵。</p>
+                    
+                    <div class="organ-info" id="organInfo">
+                        <div class="organ-placeholder">
+                            <i class="fas fa-hand-pointer"></i>
+                            <p>请点击左侧人体图上的穴位查看详情</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+
+    <!-- 诊疗方法 -->
+    <section id="diagnosis" class="section">
+        <div class="container">
+            <div class="section-header">
+                <h2><i class="fas fa-stethoscope"></i> 中医诊疗方法</h2>
+                <p>传统中医的诊断与治疗智慧</p>
+            </div>
+            
+            <div class="diagnosis-container">
+                <div class="diagnosis-methods">
+                    <h3>四诊法</h3>
+                    <div class="method-cards">
+                        <div class="method-card">
+                            <div class="method-icon">
+                                <i class="fas fa-eye"></i>
+                            </div>
+                            <h4>望诊</h4>
+                            <p>观察患者的面色、舌象、形态等，了解病情。</p>
+                            <div class="method-details">
+                                <p>望诊是中医四诊法之一，主要通过观察患者的神色、形体、姿态、舌象等来判断疾病。</p>
+                                <p>望神：观察患者的精神状态</p>
+                                <p>望色：观察患者的面色、肤色</p>
+                                <p>望形体姿态：观察患者的体形、姿势</p>
+                                <p>望舌：观察舌头的颜色、形态、苔等</p>
+                            </div>
+                        </div>
+                        <div class="method-card">
+                            <div class="method-icon">
+                                <i class="fa-solid fa-ear-listen"></i>
+                            </div>
+                            <h4>闻诊</h4>
+                            <p>通过听声音、嗅气味来判断病情。</p>
+                            <div class="method-details">
+                                <p>闻诊是中医四诊法之一，包括听声音和嗅气味两个方面。</p>
+                                <p>听声音：包括说话声、呼吸声、咳嗽声等</p>
+                                <p>嗅气味：包括口气、体味、排泄物气味等</p>
+                            </div>
+                        </div>
+                        <div class="method-card">
+                            <div class="method-icon">
+                                <i class="fas fa-comments"></i>
+                            </div>
+                            <h4>问诊</h4>
+                            <p>询问患者的症状、病史、生活习惯等，了解病情。</p>
+                            <div class="method-details">
+                                <p>问诊是中医四诊法之一，通过询问患者的症状、病史等来了解疾病情况。</p>
+                                <p>主要询问内容包括：</p>
+                                <p>寒热感觉、汗出情况、头身痛苦</p>
+                                <p>饮食、二便、睡眠情况</p>
+                                <p>既往病史、生活习惯等</p>
+                            </div>
+                        </div>
+                        <div class="method-card">
+                            <div class="method-icon">
+                                <i class="fas fa-hand-paper"></i>
+                            </div>
+                            <h4>切诊</h4>
+                            <p>通过触摸脉搏、按压身体部位等，了解病情。</p>
+                            <div class="method-details">
+                                <p>切诊是中医四诊法之一，主要包括脉诊和按诊两部分。</p>
+                                <p>脉诊：通过触摸桡动脉，感知脉象的变化</p>
+                                <p>按诊：通过触摸、按压患者的身体部位，了解疼痛、硬结等情况</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="treatment-methods">
+                    <h3>治疗方法</h3>
+                    <div class="treatment-grid">
+                        <div class="treatment-item">
+                            <div class="treatment-icon">
+                                <i class="fas fa-balance-scale"></i>
+                            </div>
+                            <h4>辨证论治</h4>
+                            <p>根据患者的症状和体征，进行综合分析，确定病因、病机和病位，制定相应的治疗方案。</p>
+                        </div>
+                        <div class="treatment-item">
+                            <div class="treatment-icon">
+                                <i class="fas fa-yin-yang"></i>
+                            </div>
+                            <h4>八纲辨证</h4>
+                            <p>将病情分为阴阳、表里、寒热、虚实八种基本类型，为治疗提供依据。</p>
+                        </div>
+                        <div class="treatment-item">
+                            <div class="treatment-icon">
+                                <i class="fas fa-leaf"></i>
+                            </div>
+                            <h4>中药治疗</h4>
+                            <p>根据辨证论治的原则，选用合适的中药进行治疗。</p>
+                        </div>
+                        <div class="treatment-item">
+                            <div class="treatment-icon">
+                                <i class="fas fa-thumbtack"></i>
+                            </div>
+                            <h4>针灸治疗</h4>
+                            <p>通过针刺和灸法，疏通经络，调节气血阴阳，达到防治疾病的效果。</p>
+                        </div>
+                        <div class="treatment-item">
+                            <div class="treatment-icon">
+                                <i class="fas fa-hands"></i>
+                            </div>
+                            <h4>推拿按摩</h4>
+                            <p>通过手法按摩，疏通经络，缓解肌肉疼痛，调节脏腑功能。</p>
+                        </div>
+                        <div class="treatment-item">
+                            <div class="treatment-icon">
+                                <i class="fas fa-utensils"></i>
+                            </div>
+                            <h4>食疗</h4>
+                            <p>根据患者的体质和病情，选用合适的食材进行调理。</p>
+                        </div>
+                        <div class="treatment-item">
+                            <div class="treatment-icon">
+                                <i class="fas fa-wind"></i>
+                            </div>
+                            <h4>气功</h4>
+                            <p>通过呼吸调节和身体姿势的调整，增强体质，调节身心。</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 名医名篇 -->
+    <section id="masters" class="section">
+        <div class="container">
+            <div class="section-header">
+                <h2><i class="fas fa-user-md"></i> 名医名篇</h2>
+                <p>传承千年的医学智慧</p>
+            </div>
+            
+            <div class="tabs">
+                <div class="tab-header">
+                    <div class="tab-btn active" data-tab="famous-doctors">中医名人</div>
+                    <div class="tab-btn" data-tab="famous-books">中医名篇</div>
+                </div>
+                <div class="tab-content">
+                    <div class="tab-pane active" id="famous-doctors">
+                        <div class="doctors-grid">
+                            <div class="doctor-card">
+                                <div class="doctor-image">
+                                    <!--<img src="https://placeholder.pics/svg/200x200/AAA973/FFFFFF/扁鹊像" alt="扁鹊">-->
+                                    <img src="pics/200px/扁鹊.png" alt="扁鹊">
+                                </div>
+                                <div class="doctor-info">
+                                    <h3>扁鹊</h3>
+                                    <p class="doctor-title">中医医祖</p>
+                                    <p>春秋战国时期名医，创立"望、闻、问、切"四诊法。</p>
+                                    <button class="btn-more" data-doctor="bian-que">了解更多</button>
+                                </div>
+                            </div>
+                            <div class="doctor-card">
+                                <div class="doctor-image">
+                                    <!--<img src="https://placeholder.pics/svg/200x200/C58770/FFFFFF/华佗像" alt="华佗">-->
+                                    <img src="pics/200px/华佗.png" alt="华佗">
+                                </div>
+                                <div class="doctor-info">
+                                    <h3>华佗</h3>
+                                    <p class="doctor-title">外科鼻祖</p>
+                                    <p>东汉末年医学家，开创中药麻醉法，提倡体育疗法，创立五禽戏。</p>
+                                    <button class="btn-more" data-doctor="hua-tuo">了解更多</button>
+                                </div>
+                            </div>
+                            <div class="doctor-card">
+                                <div class="doctor-image">
+                                    <!--<img src="https://placeholder.pics/svg/200x200/E8D5B4/333333/张仲景像" alt="张仲景">-->
+                                    <img src="pics/200px/张仲景.png" alt="张仲景">
+                                </div>
+                                <div class="doctor-info">
+                                    <h3>张仲景</h3>
+                                    <p class="doctor-title">医圣</p>
+                                    <p>东汉末年医学家，著有《伤寒杂病论》，确立"辨证论治"原则。</p>
+                                    <button class="btn-more" data-doctor="zhang-zhongjing">了解更多</button>
+                                </div>
+                            </div>
+                            <div class="doctor-card">
+                                <div class="doctor-image">
+                                    <img src="pics/200px/孙思邈.png" alt="孙思邈">
+                                    <!--<img src="https://placeholder.pics/svg/200x200/F0C756/333333/孙思邈像" alt="孙思邈">-->
+                                </div>
+                                <div class="doctor-info">
+                                    <h3>孙思邈</h3>
+                                    <p class="doctor-title">药王</p>
+                                    <p>唐代医学家，著有《千金要方》《千金翼方》，对中医药学发展有重大贡献。</p>
+                                    <button class="btn-more" data-doctor="sun-simiao">了解更多</button>
+                                </div>
+                            </div>
+                            <div class="doctor-card">
+                                <div class="doctor-image">
+                                    <!--<img src="https://placeholder.pics/svg/200x200/A08052/FFFFFF/李时珍像" alt="李时珍">-->
+                                    <img src="pics/200px/李时珍.png" alt="李时珍">
+                                </div>
+                                <div class="doctor-info">
+                                    <h3>李时珍</h3>
+                                    <p class="doctor-title">本草学家</p>
+                                    <p>明代医学家，著有《本草纲目》，集我国16世纪之前药学成就之大成。</p>
+                                    <button class="btn-more" data-doctor="li-shizhen">了解更多</button>
+                                </div>
+                            </div>
+                            <div class="doctor-card">
+                                <div class="doctor-image">
+                                    <!--<img src="https://placeholder.pics/svg/200x200/AAA973/FFFFFF/葛洪像" alt="葛洪">-->
+                                    <img src="pics/200px/葛洪.png" alt="葛洪">
+                                </div>
+                                <div class="doctor-info">
+                                    <h3>葛洪</h3>
+                                    <p class="doctor-title">东晋医学家</p>
+                                    <p>著有《肘后备急方》，最早记载传染病如天花、恙虫病症侯及诊治。</p>
+                                    <button class="btn-more" data-doctor="ge-hong">了解更多</button>
+                                </div>
+                            </div>
+                            <div class="doctor-card">
+                                <div class="doctor-image">
+                                    <!--<img src="https://placeholder.pics/svg/200x200/AAA973/FFFFFF/钱乙像" alt="钱乙">-->
+                                    <img src="pics/200px/钱乙.png" alt="钱乙">
+                                </div>
+                                <div class="doctor-info">
+                                    <h3>钱乙</h3>
+                                    <p class="doctor-title">东晋医学家</p>
+                                    <p>著有《肘后备急方》，最早记载传染病如天花、恙虫病症侯及诊治。</p>
+                                    <button class="btn-more" data-doctor="qian-yi">了解更多</button>
+                                </div>
+                            </div>
+                            <div class="doctor-card">
+                                <div class="doctor-image">
+                                    <!--<img src="https://placeholder.pics/svg/200x200/AAA973/FFFFFF/叶桂像" alt="叶桂">-->
+                                    <img src="pics/200px/叶桂.png" alt="叶桂">
+                                </div>
+                                <div class="doctor-info">
+                                    <h3>叶桂</h3>
+                                    <p class="doctor-title">东晋医学家</p>
+                                    <p>著有《肘后备急方》，最早记载传染病如天花、恙虫病症侯及诊治。</p>
+                                    <button class="btn-more" data-doctor="ye-gui">了解更多</button>
+                                </div>
+                            </div>
+                            <div class="doctor-card">
+                                <div class="doctor-image">
+                                    <!--<img src="https://placeholder.pics/svg/200x200/AAA973/FFFFFF/皇甫谧像" alt="皇甫谧">-->
+                                    <img src="pics/200px/皇甫谧.png" alt="皇甫谧">
+                                </div>
+                                <div class="doctor-info">
+                                    <h3>皇甫谧</h3>
+                                    <p class="doctor-title">东晋医学家</p>
+                                    <p>著有《肘后备急方》，最早记载传染病如天花、恙虫病症侯及诊治。</p>
+                                    <button class="btn-more" data-doctor="huangpu-mi">了解更多</button>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- 名医详情弹出层 -->
+                        <div class="doctor-modal" id="doctorModal">
+                            <div class="doctor-modal-content">
+                                <span class="close-modal">&times;</span>
+                                <div class="doctor-detail">
+                                    <div class="doctor-detail-header">
+                                        <div class="doctor-detail-image">
+                                            <img id="doctorDetailImage" src="" alt="">
+                                        </div>
+                                        <div class="doctor-detail-info">
+                                            <h3 id="doctorDetailName"></h3>
+                                            <p id="doctorDetailTitle"></p>
+                                            <p id="doctorDetailPeriod"></p>
+                                        </div>
+                                    </div>
+                                    <div class="doctor-detail-content">
+                                        <h4>生平简介</h4>
+                                        <p id="doctorDetailBio"></p>
+                                        <h4>医学贡献</h4>
+                                        <p id="doctorDetailContribution"></p>
+                                        <h4>代表著作</h4>
+                                        <p id="doctorDetailWorks"></p>
+                                        <h4>典故轶事</h4>
+                                        <p id="doctorDetailStories"></p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="tab-pane" id="famous-books">
+                        <div class="books-list">
+                            <div class="book-item">
+                                <div class="book-image">
+                                    <img src="https://placeholder.pics/svg/150x200/C58770/FFFFFF/黄帝内经" alt="黄帝内经">
+                                </div>
+                                <div class="book-info">
+                                    <h3>《黄帝内经》</h3>
+                                    <p class="book-author">作者：佚名</p>
+                                    <p class="book-period">春秋战国时期</p>
+                                    <p>中医理论体系的奠基之作，分为《素问》和《灵枢》两部分，总结了古代医学的理论和实践经验。</p>
+                                    <button class="btn-more" data-book="huangdi-neijing">了解更多</button>
+                                </div>
+                            </div>
+                            <div class="book-item">
+                                <div class="book-image">
+                                    <img src="https://placeholder.pics/svg/150x200/A08052/FFFFFF/伤寒杂病论" alt="伤寒杂病论">
+                                </div>
+                                <div class="book-info">
+                                    <h3>《伤寒杂病论》</h3>
+                                    <p class="book-author">作者：张仲景</p>
+                                    <p class="book-period">东汉末年</p>
+                                    <p>确立了"辨证论治"原则，是中医临床的基本原则。现存《伤寒论》和《金匮要略》两部分。</p>
+                                    <button class="btn-more" data-book="shanghan-zabinglun">了解更多</button>
+                                </div>
+                            </div>
+                            <div class="book-item">
+                                <div class="book-image">
+                                    <img src="https://placeholder.pics/svg/150x200/E8D5B4/333333/本草纲目" alt="本草纲目">
+                                </div>
+                                <div class="book-info">
+                                    <h3>《本草纲目》</h3>
+                                    <p class="book-author">作者：李时珍</p>
+                                    <p class="book-period">明代</p>
+                                    <p>集我国16世纪之前药学成就之大成，是具有世界性影响的博物学著作。</p>
+                                    <button class="btn-more" data-book="bencao-gangmu">了解更多</button>
+                                </div>
+                            </div>
+                            <div class="book-item">
+                                <div class="book-image">
+                                    <img src="https://placeholder.pics/svg/150x200/F0C756/333333/千金要方" alt="千金要方">
+                                </div>
+                                <div class="book-info">
+                                    <h3>《千金要方》（《千金翼方》）</h3>
+                                    <p class="book-author">作者：孙思邈</p>
+                                    <p class="book-period">唐代</p>
+                                    <p>对中医药学的发展有重大贡献，是我国现存最早的医学百科全书。</p>
+                                    <button class="btn-more" data-book="qianjin-yaofang">了解更多</button>
+                                </div>
+                            </div>
+                            <div class="book-item">
+                                <div class="book-image">
+                                    <img src="https://placeholder.pics/svg/150x200/AAA973/FFFFFF/难经" alt="难经">
+                                </div>
+                                <div class="book-info">
+                                    <h3>《难经》</h3>
+                                    <p class="book-author">作者：佚名</p>
+                                    <p class="book-period">战国至秦汉时期</p>
+                                    <p>中医经典著作之一，对《黄帝内经》中的难点和疑点进行了解释和阐发。</p>
+                                    <button class="btn-more" data-book="nanjing">了解更多</button>
+                                </div>
+                            </div>
+                            <div class="book-item">
+                                <div class="book-image">
+                                    <img src="https://placeholder.pics/svg/150x200/AAA973/FFFFFF/神农本草经" alt="神农本草经">
+                                </div>
+                                <div class="book-info">
+                                    <h3>《神农本草经》</h3>
+                                    <p class="book-author">作者：佚名</p>
+                                    <p class="book-period">秦汉时期</p>
+                                    <p>最早的中药学专著，总结了当时的用药经验，共载药物365种。</p>
+                                    <button class="btn-more" data-book="nanjing">了解更多</button>
+                                </div>
+                            </div>
+                            <div class="book-item">
+                                <div class="book-image">
+                                    <img src="https://placeholder.pics/svg/150x200/AAA973/FFFFFF/神农本草经" alt="神农本草经">
+                                </div>
+                                <div class="book-info">
+                                    <h3>《肘后备急方》</h3>
+                                    <p class="book-author">作者：葛洪</p>
+                                    <p class="book-period">东晋</p>
+                                    <p>最早记载一些传染病如天花、恙虫病症侯及诊治。</p>
+                                    <button class="btn-more" data-book="nanjing">了解更多</button>
+                                </div>
+                            </div>
+                            <div class="book-item">
+                                <div class="book-image">
+                                    <img src="https://placeholder.pics/svg/150x200/AAA973/FFFFFF/神农本草经" alt="神农本草经">
+                                </div>
+                                <div class="book-info">
+                                    <h3>《针灸甲乙经》</h3>
+                                    <p class="book-author">作者：皇甫谧</p>
+                                    <p class="book-period">西晋</p>
+                                    <p>系统总结了针灸学的理论和实践。</p>
+                                    <button class="btn-more" data-book="nanjing">了解更多</button>
+                                </div>
+                            </div>
+                            <div class="book-item">
+                                <div class="book-image">
+                                    <img src="https://placeholder.pics/svg/150x200/AAA973/FFFFFF/神农本草经" alt="神农本草经">
+                                </div>
+                                <div class="book-info">
+                                    <h3>《小儿药证直诀》</h3>
+                                    <p class="book-author">作者：钱乙</p>
+                                    <p class="book-period">宋代</p>
+                                    <p>对儿科医学的发展有重要影响。</p>
+                                    <button class="btn-more" data-book="nanjing">了解更多</button>
+                                </div>
+                            </div>
+                            <div class="book-item">
+                                <div class="book-image">
+                                    <img src="https://placeholder.pics/svg/150x200/AAA973/FFFFFF/神农本草经" alt="神农本草经">
+                                </div>
+                                <div class="book-info">
+                                    <h3>《丹溪心法》</h3>
+                                    <p class="book-author">作者：朱震亨</p>
+                                    <p class="book-period">元代</p>
+                                    <p>对中医温病学的发展有重要影响。</p>
+                                    <button class="btn-more" data-book="nanjing">了解更多</button>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- 名篇详情弹出层 -->
+                        <div class="book-modal" id="bookModal">
+                            <div class="book-modal-content">
+                                <span class="close-modal">&times;</span>
+                                <div class="book-detail">
+                                    <div class="book-detail-header">
+                                        <div class="book-detail-image">
+                                            <img id="bookDetailImage" src="" alt="">
+                                        </div>
+                                        <div class="book-detail-info">
+                                            <h3 id="bookDetailTitle"></h3>
+                                            <p><strong>作者：</strong><span id="bookDetailAuthor"></span></p>
+                                            <p><strong>年代：</strong><span id="bookDetailPeriod"></span></p>
+                                        </div>
+                                    </div>
+                                    <div class="book-detail-content">
+                                        <h4>著作背景</h4>
+                                        <p id="bookDetailBackground"></p>
+                                        <h4>主要内容</h4>
+                                        <p id="bookDetailContent"></p>
+                                        <h4>医学价值</h4>
+                                        <p id="bookDetailValue"></p>
+                                        <h4>历史影响</h4>
+                                        <p id="bookDetailInfluence"></p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- 在名医名篇部分后添加新的知识科普部分 -->
+<!-- 知识科普 -->
+<section id="knowledge" class="section">
+    <div class="container">
+        <div class="section-header">
+            <h2><i class="fas fa-brain"></i> 五行知识</h2>
+            <p>传统中医文化的智慧精髓</p>
+        </div>
+        
+        <div class="tabs">
+            <div class="tab-header">
+                <div class="tab-btn active" data-tab="five-elements">五行学说</div>
+                <div class="tab-btn" data-tab="five-music">五音疗法</div>
+                <div class="tab-btn" data-tab="five-tastes">五味学说</div>
+                <div class="tab-btn" data-tab="five-personality">五行人格</div>
+            </div>
+            <div class="tab-content">
+                <div class="tab-pane active" id="five-elements">
+                    <h3>五行学说与身心调节</h3>
+                    <p class="subtitle">中国传统哲学的身心平衡之道</p>
+                    
+                    <div class="knowledge-section">
+                        <h4>五行学说的起源与核心思想</h4>
+                        <p>五行学说是中国古代哲学的核心理论之一，源于对自然现象的观察与抽象总结。最早见于《尚书·洪范》，成熟于战国时期。古人通过观察自然界的物质属性与变化规律，提炼出"金、木、水、火、土"五种基本元素，认为万物皆由这五类物质构成，并通过"相生相克"等关系构建了一套解释宇宙运行、自然规律及人体健康的理论体系。</p>
+                        
+                        <div class="five-elements-grid">
+                            <div class="element-card wood">
+                                <div class="element-icon">
+                                    <i class="fas fa-tree"></i>
+                                </div>
+                                <h5>木（生长之机）</h5>
+                                <p>象征生长、升发、条达，对应春季、东方、青色，在人体中关联肝脏与胆腑。</p>
+                                <p>如《黄帝内经》言："木曰曲直"，指木能屈能伸，如草木破土而出，寓意生命力与适应力。</p>
+                            </div>
+                            <div class="element-card fire">
+                                <div class="element-icon">
+                                    <i class="fas fa-fire"></i>
+                                </div>
+                                <h5>火（热情之光）</h5>
+                                <p>代表温热、上升、光明，对应夏季、南方、红色，关联心脏与小肠。</p>
+                                <p>如《黄帝内经》言："火曰炎上"描述火焰向上燃烧的特性，象征热情与活力。</p>
+                            </div>
+                            <div class="element-card earth">
+                                <div class="element-icon">
+                                    <i class="fas fa-mountain"></i>
+                                </div>
+                                <h5>土（包容之母）</h5>
+                                <p>象征承载、生化、稳定，对应长夏（夏秋之交）、中央、黄色，关联脾胃。</p>
+                                <p>如《黄帝内经》言："土爰稼穑"指土地孕育万物，如农耕依赖土壤，强调包容与滋养。</p>
+                            </div>
+                            <div class="element-card metal">
+                                <div class="element-icon">
+                                    <i class="fas fa-coins"></i>
+                                </div>
+                                <h5>金（变革之力）</h5>
+                                <p>代表收敛、变革、肃杀，对应秋季、西方、白色，关联肺脏与大肠。</p>
+                                <p>如《黄帝内经》言："金曰从革"意为金属可锻造变革，象征决断与秩序。</p>
+                            </div>
+                            <div class="element-card water">
+                                <div class="element-icon">
+                                    <i class="fas fa-water"></i>
+                                </div>
+                                <h5>水（智慧之源）</h5>
+                                <p>象征寒凉、流动、润下，对应冬季、北方、黑色，关联肾脏与膀胱。</p>
+                                <p>如《黄帝内经》言："水曰润下"指水向下渗透，如江河奔流，寓意柔韧与智慧。</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="knowledge-section">
+                        <h4>五行生克——动态平衡的宇宙观</h4>
+                        <p>五行通过"相生"与"相克"形成循环，维持自然与人体系统的动态平衡，不仅是物质的分类，更体现动态平衡的宇宙观。</p>
+                        
+                        <div class="five-cycles">
+                            <div class="cycle-container">
+                                <h5>相生关系</h5>
+                                <div class="cycle-image">
+                                    <!--<img src="https://placeholder.pics/svg/400x400/AAA973/333333/五行相生图" alt="五行相生关系">-->
+                                    <img src="pics/300x300/五行相生.png" alt="五行相生关系">
+                                </div>
+                                <ul class="cycle-list">
+                                    <li><span class="wood-text">木</span>生<span class="fire-text">火</span>：木材燃烧生火。</li>
+                                    <li><span class="fire-text">火</span>生<span class="earth-text">土</span>：火焰熄灭化为灰烬（土）。</li>
+                                    <li><span class="earth-text">土</span>生<span class="metal-text">金</span>：金属矿石蕴藏于土壤。</li>
+                                    <li><span class="metal-text">金</span>生<span class="water-text">水</span>：金属工具凿井取水，或金属遇冷凝结水珠。</li>
+                                    <li><span class="water-text">水</span>生<span class="wood-text">木</span>：水滋养草木生长。</li>
+                                </ul>
+                            </div>
+                            
+                            <div class="cycle-container">
+                                <h5>相克关系</h5>
+                                <div class="cycle-image">
+                                    <!--<img src="https://placeholder.pics/svg/400x400/C58770/333333/五行相克图" alt="五行相克关系">-->
+                                    <img src="pics/300x300/五行相克.png" alt="五行相克关系">
+                                </div>
+                                <ul class="cycle-list">
+                                    <li><span class="wood-text">木</span>克<span class="earth-text">土</span>：树木根系固土，过度生长则耗损地力。</li>
+                                    <li><span class="earth-text">土</span>克<span class="water-text">水</span>：堤坝（土）阻挡水流。</li>
+                                    <li><span class="water-text">水</span>克<span class="fire-text">火</span>：水能灭火。</li>
+                                    <li><span class="fire-text">火</span>克<span class="metal-text">金</span>：高温熔炼金属。</li>
+                                    <li><span class="metal-text">金</span>克<span class="wood-text">木</span>：金属工具砍伐树木。</li>
+                                </ul>
+                            </div>
+                        </div>
+                        
+                        <div class="balance-theory">
+                            <h5>平衡之道</h5>
+                            <p>五行生克并非对立，而是相互制约与依存。例如，木过旺会克土，但土生金又能克木，形成自我调节机制。中医借此解释人体病理：肝火过旺（木亢）可能影响脾胃（土虚），需通过调理肺（金）或肾（水）恢复平衡。</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="tab-pane" id="five-music">
+                    <h3>五音疗法</h3>
+                    <p class="subtitle">音乐调节身心的智慧</p>
+                    
+                    <div class="knowledge-section">
+                        <p>古代将五声音阶（角、徵、宫、商、羽）与五行、五脏对应，发展出"五行音乐疗法"，认为特定音调可调节气血与情绪。</p>
+                        
+                        <div class="music-therapy-table">
+                            <table>
+                                <thead>
+                                    <tr>
+                                        <th>五音</th>
+                                        <th>五行</th>
+                                        <th>对应脏腑</th>
+                                        <th>音乐特点</th>
+                                        <th>身心作用</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>角（jué）</td>
+                                        <td class="wood-bg">木</td>
+                                        <td>肝、胆</td>
+                                        <td>柔和舒展的古琴曲：轻快、悠扬（如古琴曲《高山流水》）</td>
+                                        <td>疏肝解郁，缓解焦虑</td>
+                                    </tr>
+                                    <tr>
+                                        <td>徵（zhǐ）</td>
+                                        <td class="fire-bg">火</td>
+                                        <td>心、小肠</td>
+                                        <td>欢快活泼的竹笛乐：热烈、欢快（如琵琶曲《十面埋伏》）</td>
+                                        <td>振奋心气，改善抑郁</td>
+                                    </tr>
+                                    <tr>
+                                        <td>宫（gōng）</td>
+                                        <td class="earth-bg">土</td>
+                                        <td>脾、胃</td>
+                                        <td>沉稳庄重的编钟声：沉稳、平和（如埙曲《寒山钟声》）</td>
+                                        <td>健脾安神，缓解思虑过度</td>
+                                    </tr>
+                                    <tr>
+                                        <td>商（shāng）</td>
+                                        <td class="metal-bg">金</td>
+                                        <td>肺、大肠</td>
+                                        <td>清亮高亢的磬石音：清亮、悲壮（如编钟曲《楚商》）</td>
+                                        <td>宣肺理气，舒缓悲伤</td>
+                                    </tr>
+                                    <tr>
+                                        <td>羽（yǔ）</td>
+                                        <td class="water-bg">水</td>
+                                        <td>肾、膀胱</td>
+                                        <td>流水般的洞箫旋律：柔和、哀婉（如箫曲《梅花三弄》）</td>
+                                        <td>滋肾宁心，缓解恐惧</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                        
+                        <div class="science-tip">
+                            <h5><i class="fas fa-flask"></i> 科学小贴士</h5>
+                            <p>临床实验表明，五行音乐可调节脑电波与心率。例如，α波助放松，角调音乐能降低皮质醇（压力激素）水平，宫调音乐可改善消化不良（《世界睡眠医学杂志》2023）。同时，五行音乐搭配中医时辰理论效果更佳哦！</p>
+                        </div>
+                        
+                        <div class="music-therapy-player">
+                            <h5>五行音乐疗愈舱</h5>
+                            <div class="music-players">
+                                <div class="music-player">
+                                    <div class="player-icon wood">
+                                        <i class="fas fa-play"></i>
+                                    </div>
+                                    <p>角调·疏肝解郁</p>
+                                </div>
+                                <div class="music-player">
+                                    <div class="player-icon fire">
+                                        <i class="fas fa-play"></i>
+                                    </div>
+                                    <p>徵调·振奋心气</p>
+                                </div>
+                                <div class="music-player">
+                                    <div class="player-icon earth">
+                                        <i class="fas fa-play"></i>
+                                    </div>
+                                    <p>宫调·健脾安神</p>
+                                </div>
+                                <div class="music-player">
+                                    <div class="player-icon metal">
+                                        <i class="fas fa-play"></i>
+                                    </div>
+                                    <p>商调·宣肺理气</p>
+                                </div>
+                                <div class="music-player">
+                                    <div class="player-icon water">
+                                        <i class="fas fa-play"></i>
+                                    </div>
+                                    <p>羽调·滋肾宁心</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="tab-pane" id="five-tastes">
+                    <h3>五味学说</h3>
+                    <p class="subtitle">饮食养生的五行密码</p>
+                    
+                    <div class="knowledge-section">
+                        <h4>起源发展</h4>
+                        <p>五味学说是中医基础理论的重要组成部分，其雏形可追溯至先秦时期的《尚书·洪范》，书中首次提出"五行配五味"思想："水曰润下，火曰炎上，木曰曲直，金曰从革，土爰稼穑。润下作咸，炎上作苦，曲直作酸，从革作辛，稼穑作甘。"至《黄帝内经》，五味学说与脏腑、经络、病理等系统结合，形成完整的"药食同源"理论体系。</p>
+                        
+                        <div class="classic-quotes">
+                            <h5>核心学说</h5>
+                            <blockquote>《素问·宣明五气》："五味所入：酸入肝，辛入肺，苦入心，咸入肾，甘入脾，是谓五入。"</blockquote>
+                            <blockquote>《灵枢·五味》："谷味酸，先走肝；谷味苦，先走心；谷味甘，先走脾；谷味辛，先走肺；谷味咸，先走肾。"</blockquote>
+                        </div>
+                    </div>
+                    
+                    <div class="knowledge-section">
+                        <h4>五味大讲堂</h4>
+                        
+                        <div class="tastes-table">
+                            <h5>五行-五味-五脏的对应关系</h5>
+                            <table>
+                                <thead>
+                                    <tr>
+                                        <th>五行</th>
+                                        <th>五味</th>
+                                        <th>归经</th>
+                                        <th>代表食物</th>
+                                        <th>生理作用</th>
+                                        <th>病理关联</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td class="wood-bg">木</td>
+                                        <td>酸</td>
+                                        <td>肝、胆</td>
+                                        <td>山楂、柠檬</td>
+                                        <td>收敛固涩（止汗、止血）</td>
+                                        <td>肝气郁结、筋脉挛急</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="fire-bg">火</td>
+                                        <td>苦</td>
+                                        <td>心、小肠</td>
+                                        <td>苦瓜、黄连</td>
+                                        <td>清热泻火、燥湿坚阴</td>
+                                        <td>心火上炎、失眠多梦</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="earth-bg">土</td>
+                                        <td>甘</td>
+                                        <td>脾、胃</td>
+                                        <td>红枣、蜂蜜</td>
+                                        <td>补益和中、缓急止痛</td>
+                                        <td>脾虚湿盛、食欲不振</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="metal-bg">金</td>
+                                        <td>辛</td>
+                                        <td>肺、大肠</td>
+                                        <td>生姜、薄荷</td>
+                                        <td>发散解表、行气活血</td>
+                                        <td>肺气壅滞、咳嗽痰多</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="water-bg">水</td>
+                                        <td>咸</td>
+                                        <td>肾、膀胱</td>
+                                        <td>海带、盐</td>
+                                        <td>软坚散结、泻下通便</td>
+                                        <td>肾虚水肿、瘿瘤瘰疬</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                        
+                        <div class="taste-mechanism">
+                            <h5>五味作用的生理病理机制</h5>
+                            <div class="mechanism-cards">
+                                <div class="mechanism-card">
+                                    <h6>阴阳五行动态平衡</h6>
+                                    <p>五味通过五行生克调节人体阴阳：</p>
+                                    <ul>
+                                        <li>相生调节：如"酸（木）生苦（火）"，肝藏血（酸）充足可滋心火（苦），维持心血运行。</li>
+                                        <li>相克制约：如"甘（土）克咸（水）"，过食咸味（伤肾）可用甘味（健脾）制水，治疗水肿。</li>
+                                    </ul>
+                                </div>
+                                
+                                <div class="mechanism-card">
+                                    <h6>气机升降理论</h6>
+                                    <ul>
+                                        <li>辛甘发散为阳：辛味（金）主升散（如麻黄发汗），甘味（土）主升清（如黄芪补气）。</li>
+                                        <li>酸苦涌泄为阴：酸味（木）主收敛（如五味子敛肺），苦味（火）主降泄（如大黄通便）。</li>
+                                    </ul>
+                                </div>
+                                
+                                <div class="mechanism-card">
+                                    <h6>现代药理学相关</h6>
+                                    <ul>
+                                        <li>酸味（木）：含有机酸（如柠檬酸）可调节肝细胞代谢（《中国中药杂志》，2021）。</li>
+                                        <li>苦味（火）：生物碱（如黄连素）抑制NF-κB通路，抗炎护心（《Phytomedicine》，2022）。</li>
+                                        <li>咸味（水）：碘（海带）调节甲状腺功能，印证"咸入肾"理论（《Journal of Ethnopharmacology》，2023）。</li>
+                                    </ul>
+                                </div>
+                            </div>
+                            
+                        </div>
+                        
+                        <div class="fun-facts">
+                            <h5>趣味冷知识</h5>
+                            <div class="fact-item">
+                                <i class="fas fa-lightbulb"></i>
+                                <p>中医"五味"涵盖药物与食物的自然属性，而非单纯味觉感受。如"咸味"包括海带、芒硝等，既指口感咸，亦指其下行、软坚的药性。</p>
+                            </div>
+                            <div class="fact-item">
+                                <i class="fas fa-lightbulb"></i>
+                                <p>五味学说需结合个体差异，肝郁者（木失调）宜食酸味（如醋泡黑豆），但胃溃疡患者需避免过量酸食。糖尿病患者需控制甘味摄入（《合作经济与科技》2023）。</p>
+                            </div>
+                            <div class="fact-item">
+                                <i class="fas fa-lightbulb"></i>
+                                <p>古人通过"尝百草"发现五味药性，辣椒明代才传入中国，古人吃辣靠茱萸哦！</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="tab-pane" id="five-personality">
+                    <h3>五行人格</h3>
+                    <p class="subtitle">性格分析的古典智慧</p>
+                    
+                    <div class="knowledge-section">
+                        <h4>理论渊源与经典文献</h4>
+                        <p>古典哲学五行人格理论源于《黄帝内经》的"五形人"分类，结合五行生克与阴阳学说，将人的体质、性格与自然元素对应。《灵枢·阴阳二十五人》系统论述五行人格的外貌、行为及疾病倾向，奠定"形神合一"的古典性格学框架。</p>
+                        
+                        <p>近代发展清末民初思想家王凤仪提出"五行性理学说"，将性格缺陷（阴性）与美德（阳性）纳入五行体系，主张通过修身转化人格（如"化阴木为阳木"）。其理论融合儒家伦理与中医思想，成为民间性格修养的重要参考。</p>
+                    </div>
+                    
+                    <div class="knowledge-section">
+                        <h4>五行人格的分类与特征</h4>
+                        
+                        <div class="personality-table">
+                            <table>
+                                <thead>
+                                    <tr>
+                                        <th>五行</th>
+                                        <th>阳性特质（推崇）</th>
+                                        <th>阴性特质（调节）</th>
+                                        <th>生理-心理联动表现</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td class="wood-bg">木</td>
+                                        <td>正直仁德、创造力强、领导力卓越</td>
+                                        <td>固执傲慢、易怒偏激、嫉妒心重</td>
+                                        <td>肝气郁结（胁痛）、甲状腺功能亢进</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="fire-bg">火</td>
+                                        <td>热情开朗、思维敏捷、富有同理心</td>
+                                        <td>急躁虚荣、计较得失、控制欲强</td>
+                                        <td>心火上炎（失眠）、高血压</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="earth-bg">土</td>
+                                        <td>包容宽厚、诚信务实、情绪稳定</td>
+                                        <td>保守僵化、反应迟钝、优柔寡断</td>
+                                        <td>脾胃失调（腹胀）、代谢综合征</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="metal-bg">金</td>
+                                        <td>果断坚毅、重义轻利、逻辑清晰</td>
+                                        <td>刻薄挑剔、好斗争胜、冷漠疏离</td>
+                                        <td>肺气壅滞（咳嗽）、皮肤过敏</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="water-bg">水</td>
+                                        <td>智慧深邃、灵活变通、洞察力敏锐</td>
+                                        <td>多疑恐惧、消极逃避、情感压抑</td>
+                                        <td>肾气不足（腰酸）、泌尿系统疾病</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                            
+                            <div class="table-notes">
+                                <p><strong>注：</strong></p>
+                                <ul>
+                                    <li>阴阳转化机制：阴性特质过盛可导致对应脏腑病变（如"阴木人"易患肝病），通过修养心性（如培养慈悲心）可转化为阳性特质，促进身心健康。</li>
+                                    <li>五行失衡表现：某一行过旺或过弱会引发性格极端化（如"木过旺"者独断专行，"水过弱"者缺乏安全感）。</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="knowledge-section">
+                        <h4>五行人格测算方法</h4>
+                        <p class="subtitle">（基于生辰八字的古典模型）</p>
+                        
+                        <div class="calculation-method">
+                            <div class="method-step">
+                                <h5>天干地支五行赋值</h5>
+                                <ul>
+                                    <li>天干：甲/乙→木，丙/丁→火，戊/己→土，庚/辛→金，壬/癸→水</li>
+                                    <li>地支：寅/卯→木，巳/午→火，申/酉→金，亥/子→水，辰/戌/丑/未→土</li>
+                                </ul>
+                            </div>
+                            
+                            <div class="method-step">
+                                <h5>测算步骤</h5>
+                                <ol>
+                                    <li>将出生年、月、日、时转换为八字（如：乙未年 丁亥月 庚午日 壬辰时）</li>
+                                    <li>统计各五行出现次数，确定主属性（占比最高者）与缺失属性</li>
+                                    <li>结合五行生克判断性格倾向：
+                                        <ul>
+                                            <li>相生加持：主属性受生（如木主遇水多）→ 正向特质强化</li>
+                                            <li>相克抑制：主属性被克（如木主遇金多）→ 负面特质凸显</li>
+                                        </ul>
+                                    </li>
+                                </ol>
+                            </div>
+                            
+                            
+                        </div>
+                        <div class="method-example">
+                            <h5>示例</h5>
+                            <p>八字：甲寅（木） 丙寅（火） 戊辰（土） 庚申（金）</p>
+                            <p>五行统计：木3、火2、土2、金2、水0 → 木为主，缺水</p>
+                            <p>性格解析：创造力强（阳木），但缺乏变通（水弱无法生木），易怒（木克土不受制）</p>
+                        </div>
+                        
+                        <div class="personality-comparison">
+                            <h5>与主流人格模型的对比</h5>
+                            <table>
+                                <thead>
+                                    <tr>
+                                        <th>五行人格</th>
+                                        <th>大五人格（OCEAN）</th>
+                                        <th>MBTI</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td class="wood-bg">木</td>
+                                        <td>开放性（Openness）高</td>
+                                        <td>ENTP（发明家型）</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="fire-bg">火</td>
+                                        <td>外向性（Extraversion）高</td>
+                                        <td>ESFJ（执政官型）</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="earth-bg">土</td>
+                                        <td>宜人性（Agreeableness）高</td>
+                                        <td>ISFJ（守卫者型）</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="metal-bg">金</td>
+                                        <td>尽责性（Conscientiousness）高</td>
+                                        <td>ISTJ（物流师型）</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="water-bg">水</td>
+                                        <td>神经质（Neuroticism）波动</td>
+                                        <td>INFP（调停者型）</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                        
+                        <!--<div class="fun-knowledge">-->
+                        <div class="fun-facts">
+                            <div class="fact-item">
+                                <i class="fas fa-lightbulb"></i>
+                                <p>根据生辰八字，若某五行元素出现4次以上为"旺"，需平衡；缺失则为"弱"，可通过饮食、色彩（如缺木者穿绿色）调节。</p>
+                            </div>
+                            <div class="fact-item">
+                                <i class="fas fa-lightbulb"></i>
+                                <p>五行人格理论是东方"全息论"思维的人格学表达，其价值不在于预测精确性，而在于提供一种动态平衡的自我认知框架。未来研究需打破"传统-现代"二元对立，在批判中继承，在实证中创新，使古典智慧真正服务于当代人的心理健康与人格完善。</p>
+                            </div>
+                            <!--
+                            <h5>小知识</h5>
+                            <p>根据生辰八字，若某五行元素出现4次以上为"旺"，需平衡；缺失则为"弱"，可通过饮食、色彩（如缺木者穿绿色）调节。</p>
+                            <p>五行人格理论是东方"全息论"思维的人格学表达，其价值不在于预测精确性，而在于提供一种动态平衡的自我认知框架。未来研究需打破"传统-现代"二元对立，在批判中继承，在实证中创新，使古典智慧真正服务于当代人的心理健康与人格完善。</p>
+                            -->
+                        </div>
+                        <!--</div>-->
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    </section>                
+
+    <!-- 页脚 -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-logo">
+                    <img src="https://placeholder.pics/svg/150x50/A08052/FFFFFF/中医文化" alt="中医文化平台">
+                    <p>传承千年中医智慧，弘扬中华医学文化</p>
+                </div>
+                <div class="footer-links">
+                    <h4>快速链接</h4>
+                    <ul>
+                        <li><a href="#home">首页</a></li>
+                        <li><a href="#history">中医发展史</a></li>
+                        <li><a href="#herbs">中药材库</a></li>
+                        <li><a href="#meridians">经络穴位</a></li>
+                        <li><a href="#diagnosis">诊疗方法</a></li>
+                        <li><a href="#masters">名医名篇</a></li>
+                        <li><a href="#contact">联系我们</a></li>
+                    </ul>
+                </div>
+                <div class="footer-newsletter">
+                    <h4>订阅我们</h4>
+                    <p>订阅我们的电子通讯，获取最新的中医资讯</p>
+                    <form id="newsletterForm">
+                        <input type="email" placeholder="请输入您的邮箱" required>
+                        <button type="submit"><i class="fas fa-paper-plane"></i></button>
+                    </form>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 中医文化平台 版权所有</p>
+                <div class="social-links">
+                    <a href="#"><i class="fab fa-weixin"></i></a>
+                    <a href="#"><i class="fab fa-weibo"></i></a>
+                    <a href="#"><i class="fab fa-qq"></i></a>
+                    <a href="#"><i class="fab fa-youtube"></i></a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
+
+

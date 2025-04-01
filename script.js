@@ -1,72 +1,72 @@
 document.addEventListener('DOMContentLoaded', function () {
     // 导航栏激活状态
-    const navLinks = document.querySelectorAll('nav a');
-    const sections = document.querySelectorAll('.section');
+    // const navLinks = document.querySelectorAll('nav a');
+    // const sections = document.querySelectorAll('.section');
 
-    window.addEventListener('scroll', function () {
-        let current = '';
+    // window.addEventListener('scroll', function () {
+    //     let current = '';
 
-        sections.forEach(section => {
-            const sectionTop = section.offsetTop;
-            const sectionHeight = section.clientHeight;
-            if (pageYOffset >= sectionTop - 200) {
-                current = section.getAttribute('id');
-            }
-        });
+    //     sections.forEach(section => {
+    //         const sectionTop = section.offsetTop;
+    //         const sectionHeight = section.clientHeight;
+    //         if (pageYOffset >= sectionTop - 200) {
+    //             current = section.getAttribute('id');
+    //         }
+    //     });
 
-        navLinks.forEach(link => {
-            link.classList.remove('active');
-            if (link.getAttribute('href').includes(current)) {
-                link.classList.add('active');
-            }
-        });
-    });
+    //     navLinks.forEach(link => {
+    //         link.classList.remove('active');
+    //         if (link.getAttribute('href').includes(current)) {
+    //             link.classList.add('active');
+    //         }
+    //     });
+    // });
 
     // 轮播图
-    const slides = document.querySelectorAll('.slide');
-    const dots = document.querySelectorAll('.dot');
-    const prevBtn = document.querySelector('.prev-btn');
-    const nextBtn = document.querySelector('.next-btn');
-    let currentSlide = 0;
+    // const slides = document.querySelectorAll('.slide');
+    // const dots = document.querySelectorAll('.dot');
+    // const prevBtn = document.querySelector('.prev-btn');
+    // const nextBtn = document.querySelector('.next-btn');
+    // let currentSlide = 0;
 
-    function showSlide(n) {
-        slides.forEach(slide => slide.classList.remove('active'));
-        dots.forEach(dot => dot.classList.remove('active'));
+    // function showSlide(n) {
+    //     slides.forEach(slide => slide.classList.remove('active'));
+    //     dots.forEach(dot => dot.classList.remove('active'));
 
-        currentSlide = (n + slides.length) % slides.length;
+    //     currentSlide = (n + slides.length) % slides.length;
 
-        slides[currentSlide].classList.add('active');
-        dots[currentSlide].classList.add('active');
-    }
+    //     slides[currentSlide].classList.add('active');
+    //     dots[currentSlide].classList.add('active');
+    // }
 
-    function nextSlide() {
-        showSlide(currentSlide + 1);
-    }
+    // function nextSlide() {
+    //     showSlide(currentSlide + 1);
+    // }
 
-    function prevSlide() {
-        showSlide(currentSlide - 1);
-    }
+    // function prevSlide() {
+    //     showSlide(currentSlide - 1);
+    // }
 
-    nextBtn.addEventListener('click', nextSlide);
-    prevBtn.addEventListener('click', prevSlide);
+    // nextBtn.addEventListener('click', nextSlide);
+    // prevBtn.addEventListener('click', prevSlide);
 
-    dots.forEach((dot, index) => {
-        dot.addEventListener('click', () => {
-            showSlide(index);
-        });
-    });
+    // dots.forEach((dot, index) => {
+    //     dot.addEventListener('click', () => {
+    //         showSlide(index);
+    //     });
+    // });
 
-    // 自动轮播
-    let slideInterval = setInterval(nextSlide, 5000);
+    // // 自动轮播
+    // let slideInterval = setInterval(nextSlide, 5000);
 
-    const slider = document.querySelector('.slider');
-    slider.addEventListener('mouseenter', () => {
-        clearInterval(slideInterval);
-    });
+    // const slider = document.querySelector('.slider');
+    // slider.addEventListener('mouseenter', () => {
+    //     clearInterval(slideInterval);
+    // });
 
-    slider.addEventListener('mouseleave', () => {
-        slideInterval = setInterval(nextSlide, 5000);
-    });
+    // slider.addEventListener('mouseleave', () => {
+    //     slideInterval = setInterval(nextSlide, 5000);
+    // });
 
     // 标签页切换
     const tabBtns = document.querySelectorAll('.tab-btn');

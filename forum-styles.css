@@ -1,0 +1,698 @@
+/* 论坛页面样式 */
+.forum-section {
+    background-color: var(--color-background-light);
+}
+
+.forum-navigation {
+    margin-bottom: 30px;
+}
+
+/* 标签页样式 */
+.forum-navigation .tab-header {
+    display: flex;
+    flex-wrap: wrap;
+    background-color: var(--color-light);
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+.forum-navigation .tab-btn {
+    padding: 15px 20px;
+    cursor: pointer;
+    text-align: center;
+    font-weight: 500;
+    transition: var(--transition);
+    border-bottom: 3px solid transparent;
+    flex: 1;
+    min-width: 120px;
+}
+
+.forum-navigation .tab-btn:hover {
+    background-color: rgba(160, 128, 82, 0.1);
+}
+
+.forum-navigation .tab-btn.active {
+    background-color: var(--color-background);
+    border-bottom-color: var(--color-primary);
+    color: var(--color-primary);
+}
+
+/* 论坛内容样式 */
+.forum-content {
+    margin-top: 20px;
+}
+
+.forum-content .tab-pane {
+    display: none;
+    background-color: var(--color-background);
+    border-radius: 10px;
+    padding: 30px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+}
+
+.forum-content .tab-pane.active {
+    display: block;
+}
+
+.forum-content h3 {
+    color: var(--color-primary);
+    margin-bottom: 15px;
+    font-size: 1.8rem;
+}
+
+.forum-content h4 {
+    color: var(--color-accent);
+    margin: 25px 0 15px;
+    font-size: 1.4rem;
+}
+
+/* 五行人格测试样式 */
+.personality-test {
+    margin-bottom: 40px;
+}
+
+.test-form {
+    background-color: var(--color-light);
+    padding: 20px;
+    border-radius: 10px;
+    margin: 20px 0;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 15px;
+}
+
+.form-group {
+    flex: 1;
+    min-width: 250px;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: 500;
+}
+
+.form-group input {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    font-family: var(--font-primary);
+}
+
+.btn-submit {
+    background-color: var(--color-primary);
+    color: white;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: var(--transition);
+    border: none;
+    font-family: var(--font-primary);
+    font-size: 1rem;
+}
+
+.btn-submit:hover {
+    background-color: var(--color-accent);
+}
+
+/* 结果卡片样式 */
+.personality-result {
+    margin: 30px 0;
+}
+
+.result-card {
+    background-color: var(--color-light);
+    border-radius: 10px;
+    padding: 30px;
+    text-align: center;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+}
+
+.result-card .element-icon {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 2.5rem;
+    color: white;
+    margin: 0 auto 20px;
+}
+
+.result-card .element-icon.wood {
+    background-color: #4CAF50;
+}
+
+.result-card .element-icon.fire {
+    background-color: #FF5722;
+}
+
+.result-card .element-icon.earth {
+    background-color: #FFC107;
+}
+
+.result-card .element-icon.metal {
+    background-color: #9E9E9E;
+}
+
+.result-card .element-icon.water {
+    background-color: #2196F3;
+}
+
+.result-card h4 {
+    color: var(--color-primary);
+    margin-bottom: 20px;
+    font-size: 1.5rem;
+}
+
+.result-details {
+    margin: 20px 0;
+    text-align: left;
+}
+
+.result-details p {
+    margin-bottom: 10px;
+}
+
+.result-share {
+    margin-top: 20px;
+    padding-top: 20px;
+    border-top: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+.share-buttons {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    margin-top: 10px;
+}
+
+.share-btn {
+    display: inline-flex;
+    align-items: center;
+    padding: 8px 15px;
+    border-radius: 5px;
+    color: white;
+    transition: var(--transition);
+}
+
+.share-btn:hover {
+    transform: translateY(-3px);
+}
+
+.share-btn i {
+    margin-right: 8px;
+}
+
+.share-btn.twitter {
+    background-color: #1DA1F2;
+}
+
+.share-btn.weibo {
+    background-color: #E6162D;
+}
+
+/* 全球地图样式 */
+.world-map {
+    margin-top: 40px;
+}
+
+.map-container {
+    position: relative;
+    margin-top: 20px;
+}
+
+.map-container img {
+    width: 100%;
+    border-radius: 10px;
+}
+
+.map-legend {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 20px;
+    margin-top: 15px;
+}
+
+.legend-item {
+    display: flex;
+    align-items: center;
+}
+
+.color-dot {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    margin-right: 5px;
+}
+
+.color-dot.wood {
+    background-color: #4CAF50;
+}
+
+.color-dot.fire {
+    background-color: #FF5722;
+}
+
+.color-dot.earth {
+    background-color: #FFC107;
+}
+
+.color-dot.metal {
+    background-color: #9E9E9E;
+}
+
+.color-dot.water {
+    background-color: #2196F3;
+}
+
+/* 五行生活创意样式 */
+.idea-submission {
+    background-color: var(--color-light);
+    padding: 20px;
+    border-radius: 10px;
+    text-align: center;
+    margin: 20px 0;
+}
+
+.idea-submission p {
+    margin-bottom: 15px;
+}
+
+.featured-ideas {
+    margin-top: 30px;
+}
+
+.idea-card {
+    background-color: var(--color-background);
+    border-radius: 10px;
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
+    margin-bottom: 20px;
+    overflow: hidden;
+    transition: var(--transition);
+}
+
+.idea-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
+}
+
+.idea-header {
+    display: flex;
+    align-items: center;
+    padding: 15px;
+    border-bottom: 1px solid var(--color-light);
+}
+
+.user-avatar {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    margin-right: 15px;
+}
+
+.idea-author h5 {
+    margin-bottom: 5px;
+    font-size: 1.1rem;
+    color: var(--color-text);
+}
+
+.idea-date {
+    color: var(--color-text-light);
+    font-size: 0.9rem;
+}
+
+.idea-content {
+    padding: 15px;
+}
+
+.idea-image {
+    margin-top: 15px;
+}
+
+.idea-image img {
+    width: 100%;
+    border-radius: 5px;
+}
+
+.idea-footer {
+    padding: 10px 15px;
+    border-top: 1px solid var(--color-light);
+}
+
+.idea-actions {
+    display: flex;
+    gap: 15px;
+}
+
+.action-btn {
+    display: flex;
+    align-items: center;
+    background: none;
+    border: none;
+    color: var(--color-text-light);
+    cursor: pointer;
+    transition: var(--transition);
+    font-family: var(--font-primary);
+}
+
+.action-btn:hover {
+    color: var(--color-primary);
+}
+
+.action-btn i {
+    margin-right: 5px;
+}
+
+/* 文化讨论角样式 */
+.topic-card {
+    background-color: var(--color-light);
+    border-radius: 10px;
+    padding: 20px;
+    margin-bottom: 30px;
+}
+
+.debate-sides {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    margin: 20px 0;
+}
+
+.debate-side {
+    flex: 1;
+    min-width: 280px;
+    padding: 15px;
+    border-radius: 8px;
+}
+
+.debate-side.support {
+    background-color: rgba(76, 175, 80, 0.1);
+    border-left: 4px solid #4CAF50;
+}
+
+.debate-side.oppose {
+    background-color: rgba(244, 67, 54, 0.1);
+    border-left: 4px solid #F44336;
+}
+
+.debate-side h5 {
+    margin-bottom: 10px;
+    color: var(--color-primary);
+}
+
+.debater {
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+.user-avatar-small {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    margin-right: 10px;
+}
+
+.topic-poll {
+    margin-top: 20px;
+}
+
+.poll-bar {
+    height: 30px;
+    background-color: #f1f1f1;
+    border-radius: 15px;
+    overflow: hidden;
+    display: flex;
+    margin-bottom: 10px;
+}
+
+.poll-progress {
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-weight: bold;
+}
+
+.poll-progress.support {
+    background-color: #4CAF50;
+}
+
+.poll-progress.oppose {
+    background-color: #F44336;
+}
+
+.poll-options {
+    display: flex;
+    gap: 10px;
+}
+
+.poll-option {
+    flex: 1;
+    padding: 8px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    transition: var(--transition);
+    color: white;
+    font-family: var(--font-primary);
+}
+
+.poll-option.support {
+    background-color: #4CAF50;
+}
+
+.poll-option.oppose {
+    background-color: #F44336;
+}
+
+.poll-option:hover {
+    opacity: 0.9;
+    transform: translateY(-2px);
+}
+
+/* 比较表格样式 */
+.comparison-table {
+    margin: 30px 0;
+    overflow-x: auto;
+}
+
+.comparison-table table {
+    width: 100%;
+    border-collapse: collapse;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
+}
+
+.comparison-table th,
+.comparison-table td {
+    padding: 12px 15px;
+    text-align: left;
+    border-bottom: 1px solid var(--color-light);
+}
+
+.comparison-table th {
+    background-color: var(--color-primary);
+    color: white;
+}
+
+.comparison-table tr:last-child td {
+    border-bottom: none;
+}
+
+.comparison-table tr:nth-child(even) {
+    background-color: rgba(0, 0, 0, 0.02);
+}
+
+/* Padlet 留言板样式 */
+.padlet-embed {
+    margin: 30px 0;
+}
+
+.padlet-container {
+    margin-top: 20px;
+    min-height: 500px;
+    border-radius: 10px;
+    overflow: hidden;
+    background-color: var(--color-background);
+}
+
+/* Disqus 评论系统样式 */
+#disqus_thread {
+    padding: 20px;
+    background-color: white;
+    border-radius: 10px;
+    min-height: 400px;
+}
+
+/* 热门标签样式 */
+.tags-cloud {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 15px;
+    margin: 20px 0;
+}
+
+.tag-item {
+    display: inline-block;
+    padding: 8px 15px;
+    border-radius: 20px;
+    background-color: var(--color-light);
+    color: var(--color-text);
+    transition: var(--transition);
+    text-decoration: none;
+}
+
+.tag-item:hover {
+    background-color: var(--color-primary);
+    color: white;
+    transform: translateY(-3px);
+}
+
+.tag-item.large {
+    font-size: 1.2rem;
+    padding: 10px 20px;
+}
+
+.tag-item.medium {
+    font-size: 1.1rem;
+}
+
+.tag-item.small {
+    font-size: 0.9rem;
+}
+
+/* 用户激励样式 */
+.user-incentives {
+    margin: 40px 0;
+}
+
+.incentive-items {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    margin-top: 20px;
+}
+
+.incentive-item {
+    flex: 1;
+    min-width: 280px;
+    display: flex;
+    background-color: var(--color-light);
+    padding: 20px;
+    border-radius: 10px;
+    transition: var(--transition);
+}
+
+.incentive-item:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+}
+
+.incentive-icon {
+    width: 60px;
+    height: 60px;
+    background-color: var(--color-primary);
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    font-size: 1.5rem;
+    margin-right: 15px;
+    flex-shrink: 0;
+}
+
+.incentive-info h5 {
+    color: var(--color-primary);
+    margin-bottom: 10px;
+    font-size: 1.1rem;
+}
+
+/* 加入社区样式 */
+.join-community {
+    background-color: var(--color-light);
+    padding: 30px;
+    border-radius: 10px;
+    text-align: center;
+    margin-top: 40px;
+}
+
+.contact-info {
+    margin-top: 20px;
+}
+
+.contact-info p {
+    margin-bottom: 15px;
+}
+
+.contact-info p i {
+    margin-right: 8px;
+    color: var(--color-primary);
+}
+
+.social-links {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    margin-top: 15px;
+}
+
+.social-links a {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 40px;
+    height: 40px;
+    background-color: var(--color-primary);
+    border-radius: 50%;
+    color: white;
+    font-size: 1.2rem;
+    transition: var(--transition);
+}
+
+.social-links a:hover {
+    background-color: var(--color-accent);
+    transform: translateY(-3px);
+}
+
+/* 响应式设计 */
+@media screen and (max-width: 768px) {
+    .forum-navigation .tab-btn {
+        padding: 10px;
+        font-size: 0.9rem;
+    }
+    
+    .forum-content .tab-pane {
+        padding: 20px;
+    }
+    
+    .debate-sides {
+        flex-direction: column;
+    }
+    
+    .incentive-items {
+        flex-direction: column;
+    }
+}
+
+@media screen and (max-width: 480px) {
+    .test-form {
+        flex-direction: column;
+    }
+    
+    .poll-options {
+        flex-direction: column;
+    }
+}

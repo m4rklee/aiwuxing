@@ -1,0 +1,401 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>全球五行研究所 - 社区分享</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="forum-styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+    <!-- 导航栏 -->
+    <header>
+        <div class="container">
+            <div class="logo">
+                <img src="https://placeholder.pics/svg/150x50/A08052/FFFFFF/中医文化" alt="中医文化平台">
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="index.html"><i class="fas fa-home"></i> 首页</a></li>
+                    <li><a href="knowledge.html"><i class="fas fa-brain"></i> 知识科普</a></li>
+                    <li><a href="microcourses.html"><i class="fas fa-video"></i> 微课</a></li>
+                    <li><a href="games.html"><i class="fas fa-gamepad"></i> 互动游戏</a></li>
+                    <li><a href="forum.html" class="active"><i class="fas fa-comments"></i> 社区分享</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- 论坛主体 -->
+    <section class="section forum-section">
+        <div class="container">
+            <div class="section-header">
+                <h2><i class="fas fa-comments"></i> 全球五行研究所 - 社区分享</h2>
+                <p>探索五行智慧，连接世界灵感</p>
+            </div>
+
+            <!-- 论坛导航 -->
+            <div class="forum-navigation">
+                <div class="tab-header">
+                    <div class="tab-btn active" data-tab="personality">五行人格报告</div>
+                    <div class="tab-btn" data-tab="creative">五行生活创意</div>
+                    <div class="tab-btn" data-tab="cultural">文化讨论角</div>
+                    <div class="tab-btn" data-tab="tags">热门标签</div>
+                </div>
+            </div>
+
+            <!-- 论坛内容 -->
+            <div class="forum-content">
+                <!-- 五行人格报告 -->
+                <div class="tab-pane active" id="personality">
+                    <div class="personality-test">
+                        <h3>我的五行人格测试</h3>
+                        <p>输入您的出生日期，探索您的五行属性</p>
+                        
+                        <div class="test-form">
+                            <div class="form-group">
+                                <label for="birth-date">出生日期：</label>
+                                <input type="date" id="birth-date" name="birth-date">
+                            </div>
+                            <button class="btn-submit" id="generate-report">生成五行人格报告</button>
+                        </div>
+
+                        <div class="personality-result" id="personality-result" style="display: none;">
+                            <div class="result-card">
+                                <div class="element-icon" id="result-icon">
+                                    <i class="fas fa-fire"></i>
+                                </div>
+                                <h4 id="result-title">您的五行属性：火</h4>
+                                <div class="result-details">
+                                    <p><strong>性格特质：</strong> <span id="result-traits">热情活力、充满创造力，但易冲动</span></p>
+                                    <p><strong>养生建议：</strong> <span id="result-advice">多听商调式音乐，佩戴白玉平衡能量</span></p>
+                                </div>
+                                <div class="result-share">
+                                    <p>分享您的五行人格：</p>
+                                    <div class="share-buttons">
+                                        <a href="#" class="share-btn twitter" id="share-twitter"><i class="fab fa-twitter"></i> Twitter</a>
+                                        <a href="#" class="share-btn weibo" id="share-weibo"><i class="fab fa-weibo"></i> 微博</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="world-map">
+                            <h3>全球五行地图</h3>
+                            <p>探索全球各地同属性用户的分布</p>
+                            <div class="map-container">
+                                <img src="https://placeholder.pics/svg/800x400/DEDEDE/555555/全球五行分布图" alt="全球五行分布图">
+                                <div class="map-legend">
+                                    <div class="legend-item"><span class="color-dot wood"></span> 木</div>
+                                    <div class="legend-item"><span class="color-dot fire"></span> 火</div>
+                                    <div class="legend-item"><span class="color-dot earth"></span> 土</div>
+                                    <div class="legend-item"><span class="color-dot metal"></span> 金</div>
+                                    <div class="legend-item"><span class="color-dot water"></span> 水</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 五行生活创意 -->
+                <div class="tab-pane" id="creative">
+                    <div class="creative-ideas">
+                        <h3>五行生活创意集</h3>
+                        <p>分享您的五行实践经验和创意想法</p>
+                        
+                        <div class="idea-submission">
+                            <h4>提交您的创意</h4>
+                            <p>通过 <a href="https://tapeapp.com" target="_blank">Tape App</a> 提交您的创意和问题</p>
+                            <a href="https://tapeapp.com" class="btn-submit" target="_blank">前往投稿</a>
+                        </div>
+
+                        <div class="featured-ideas">
+                            <h4>精选创意</h4>
+                            
+                            <div class="idea-card">
+                                <div class="idea-header">
+                                    <img src="https://placeholder.pics/svg/50x50/CCCCCC/555555/头像" alt="用户头像" class="user-avatar">
+                                    <div class="idea-author">
+                                        <h5>巴西学员 Maria</h5>
+                                        <span class="idea-date">2023-05-15</span>
+                                    </div>
+                                </div>
+                                <div class="idea-content">
+                                    <p>用木元素绿植布置书房，搭配角调音乐提升学习效率！我发现这种组合能让我更专注，学习时间延长了30%。</p>
+                                    <div class="idea-image">
+                                        <img src="https://placeholder.pics/svg/400x300/E8D5B4/333333/木元素书房" alt="木元素书房">
+                                    </div>
+                                </div>
+                                <div class="idea-footer">
+                                    <div class="idea-actions">
+                                        <button class="action-btn like"><i class="far fa-heart"></i> <span>42</span></button>
+                                        <button class="action-btn comment"><i class="far fa-comment"></i> <span>12</span></button>
+                                        <button class="action-btn share"><i class="far fa-share-square"></i> <span>分享</span></button>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="idea-card">
+                                <div class="idea-header">
+                                    <img src="https://placeholder.pics/svg/50x50/CCCCCC/555555/头像" alt="用户头像" class="user-avatar">
+                                    <div class="idea-author">
+                                        <h5>日本用户 太郎</h5>
+                                        <span class="idea-date">2023-04-28</span>
+                                    </div>
+                                </div>
+                                <div class="idea-content">
+                                    <p>按"火克金"原理，戴金饰时喝菊花茶（属木）缓解相克。我发现这样能减轻金属首饰带来的不适感，特别是在夏季。</p>
+                                </div>
+                                <div class="idea-footer">
+                                    <div class="idea-actions">
+                                        <button class="action-btn like"><i class="far fa-heart"></i> <span>36</span></button>
+                                        <button class="action-btn comment"><i class="far fa-comment"></i> <span>8</span></button>
+                                        <button class="action-btn share"><i class="far fa-share-square"></i> <span>分享</span></button>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="idea-card">
+                                <div class="idea-header">
+                                    <img src="https://placeholder.pics/svg/50x50/CCCCCC/555555/头像" alt="用户头像" class="user-avatar">
+                                    <div class="idea-author">
+                                        <h5>中医爱好者 小今</h5>
+                                        <span class="idea-date">2023-05-02</span>
+                                    </div>
+                                </div>
+                                <div class="idea-content">
+                                    <p>自制五行色拉（青红黄白黑蔬菜），不仅美观还能平衡五脏能量。青色小白菜（肝），红色番茄（心），黄色玉米（脾），白色萝卜（肺），黑色木耳（肾）。</p>
+                                    <div class="idea-image">
+                                        <img src="https://placeholder.pics/svg/400x300/E8D5B4/333333/五行色拉" alt="五行色拉">
+                                    </div>
+                                </div>
+                                <div class="idea-footer">
+                                    <div class="idea-actions">
+                                        <button class="action-btn like"><i class="far fa-heart"></i> <span>58</span></button>
+                                        <button class="action-btn comment"><i class="far fa-comment"></i> <span>15</span></button>
+                                        <button class="action-btn share"><i class="far fa-share-square"></i> <span>分享</span></button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 文化讨论角 -->
+                <div class="tab-pane" id="cultural">
+                    <div class="cultural-corner">
+                        <h3>Chinese Corner 跨文化讨论角</h3>
+                        <p>探讨五行理论与现代科学、世界文化的交融与碰撞</p>
+                        
+                        <div class="discussion-topics">
+                            <div class="topic-card">
+                                <h4>热门议题：五行学说是否该进入现代医学教材？</h4>
+                                <div class="debate-sides">
+                                    <div class="debate-side support">
+                                        <h5>支持方观点</h5>
+                                        <div class="debater">
+                                            <img src="https://placeholder.pics/svg/40x40/CCCCCC/555555/头像" alt="用户头像" class="user-avatar-small">
+                                            <span>@柏林中医师Hans</span>
+                                        </div>
+                                        <p>引用《Scientific Reports》2023年研究：五行针灸对慢性疼痛有效率68%，证明五行理论有科学依据。</p>
+                                    </div>
+                                    <div class="debate-side oppose">
+                                        <h5>反对方观点</h5>
+                                        <div class="debater">
+                                            <img src="https://placeholder.pics/svg/40x40/CCCCCC/555555/头像" alt="用户头像" class="user-avatar-small">
+                                            <span>@纽约医学生Lina</span>
+                                        </div>
+                                        <p>五行归类缺乏分子生物学证据，现代医学教材应基于可重复验证的科学研究。</p>
+                                    </div>
+                                </div>
+                                <div class="topic-poll">
+                                    <div class="poll-bar">
+                                        <div class="poll-progress support" style="width: 65%;">65%</div>
+                                        <div class="poll-progress oppose" style="width: 35%;">35%</div>
+                                    </div>
+                                    <div class="poll-options">
+                                        <button class="poll-option support">支持 <i class="fas fa-thumbs-up"></i></button>
+                                        <button class="poll-option oppose">反对 <i class="fas fa-thumbs-down"></i></button>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="comparison-table">
+                                <h4>文化碰撞：五行 vs 希腊元素</h4>
+                                <table>
+                                    <thead>
+                                        <tr>
+                                            <th>比较项</th>
+                                            <th>中国五行</th>
+                                            <th>希腊四元素</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td>体系</td>
+                                            <td>木、火、土、金、水</td>
+                                            <td>地、水、火、风</td>
+                                        </tr>
+                                        <tr>
+                                            <td>核心思想</td>
+                                            <td>生克循环（动态）</td>
+                                            <td>静态物质组成</td>
+                                        </tr>
+                                        <tr>
+                                            <td>动态性</td>
+                                            <td>强（相生相克）</td>
+                                            <td>弱（静态存在）</td>
+                                        </tr>
+                                        <tr>
+                                            <td>应用领域</td>
+                                            <td>医学、农业、建筑、音乐</td>
+                                            <td>哲学、占星学</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                        
+                        <!-- 嵌入Padlet留言板 -->
+                        <!-- <div class="padlet-embed">
+                            <h4>跨文化讨论留言板</h4>
+                            <p>在这里分享您对五行理论与世界文化的见解和观点</p>
+                            <div class="padlet-container">
+                                Disqus评论系统将在这里加载
+                                <div id="disqus_thread"></div>
+                            </div>
+                        </div> -->
+                    </div>
+                </div>
+
+                <!-- 热门标签 -->
+                <div class="tab-pane" id="tags">
+                    <div class="popular-tags">
+                        <h3>热门标签</h3>
+                        <p>探索社区最热门的话题和讨论</p>
+                        
+                        <div class="tags-cloud">
+                            <a href="#" class="tag-item large">#能量平衡挑战</a>
+                            <a href="#" class="tag-item medium">#五行黑科技</a>
+                            <a href="#" class="tag-item large">#全球文化实验室</a>
+                            <a href="#" class="tag-item medium">#争议话题投票箱</a>
+                            <a href="#" class="tag-item small">#古籍今译</a>
+                            <a href="#" class="tag-item medium">#五行艺术创作</a>
+                            <a href="#" class="tag-item small">#中医现代化</a>
+                            <a href="#" class="tag-item medium">#五行饮食法</a>
+                            <a href="#" class="tag-item small">#音乐疗法</a>
+                            <a href="#" class="tag-item large">#东西方医学融合</a>
+                        </div>
+                        
+                        <div class="user-incentives">
+                            <h4>用户激励计划</h4>
+                            <div class="incentive-items">
+                                <div class="incentive-item">
+                                    <div class="incentive-icon">
+                                        <i class="fas fa-award"></i>
+                                    </div>
+                                    <div class="incentive-info">
+                                        <h5>月度"五行灵感大使"</h5>
+                                        <p>每月评选最具创意的社区贡献者，获奖者将获得定制五行能量手链</p>
+                                    </div>
+                                </div>
+                                <div class="incentive-item">
+                                    <div class="incentive-icon">
+                                        <i class="fas fa-book-open"></i>
+                                    </div>
+                                    <div class="incentive-info">
+                                        <h5>《全球五行实践年鉴》收录</h5>
+                                        <p>优质投稿将被收录至年度电子刊，向全球读者展示</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="join-community">
+                            <h4>加入我们</h4>
+                            <p>用科学解码传统，让五行智慧激活全球生活！</p>
+                            <div class="contact-info">
+                                <p><i class="far fa-envelope"></i> 投稿邮箱：community@wuxing-research.org</p>
+                                <div class="social-links">
+                                    <a href="#"><i class="fab fa-weibo"></i></a>
+                                    <a href="#"><i class="fab fa-twitter"></i></a>
+                                    <a href="#"><i class="fab fa-instagram"></i></a>
+                                    <a href="#"><i class="fab fa-youtube"></i></a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 页脚 -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-logo">
+                    <img src="https://placeholder.pics/svg/150x50/FFFFFF/A08052/中医文化" alt="中医文化平台">
+                    <p>传承千年智慧，服务现代健康</p>
+                </div>
+                <div class="footer-links">
+                    <h4>快速链接</h4>
+                    <ul>
+                        <li><a href="index.html">首页</a></li>
+                        <li><a href="index.html#history">中医发展史</a></li>
+                        <li><a href="index.html#herbs">中药材库</a></li>
+                        <li><a href="forum.html">社区分享</a></li>
+                    </ul>
+                </div>
+                <div class="footer-links">
+                    <h4>学习资源</h4>
+                    <ul>
+                        <li><a href="microcourses.html">微课</a></li>
+                        <li><a href="games.html">互动游戏</a></li>
+                        <li><a href="index.html#diagnosis">诊疗方法</a></li>
+                        <li><a href="index.html#masters">名医名篇</a></li>
+                    </ul>
+                </div>
+                <div class="footer-newsletter">
+                    <h4>订阅通讯</h4>
+                    <p>获取最新的中医知识和活动信息</p>
+                    <form>
+                        <input type="email" placeholder="您的邮箱地址">
+                        <button type="submit"><i class="fas fa-paper-plane"></i></button>
+                    </form>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2023 中医文化平台. 保留所有权利.</p>
+                <div class="social-links">
+                    <a href="#"><i class="fab fa-weibo"></i></a>
+                    <a href="#"><i class="fab fa-weixin"></i></a>
+                    <a href="#"><i class="fab fa-twitter"></i></a>
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Disqus 评论系统
+    <script>
+        var disqus_config = function () {
+            this.page.url = window.location.href;  
+            this.page.identifier = 'wuxing-forum'; 
+        };
+        
+        (function() {
+            var d = document, s = d.createElement('script');
+            s.src = 'https://wuxing-research.disqus.com/embed.js';
+            s.setAttribute('data-timestamp', +new Date());
+            (d.head || d.body).appendChild(s);
+        })();
+    </script>
+    <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript> -->
+
+    <script src="forum-script.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
+
