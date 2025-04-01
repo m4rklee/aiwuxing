@@ -2,9 +2,9 @@
 // 微课和游戏数据
 const courseData = {
     'basic-theory': {
-        title: '中医基础理论入门',
-        description: '本课程介绍中医基础理论体系，包括阴阳五行学说、藏象学说、经络学说、气血津液等核心概念，帮助初学者建立中医思维框架。',
-        videoSrc: 'https://example.com/videos/basic-theory.mp4',
+        title: '一分钟了解五行相生',
+        description: '本课程解析木、火、土、金、水五种元素间“相互滋生”的关系，如木生火、火生土的自然循环逻辑。',
+        videoSrc: 'courses/wuxing_sheng.mp4',
         duration: '15分钟',
         chapters: [
             { title: '第一章：阴阳五行学说', duration: '3:45' },
@@ -20,9 +20,9 @@ const courseData = {
         related: ['herb-identification', 'meridian-points', 'diagnosis-methods']
     },
     'herb-identification': {
-        title: '常用中药材识别',
-        description: '本课程介绍常用中药材的识别方法，包括外观特征、气味、性味归经等，帮助学习者掌握基本的中药材辨别技能。',
-        videoSrc: 'https://example.com/videos/herb-identification.mp4',
+        title: '一分钟了解五行相克',
+        description: '本课程说明五行之间“相互制约”的规律，如水克火、火克金，维持动态平衡的哲学内涵。',
+        videoSrc: 'courses/wuxing_ke.mp4',
         duration: '20分钟',
         chapters: [
             { title: '第一章：中药材分类概述', duration: '4:15' },
@@ -38,9 +38,9 @@ const courseData = {
         related: ['basic-theory', 'food-therapy', 'seasonal-health']
     },
     'meridian-points': {
-        title: '经络穴位基础',
-        description: '本课程介绍人体经络系统和常用穴位，包括十二经脉的分布规律、常用腧穴的定位和作用，帮助学习者理解经络穴位的基本知识。',
-        videoSrc: 'https://example.com/videos/meridian-points.mp4',
+        title: '五行音乐疗法',
+        description: '本课程介绍如何结合五行理论，用角、徵、宫、商、羽五音对应木火土金水，通过特定音律调节身心能量。',
+        videoSrc: 'courses/music.mp4',
         duration: '25分钟',
         chapters: [
             { title: '第一章：经络系统概述', duration: '5:20' },
@@ -56,9 +56,9 @@ const courseData = {
         related: ['basic-theory', 'diagnosis-methods', 'seasonal-health']
     },
     'seasonal-health': {
-        title: '四季养生法则',
-        description: '本课程介绍中医四季养生的基本原则和方法，包括春夏秋冬的养生重点、饮食调理、起居调摄等内容，帮助学习者掌握四季养生的实用技巧。',
-        videoSrc: 'https://example.com/videos/seasonal-health.mp4',
+        title: '中医与人体',
+        description: '本课程介绍探讨五行学说在中医中的应用，如五脏（肝心脾肺肾）与五行的对应关系及生理功能联动。',
+        videoSrc: 'courses/tcm_body.mp4',
         duration: '18分钟',
         chapters: [
             { title: '第一章：春季养生', duration: '4:15' },
@@ -74,9 +74,9 @@ const courseData = {
         related: ['food-therapy', 'herb-identification', 'basic-theory']
     },
     'diagnosis-methods': {
-        title: '望闻问切诊断法',
-        description: '本课程介绍中医四诊法的基本内容和应用，包括望诊、闻诊、问诊和切诊的具体方法和临床意义，帮助学习者了解中医诊断的特点和方法。',
-        videoSrc: 'https://example.com/videos/diagnosis-methods.mp4',
+        title: '五行学说简介',
+        description: '本课程介绍概述五行理论的核心概念及应用领域。',
+        videoSrc: 'courses/introduction.mp4',
         duration: '22分钟',
         chapters: [
             { title: '第一章：望诊', duration: '5:45' },
@@ -92,9 +92,9 @@ const courseData = {
         related: ['basic-theory', 'meridian-points', 'food-therapy']
     },
     'food-therapy': {
-        title: '中医食疗基础',
-        description: '本课程介绍中医食疗的基本理论和方法，包括食物的四气五味、食物的归经和功效、常见体质的食疗调理等内容，帮助学习者掌握中医食疗的基本知识。',
-        videoSrc: 'https://example.com/videos/food-therapy.mp4',
+        title: '各器官喜欢的锻炼方式',
+        description: '本课程介绍人体各器官适合的运动方式。',
+        videoSrc: 'courses/organ_sports.mp4',
         duration: '16分钟',
         chapters: [
             { title: '第一章：食物的四气五味', duration: '4:00' },
@@ -289,8 +289,9 @@ function loadCourseDetail() {
                 <source src="${course.videoSrc}" type="video/mp4">
                 您的浏览器不支持HTML5视频标签。
             </video>
-        `;
+            `;
         });
+        
 
         // 加载章节列表
         const chaptersContainer = document.getElementById('courseChapters');
