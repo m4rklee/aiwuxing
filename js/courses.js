@@ -278,7 +278,6 @@ function loadCourseDetail() {
         videoContainer.innerHTML = `
         <div class="video-placeholder">
             <i class="fas fa-play-circle"></i>
-            <p>点击播放《${course.title}》</p>
         </div>
     `;
 
