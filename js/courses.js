@@ -6,7 +6,7 @@ const courseData = {
         img_name: 'wuxing_sheng',
         description: '本课程解析木、火、土、金、水五种元素间“相互滋生”的关系，如木生火、火生土的自然循环逻辑。',
         videoSrc: 'courses/wuxing_sheng.mp4',
-        duration: '15分钟',
+        duration: '1分钟',
         chapters: [
             { title: '第一章：阴阳五行学说', duration: '3:45' },
             { title: '第二章：藏象学说', duration: '4:20' },
@@ -25,7 +25,7 @@ const courseData = {
         img_name: 'wuxing_ke',
         description: '本课程说明五行之间“相互制约”的规律，如水克火、火克金，维持动态平衡的哲学内涵。',
         videoSrc: 'courses/wuxing_ke.mp4',
-        duration: '20分钟',
+        duration: '1分钟',
         chapters: [
             { title: '第一章：中药材分类概述', duration: '4:15' },
             { title: '第二章：根茎类中药识别', duration: '5:30' },
@@ -44,7 +44,7 @@ const courseData = {
         img_name: 'wuxing_music',
         description: '本课程介绍如何结合五行理论，用角、徵、宫、商、羽五音对应木火土金水，通过特定音律调节身心能量。',
         videoSrc: 'courses/music.mp4',
-        duration: '25分钟',
+        duration: '1分钟',
         chapters: [
             { title: '第一章：经络系统概述', duration: '5:20' },
             { title: '第二章：十二经脉分布规律', duration: '6:45' },
@@ -63,7 +63,7 @@ const courseData = {
         img_name: 'zhongyi_body',
         description: '本课程介绍探讨五行学说在中医中的应用，如五脏（肝心脾肺肾）与五行的对应关系及生理功能联动。',
         videoSrc: 'courses/tcm_body.mp4',
-        duration: '18分钟',
+        duration: '1分钟',
         chapters: [
             { title: '第一章：春季养生', duration: '4:15' },
             { title: '第二章：夏季养生', duration: '4:30' },
@@ -82,7 +82,7 @@ const courseData = {
         img_name: 'wuxing_intro',
         description: '本课程介绍概述五行理论的核心概念及应用领域。',
         videoSrc: 'courses/introduction.mp4',
-        duration: '22分钟',
+        duration: '1分钟30秒',
         chapters: [
             { title: '第一章：望诊', duration: '5:45' },
             { title: '第二章：闻诊', duration: '4:30' },
@@ -101,7 +101,7 @@ const courseData = {
         img_name: 'organ_sport',
         description: '本课程介绍人体各器官适合的运动方式。',
         videoSrc: 'courses/organ_sports.mp4',
-        duration: '16分钟',
+        duration: '34秒',
         chapters: [
             { title: '第一章：食物的四气五味', duration: '4:00' },
             { title: '第二章：食物的归经和功效', duration: '4:15' },
