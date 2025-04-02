@@ -3,6 +3,7 @@
 const courseData = {
     'basic-theory': {
         title: '一分钟了解五行相生',
+        img_name: 'wuxing_sheng',
         description: '本课程解析木、火、土、金、水五种元素间“相互滋生”的关系，如木生火、火生土的自然循环逻辑。',
         videoSrc: 'courses/wuxing_sheng.mp4',
         duration: '15分钟',
@@ -21,6 +22,7 @@ const courseData = {
     },
     'herb-identification': {
         title: '一分钟了解五行相克',
+        img_name: 'wuxing_ke',
         description: '本课程说明五行之间“相互制约”的规律，如水克火、火克金，维持动态平衡的哲学内涵。',
         videoSrc: 'courses/wuxing_ke.mp4',
         duration: '20分钟',
@@ -39,6 +41,7 @@ const courseData = {
     },
     'meridian-points': {
         title: '五行音乐疗法',
+        img_name: 'wuxing_music',
         description: '本课程介绍如何结合五行理论，用角、徵、宫、商、羽五音对应木火土金水，通过特定音律调节身心能量。',
         videoSrc: 'courses/music.mp4',
         duration: '25分钟',
@@ -57,6 +60,7 @@ const courseData = {
     },
     'seasonal-health': {
         title: '中医与人体',
+        img_name: 'zhongyi_body',
         description: '本课程介绍探讨五行学说在中医中的应用，如五脏（肝心脾肺肾）与五行的对应关系及生理功能联动。',
         videoSrc: 'courses/tcm_body.mp4',
         duration: '18分钟',
@@ -75,6 +79,7 @@ const courseData = {
     },
     'diagnosis-methods': {
         title: '五行学说简介',
+        img_name: 'wuxing_intro',
         description: '本课程介绍概述五行理论的核心概念及应用领域。',
         videoSrc: 'courses/introduction.mp4',
         duration: '22分钟',
@@ -93,6 +98,7 @@ const courseData = {
     },
     'food-therapy': {
         title: '各器官喜欢的锻炼方式',
+        img_name: 'organ_sport',
         description: '本课程介绍人体各器官适合的运动方式。',
         videoSrc: 'courses/organ_sports.mp4',
         duration: '16分钟',
@@ -347,7 +353,7 @@ function loadCourseDetail() {
                     div.className = 'course-card';
                     div.innerHTML = `
                     <div class="course-image">
-                        <img src="https://placeholder.pics/svg/300x200/${getRandomColor()}/FFFFFF/${relatedCourse.title}" alt="${relatedCourse.title}">
+                        <img src="pics/courses/${relatedCourse.img_name}.jpg" alt="${relatedCourse.title}">
                         <div class="course-duration"><i class="fas fa-clock"></i> ${relatedCourse.duration}</div>
                     </div>
                     <div class="course-info">
