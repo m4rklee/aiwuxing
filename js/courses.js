@@ -98,7 +98,7 @@ const courseData = {
     },
     'food-therapy': {
         title: '假如五行人格会说话',
-        img_name: 'organ_sport',
+        img_name: 'wuxing_talk',
         description: '本课程介绍阳木和阴木人格的特点及适合的职业发展方向。',
         videoSrc: 'courses/organ_sports.mp4',
         duration: '39秒',
