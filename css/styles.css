@@ -1902,6 +1902,11 @@ footer {
     margin-top: 20px;
 }
 
+.ai-talk {
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+
+}
+
 /* 微课卡片样式 */
 .course-card {
     background-color: var(--color-background);
