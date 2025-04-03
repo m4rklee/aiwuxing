@@ -97,11 +97,30 @@ const courseData = {
         related: ['basic-theory', 'meridian-points', 'food-therapy']
     },
     'food-therapy': {
-        title: '各器官喜欢的锻炼方式',
+        title: '假如五行人格会说话',
         img_name: 'organ_sport',
-        description: '本课程介绍人体各器官适合的运动方式。',
+        description: '本课程介绍阳木和阴木人格的特点及适合的职业发展方向。',
         videoSrc: 'courses/organ_sports.mp4',
-        duration: '34秒',
+        duration: '39秒',
+        chapters: [
+            { title: '第一章：食物的四气五味', duration: '4:00' },
+            { title: '第二章：食物的归经和功效', duration: '4:15' },
+            { title: '第三章：常见体质的食疗调理', duration: '4:45' },
+            { title: '第四章：四季食疗方案', duration: '3:00' }
+        ],
+        resources: [
+            { title: '常用食材性味归经表', type: 'excel', url: '#' },
+            { title: '九种体质食疗方案', type: 'pdf', url: '#' },
+            { title: '四季养生食谱', type: 'doc', url: '#' }
+        ],
+        related: ['seasonal-health', 'herb-identification', 'basic-theory']
+    },
+    'lishizhen': {
+        title: '五脏与五味的对应',
+        img_name: 'lishizhen',
+        description: ' 阳木特质：外向积极、自信热情，如大树般生机勃发。不足：易急躁冲动，好胜心过强，忽略他人感受。行为倾向：适合创业、营销或创新领域。',
+        videoSrc: 'courses/lishizhen.mp4',
+        duration: '39秒',
         chapters: [
             { title: '第一章：食物的四气五味', duration: '4:00' },
             { title: '第二章：食物的归经和功效', duration: '4:15' },
