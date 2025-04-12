@@ -580,11 +580,11 @@ nav ul li a.active {
     margin-bottom: 10px;
 }
 
-.herb-description, .herb-usage {
+.herb-description, .herb-usage, .herb-model {
     margin-bottom: 20px;
 }
 
-.herb-description h4, .herb-usage h4 {
+.herb-description h4, .herb-usage, .herb-model h4 {
     color: var(--color-primary);
     margin-bottom: 10px;
     font-size: 1.2rem;
