@@ -592,20 +592,20 @@ document.addEventListener('DOMContentLoaded', function () {
     });
 
     // 表单提交
-    const contactForm = document.getElementById('contactForm');
-    const newsletterForm = document.getElementById('newsletterForm');
+    // const contactForm = document.getElementById('contactForm');
+    // const newsletterForm = document.getElementById('newsletterForm');
 
-    contactForm.addEventListener('submit', function (event) {
-        event.preventDefault();
-        alert('感谢您的留言！我们会尽快回复您。');
-        this.reset();
-    });
+    // contactForm.addEventListener('submit', function (event) {
+    //     event.preventDefault();
+    //     alert('感谢您的留言！我们会尽快回复您。');
+    //     this.reset();
+    // });
 
-    newsletterForm.addEventListener('submit', function (event) {
-        event.preventDefault();
-        alert('感谢您的订阅！');
-        this.reset();
-    });
+    // newsletterForm.addEventListener('submit', function (event) {
+    //     event.preventDefault();
+    //     alert('感谢您的订阅！');
+    //     this.reset();
+    // });
 
     // 辅助函数
     function getRandomColor() {
