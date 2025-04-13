@@ -1,0 +1,106 @@
+/* 浮动元素动画样式 */
+
+/* 祥云动画样式 */
+.floating-cloud {
+    position: absolute;
+    z-index: 5;
+    pointer-events: none; /* 确保不会影响用户交互 */
+    animation-timing-function: ease-in-out;
+    animation-iteration-count: infinite;
+    animation-direction: alternate;
+}
+
+.cloud-1 {
+    top: 120px;
+    left: 5%;
+    width: 180px;
+    animation-name: float-left-right;
+    animation-duration: 15s;
+}
+
+.cloud-2 {
+    top: 200px;
+    right: 5%;
+    width: 150px;
+    animation-name: float-right-left;
+    animation-duration: 18s;
+}
+
+.cloud-3 {
+    bottom: 150px;
+    left: 10%;
+    width: 120px;
+    animation-name: float-left-right;
+    animation-duration: 12s;
+}
+
+/* 仙鹤动画样式 */
+.floating-crane {
+    position: absolute;
+    z-index: 10;
+    pointer-events: none;
+    width: 200px;
+    animation-name: crane-flying;
+    animation-duration: 25s;
+    animation-timing-function: linear;
+    animation-iteration-count: infinite;
+}
+
+/* 动画关键帧 */
+@keyframes float-left-right {
+    0% {
+        transform: translateX(0) translateY(0);
+    }
+    50% {
+        transform: translateX(30px) translateY(-15px);
+    }
+    100% {
+        transform: translateX(0) translateY(0);
+    }
+}
+
+@keyframes float-right-left {
+    0% {
+        transform: translateX(0) translateY(0);
+    }
+    50% {
+        transform: translateX(-30px) translateY(-15px);
+    }
+    100% {
+        transform: translateX(0) translateY(0);
+    }
+}
+
+@keyframes crane-flying {
+    0% {
+        transform: translateX(-300px) translateY(50px) scale(0.8);
+        opacity: 0;
+    }
+    10% {
+        opacity: 1;
+    }
+    45% {
+        transform: translateX(calc(50vw - 100px)) translateY(-50px) scale(1);
+    }
+    55% {
+        transform: translateX(calc(50vw + 100px)) translateY(-30px) scale(1);
+    }
+    90% {
+        opacity: 1;
+    }
+    100% {
+        transform: translateX(calc(100vw + 300px)) translateY(100px) scale(0.8);
+        opacity: 0;
+    }
+}
+
+/* 响应式调整 */
+@media (max-width: 768px) {
+    .floating-cloud {
+        width: 100px;
+    }
+    
+    .floating-crane {
+        width: 150px;
+    }
+}
