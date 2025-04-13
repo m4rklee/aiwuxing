@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI李时珍智能体 - "五行语宙"一站式中医智能教育网站</title>
+    <link rel="stylesheet" href="css/unified-colors.css">
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="css/ailishizhen.css">
+    <link rel="stylesheet" href="css/overlapping-cards.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+    <!-- 导航栏 -->
+    <header>
+        <div class="container">
+            <div class="logo">
+                <img src='https://placeholder.pics/svg/300x50/A08052/FFFFFF/"五行×中医"一站式智能教育网站' alt="五行×中医"一站式智能教育网站">
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="index.html"><i class="fas fa-home"></i> 首页</a></li>
+                    <li><a href="microcourses.html"><i class="fas fa-video"></i> 系列微课</a></li>
+                    <li><a href="knowledge.html"><i class="fas fa-brain"></i> 知识科普</a></li>
+                    <li><a href="games.html"><i class="fas fa-gamepad"></i> 互动游戏</a></li>
+                    <li><a href="forum.html"><i class="fas fa-comments"></i> 社区分享</a></li>
+                    <li><a href="ailishizhen.html" class="active"><i class="fas fa-user-md"></i> AI李时珍</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- 主要内容 -->
+    <section class="ai-hero-section">
+        <div class="container">
+            <div class="ai-hero-content">
+                <div class="ai-hero-text">
+                    <h1>AI李时珍智能体</h1>
+                    <p>与明代医药学家李时珍对话，探索中医药文化的奥秘，接受专业的中医知识指导与考核</p>
+                    <div class="hero-buttons">
+                        <a href="#ai-chat" class="btn btn-primary">开始对话</a>
+                        <a href="#ai-features" class="btn btn-secondary">了解功能</a>
+                    </div>
+                </div>
+                <div class="ai-hero-image">
+                    <img src="pics/300px/李时珍.png" alt="李时珍肖像">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 功能介绍 -->
+    <section id="ai-features" class="section bg-light">
+        <div class="container">
+            <div class="section-header">
+                <h2>AI李时珍功能</h2>
+                <p>您的专属中医智能导师</p>
+            </div>
+            
+            <div class="features-grid stacked-cards">
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-book-medical"></i>
+                    </div>
+                    <h3>中医知识问答</h3>
+                    <p>向李时珍大师请教中医药理论、方剂配伍、药材特性等专业知识，获得权威解答。</p>
+                </div>
+                
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-history"></i>
+                    </div>
+                    <h3>历史文化探索</h3>
+                    <p>了解李时珍的生平事迹、《本草纲目》的编撰历程，感受中医药发展的历史脉络。</p>
+                </div>
+                
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-graduation-cap"></i>
+                    </div>
+                    <h3>知识考核评估</h3>
+                    <p>在对话结束后，AI李时珍会对您的学习情况进行考核，检验您对中医知识的掌握程度。</p>
+                </div>
+                
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-heartbeat"></i>
+                    </div>
+                    <h3>个性化学习建议</h3>
+                    <p>根据您的对话内容和考核结果，提供有针对性的学习建议和资源推荐。</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- AI聊天区域 -->
+    <section id="ai-chat" class="section">
+        <div class="container">
+            <div class="section-header">
+                <h2>与李时珍对话</h2>
+                <p>探索中医药文化的奥秘</p>
+            </div>
+            
+            <div class="chat-container">
+                <div class="chat-controls">
+                    <button id="theme-toggle" title="切换主题"><i class="fas fa-moon"></i></button>
+                    <button id="clear-chat" title="清空聊天"><i class="fas fa-trash-alt"></i></button>
+                </div>
+                
+                <div class="chat-header">
+                    <div class="chat-avatar">
+                        <img src="pics/300px/李时珍.png" alt="李时珍">
+                    </div>
+                    <div class="chat-title">
+                        <h3>李时珍 (1518-1593)</h3>
+                        <p>明代医学家、药物学家、《本草纲目》作者</p>
+                    </div>
+                </div>
+                
+                <div class="chat-messages" id="chat-messages">
+                    <div class="message ai-message">
+                        <div class="message-avatar">
+                            <img src="pics/300px/李时珍.png" alt="李时珍">
+                        </div>
+                        <div class="message-content">
+                            <div class="message-timestamp">初始消息</div>
+                            <div class="message-text">
+                                <p>吾乃李时珍，字东璧，号濒湖。欢迎你前来求学问道！作为你的中医老师，我愿与你分享医道精华，解答疑惑。你有何问题，尽管道来。</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="chat-input">
+                    <textarea id="user-input" placeholder="请输入您的问题..." rows="2"></textarea>
+                    <button id="send-button" class="btn btn-primary"><i class="fas fa-paper-plane"></i></button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 使用指南 -->
+    <section class="section bg-light">
+        <div class="container">
+            <div class="section-header">
+                <h2>使用指南</h2>
+                <p>如何与AI李时珍进行有效对话</p>
+            </div>
+            
+            <div class="guide-container">
+                <div class="guide-item">
+                    <div class="guide-icon">
+                        <i class="fas fa-question-circle"></i>
+                    </div>
+                    <div class="guide-content">
+                        <h3>提问技巧</h3>
+                        <p>清晰表达您的问题，可以询问中医基础理论、药材特性、方剂配伍、李时珍生平等内容。</p>
+                    </div>
+                </div>
+                
+                <div class="guide-item">
+                    <div class="guide-icon">
+                        <i class="fas fa-comments"></i>
+                    </div>
+                    <div class="guide-content">
+                        <h3>持续对话</h3>
+                        <p>与AI李时珍进行连续对话，深入探讨感兴趣的话题，AI会记住对话上下文。</p>
+                    </div>
+                </div>
+                
+                <div class="guide-item">
+                    <div class="guide-icon">
+                        <i class="fas fa-clipboard-check"></i>
+                    </div>
+                    <div class="guide-content">
+                        <h3>知识考核</h3>
+                        <p>在一系列对话结束后，AI李时珍会对您进行知识考核，检验您的学习成果。</p>
+                    </div>
+                </div>
+                
+                <div class="guide-item">
+                    <div class="guide-icon">
+                        <i class="fas fa-lightbulb"></i>
+                    </div>
+                    <div class="guide-content">
+                        <h3>学习建议</h3>
+                        <p>根据您的对话内容和考核结果，AI李时珍会提供个性化的学习建议。</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 页脚 -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-logo">
+                    <img src="pics/logo/logo.png" alt="五行×中医一站式智能教育网站">
+                    <p>传承中医文化，弘扬国粹精华</p>
+                </div>
+                <div class="footer-links">
+                    <div class="footer-links-column">
+                        <h3>快速链接</h3>
+                        <ul>
+                            <li><a href="index.html">首页</a></li>
+                            <li><a href="microcourses.html">系列微课</a></li>
+                            <li><a href="knowledge.html">知识科普</a></li>
+                            <li><a href="games.html">互动游戏</a></li>
+                            <li><a href="forum.html">社区分享</a></li>
+                            <li><a href="ailishizhen.html">AI李时珍</a></li>
+                        </ul>
+                    </div>
+                    <div class="footer-links-column">
+                        <h3>联系我们</h3>
+                        <ul>
+                            <li><i class="fas fa-envelope"></i> contact@tcm-edu.com</li>
+                            <li><i class="fas fa-phone"></i> 400-123-4567</li>
+                            <li><i class="fas fa-map-marker-alt"></i> 北京市海淀区中关村</li>
+                        </ul>
+                    </div>
+                    <div class="footer-links-column">
+                        <h3>关注我们</h3>
+                        <div class="social-links">
+                            <a href="#"><i class="fab fa-weixin"></i></a>
+                            <a href="#"><i class="fab fa-weibo"></i></a>
+                            <a href="#"><i class="fab fa-qq"></i></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 “五行语宙”一站式中医智能教育网站. 保留所有权利.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/ailishizhen.js"></script>
+    <script src="js/overlapping-cards.js"></script>
+</body>
+</html>
