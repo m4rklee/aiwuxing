@@ -7,7 +7,7 @@
     <link rel="stylesheet" href="css/unified-colors.css">
     <link rel="stylesheet" href="css/styles.css">
     <link rel="stylesheet" href="css/ailishizhen.css">
-    <link rel="stylesheet" href="css/overlapping-cards.css">
+    <!-- <link rel="stylesheet" href="css/overlapping-cards.css"> -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 </head>
 <body>
@@ -15,7 +15,7 @@
     <header>
         <div class="container">
             <div class="logo">
-                <img src='https://placeholder.pics/svg/300x50/A08052/FFFFFF/"五行×中医"一站式智能教育网站' alt="五行×中医"一站式智能教育网站">
+                <img src="pics/logo/logo.png" alt="五行×中医一站式智能教育网站">
             </div>
             <nav>
                 <ul>
@@ -23,8 +23,8 @@
                     <li><a href="microcourses.html"><i class="fas fa-video"></i> 系列微课</a></li>
                     <li><a href="knowledge.html"><i class="fas fa-brain"></i> 知识科普</a></li>
                     <li><a href="games.html"><i class="fas fa-gamepad"></i> 互动游戏</a></li>
+                    <li><a href="ailishizhen.html"class="active"><i class="fas fa-user-md"></i> AI李时珍</a></li>
                     <li><a href="forum.html"><i class="fas fa-comments"></i> 社区分享</a></li>
-                    <li><a href="ailishizhen.html" class="active"><i class="fas fa-user-md"></i> AI李时珍</a></li>
                 </ul>
             </nav>
         </div>
@@ -62,36 +62,45 @@
                     <div class="feature-icon">
                         <i class="fas fa-book-medical"></i>
                     </div>
-                    <h3>中医知识问答</h3>
-                    <p>向李时珍大师请教中医药理论、方剂配伍、药材特性等专业知识，获得权威解答。</p>
+                    <div class="feature-content">
+                        <h3>中医知识问答</h3>
+                        <p>向李时珍大师请教中医药理论、方剂配伍、药材特性等专业知识，获得权威解答。</p>
+                    </div>
                 </div>
                 
                 <div class="feature-card">
                     <div class="feature-icon">
                         <i class="fas fa-history"></i>
                     </div>
-                    <h3>历史文化探索</h3>
-                    <p>了解李时珍的生平事迹、《本草纲目》的编撰历程，感受中医药发展的历史脉络。</p>
+                    <div class='feature-content'>
+                        <h3>历史文化探索</h3>
+                        <p>了解李时珍的生平事迹、《本草纲目》的编撰历程，感受中医药发展的历史脉络。</p>
+                    </div>
                 </div>
                 
                 <div class="feature-card">
                     <div class="feature-icon">
                         <i class="fas fa-graduation-cap"></i>
                     </div>
-                    <h3>知识考核评估</h3>
-                    <p>在对话结束后，AI李时珍会对您的学习情况进行考核，检验您对中医知识的掌握程度。</p>
+                    <div class="feature-content">
+                        <h3>知识考核评估</h3>
+                        <p>在对话结束后，AI李时珍会对您的学习情况进行考核，检验您对中医知识的掌握程度。</p>
+                    </div>
                 </div>
                 
                 <div class="feature-card">
                     <div class="feature-icon">
                         <i class="fas fa-heartbeat"></i>
                     </div>
-                    <h3>个性化学习建议</h3>
-                    <p>根据您的对话内容和考核结果，提供有针对性的学习建议和资源推荐。</p>
+                    <div class="feature-content">
+                        <h3>个性化学习建议</h3>
+                        <p>根据您的对话内容和考核结果，提供有针对性的学习建议和资源推荐。</p>
+                    </div>
                 </div>
             </div>
         </div>
     </section>
+
 
     <!-- AI聊天区域 -->
     <section id="ai-chat" class="section">
@@ -133,11 +142,20 @@
                 
                 <div class="chat-input">
                     <textarea id="user-input" placeholder="请输入您的问题..." rows="2"></textarea>
-                    <button id="send-button" class="btn btn-primary"><i class="fas fa-paper-plane"></i></button>
+                    <!-- <button id="wordcloud-button" class="btn btn-secondary" title="生成词云">
+                        <i class="fas fa-cloud"></i>
+                    </button> -->
+                    <button id="send-button" class="btn btn-primary">
+                        <i class="fas fa-paper-plane"></i>
+                    </button>
                 </div>
             </div>
         </div>
     </section>
+    
+
+    <!-- 添加词云库 -->
+    <!-- <script src="https://cdn.jsdelivr.net/npm/wordcloud@1.2.2/src/wordcloud2.min.js"></script> -->
 
     <!-- 使用指南 -->
     <section class="section bg-light">
@@ -200,18 +218,25 @@
                     <p>传承中医文化，弘扬国粹精华</p>
                 </div>
                 <div class="footer-links">
-                    <div class="footer-links-column">
-                        <h3>快速链接</h3>
-                        <ul>
-                            <li><a href="index.html">首页</a></li>
-                            <li><a href="microcourses.html">系列微课</a></li>
-                            <li><a href="knowledge.html">知识科普</a></li>
-                            <li><a href="games.html">互动游戏</a></li>
-                            <li><a href="forum.html">社区分享</a></li>
-                            <li><a href="ailishizhen.html">AI李时珍</a></li>
-                        </ul>
-                    </div>
-                    <div class="footer-links-column">
+                    <h4>快速链接</h4>
+                    <ul>
+                        <li><a href="index.html">首页</a></li>
+                        <li><a href="microcourses.html">系列微课</a></li>
+                        <li><a href="knowledge.html">知识科普</a></li>
+                        <li><a href="games.html">互动游戏</a></li>
+                        <li><a href="forum.html">社区分享</a></li>
+                    </ul>
+                </div>
+                <div class="footer-links">
+                    <h4>学习资源</h4>
+                    <ul>
+                        <li><a href="knowledge.html#meridians">人体五脏</a></li>
+                        <li><a href="knowledge.html#diagnosis">诊疗方法</a></li>
+                        <li><a href="knowledge.html#masters">名医名篇</a></li>
+                        <li><a href="knowledge.html#knowledge">五行知识</a></li>
+                    </ul>
+                </div>
+                    <!-- <div class="footer-links-column">
                         <h3>联系我们</h3>
                         <ul>
                             <li><i class="fas fa-envelope"></i> contact@tcm-edu.com</li>
@@ -226,7 +251,7 @@
                             <a href="#"><i class="fab fa-weibo"></i></a>
                             <a href="#"><i class="fab fa-qq"></i></a>
                         </div>
-                    </div>
+                    </div> -->
                 </div>
             </div>
             <div class="footer-bottom">
@@ -236,6 +261,6 @@
     </footer>
 
     <script src="js/ailishizhen.js"></script>
-    <script src="js/overlapping-cards.js"></script>
+    <!-- <script src="js/overlapping-cards.js"></script> -->
 </body>
 </html>
