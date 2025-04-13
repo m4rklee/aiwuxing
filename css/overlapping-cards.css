@@ -1,0 +1,196 @@
+/* 重叠卡片效果 */
+
+/* 卡片容器 */
+.overlapping-cards-container {
+    position: relative;
+    width: 100%;
+    height: 400px;
+    margin: 50px 0;
+    perspective: 1000px;
+}
+
+/* 基础卡片样式 */
+.overlapping-card {
+    position: absolute;
+    width: 280px;
+    height: 350px;
+    background-color: var(--color-background);
+    border-radius: 15px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    transition: all 0.5s ease;
+    overflow: hidden;
+    cursor: pointer;
+    transform-origin: center bottom;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+/* 卡片内容 */
+.card-content {
+    padding: 20px;
+    text-align: center;
+    opacity: 0.7;
+    transition: opacity 0.3s ease;
+}
+
+.card-image {
+    width: 100%;
+    height: 180px;
+    overflow: hidden;
+    border-radius: 10px 10px 0 0;
+}
+
+.card-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.5s ease;
+}
+
+.card-title {
+    margin: 15px 0 10px;
+    color: var(--color-primary);
+    font-size: 1.2rem;
+}
+
+.card-description {
+    font-size: 0.9rem;
+    color: var(--color-text-light);
+    margin-bottom: 15px;
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+}
+
+.card-button {
+    display: inline-block;
+    padding: 8px 15px;
+    background-color: var(--color-primary);
+    color: white;
+    border-radius: 5px;
+    font-size: 0.9rem;
+    transition: all 0.3s ease;
+    opacity: 0;
+    transform: translateY(20px);
+}
+
+/* 卡片位置 - 5张卡片示例 */
+.overlapping-card:nth-child(1) {
+    z-index: 5;
+    transform: translateX(-50%) rotate(-5deg) translateY(0);
+}
+
+.overlapping-card:nth-child(2) {
+    z-index: 4;
+    transform: translateX(-50%) rotate(-2deg) translateY(20px);
+}
+
+.overlapping-card:nth-child(3) {
+    z-index: 3;
+    transform: translateX(-50%) rotate(0deg) translateY(40px);
+}
+
+.overlapping-card:nth-child(4) {
+    z-index: 2;
+    transform: translateX(-50%) rotate(2deg) translateY(60px);
+}
+
+.overlapping-card:nth-child(5) {
+    z-index: 1;
+    transform: translateX(-50%) rotate(5deg) translateY(80px);
+}
+
+/* 悬停效果 */
+.overlapping-card:hover {
+    transform: translateX(-50%) rotate(0deg) translateY(-10px);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
+    z-index: 10;
+}
+
+.overlapping-card:hover .card-content {
+    opacity: 1;
+}
+
+.overlapping-card:hover .card-image img {
+    transform: scale(1.1);
+}
+
+.overlapping-card:hover .card-button {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* 点击效果 */
+.overlapping-card.active {
+    transform: translateX(-50%) scale(1.1) translateY(-30px);
+    z-index: 20;
+    box-shadow: 0 30px 50px rgba(0, 0, 0, 0.3);
+}
+
+/* 响应式调整 */
+@media (max-width: 768px) {
+    .overlapping-cards-container {
+        height: 450px;
+    }
+    
+    .overlapping-card {
+        width: 240px;
+        height: 320px;
+    }
+    
+    .overlapping-card:nth-child(n) {
+        transform: translateX(-50%) rotate(0) translateY(calc(20px * (n - 1)));
+    }
+    
+    .overlapping-card:hover,
+    .overlapping-card.active {
+        transform: translateX(-50%) scale(1.05) translateY(-20px);
+    }
+}
+
+/* 适用于现有卡片类的增强样式 */
+.feature-card,
+.course-card,
+.game-card {
+    transition: all 0.4s ease;
+    position: relative;
+    overflow: hidden;
+    transform-origin: center bottom;
+}
+
+.feature-card:hover,
+.course-card:hover,
+.game-card:hover {
+    transform: translateY(-15px) scale(1.03);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+    z-index: 5;
+}
+
+/* 卡片堆叠效果 */
+.stacked-cards {
+    position: relative;
+    max-width: 1000px;
+    margin: 0 auto;
+}
+
+.stacked-cards .feature-card,
+.stacked-cards .course-card,
+.stacked-cards .game-card {
+    margin-top: -40px;
+    border-radius: 15px;
+}
+
+.stacked-cards .feature-card:first-child,
+.stacked-cards .course-card:first-child,
+.stacked-cards .game-card:first-child {
+    margin-top: 0;
+}
+
+.stacked-cards .feature-card:hover,
+.stacked-cards .course-card:hover,
+.stacked-cards .game-card:hover {
+    transform: translateY(-20px) scale(1.02);
+    z-index: 10;
+}

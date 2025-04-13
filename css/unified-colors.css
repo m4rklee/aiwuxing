@@ -1,0 +1,40 @@
+/* 统一颜色方案 */
+:root {
+    /* 主色调 - 棕色系 */
+    --color-primary: #a08052;
+    --color-secondary: #aaa973;
+    --color-accent: #c58770;
+    --color-light: #e8d5b4;
+    --color-highlight: #f0c756;
+    
+    /* 五行元素配色方案 */
+    --color-wood: #4CAF50; /* 木-绿色 */
+    --color-fire: #FF5722; /* 火-红色 */
+    --color-earth: #FFC107; /* 土-黄色 */
+    --color-metal: #9E9E9E; /* 金-灰色 */
+    --color-water: #2196F3; /* 水-蓝色 */
+    
+    /* 文本和背景 */
+    --color-text: #333;
+    --color-text-light: #666;
+    --color-background: #fff;
+    --color-background-light: #f9f6f0;
+    
+    /* 其他 */
+    --transition: all 0.3s ease;
+    --shadow-light: 0 8px 32px rgba(160, 128, 82, 0.15);
+    --shadow-dark: 0 8px 32px rgba(0, 0, 0, 0.2);
+    --glass-background: rgba(255, 255, 255, 0.7);
+    --glass-border: 1px solid rgba(255, 255, 255, 0.3);
+    --glass-blur: blur(10px);
+}
+
+/* 暗色主题变量 */
+body.dark-theme {
+    --color-text: #e0e0e0;
+    --color-text-light: #aaa;
+    --color-background: #1a1a1a;
+    --color-background-light: #2a2a2a;
+    --glass-background: rgba(40, 40, 40, 0.7);
+    --glass-border: 1px solid rgba(80, 80, 80, 0.3);
+}
