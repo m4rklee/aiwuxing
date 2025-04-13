@@ -98,3 +98,6 @@ function createOverlappingCardsContainers() {
         cards.forEach(card => {
             // 获取卡片中的链接
             const cardButton = card.querySelector('.card-button')
+        })
+    })
+}

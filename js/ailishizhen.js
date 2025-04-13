@@ -1,6 +1,5 @@
-// AI李时珍智能体交互脚本
+// ailishizhen.js 完整代码
 document.addEventListener('DOMContentLoaded', function() {
-    // DOM元素
     const chatMessages = document.getElementById('chat-messages');
     const userInput = document.getElementById('user-input');
     const sendButton = document.getElementById('send-button');
@@ -8,7 +7,7 @@ document.addEventListener('DOMContentLoaded', function() {
     const clearButton = document.getElementById('clear-chat');
     const themeToggle = document.getElementById('theme-toggle');
 
-    // 消息历史记录 - 用于保持对话上下文
+    // 消息历史记录
     let messageHistory = [
         {
             role: "system",
@@ -20,129 +19,229 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     ];
 
-    // 初始化 - 显示欢迎消息并添加动画效果
-    const initialMessage = document.querySelector('.ai-message');
-    if (initialMessage) {
-        setTimeout(() => {
-            initialMessage.classList.add('visible');
-        }, 300);
-    }
+    // 词云实例
+    // 获取词云按钮
+    // const wordcloudButton = document.getElementById('wordcloud-button');
 
-    // 加载历史记录
+    // 初始化
+    const initialMessage = document.querySelector('.ai-message');
+    initialMessage && setTimeout(() => initialMessage.classList.add('visible'), 300);
     loadMessageHistory();
 
-    // 发送消息到AI（支持流式响应）
     async function sendMessageToAI(userMessage) {
         try {
-            // 显示加载状态
             const loadingMessage = createLoadingMessage();
             chatMessages.appendChild(loadingMessage);
             chatMessages.scrollTop = chatMessages.scrollHeight;
 
-            // 准备发送到API的消息
-            messageHistory.push({
-                role: "user",
-                content: userMessage
-            });
+            messageHistory.push({ role: "user", content: userMessage });
 
-            // 使用流式API
-            const response = await fetch('/api/ailishizhen/stream', {
+            // 直接调用DeepSeek流式API
+            const response = await fetch("https://api.siliconflow.cn/v1/chat/completions", {
                 method: 'POST',
                 headers: {
-                    'Content-Type': 'application/json'
+                    'Content-Type': 'application/json',
+                    'Authorization': 'Bearer sk-auaopkdytwqxmfmaevxuikiwfefsjfsxwivkysvxjkqybevq' // 替换为真实API密钥
                 },
-                body: JSON.stringify({ messages: messageHistory })
+                body: JSON.stringify({
+                    model: "Pro/deepseek-ai/DeepSeek-V3",
+                    messages: messageHistory,
+                    stream: true
+                })
             });
-            
 
-            if (!response.ok) {
-                throw new Error('API请求失败');
-            }
+            if (!response.ok) throw new Error('API请求失败');
 
-            // 移除加载消息
             chatMessages.removeChild(loadingMessage);
-            
-            // 创建AI消息容器（用于流式显示）
             const aiMessageDiv = createEmptyAIMessage();
             chatMessages.appendChild(aiMessageDiv);
             const aiMessageContent = aiMessageDiv.querySelector('.message-text');
-            
-            // 添加淡入动画
-            setTimeout(() => {
-                aiMessageDiv.classList.add('visible');
-            }, 10);
-            
-            // 完整的AI响应内容
+            aiMessageDiv.classList.add('visible');
+
             let fullAIResponse = '';
-            
-            // 处理流式响应
             const reader = response.body.getReader();
             const decoder = new TextDecoder("utf-8");
-            
-            // 使用ReadableStream API处理流数据
-            try {
-                while (true) {
-                    const { done, value } = await reader.read();
-                    if (done) break;
-                    
-                    const chunk = decoder.decode(value, { stream: true });
-                    const lines = chunk.split('\n').filter(line => line.trim() !== '');
-                    
-                    for (const line of lines) {
-                        if (line.startsWith('data: ')) {
-                            const data = line.slice(6);
-                            if (data === '[DONE]') {
-                                // 流结束
-                                break;
-                            } else {
-                                try {
-                                    const parsed = JSON.parse(data);
-                                    if (parsed.content) {
-                                        // 累加内容
-                                        fullAIResponse += parsed.content;
-                                        
-                                        // 更新显示
-                                        updateAIMessageContent(aiMessageContent, fullAIResponse);
-                                        
-                                        // 滚动到底部
-                                        chatMessages.scrollTop = chatMessages.scrollHeight;
-                                    }
-                                } catch (e) {
-                                    console.error('解析流数据错误:', e);
-                                }
+            let buffer = '';
+
+            while (true) {
+                const { done, value } = await reader.read();
+                if (done) break;
+
+                buffer += decoder.decode(value);
+                while (buffer.indexOf('\n') >= 0) {
+                    const lineEnd = buffer.indexOf('\n');
+                    const line = buffer.slice(0, lineEnd);
+                    buffer = buffer.slice(lineEnd + 1);
+
+                    if (line.startsWith('data: ')) {
+                        const data = line.slice(6);
+                        if (data === '[DONE]') break;
+
+                        try {
+                            const parsed = JSON.parse(data);
+                            if (parsed.choices[0].delta?.content) {
+                                fullAIResponse += parsed.choices[0].delta.content;
+                                updateAIMessageContent(aiMessageContent, fullAIResponse);
+                                chatMessages.scrollTop = chatMessages.scrollHeight;
                             }
+                        } catch (e) {
+                            console.error('解析错误:', e);
                         }
                     }
                 }
-                
-                // 流处理完成，添加到历史记录
-                messageHistory.push({
-                    role: "assistant",
-                    content: fullAIResponse
-                });
-                
-                // 保存对话历史到本地存储
-                saveMessageHistory();
-                
-                // 添加药材背景动画效果
-                addHerbAnimation();
-                
-            } catch (error) {
-                console.error('处理流数据错误:', error);
-                displayErrorMessage('处理AI响应时出错，请稍后再试。');
             }
+
+            messageHistory.push({ role: "assistant", content: fullAIResponse });
+            saveMessageHistory();
+            addHerbAnimation();
 
         } catch (error) {
             console.error('发送消息失败:', error);
-            // 移除加载消息并显示错误
-            const loadingElement = document.querySelector('.loading-message');
-            if (loadingElement) {
-                chatMessages.removeChild(loadingElement);
-            }
-            displayErrorMessage('与AI李时珍通信失败，请稍后再试。');
+            document.querySelector('.loading-message')?.remove();
+            displayErrorMessage('通信失败，请稍后再试。');
         }
     }
 
+    // // 词云生成函数优化
+    // async function generateWordCloud() {
+    //     try {
+    //         // 显示加载状态
+    //         wordcloudButton.classList.add('wordcloud-loading');
+            
+    //         // 延迟确保动画显示
+    //         await new Promise(resolve => setTimeout(resolve, 50));
+
+    //         // 分析对话内容
+    //         const allText = messageHistory
+    //             .filter(msg => !['system'].includes(msg.role))
+    //             .map(msg => msg.content)
+    //             .join(' ');
+    //         console.log(allText)
+    //         // 使用更准确的中文分词
+    //         const words = allText.match(/[\u4e00-\u9fa5]{2,}/g) || [];
+            
+    //         if (words.length < 10) {
+    //             displayErrorMessage('至少需要10个中文字符才能生成词云');
+    //             return;
+    //         }
+
+    //         // 统计词频（过滤常见虚词）
+    //         const stopWords = ['然后', '所以', '但是', '这个', '那个'];
+    //         const wordCount = words.reduce((acc, word) => {
+    //             if (!stopWords.includes(word)) {
+    //                 acc[word] = (acc[word] || 0) + 1;
+    //             }
+    //             return acc;
+    //         }, {});
+
+    //         // 生成词云数据
+    //         const wordList = Object.entries(wordCount)
+    //             .sort((a, b) => b[1] - a[1])
+    //             .slice(0, 50);
+
+    //         // 渲染词云
+    //         const container = document.getElementById('wordcloud-container');
+    //         container.innerHTML = '';
+            
+    //         WordCloud(container, {
+    //             list: wordList,
+    //             gridSize: Math.round(16 * (container.offsetWidth / 500)),
+    //             weightFactor: size => Math.pow(size, 1.5) * 30,
+    //             fontFamily: 'Microsoft YaHei, SimSun, serif',
+    //             color: (word, weight) => {
+    //                 const hue = Math.floor(Math.random() * 360);
+    //                 return `hsl(${hue}, 70%, 50%)`;
+    //             },
+    //             rotateRatio: 0.5,
+    //             backgroundColor: getComputedStyle(document.body).backgroundColor,
+    //             hover: window.innerWidth > 768 ? showWordTooltip : null,
+    //             click: word => {
+    //                 const modal = document.createElement('div');
+    //                 modal.style = `
+    //                     position: fixed;
+    //                     top: 50%;
+    //                     left: 50%;
+    //                     transform: translate(-50%, -50%);
+    //                     background: white;
+    //                     padding: 20px;
+    //                     border-radius: 8px;
+    //                     box-shadow: 0 0 20px rgba(0,0,0,0.2);
+    //                     z-index: 1000;
+    //                 `;
+    //                 modal.innerHTML = `
+    //                     <h3>关键词分析：${word[0]}</h3>
+    //                     <p>出现次数：${word[1]}</p>
+    //                     <button onclick="this.parentElement.remove()">关闭</button>
+    //                 `;
+    //                 document.body.appendChild(modal);
+    //             }
+    //         });
+
+    //     } catch (error) {
+    //         console.error('生成词云失败:', error);
+    //         displayErrorMessage('词云生成失败，请重试');
+    //     } finally {
+    //         wordcloudButton.classList.remove('wordcloud-loading');
+    //     }
+    // }
+
+    // // 词云提示工具
+    // function showWordTooltip(item, dimension) {
+    //     if (!dimension) return;
+        
+    //     const tooltip = document.createElement('div');
+    //     tooltip.className = 'wordcloud-tooltip';
+    //     tooltip.style.cssText = `
+    //         left: ${dimension.x}px;
+    //         top: ${dimension.y}px;
+    //     `;
+    //     tooltip.innerHTML = `
+    //         <strong>${item[0]}</strong><br>
+    //         出现次数：${item[1]}
+    //     `;
+        
+    //     document.body.appendChild(tooltip);
+    //     setTimeout(() => tooltip.remove(), 2000);
+    // }
+
+    // 绑定词云按钮事件
+    // wordcloudButton.addEventListener('click', () => {
+    //     if (messageHistory.length <= 2) {
+    //         displayErrorMessage('请先进行对话再生成词云');
+    //         return;
+    //     }
+    //     generateWordCloud();
+    // });
+
+    function saveMessageHistory() {
+        localStorage.setItem('ailishizhen_history', JSON.stringify(messageHistory));
+        // setTimeout(generateWordCloud, 300);
+    }
+
+    function loadMessageHistory() {
+        const saved = localStorage.getItem('ailishizhen_history');
+        if (saved) {
+            try {
+                const history = JSON.parse(saved);
+                messageHistory = [
+                    history[0], 
+                    ...history.slice(Math.max(1, history.length - 20))
+                ];
+                
+                chatMessages.innerHTML = '';
+                messageHistory.slice(1).forEach(msg => {
+                    displayMessage(msg.content, msg.role === 'assistant' ? 'ai' : 'user');
+                });
+                // setTimeout(generateWordCloud, 500);
+            } catch (e) {
+                console.error('加载历史失败:', e);
+                localStorage.removeItem('ailishizhen_history');
+            }
+        }
+    }
+
+    // 保持原有辅助函数不变（displayMessage、highlightTCMTerms等）
+    // ...
     // 创建并显示消息
     function displayMessage(message, sender) {
         const messageDiv = document.createElement('div');
@@ -378,306 +477,48 @@ document.addEventListener('DOMContentLoaded', function() {
         }, 10);
     }
 
-    // 保存消息历史到本地存储
-    function saveMessageHistory() {
-        localStorage.setItem('ailishizhen_history', JSON.stringify(messageHistory));
-    }
-
-    // 加载消息历史
-    function loadMessageHistory() {
-        const savedHistory = localStorage.getItem('ailishizhen_history');
-        if (savedHistory) {
-            try {
-                const parsedHistory = JSON.parse(savedHistory);
-                // 只保留系统消息和最近的20条对话
-                if (parsedHistory.length > 2) {
-                    messageHistory = [
-                        parsedHistory[0], // 系统消息
-                        ...parsedHistory.slice(Math.max(1, parsedHistory.length - 20)) // 最近的对话
-                    ];
-                    
-                    // 显示历史消息
-                    chatMessages.innerHTML = ''; // 清空现有消息
-                    messageHistory.forEach((msg, index) => {
-                        if (index > 0) { // 跳过系统消息
-                            if (msg.role === 'assistant') {
-                                displayMessage(msg.content, 'ai');
-                            } else if (msg.role === 'user') {
-                                displayMessage(msg.content, 'user');
-                            }
-                        }
-                    });
-                }
-            } catch (e) {
-                console.error('加载历史记录失败:', e);
-                localStorage.removeItem('ailishizhen_history');
-            }
-        }
-    }
-
-    // 清空聊天历史
-    function clearChat() {
-        // 保留系统消息和初始欢迎消息
-        messageHistory = messageHistory.slice(0, 2);
-        
-        // 清空聊天界面
-        chatMessages.innerHTML = '';
-        
-        // 显示初始欢迎消息
-        displayMessage(messageHistory[1].content, 'ai');
-        
-        // 更新本地存储
-        saveMessageHistory();
-        
-        // 显示清空成功提示
-        const successDiv = document.createElement('div');
-        successDiv.className = 'message system-message success-message';
-        successDiv.innerHTML = '<div class="message-content"><div class="message-text"><p>对话已清空</p></div></div>';
-        chatMessages.appendChild(successDiv);
-        
-        setTimeout(() => {
-            successDiv.classList.add('visible');
-        }, 10);
-        
-        setTimeout(() => {
-            chatMessages.removeChild(successDiv);
-        }, 3000);
-    }
-
-    // 切换主题
-    function toggleTheme() {
-        document.body.classList.toggle('dark-theme');
-        const isDarkTheme = document.body.classList.contains('dark-theme');
-        localStorage.setItem('ailishizhen_dark_theme', isDarkTheme);
-        
-        // 更新图标
-        if (themeToggle) {
-            themeToggle.innerHTML = isDarkTheme ? 
-                '<i class="fas fa-sun"></i>' : 
-                '<i class="fas fa-moon"></i>';
-        }
-    }
-
-    // 加载主题设置
-    function loadThemePreference() {
-        const isDarkTheme = localStorage.getItem('ailishizhen_dark_theme') === 'true';
-        if (isDarkTheme) {
-            document.body.classList.add('dark-theme');
-            if (themeToggle) {
-                themeToggle.innerHTML = '<i class="fas fa-sun"></i>';
-            }
-        }
-    }
-
     // 初始化主题
-    loadThemePreference();
+    function loadThemePreference() {
+        const isDark = localStorage.getItem('ailishizhen_dark_theme') === 'true';
+        document.body.classList.toggle('dark-theme', isDark);
+        themeToggle.innerHTML = isDark ? '<i class="fas fa-sun"></i>' : '<i class="fas fa-moon"></i>';
+    }
 
-    // 处理发送按钮点击
-    sendButton.addEventListener('click', function() {
+    // 事件监听
+    sendButton.addEventListener('click', () => {
         const message = userInput.value.trim();
         if (message) {
-            // 显示用户消息
             displayMessage(message, 'user');
-            
-            // 清空输入框
             userInput.value = '';
-            
-            // 发送到AI
             sendMessageToAI(message);
         }
     });
 
-    // 处理按Enter键发送
-    userInput.addEventListener('keypress', function(e) {
+    userInput.addEventListener('keypress', e => {
         if (e.key === 'Enter' && !e.shiftKey) {
             e.preventDefault();
             sendButton.click();
         }
     });
 
-    // 处理清空聊天按钮
-    if (clearButton) {
-        clearButton.addEventListener('click', clearChat);
-    }
+    clearButton?.addEventListener('click', clearChat);
+    themeToggle?.addEventListener('click', toggleTheme);
 
-    // 处理主题切换按钮
-    if (themeToggle) {
-        themeToggle.addEventListener('click', toggleTheme);
-    }
-
-    // 自动聚焦到输入框
+    // 初始化
+    loadThemePreference();
     userInput.focus();
-
-    // 添加CSS样式
-    const style = document.createElement('style');
-    style.textContent = `
-        .loading-dots span {
-            animation: loadingDots 1.4s infinite;
-            display: inline-block;
-            opacity: 0;
-        }
-        
-        .loading-dots span:nth-child(1) {
-            animation-delay: 0s;
-        }
-        
-        .loading-dots span:nth-child(2) {
-            animation-delay: 0.2s;
-        }
-        
-        .loading-dots span:nth-child(3) {
-            animation-delay: 0.4s;
-        }
-        
-        @keyframes loadingDots {
-            0% { opacity: 0; }
-            50% { opacity: 1; }
-            100% { opacity: 0; }
-        }
-        
-        .message {
-            opacity: 0;
-            transition: opacity 0.3s ease, transform 0.3s ease;
-            transform: translateY(20px);
-        }
-        
-        .message.visible {
-            opacity: 1;
-            transform: translateY(0);
-        }
-        
-        .system-message .message-content {
-            background: rgba(255, 0, 0, 0.1);
-            border-left: 3px solid #ff5252;
-        }
-        
-        .success-message .message-content {
-            background: rgba(76, 175, 80, 0.1);
-            border-left: 3px solid #4CAF50;
-        }
-        
-        .tcm-term {
-            color: var(--color-primary);
-            font-weight: 500;
-            text-decoration: underline;
-            text-decoration-style: dotted;
-            text-decoration-thickness: 1px;
-            text-underline-offset: 3px;
-            cursor: help;
-        }
-        
-        .message-timestamp {
-            font-size: 0.7rem;
-            color: var(--color-text-light);
-            opacity: 0.7;
-            text-align: right;
-            margin-bottom: 5px;
-        }
-        
-        .floating-herb {
-            position: absolute;
-            width: 40px;
-            height: 40px;
-            background-size: cover;
-            border-radius: 50%;
-            opacity: 0.2;
-            pointer-events: none;
-            z-index: 0;
-            animation: floatHerb 10s ease-in-out forwards;
-        }
-        
-        @keyframes floatHerb {
-            0% {
-                bottom: 0;
-                transform: scale(0.5) rotate(0deg);
-                opacity: 0;
-            }
-            20% {
-                opacity: 0.2;
-            }
-            80% {
-                opacity: 0.2;
-            }
-            100% {
-                bottom: 80%;
-                transform: scale(1.5) rotate(360deg);
-                opacity: 0;
-            }
-        }
-        
-        /* 暗色主题 */
-        body.dark-theme {
-            background-color: #1a1a1a;
-            color: #e0e0e0;
-        }
-        
-        body.dark-theme .chat-container {
-            background: rgba(40, 40, 40, 0.7);
-            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
-        }
-        
-        body.dark-theme .message-content {
-            background: rgba(60, 60, 60, 0.9);
-            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
-        }
-        
-        body.dark-theme .ai-message .message-content {
-            background: rgba(100, 80, 60, 0.4);
-        }
-        
-        body.dark-theme .user-message .message-content {
-            background: rgba(60, 80, 100, 0.3);
-        }
-        
-        body.dark-theme .chat-input textarea {
-            background: rgba(60, 60, 60, 0.8);
-            color: #e0e0e0;
-        }
-        
-        body.dark-theme .message-text p {
-            color: #e0e0e0;
-        }
-        
-        body.dark-theme .tcm-term {
-            color: var(--color-highlight);
-        }
-    `;
-    document.head.appendChild(style);
 });
 
-// 后端API处理函数 - 在服务器端实现
-async function handleAILishizhenAPI(req, res) {
-    try {
-        const { messages } = req.body;
-        
-        // 调用DeepSeek API
-        const response = await fetch("https://api.deepseek.com/v1/chat/completions", {
-            method: "POST",
-            headers: {
-                "Content-Type": "application/json",
-                "Authorization": "Bearer sk-824ce9b7eb7b49c4889ba57a0284a038"
-            },
-            body: JSON.stringify({
-                model: "deepseek-chat",
-                messages: messages
-            })
-        });
-        
-        if (!response.ok) {
-            throw new Error(`API请求失败: ${response.status}`);
-        }
-        
-        const data = await response.json();
-        const aiMessage = data.choices[0].message.content;
-        
-        res.json({ message: aiMessage });
-    } catch (error) {
-        console.error('AI处理错误:', error);
-        res.status(500).json({ error: '处理请求时出错' });
-    }
+// 清除聊天功能
+function clearChat() {
+    localStorage.removeItem('ailishizhen_history');
+    location.reload();
 }
 
-// 导出API处理函数，供服务器使用
-if (typeof module !== 'undefined' && module.exports) {
-    module.exports = { handleAILishizhenAPI };
+// 主题切换
+function toggleTheme() {
+    document.body.classList.toggle('dark-theme');
+    localStorage.setItem('ailishizhen_dark_theme', document.body.classList.contains('dark-theme'));
+    setTimeout(() => document.getElementById('wordcloud-container').innerHTML = '', 300);
+    // setTimeout(generateWordCloud, 500);
 }

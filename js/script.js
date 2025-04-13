@@ -102,8 +102,7 @@ document.addEventListener('DOMContentLoaded', function () {
             meridian: '脾、肺、心经',
             effect: '大补元气，复脉固脱，补脾益肺，生津养血，安神益智',
             description: '人参为五加科植物人参的干燥根，主产于吉林、辽宁等地。人参是名贵的中药材，被誉为"百草之王"，具有极高的药用价值。',
-            usage: '内服：煎汤，3-9g；或研末，1-3g；或浸酒，或入丸、散。',
-            model: '<div class="sketchfab-embed-wrapper"> <iframe title="Ginseng" frameborder="0" allowfullscreen mozallowfullscreen="true" webkitallowfullscreen="true" allow="autoplay; fullscreen; xr-spatial-tracking" xr-spatial-tracking execution-while-out-of-viewport execution-while-not-rendered web-share src="https://sketchfab.com/models/213a2e16b77041839e91ceb63dbc2b4b/embed"> </iframe> <p style="font-size: 13px; font-weight: normal; margin: 5px; color: #4A4A4A;"> <a href="https://sketchfab.com/3d-models/ginseng-213a2e16b77041839e91ceb63dbc2b4b?utm_medium=embed&utm_campaign=share-popup&utm_content=213a2e16b77041839e91ceb63dbc2b4b" target="_blank" rel="nofollow" style="font-weight: bold; color: #1CAAD9;"> Ginseng </a> by <a href="https://sketchfab.com/Laomo01?utm_medium=embed&utm_campaign=share-popup&utm_content=213a2e16b77041839e91ceb63dbc2b4b" target="_blank" rel="nofollow" style="font-weight: bold; color: #1CAAD9;"> KaMi </a> on <a href="https://sketchfab.com?utm_medium=embed&utm_campaign=share-popup&utm_content=213a2e16b77041839e91ceb63dbc2b4b" target="_blank" rel="nofollow" style="font-weight: bold; color: #1CAAD9;">Sketchfab</a></p></div>'
+            usage: '内服：煎汤，3-9g；或研末，1-3g；或浸酒，或入丸、散。'
         },
         'astragalus': {
             name: '黄芪',
@@ -111,8 +110,7 @@ document.addEventListener('DOMContentLoaded', function () {
             meridian: '脾、肺经',
             effect: '补气固表，利水消肿，托毒排脓，生肌',
             description: '黄芪为豆科植物蒙古黄芪或膜荚黄芪的干燥根，主产于内蒙古、山西、黑龙江等地。黄芪是常用的补气药，具有增强机体免疫力的作用。',
-            usage: '内服：煎汤，9-30g；或研末；或浸酒。外用：研末撒或调敷。',
-            model: '<div class="sketchfab-embed-wrapper"> <iframe title="黄芪（ Astragalus）" frameborder="0" allowfullscreen mozallowfullscreen="true" webkitallowfullscreen="true" allow="autoplay; fullscreen; xr-spatial-tracking" xr-spatial-tracking execution-while-out-of-viewport execution-while-not-rendered web-share src="https://sketchfab.com/models/4feb5bc673774c52852d63b976d17157/embed"> </iframe> <p style="font-size: 13px; font-weight: normal; margin: 5px; color: #4A4A4A;"> <a href="https://sketchfab.com/3d-models/astragalus-4feb5bc673774c52852d63b976d17157?utm_medium=embed&utm_campaign=share-popup&utm_content=4feb5bc673774c52852d63b976d17157" target="_blank" rel="nofollow" style="font-weight: bold; color: #1CAAD9;"> 黄芪（ Astragalus） </a> by <a href="https://sketchfab.com/Mark.Q?utm_medium=embed&utm_campaign=share-popup&utm_content=4feb5bc673774c52852d63b976d17157" target="_blank" rel="nofollow" style="font-weight: bold; color: #1CAAD9;"> Mark.Q </a> on <a href="https://sketchfab.com?utm_medium=embed&utm_campaign=share-popup&utm_content=4feb5bc673774c52852d63b976d17157" target="_blank" rel="nofollow" style="font-weight: bold; color: #1CAAD9;">Sketchfab</a></p></div>'
+            usage: '内服：煎汤，9-30g；或研末；或浸酒。外用：研末撒或调敷。'
         },
         'angelica': {
             name: '当归',
@@ -120,8 +118,7 @@ document.addEventListener('DOMContentLoaded', function () {
             meridian: '心、肝、脾经',
             effect: '补血活血，调经止痛，润肠通便',
             description: '当归为伞形科植物当归的干燥根，主产于甘肃、云南、四川等地。当归是重要的补血药，被誉为"女性之友"。',
-            usage: '内服：煎汤，3-15g；或浸酒，或入丸、散。',
-            model:'<div class="sketchfab-embed-wrapper"> <iframe title="Angelica sinensis" frameborder="0" allowfullscreen mozallowfullscreen="true" webkitallowfullscreen="true" allow="autoplay; fullscreen; xr-spatial-tracking" xr-spatial-tracking execution-while-out-of-viewport execution-while-not-rendered web-share src="https://sketchfab.com/models/752de590890e409f85262684d42debbb/embed"> </iframe> <p style="font-size: 13px; font-weight: normal; margin: 5px; color: #4A4A4A;"> <a href="https://sketchfab.com/3d-models/angelica-sinensis-752de590890e409f85262684d42debbb?utm_medium=embed&utm_campaign=share-popup&utm_content=752de590890e409f85262684d42debbb" target="_blank" rel="nofollow" style="font-weight: bold; color: #1CAAD9;"> Angelica sinensis </a> by <a href="https://sketchfab.com/Laomo01?utm_medium=embed&utm_campaign=share-popup&utm_content=752de590890e409f85262684d42debbb" target="_blank" rel="nofollow" style="font-weight: bold; color: #1CAAD9;"> KaMi </a> on <a href="https://sketchfab.com?utm_medium=embed&utm_campaign=share-popup&utm_content=752de590890e409f85262684d42debbb" target="_blank" rel="nofollow" style="font-weight: bold; color: #1CAAD9;">Sketchfab</a></p></div>'
+            usage: '内服：煎汤，3-15g；或浸酒，或入丸、散。'
         },
         'licorice': {
             name: '甘草',
@@ -129,8 +126,7 @@ document.addEventListener('DOMContentLoaded', function () {
             meridian: '心、肺、脾、胃经',
             effect: '补脾益气，清热解毒，祛痰止咳，缓急止痛，调和诸药',
             description: '甘草为豆科植物甘草、胀果甘草或光果甘草的干燥根及根茎，主产于内蒙古、甘肃、新疆等地。甘草是最常用的中药之一，具有"十二经络引经药"的美誉。',
-            usage: '内服：煎汤，2-10g；或研末。',
-            model: '<div class="sketchfab-embed-wrapper"> <iframe title="Licorice_ Root_ Bundle_0218075714_texture_obj" frameborder="0" allowfullscreen mozallowfullscreen="true" webkitallowfullscreen="true" allow="autoplay; fullscreen; xr-spatial-tracking" xr-spatial-tracking execution-while-out-of-viewport execution-while-not-rendered web-share src="https://sketchfab.com/models/452d7ad88ecd48d3848bf47bb6547597/embed"> </iframe> <p style="font-size: 13px; font-weight: normal; margin: 5px; color: #4A4A4A;"> <a href="https://sketchfab.com/3d-models/licorice--root--bundle-0218075714-texture-obj-452d7ad88ecd48d3848bf47bb6547597?utm_medium=embed&utm_campaign=share-popup&utm_content=452d7ad88ecd48d3848bf47bb6547597" target="_blank" rel="nofollow" style="font-weight: bold; color: #1CAAD9;"> Licorice_ Root_ Bundle_0218075714_texture_obj </a> by <a href="https://sketchfab.com/go3452?utm_medium=embed&utm_campaign=share-popup&utm_content=452d7ad88ecd48d3848bf47bb6547597" target="_blank" rel="nofollow" style="font-weight: bold; color: #1CAAD9;"> go3452 </a> on <a href="https://sketchfab.com?utm_medium=embed&utm_campaign=share-popup&utm_content=452d7ad88ecd48d3848bf47bb6547597" target="_blank" rel="nofollow" style="font-weight: bold; color: #1CAAD9;">Sketchfab</a></p></div>'
+            usage: '内服：煎汤，2-10g；或研末。'
         },
         'cinnamon': {
             name: '肉桂',
@@ -146,8 +142,7 @@ document.addEventListener('DOMContentLoaded', function () {
             meridian: '肺、脾、胃经',
             effect: '解表散寒，温中止呕，温肺止咳，解毒',
             description: '生姜为姜科植物姜的新鲜根茎，全国大部分地区均有种植。生姜是常用的调味品，也是重要的药食两用品。',
-            usage: '内服：煎汤，3-10g；或切片，或绞汁。外用：切片敷或捣敷。',
-            model: '<div class="sketchfab-embed-wrapper"> <iframe title="Ginger Root" frameborder="0" allowfullscreen mozallowfullscreen="true" webkitallowfullscreen="true" allow="autoplay; fullscreen; xr-spatial-tracking" xr-spatial-tracking execution-while-out-of-viewport execution-while-not-rendered web-share src="https://sketchfab.com/models/14d7deb215f84f6ea2c10a9da12e60fd/embed"> </iframe> <p style="font-size: 13px; font-weight: normal; margin: 5px; color: #4A4A4A;"> <a href="https://sketchfab.com/3d-models/ginger-root-14d7deb215f84f6ea2c10a9da12e60fd?utm_medium=embed&utm_campaign=share-popup&utm_content=14d7deb215f84f6ea2c10a9da12e60fd" target="_blank" rel="nofollow" style="font-weight: bold; color: #1CAAD9;"> Ginger Root </a> by <a href="https://sketchfab.com/Papheoo?utm_medium=embed&utm_campaign=share-popup&utm_content=14d7deb215f84f6ea2c10a9da12e60fd" target="_blank" rel="nofollow" style="font-weight: bold; color: #1CAAD9;"> Paweł Somogyi </a> on <a href="https://sketchfab.com?utm_medium=embed&utm_campaign=share-popup&utm_content=14d7deb215f84f6ea2c10a9da12e60fd" target="_blank" rel="nofollow" style="font-weight: bold; color: #1CAAD9;">Sketchfab</a></p></div>'
+            usage: '内服：煎汤，3-10g；或切片，或绞汁。外用：切片敷或捣敷。'
         },
         'rhubarb': {
             name: '大黄',
@@ -155,8 +150,7 @@ document.addEventListener('DOMContentLoaded', function () {
             meridian: '脾、胃、大肠、肝、心包经',
             effect: '泻热通便，凉血解毒，逐瘀通经',
             description: '大黄为蓼科植物掌叶大黄、唐古特大黄或药用大黄的干燥根及根茎，主产于四川、甘肃、青海等地。大黄是重要的泻下药。',
-            usage: '内服：煎汤，3-15g；后下。生用泻下力强，酒制泻下力弱而活血力强。',
-
+            usage: '内服：煎汤，3-15g；后下。生用泻下力强，酒制泻下力弱而活血力强。'
         },
         'peony': {
             name: '芍药',
@@ -164,8 +158,7 @@ document.addEventListener('DOMContentLoaded', function () {
             meridian: '肝、脾经',
             effect: '养血敛阴，柔肝止痛，平抑肝阳',
             description: '芍药为毛茛科植物芍药的干燥根，主产于安徽、浙江、四川等地。芍药是常用的补血药，具有很好的镇痛作用。',
-            usage: '内服：煎汤，5-15g；或浸酒，或入丸、散。',
-            model: '<div class="sketchfab-embed-wrapper"> <iframe title="Paeonia lactiflora Karl Rosenfield Pion or Peon" frameborder="0" allowfullscreen mozallowfullscreen="true" webkitallowfullscreen="true" allow="autoplay; fullscreen; xr-spatial-tracking" xr-spatial-tracking execution-while-out-of-viewport execution-while-not-rendered web-share src="https://sketchfab.com/models/67c8b601b47d48a984b0d9298622ad3d/embed"> </iframe> <p style="font-size: 13px; font-weight: normal; margin: 5px; color: #4A4A4A;"> <a href="https://sketchfab.com/3d-models/paeonia-lactiflora-karl-rosenfield-pion-or-peon-67c8b601b47d48a984b0d9298622ad3d?utm_medium=embed&utm_campaign=share-popup&utm_content=67c8b601b47d48a984b0d9298622ad3d" target="_blank" rel="nofollow" style="font-weight: bold; color: #1CAAD9;"> Paeonia lactiflora Karl Rosenfield Pion or Peon </a> by <a href="https://sketchfab.com/3DImaginationHub?utm_medium=embed&utm_campaign=share-popup&utm_content=67c8b601b47d48a984b0d9298622ad3d" target="_blank" rel="nofollow" style="font-weight: bold; color: #1CAAD9;"> 3DImaginationHub </a> on <a href="https://sketchfab.com?utm_medium=embed&utm_campaign=share-popup&utm_content=67c8b601b47d48a984b0d9298622ad3d" target="_blank" rel="nofollow" style="font-weight: bold; color: #1CAAD9;">Sketchfab</a></p></div>'
+            usage: '内服：煎汤，5-15g；或浸酒，或入丸、散。'
         },
         'chrysanthemum': {
             name: '菊花',
@@ -173,8 +166,7 @@ document.addEventListener('DOMContentLoaded', function () {
             meridian: '肺、肝经',
             effect: '疏散风热，平抑肝阳，清热解毒，明目',
             description: '菊花为菊科植物菊的干燥头状花序，主产于安徽、浙江、河南等地。菊花是常用的清热药，也是重要的药食两用品。',
-            usage: '内服：煎汤，5-15g；或泡茶。',
-            model: '<div class="sketchfab-embed-wrapper"> <iframe title="Chrysanthemum Yellow" frameborder="0" allowfullscreen mozallowfullscreen="true" webkitallowfullscreen="true" allow="autoplay; fullscreen; xr-spatial-tracking" xr-spatial-tracking execution-while-out-of-viewport execution-while-not-rendered web-share src="https://sketchfab.com/models/4b4cfc4f95374100bb0e5894cf213721/embed"> </iframe> <p style="font-size: 13px; font-weight: normal; margin: 5px; color: #4A4A4A;"> <a href="https://sketchfab.com/3d-models/chrysanthemum-yellow-4b4cfc4f95374100bb0e5894cf213721?utm_medium=embed&utm_campaign=share-popup&utm_content=4b4cfc4f95374100bb0e5894cf213721" target="_blank" rel="nofollow" style="font-weight: bold; color: #1CAAD9;"> Chrysanthemum Yellow </a> by <a href="https://sketchfab.com/heyyodd?utm_medium=embed&utm_campaign=share-popup&utm_content=4b4cfc4f95374100bb0e5894cf213721" target="_blank" rel="nofollow" style="font-weight: bold; color: #1CAAD9;"> heyyodd </a> on <a href="https://sketchfab.com?utm_medium=embed&utm_campaign=share-popup&utm_content=4b4cfc4f95374100bb0e5894cf213721" target="_blank" rel="nofollow" style="font-weight: bold; color: #1CAAD9;">Sketchfab</a></p></div>'
+            usage: '内服：煎汤，5-15g；或泡茶。'
         },
         'wolfberry': {
             name: '枸杞',
@@ -182,7 +174,7 @@ document.addEventListener('DOMContentLoaded', function () {
             meridian: '肝、肾经',
             effect: '滋补肝肾，益精明目，养血，生津',
             description: '枸杞为茄科植物宁夏枸杞或中华枸杞的干燥成熟果实，主产于宁夏、青海、甘肃等地。枸杞是常用的滋补药，也是重要的药食两用品。',
-            usage: '内服：煎汤，6-15g；或泡茶，或浸酒，或嚼服。',
+            usage: '内服：煎汤，6-15g；或泡茶，或浸酒，或嚼服。'
         },
         'poria': {
             name: '茯苓',
@@ -190,8 +182,7 @@ document.addEventListener('DOMContentLoaded', function () {
             meridian: '心、肺、脾、肾经',
             effect: '利水渗湿，健脾，宁心安神',
             description: '茯苓为多孔菌科真菌茯苓的干燥菌核，主产于云南、安徽、湖北等地。茯苓是常用的利水渗湿药，具有很好的健脾作用。',
-            usage: '内服：煎汤，9-15g；或研末，3-9g；或入丸、散。',
-            model: '<div class="sketchfab-embed-wrapper"> <iframe title="China root / Poria (茯苓)" frameborder="0" allowfullscreen mozallowfullscreen="true" webkitallowfullscreen="true" allow="autoplay; fullscreen; xr-spatial-tracking" xr-spatial-tracking execution-while-out-of-viewport execution-while-not-rendered web-share src="https://sketchfab.com/models/cc4801a72085433b95ab33a1f071aea9/embed"> </iframe> <p style="font-size: 13px; font-weight: normal; margin: 5px; color: #4A4A4A;"> <a href="https://sketchfab.com/3d-models/china-root-poria-cc4801a72085433b95ab33a1f071aea9?utm_medium=embed&utm_campaign=share-popup&utm_content=cc4801a72085433b95ab33a1f071aea9" target="_blank" rel="nofollow" style="font-weight: bold; color: #1CAAD9;"> China root / Poria (茯苓) </a> by <a href="https://sketchfab.com/motpanda?utm_medium=embed&utm_campaign=share-popup&utm_content=cc4801a72085433b95ab33a1f071aea9" target="_blank" rel="nofollow" style="font-weight: bold; color: #1CAAD9;"> MotPanda </a> on <a href="https://sketchfab.com?utm_medium=embed&utm_campaign=share-popup&utm_content=cc4801a72085433b95ab33a1f071aea9" target="_blank" rel="nofollow" style="font-weight: bold; color: #1CAAD9;">Sketchfab</a></p></div>'
+            usage: '内服：煎汤，9-15g；或研末，3-9g；或入丸、散。'
         },
         'atractylodes': {
             name: '白术',
@@ -199,8 +190,7 @@ document.addEventListener('DOMContentLoaded', function () {
             meridian: '脾、胃经',
             effect: '健脾益气，燥湿利水，止汗，安胎',
             description: '白术为菊科植物白术或北沙参的干燥根茎，主产于浙江、安徽、湖北等地。白术是常用的健脾药，具有很好的利水作用。',
-            usage: '内服：煎汤，6-12g；或研末，或浸酒，或入丸、散。',
-            model: '<div class="sketchfab-embed-wrapper"> <iframe title="โกษฐ์เขมา" frameborder="0" allowfullscreen mozallowfullscreen="true" webkitallowfullscreen="true" allow="autoplay; fullscreen; xr-spatial-tracking" xr-spatial-tracking execution-while-out-of-viewport execution-while-not-rendered web-share src="https://sketchfab.com/models/47747bbe0cf44c3db95df95f7ed45522/embed"> </iframe> <p style="font-size: 13px; font-weight: normal; margin: 5px; color: #4A4A4A;"> <a href="https://sketchfab.com/3d-models/47747bbe0cf44c3db95df95f7ed45522?utm_medium=embed&utm_campaign=share-popup&utm_content=47747bbe0cf44c3db95df95f7ed45522" target="_blank" rel="nofollow" style="font-weight: bold; color: #1CAAD9;"> โกษฐ์เขมา </a> by <a href="https://sketchfab.com/rujirada?utm_medium=embed&utm_campaign=share-popup&utm_content=47747bbe0cf44c3db95df95f7ed45522" target="_blank" rel="nofollow" style="font-weight: bold; color: #1CAAD9;"> SCPHC </a> on <a href="https://sketchfab.com?utm_medium=embed&utm_campaign=share-popup&utm_content=47747bbe0cf44c3db95df95f7ed45522" target="_blank" rel="nofollow" style="font-weight: bold; color: #1CAAD9;">Sketchfab</a></p></div>'
+            usage: '内服：煎汤，6-12g；或研末，或浸酒，或入丸、散。'
         }
     };
 
@@ -216,7 +206,7 @@ document.addEventListener('DOMContentLoaded', function () {
             document.getElementById('herbDescription').textContent = herb.description;
             document.getElementById('herbUsage').textContent = herb.usage;
             document.getElementById('herbImage').src = `pics/herbs/${herb.name}.jpg`;
-            document.getElementById('herbModel').innerHTML = herb.model ? herb.model : '暂无';
+
             herbModal.style.display = 'block';
         });
     });
