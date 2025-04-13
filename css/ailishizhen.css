@@ -268,6 +268,7 @@ body.dark-theme .ai-hero-section::before {
 .message-avatar img {
     width: 40px;
     height: 40px;
+    max-width: 40px;
     border-radius: 50%;
     object-fit: cover;
     border: 2px solid var(--color-primary);
@@ -464,9 +465,9 @@ body.dark-theme .chat-input textarea:focus {
 }
 
 /* 使用指南样式 */
-.guide-container {
+.guide-container{
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
     gap: 30px;
     margin-top: 40px;
 }
@@ -480,7 +481,7 @@ body.dark-theme .chat-input textarea:focus {
     border: var(--glass-border);
     padding: 25px;
     transition: var(--transition);
-    display: flex;
+    text-align: center;
     gap: 20px;
 }
 
@@ -490,7 +491,7 @@ body.dark-theme .chat-input textarea:focus {
 }
 
 .guide-icon {
-    width: 60px;
+    /* width: 60px;
     height: 60px;
     background: var(--color-light);
     border-radius: 50%;
@@ -498,6 +499,17 @@ body.dark-theme .chat-input textarea:focus {
     justify-content: center;
     align-items: center;
     font-size: 1.5rem;
+    color: var(--color-primary);
+    transition: var(--transition); */
+    width: 60px;
+    height: 60px;
+    background-color: var(--color-light);
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0 auto 20px;
+    font-size: 2.5rem;
     color: var(--color-primary);
     transition: var(--transition);
 }
@@ -512,12 +524,84 @@ body.dark-theme .chat-input textarea:focus {
     color: var(--color-primary);
     margin-bottom: 10px;
     font-size: 1.3rem;
+    
 }
 
 .guide-content p {
     color: var(--color-text);
     line-height: 1.6;
+    
 }
+
+/*李时珍功能样式*/
+.features-grid{
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(490px, 1fr));
+    gap: 50px;
+    margin-top: 20px;
+}
+
+.feature-card {
+    background: var(--glass-background);
+    backdrop-filter: var(--glass-blur);
+    -webkit-backdrop-filter: var(--glass-blur);
+    border-radius: 15px;
+    box-shadow: var(--shadow-light);
+    border: var(--glass-border);
+    padding: 25px;
+    transition: var(--transition);
+    text-align: center;
+    gap: 20px;
+}
+
+.feature-card:hover {
+    transform: translateY(-5px);
+    box-shadow: var(--shadow-dark);
+}
+
+.feature-icon {
+    /* width: 60px;
+    height: 60px;
+    background: var(--color-light);
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 1.5rem;
+    color: var(--color-primary);
+    transition: var(--transition); */
+    width: 60px;
+    height: 60px;
+    background-color: var(--color-light);
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0 auto 20px;
+    font-size: 2.5rem;
+    color: var(--color-primary);
+    transition: var(--transition);
+}
+
+.feature-card:hover .feature-icon {
+    transform: rotate(15deg);
+    background: var(--color-primary);
+    color: white;
+}
+
+.feature-card h3 {
+    color: var(--color-primary);
+    margin-bottom: 10px;
+    font-size: 1.3rem;
+    
+}
+
+.feature-card p {
+    color: var(--color-text);
+    line-height: 1.6;
+    
+}
+
 
 /* 响应式样式 */
 @media (max-width: 992px) {
