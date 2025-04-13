@@ -8,19 +8,29 @@
     <link rel="stylesheet" href="css/styles.css">
     <link rel="stylesheet" href="css/homepage.css">
     <link rel="stylesheet" href="css/overlapping-cards.css">
+    <link rel="stylesheet" href="css/floating-elements.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 </head>
 <body>
+    <!-- 浮动祥云和仙鹤元素 -->
+    <div class="floating-elements">
+        <img src="pics/sliders/1200x500.svg" class="cloud" alt="祥云">
+        <img src="pics/网页图片素材/祥云1号.svg" alt="祥云" class="floating-cloud cloud-1">
+        <img src="pics/网页图片素材/祥云2号.svg" alt="祥云" class="floating-cloud cloud-2">
+        <img src="pics/网页图片素材/祥云3号.svg" alt="祥云" class="floating-cloud cloud-3">
+        <img src="pics/网页图片素材/祥云仙鹤.svg" alt="仙鹤" class="floating-crane">
+    </div>
+    
     <!-- 导航栏 -->
     <header>
         <div class="container">
             <div class="logo">
-                <img src="pics/logo/logo.png" alt="五行×中医一站式智能教育网站">
+                <img src='pics/tittle/1.svg' alt="五行×中医一站式智能教育网站">
             </div>
             <nav>
                 <ul>
-                    <li><a href="index.html" class="active"><i class="fas fa-home"></i> 首页</a></li>
-                    <li><a href="microcourses.html"><i class="fas fa-video"></i> 系列微课</a></li>
+                    <li><a href="index.html"><i class="fas fa-home"></i> 首页</a></li>
+                    <li><a href="microcourses.html" class="active"><i class="fas fa-video"></i> 系列微课</a></li>
                     <li><a href="knowledge.html"><i class="fas fa-brain"></i> 知识科普</a></li>
                     <li><a href="games.html"><i class="fas fa-gamepad"></i> 互动游戏</a></li>
                     <li><a href="ailishizhen.html"><i class="fas fa-user-md"></i> AI李时珍</a></li>
@@ -34,7 +44,7 @@
     <section id="hero" class="hero-section">
         <div class="slider">
             <div class="slide active">
-                <img src="pics/sliders/slider0.jpg" alt="中医文化传承">
+                <img src="pics\网页图片素材\导航页1.svg" alt="中医文化传承">
                 <div class="slide-content">
                     <h1>传承千年中医智慧</h1>
                     <p>探索中华医学的深厚底蕴，感受传统智慧的力量</p>
@@ -45,7 +55,7 @@
                 </div>
             </div>
             <div class="slide">
-                <img src="pics/sliders/slider1.jpg" alt="中医微课学习">
+                <img src="pics\网页图片素材\导航页2.svg" alt="中医微课学习">
                 <div class="slide-content">
                     <h1>中医微课学习</h1>
                     <p>轻松有趣的微课程，让您随时随地学习中医知识</p>
@@ -56,7 +66,7 @@
                 </div>
             </div>
             <div class="slide">
-                <img src="pics/sliders/slider3.jpg" alt="中医互动游戏">
+                <img src="pics\网页图片素材\导航页3.svg" alt="中医互动游戏">
                 <div class="slide-content">
                     <h1>中医互动游戏</h1>
                     <p>寓教于乐，通过有趣的游戏体验中医文化的魅力</p>
@@ -329,7 +339,7 @@
         <div class="container">
             <div class="footer-content">
                 <div class="footer-logo">
-                    <img src="pics/logo/logo.png" alt="五行×中医一站式智能教育网站">
+                    <img src='pics/tittle/1.svg' alt="五行×中医一站式智能教育网站">
                     <p>传承中医文化，弘扬国粹精华</p>
                 </div>
                 <div class="footer-links">
