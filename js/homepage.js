@@ -74,7 +74,32 @@ document.addEventListener('DOMContentLoaded', function () {
     const slider = document.querySelector('.slider');
     slider.addEventListener('mouseenter', stopSlideShow);
     slider.addEventListener('mouseleave', startSlideShow);
+    
+    // 祥云和仙鹤动画增强
+    function enhanceFloatingElements() {
+        const clouds = document.querySelectorAll('.floating-cloud');
+        const crane = document.querySelector('.floating-crane');
+        
+        clouds.forEach(cloud => {
+            const randomDelay = Math.random() * 5;
+            cloud.style.animationDelay = `${randomDelay}s`;
+        });
+        
+        if (crane) {
+            const randomYPosition = Math.random() * 150 - 75;
+            crane.style.transform = `translateY(${randomYPosition}px)`;
+            
+            setInterval(() => {
+                crane.style.animation = 'none';
+                setTimeout(() => {
+                    crane.style.animation = 'crane-flying 25s linear infinite';
+                }, 100);
+            }, 30000);
+        }
+    }
 
+    // 调用祥云和仙鹤动画增强函数
+    document.addEventListener('DOMContentLoaded', enhanceFloatingElements);
     // 用户评价轮播
     const testimonialSlides = document.querySelectorAll('.testimonial-slide');
     const testimonialDots = document.querySelectorAll('.testimonial-dots .dot');
