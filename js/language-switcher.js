@@ -241,6 +241,9 @@ document.addEventListener('DOMContentLoaded', function() {
         translateElement('#latest-courses .section-header h2', 'latest_courses_title');
         translateElement('#latest-courses .section-header p', 'latest_courses_desc');
         
+        // 翻译具体课程
+        translateMicrocoursesPage();
+
         // 翻译课程按钮
         document.querySelectorAll('#latest-courses .btn-outline').forEach(btn => {
             btn.textContent = translations['btn_view_course'][currentLang];
@@ -254,20 +257,23 @@ document.addEventListener('DOMContentLoaded', function() {
         translateElement('#popular-games .section-header p', 'popular_games_desc');
         
         // 翻译游戏难度
-        document.querySelectorAll('.game-difficulty').forEach(element => {
-            const stars = element.innerHTML.split('难度:')[1];
-            element.innerHTML = translations['game_difficulty'][currentLang] + stars;
-        });
+        // document.querySelectorAll('.game-difficulty').forEach(element => {
+        //     const stars = element.innerHTML.split('难度:')[1];
+        //     element.innerHTML = translations['game_difficulty'][currentLang] + stars;
+        // });
         
         // 翻译游戏按钮
         document.querySelectorAll('#popular-games .btn-outline').forEach(btn => {
-            if (btn.textContent.includes('开始游戏')) {
+            if (btn.textContent.includes('开始游戏') || btn.textContent.includes('Game')) {
                 btn.textContent = translations['btn_play_game'][currentLang];
-            } else if (btn.textContent.includes('敬请期待')) {
+            } else if (btn.textContent.includes('敬请期待') || btn.textContent.includes('Soon')) {
                 btn.textContent = translations['btn_coming_soon'][currentLang];
             }
         });
         
+        // 翻译具体游戏
+        translateGamesPage();
+
         // 翻译查看全部游戏按钮
         translateElement('#popular-games .text-center .btn-primary', 'btn_view_all_games');
         
@@ -297,6 +303,14 @@ document.addEventListener('DOMContentLoaded', function() {
         translateElement('#diagnosis .section-header h2', 'diagnosis_title');
         translateElement('#diagnosis .section-header p', 'diagnosis_desc');
         
+        // 翻译五行知识
+        translateElement('#knowledge .section-header h2', 'wuxing_title');
+        translateElement('#knowledge .section-header p', 'wuxing_desc');
+        translateElement('.tab-btn[data-tab="five-elements"]', 'tab_five_elements');
+        translateElement('.tab-btn[data-tab="five-music"]', 'tab_music');
+        translateElement('.tab-btn[data-tab="five-tastes"]', 'tab_taste');
+        translateElement('.tab-btn[data-tab="five-personality"]', 'tab_personality');
+
         // 翻译tabs内容
         // 中医起源
         translateElement('#origin h3', 'origin_title');
@@ -350,7 +364,7 @@ document.addEventListener('DOMContentLoaded', function() {
         translateElement('#herbModal .herb-usage h4', 'herb_usage_title');
         translateElement('#herbModal .herb-model h4', 'herb_model_title');
         
-        // 翻译诊疗方法卡片
+        // 翻译四诊法卡片
         translateElement('.method-card:nth-of-type(1) h4', 'inspection_title');
         translateElement('.method-card:nth-of-type(1) > p', 'inspection_desc');
         translateElement('.method-card:nth-of-type(2) h4', 'auscultation_title');
@@ -359,16 +373,93 @@ document.addEventListener('DOMContentLoaded', function() {
         translateElement('.method-card:nth-of-type(3) > p', 'inquiry_desc');
         translateElement('.method-card:nth-of-type(4) h4', 'pulse_taking_title');
         translateElement('.method-card:nth-of-type(4) > p', 'pulse_taking_desc');
+
+        // 翻译治疗方法卡片
+        translateElement('.treatment-item:nth-of-type(1) h4', 'bianzheng_title');
+        translateElement('.treatment-item:nth-of-type(1) > p', 'bianzheng_desc');
+        translateElement('.treatment-item:nth-of-type(2) h4', 'bagang_title');
+        translateElement('.treatment-item:nth-of-type(2) > p', 'bagang_desc');
+        translateElement('.treatment-item:nth-of-type(3) h4', 'zhongyao_title');
+        translateElement('.treatment-item:nth-of-type(3) > p', 'zhongyao_desc');
+        translateElement('.treatment-item:nth-of-type(4) h4', 'zhenjiu_title');
+        translateElement('.treatment-item:nth-of-type(4) > p', 'zhenjiu_desc');
+        translateElement('.treatment-item:nth-of-type(5) h4', 'tuina_title');
+        translateElement('.treatment-item:nth-of-type(5) > p', 'tuina_desc');
+        translateElement('.treatment-item:nth-of-type(6) h4', 'shiliao_title');
+        translateElement('.treatment-item:nth-of-type(6) > p', 'shiliao_desc');
+        translateElement('.treatment-item:nth-of-type(7) h4', 'qigong_title');
+        translateElement('.treatment-item:nth-of-type(7) > p', 'qigong_desc');
         
-        // 翻译知识内容
-        translateElementsByClass('knowledge-item-title', 'knowledge_item_title_');
-        translateElementsByClass('knowledge-item-desc', 'knowledge_item_desc_');
+
+        // 翻译五行知识内容
+        // 五行学说
+        // 五行学说与身心调节
+        translateElement('#knowledge h3:nth-of-type(1)', 'wuxing_theory_title');
+        // 五行学说的起源与核心思想
+        translateElement('#knowledge h4:nth-of-type(1)', 'wuxing_origin_title');
+        translateElement('#knowledge .knowledge-section p:nth-of-type(1)', 'wuxing_origin_desc');
+
+        translateElement('#knowledge .knowledge-section p:nth-of-type(2)', 'mu_desc');
+
+        translateElement('#knowledge .knowledge-section p:nth-of-type(3)', 'huo_desc');
+
+        translateElement('#knowledge .knowledge-section p:nth-of-type(4)', 'tu_desc');
+
+        translateElement('#knowledge .knowledge-section p:nth-of-type(5)', 'jin_desc');
+
+        translateElement('#knowledge .knowledge-section p:nth-of-type(6)', 'shui_desc');
+
+        // 五行生克——动态平衡的宇宙观
+        translateElement('#knowledge h4:nth-of-type(2)', 'wuxing_relationship');
+        // translateElement('#knowledge p:nth-of-type(2)', 'shang_zhou_desc');
+
+        // 五音疗法
+        translateElement('#knowledge h3:nth-of-type(2)', 'wuyin_title');
+        translateElement('#five-music .knowledge-section p:nth-of-type(1)', 'wuyin_desc')
+
+        // 五味title
+        translateElement('#five-tastes h3:nth-of-type(1)', 'wuwei_title');
+        // translateElement('#five-tastes p:nth-of-type(1)', 'wuwei_title');
+        
+        
+        // 五味起源发展
+        translateElement('#five-tastes .knowledge-section h4:nth-of-type(1)', 'wuwei_origin_title');
+        translateElement('#five-tastes .knowledge-section p:nth-of-type(1)', 'wuwei_origin_desc');
+        
+        // 五味大讲堂
+        translateElement('#knowledge h4:nth-of-type(3)', 'spring_autumn_title');
+        translateElement('#knowledge p:nth-of-type(3)', 'spring_autumn_desc');
+        
+        // 五行人格
+        // 理论渊源与经典文献
+        translateElement('#five-personality .knowledge-section h4:nth-of-type(1)', 'wuren_origin_title');
+        translateElement('#five-personality .knowledge-section p:nth-of-type(1)', 'wuren_origin_desc1');
+        translateElement('#five-personality .knowledge-section p:nth-of-type(2)', 'wuren_origin_desc2');
+        // translateElement('#knowledge p:nth-of-type(3)', 'spring_autumn_desc');
+        // 五行人格的分类与特征
+        translateElement('#knowledge h4:nth-of-type(3)', 'spring_autumn_title');
+        translateElement('#knowledge p:nth-of-type(3)', 'spring_autumn_desc');
+        // 五行人格测算方法
+        translateElement('#knowledge h4:nth-of-type(3)', 'spring_autumn_title');
+        translateElement('#knowledge p:nth-of-type(3)', 'spring_autumn_desc');
+
+        // 翻译名医名篇
+        translateElement('#masters h2', 'masters_title');
+        translateElement('.tab-btn[data-tab="famous-doctors"]', 'tab_famous_doctors');
+        translateElement('.tab-btn[data-tab="famous-books"]', 'tab_famouse_books');
+
+        // 翻译名医卡片内容
+        translateElementsByClass('doctor-card h3', 'doctor_names_')
+        translateElementsByClass('doctor-card .doctor-title', 'doctor_titles_')
+        translateElementsByClass('doctor-card p:not(.doctor-title)', 'doctor_info_')
+        
+        // 名篇
     }
     
     // 翻译微课页面
     function translateMicrocoursesPage() {
         // 翻译页面标题和描述
-        translateElement('.section-header h1', 'courses_title');
+        translateElement('.section-header h2', 'courses_title');
         translateElement('.section-header p', 'courses_desc');
         
         // 翻译课程卡片内容
@@ -380,13 +471,22 @@ document.addEventListener('DOMContentLoaded', function() {
     // 翻译游戏页面
     function translateGamesPage() {
         // 翻译页面标题和描述
-        translateElement('.section-header h1', 'games_title');
+        translateElement('.section-header h2', 'games_title');
         translateElement('.section-header p', 'games_desc');
         
         // 翻译游戏卡片内容
         translateElementsByClass('game-card h3', 'game_title_');
         translateElementsByClass('game-card p', 'game_desc_');
         translateElementsByClass('game-card .btn', 'btn_play_game');
+
+        // 翻译按钮
+        document.querySelectorAll('.btn-more').forEach(btn => {
+            if (btn.textContent.includes('开始游戏') || btn.textContent.includes('Game')) {
+                btn.textContent = translations['btn_play_game'][currentLang];
+            } else if (btn.textContent.includes('敬请期待') || btn.textContent.includes('Soon')) {
+                btn.textContent = translations['btn_coming_soon'][currentLang];
+            }
+        });
     }
     
     // 翻译AI李时珍页面
@@ -455,6 +555,9 @@ document.addEventListener('DOMContentLoaded', function() {
         quickLinks.forEach(link => {
             translateElement(link.selector, link.key);
         });
+
+        // 翻译学习资源
+        translateElementsByClass('footer-links:nth-of-type(3) ul li a', 'learning_resources_');
     }
     
     // 通用翻译元素函数
@@ -467,6 +570,7 @@ document.addEventListener('DOMContentLoaded', function() {
     
     // 翻译字典
     const translations = {
+        
         // 导航栏
         'nav_home': {
             'zh': '首页',
@@ -495,7 +599,7 @@ document.addEventListener('DOMContentLoaded', function() {
         
         // 微课页面标题
         'courses_title': {
-            'zh': '系列微课',
+            'zh': '智课星链',
             'en': 'Courses'
         },
         'courses_desc': {
@@ -510,8 +614,57 @@ document.addEventListener('DOMContentLoaded', function() {
         },
         'course_desc_1': {
             'zh': '解析木、火、土、金、水五种元素间"相互滋生"的关系',
-            'en': 'Analysis of the "mutual generation" relationship between the five elements: wood, fire, earth, metal, and water'
+            'en': 'Analysis of the "mutual generation" relationship between the five elements: wood, fire, earth, metal, and water.'
         },
+        'course_title_2': {
+            'zh': '一分钟了解五行相克',
+            'en': 'One-Minute Guide to the Five-Element Restraining Cycle (Wuxing Theory)'
+        },
+        'course_desc_2': {
+            'zh': '说明五行之间“相互制约”的规律，如水克火、火克金，维持动态平衡的哲学内涵',
+            'en': 'Restraining Law of Five Elements: eg. Water controls Fire, Fire melts Metal – The Philosophy of Dynamic Balance.'
+        },
+        'course_title_3': {
+            'zh': '五行音乐疗法',
+            'en': 'Five-Element Music Therapy'
+        },
+        'course_desc_3': {
+            'zh': '结合五行理论，用角、徵、宫、商、羽五音对应木火土金水，通过特定音律调节身心能量',
+            'en': 'A traditional healing modality that aligns the Jue (角), Zhi (徵), Gong (宫), Shang (商), and Yu (羽) pentatonic tones with Wood, Fire, Earth, Metal, and Water elements respectively. This therapeutic approach uses specific musical frequencies to harmonize mind-body energy according to TCM principles.'
+        },
+        'course_title_4': {
+            'zh': '中医与人体',
+            'en': 'TCM and the Human Body'
+        },
+        'course_desc_4': {
+            'zh': '探讨五行学说在中医中的应用，如五脏（肝心脾肺肾）与五行的对应关系及生理功能联动',
+            'en': 'This section explores the Application of Five-Element Theory in TCM, examining how the Wood, Fire, Earth, Metal, and Water elements correspond to the Five Organs (liver, heart, spleen, lungs, and kidneys) and their interconnected physiological functions.'
+        },
+        'course_title_5': {
+            'zh': '五行学说简介',
+            'en': 'Introduction to the Five-Element Theory'
+        },
+        'course_desc_5': {
+            'zh': '概述五行理论的核心概念及应用领域',
+            'en': 'This section provides an overview of the core concepts and applications of the Five-Element Theory.'
+        },
+        'course_title_6': {
+            'zh': '假如五行人格会说话',
+            'en': 'If the Five-Element Personalities Could Speak'
+        },
+        'course_desc_6': {
+            'zh': '了解阳木和阴木人格的特点及适合的职业发展方向',
+            'en': 'Understanding Yang Wood & Yin Wood Traits with Career Guidance.'
+        },
+        'course_title_7': {
+            'zh': '五脏与五味的对应',
+            'en': 'Five Organs & Five Flavors'
+        },
+        'course_desc_7': {
+            'zh': '李时珍教你五脏与五味的对应。',
+            'en': "Li Shizhen's guide to correspondences between The Five Organs and their healing flavors."
+        },
+
         
         // 首页轮播图
         'hero_title_1': {
@@ -704,14 +857,58 @@ document.addEventListener('DOMContentLoaded', function() {
             'zh': '传承千年的中医文化历程',
             'en': 'Thousand years of TCM cultural journey'
         },
+
+        // 中医文化起源 tab
         'tab_origin': {
             'zh': '中医文化起源',
             'en': 'TCM Origin'
         },
+
+        'origin_title': {
+            'zh': '中医起源',
+            'en': 'TCM Origin'
+        },
+
+        'ancient_times_title': {
+            'zh': '远古时期',
+            'en': 'Ancient Times'
+        },
+
+        'ancient_times_desc': {
+            'zh': '中医的起源可以追溯到远古时期，当时的先民在与自然和疾病的斗争中，逐渐积累了一些医疗经验和知识。例如，神农尝百草，伏羲制九针等传说，反映了中医的起源与古代人民的生活密切相关。',
+            'en': "The origins of Traditional Chinese Medicine (TCM) can be traced back to remote antiquity, when early ancestors gradually accumulated medical experience and knowledge through their struggles with nature and diseases. Legends such as Shennong tasting hundreds of herbs and Fuxi creating the nine needles reflect how TCM's beginnings were deeply intertwined with ancient people's daily lives."
+        },
+
+        'shang_zhou_title': {
+            'zh': '商周时期',
+            'en': 'Shang & Zhou Dynasties'
+        },
+
+        'shang_zhou_desc': {
+            'zh': '甲骨文中已有许多病症名称的记载，同时开始有除虫、洗澡、洗脸等卫生知识。《周礼》中记载了食医、疾医、疡医及兽医等医事制度。',
+            'en': "Oracle bone inscriptions already recorded numerous disease names, while basic hygiene practices like pest control, bathing, and face-washing emerged. Rites of Zhou documented early medical systems, including dietary physicians, disease physicians, surgeon-dermatologist and veterinarians."
+        },
+
+        'spring_autumn_title': {
+            'zh': '春秋战国时期',
+            'en': 'Spring and Autumn & Warring States Period'
+        },
+
+        'spring_autumn_desc': {
+            'zh': '扁鹊创立"望、闻、问、切"四诊法，奠定了中医诊断学的基础。《黄帝内经》的成书标志着中医理论体系的初步形成。',
+            'en': `Bian Que established the "Four Diagnostic Methods" (inspection, auscultation, inquiry, pulse-taking), laying the foundation for TCM diagnostics. The compilation of The Yellow Emperor's Inner Canon marked the preliminary formation of TCM's theoretical framework.`
+        },
+
+        // 历史发展 tab
         'tab_development': {
             'zh': '历史发展',
             'en': 'Historical Development'
         },
+        // 'development_title': {
+        //     'zh': '历史发展',
+        //     'en': '历史发展'
+        // },
+
         'tab_culture': {
             'zh': '文化内涵',
             'en': 'Cultural Connotation'
@@ -726,6 +923,464 @@ document.addEventListener('DOMContentLoaded', function() {
             'zh': '探索传统中药的神奇力量',
             'en': 'Explore the magical power of traditional Chinese herbs'
         },
+
+        // 药材抽屉翻译
+        'herb_ginseng': {
+            'zh': '人参',
+            'en': 'ginseng'
+        },
+        
+        'herb_astragalus': {
+            'zh': '黄芪',
+            'en': 'Astragalus Root'
+        },
+
+        'herb_angelica': {
+            'zh': '当归',
+            'en': 'Chinese Angelica'
+        },
+
+        'herb_licorice': {
+            'zh': '甘草',
+            'en': 'Liquorice/Licorice Root'
+        },
+
+        'herb_cinnamon': {
+            'zh': '肉桂',
+            'en': 'Cinnamon Bark'
+        },
+
+        'herb_ginger': {
+            'zh': '生姜',
+            'en': 'Ginger'
+        },
+
+        'herb_rhubarb': {
+            'zh': '大黄',
+            'en': 'Rhubarb Root'
+        },
+
+        'herb_peony': {
+            'zh': '芍药',
+            'en': 'Peony Root'
+        },
+
+        'herb_chrysanthemum': {
+            'zh': '菊花',
+            'en': 'Chrysanthemum Flower/Kikuka'
+        },
+
+        'herb_wolfberry': {
+            'zh': '枸杞',
+            'en': 'Wolfberry'
+        },
+
+        'herb_poria': {
+            'zh': '茯苓',
+            'en': 'Poria Cocos'
+        },
+
+        'herb_atractylodes': {
+            'zh': '白术',
+            'en': 'Atractylodes Macrocephala'
+        },
+
+        // 药材详情页
+        // 'herb_nature': {
+        //     'zh': ,
+        //     'en': ''
+        // },
+
+        // 人体五脏
+        // 'meridians_title': {
+        //     'zh': '中药材库',
+        //     'en': 'Herbal Database'
+        // },
+        // 'maridians_desc': {
+        //     'zh': '探索传统中药的神奇力量',
+        //     'en': 'Explore the magical power of traditional Chinese herbs'
+        // },
+
+        // 五行知识
+        'wuxing_title': {
+            'zh': '五行知识',
+            'en': 'The Theory of Five Elements'
+        },
+
+        'wuxing_desc': {
+            'zh': '传统中医文化的智慧精髓',
+            'en': '传统中医文化的智慧精髓'
+        },
+
+        // 五行元素 tab
+        'tab_five_elements': {
+            'zh': '五行学说',
+            'en': 'Five-Element Theory'
+        },
+        
+        'wuxing_theory_title': {
+            'zh': '五行学说与身心调节',
+            'en': 'The Five-Element Theory and Mind-Body Regulation'
+        },
+
+        'wuxing_origin_title': {
+            'zh': '五行学说的起源与核心思想',
+            'en': 'Origins and Core Principles of the Five-Element Theory'
+        },
+
+        'wuxing_origin_desc': {
+            'zh': '五行学说是中国古代哲学的核心理论之一，源于对自然现象的观察与抽象总结。最早见于《尚书·洪范》，成熟于战国时期。古人通过观察自然界的物质属性与变化规律，提炼出"金、木、水、火、土"五种基本元素，认为万物皆由这五类物质构成，并通过"相生相克"等关系构建了一套解释宇宙运行、自然规律及人体健康的理论体系。',
+            'en': "Five-Element Theory (Wuxing) stands as one of the foundational doctrines of classical Chinese philosophy, originating from systematic observation and abstraction of natural phenomena. First documented in Book of Documents·Hong Fan and maturing during the Warring States period, this theory emerged from ancient scholars' contemplation of material properties and transformational patterns in nature. By distilling the essence of cosmic operations into five fundamental elements—Metal, Wood, Water, Fire, and Earth—the theory posits that all phenomena manifest through these categorical substances. Through dynamic interactions like mutual generation (相生) and restraint (相克), it constructs a comprehensive framework explaining cosmic order, natural laws, and human health—bridging macrocosm and microcosm in a unified system of correspondences."
+        },
+
+        'mu_desc': {
+            'zh': '象征生长、升发、条达，对应春季、东方、青色，在人体中关联肝脏与胆腑。如《黄帝内经》言："木曰曲直"，指木能屈能伸，如草木破土而出，寓意生命力与适应力。',
+            'en': ''
+        },
+
+        'huo_desc': {
+            'zh': '代表温热、上升、光明，对应夏季、南方、红色，关联心脏与小肠。如《黄帝内经》言："火曰炎上"描述火焰向上燃烧的特性，象征热情与活力。',
+            'en': ''
+        },
+        
+        'tu_desc': {
+            'zh': '象征承载、生化、稳定，对应长夏（夏秋之交）、中央、黄色，关联脾胃。如《黄帝内经》言："土爰稼穑"指土地孕育万物，如农耕依赖土壤，强调包容与滋养。',
+            'en': ''
+        },
+
+        'jin_desc': {
+            'zh': '代表收敛、变革、肃杀，对应秋季、西方、白色，关联肺脏与大肠。如《黄帝内经》言："金曰从革"意为金属可锻造变革，象征决断与秩序。',
+            'en': ''
+        },
+
+        'shui_desc': {
+            'zh': '象征寒凉、流动、润下，对应冬季、北方、黑色，关联肾脏与膀胱。如《黄帝内经》言："水曰润下"指水向下渗透，如江河奔流，寓意柔韧与智慧。',
+            'en': ''
+        },
+
+        'wuxing_relationship': {
+            'zh': '五行生克——动态平衡的宇宙观',
+            'en': '五行生克——动态平衡的宇宙观'
+        },
+
+        // 五音疗法 tab
+        'tab_music': {
+            'zh': '五音疗法',
+            'en': 'Five-Tone Therapy'
+        },
+
+        'wuyin_title': {
+            'zh': '五音疗法',
+            'en': 'Five-Tone Therapy'
+        },
+
+        'wuyin_desc': {
+            'zh': '古代将五声音阶（角、徵、宫、商、羽）与五行、五脏对应，发展出"五行音乐疗法"，认为特定音调可调节气血与情绪。',
+            'en': 'In ancient China, the pentatonic scale (Jue, Zhi, Gong, Shang, Yu) was systematically correlated with the Five Elements and corresponding organs, giving rise to the development of "Five-Element Music Therapy." This therapeutic approach posits that specific musical tones can regulate qi-blood flow and emotional states through their resonant properties.'
+        },
+
+        // 五味学说 tab
+        'tab_taste': {
+            'zh': '五味学说',
+            'en': 'The Five-Flavor Theory'
+        },
+
+        'wuwei_title': {
+            'zh': '五味学说',
+            'en': 'The Five-Flavor Theory'
+        },
+
+        'wuwei_origin_title': {
+            'zh': '起源发展',
+            'en': 'Origin and Development'
+        },
+
+        'wuwei_origin_desc': {
+            'zh': '五味学说是中医基础理论的重要组成部分，其雏形可追溯至先秦时期的《尚书·洪范》，书中首次提出"五行配五味"思想："水曰润下，火曰炎上，木曰曲直，金曰从革，土爰稼穑。润下作咸，炎上作苦，曲直作酸，从革作辛，稼穑作甘。"至《黄帝内经》，五味学说与脏腑、经络、病理等系统结合，形成完整的"药食同源"理论体系。',
+            'en': `The Five-Flavor Theory constitutes a fundamental component of Traditional Chinese Medicine (TCM) theory. Its prototype dates back to the pre-Qin era’s Book of Documents·Hong Fan, which first proposed the concept of "Five Elements corresponding to Five Flavors": "Water moistens and descends (salty), Fire flares upward (bitter), Wood bends and straightens (sour), Metal yields and reforms (pungent), Earth permits sowing and reaping (sweet)." By the time of The Yellow Emperor's Inner Canon, the Five-Flavor Theory had become systematically integrated with zang-fu organs, meridians, and pathology, forming a complete theoretical framework of "medicinal and dietary homology".`
+        },
+
+        // 五行人格 tab
+        'tab_personality': {
+            'zh': '五行人格',
+            'en': 'Five-Element Personality Theory'
+        },
+        
+        'wuren_title': {
+            'zh': '五行人格',
+            'en': 'Five-Element Personality Theory'
+        },
+
+        'wuren_origin_title': {
+            'zh': '理论渊源与经典文献',
+            'en': 'Theoretical Origins & Classical Texts'
+        },
+
+        'wuren_origin_desc1': {
+            'zh': '古典哲学五行人格理论源于《黄帝内经》的"五形人"分类，结合五行生克与阴阳学说，将人的体质、性格与自然元素对应。《灵枢·阴阳二十五人》系统论述五行人格的外貌、行为及疾病倾向，奠定"形神合一"的古典性格学框架。',
+            'en': `Rooted in The Yellow Emperor's Inner Canon's classification of "Five Constitutional Types," this classical philosophy correlates human physique and temperament with natural elements through the interplay of Five-Element cycles and yin-yang theory. The Ling Shu·Twenty-Five Yin-Yang Personalities systematically details the physical traits, behavioral patterns, and disease predispositions of each elemental type, establishing the foundational framework of "body-mind unity" in classical characterology.`
+        },
+        
+        'wuren_origin_desc2': {
+            'zh': '近代发展清末民初思想家王凤仪提出"五行性理学说"，将性格缺陷（阴性）与美德（阳性）纳入五行体系，主张通过修身转化人格（如"化阴木为阳木"）。其理论融合儒家伦理与中医思想，成为民间性格修养的重要参考。',
+            'en': 'During the late Qing and early Republican period, philosopher Wang Fengyi advanced the "Five-Element Nature and Principle Theory," integrating character flaws (yin aspects) and virtues (yang aspects) into the elemental system. His teachings advocated self-cultivation to transform personalities (e.g., "converting yin wood to yang wood"), blending Confucian ethics with TCM principles to create influential guidelines for moral refinement in folk traditions.'
+        },
+
+        // 诊疗方法 
+        'diagnosis_title': {
+            'zh': '中医诊疗方法',
+            'en': 'Diagnostic & Treatment Methods'
+        },
+        'diagnosis_desc': {
+            'zh': '传统中医的诊断与治疗智慧',
+            'en': '传统中医的诊断与治疗智慧'
+        },
+        // 望诊
+        'inspection_title': {
+            'zh': '望诊',
+            'en': 'Inspection'
+        },
+        'inspection_desc': {
+            'zh': '观察患者的面色、舌象、形态等，了解病情。',
+            'en': "Observing the patient's facial complexion, tongue appearance, and physical demeanor to assess their condition."
+        },
+        // 闻诊
+        'auscultation_title': {
+            'zh': '闻诊',
+            'en': 'Auscultation & Olfaction'
+        },
+        'auscultation_desc': {
+            'zh': '通过听声音、嗅气味来判断病情。',
+            'en': "Assessing conditions by listening to vocal sounds and detecting body odors."
+        },
+        // 问诊
+        'inquiry_title': {
+            'zh': '问诊',
+            'en': 'Inquiry'
+        },
+        'inquiry_desc': {
+            'zh': '询问患者的症状、病史、生活习惯等，了解病情。',
+            'en': "Understanding illnesses by asking about symptoms, medical history, and lifestyle habits."
+        },
+        // 切诊
+        'pulse_taking_title': {
+            'zh': '切诊',
+            'en': 'Pulse-taking'
+        },
+        'pulse_taking_desc': {
+            'zh': '通过触摸脉搏、按压身体部位等，了解病情。',
+            'en': "Evaluating health status by feeling pulses and palpating body areas."
+        },
+
+        // 辨证论治
+        'bianzheng_title': {
+            'zh': '辨证论治',
+            'en': 'Syndrome Differentiation and Treatment'
+        },
+
+        'bianzheng_desc': {
+            'zh': '根据患者的症状和体征，进行综合分析，确定病因、病机和病位，制定相应的治疗方案。',
+            'en': `Conduct a comprehensive analysis based on the patient's symptoms and signs to determine the cause, pathogenesis, and location of the disease, and formulate an appropriate treatment plan.`
+        },
+
+        // 八纲辨证
+        'bagang_title': {
+            'zh': '八纲辨证',
+            'en': 'Eight-Principle Syndrome Differentiation'
+        },
+
+        'bagang_desc': {
+            'zh': '将病情分为阴阳、表里、寒热、虚实八种基本类型，为治疗提供依据。',
+            'en': 'Classify the condition into eight basic types—yin and yang, exterior and interior, cold and heat, deficiency and excess—to provide a basis for treatment.'
+        },
+
+        // 中药治疗
+        'zhongyao_title': {
+            'zh': '中药治疗',
+            'en': 'Herbal Medicine Treatment'
+        },
+
+        'zhongyao_desc': {
+            'zh': '根据辨证论治的原则，选用合适的中药进行治疗。',
+            'en': 'Select appropriate Chinese herbs for treatment based on the principles of syndrome differentiation and treatment.'
+        },
+
+        // 针灸治疗
+        'zhenjiu_title': {
+            'zh': '针灸治疗',
+            'en': 'Acupuncture and Moxibustion Therapy'
+        },
+        'zhenjiu_desc': {
+            'zh': '通过针刺和灸法，疏通经络，调节气血阴阳，达到防治疾病的效果。',
+            'en': 'Use needling and moxibustion to unblock meridians, regulate qi, blood, yin, and yang, and achieve disease prevention and treatment.'
+        },
+
+        // 推拿按摩
+        'tuina_title': {
+            'zh': '推拿按摩',
+            'en': 'Tui Na (Therapeutic Massage)'
+        },
+        'tuina_desc': {
+            'zh': '通过手法按摩，疏通经络，缓解肌肉疼痛，调节脏腑功能。',
+            'en': 'Use manual techniques to unblock meridians, relieve muscle pain, and regulate organ functions.'
+        },
+
+        // 食疗
+        'shiliao_title': {
+            'zh': '食疗',
+            'en': 'Dietary Therapy'
+        },
+        'shiliao_desc': {
+            'zh': '根据患者的体质和病情，选用合适的食材进行调理。',
+            'en': `Select suitable ingredients to regulate the body based on the patient's constitution and condition.`
+        },
+
+        // 气功
+        'qigong_title': {
+            'zh': '气功',
+            'en': 'Qigong'
+        },
+        'qigong_desc': {
+            'zh': '通过呼吸调节和身体姿势的调整，增强体质，调节身心。',
+            'en': 'Enhance physical fitness and regulate the mind and body through breathing exercises and posture adjustments.'
+        },
+
+
+        // 名医名篇
+        'masters_title': {
+            'zh': '名医名篇',
+            'en': 'Famous Doctors and Classics'
+        },
+
+        'tab_famouse_doctors': {
+            'zh': '中医名人',
+            'en': 'Famous Doctors'
+        },
+
+        'tab_famouse_books': {
+            'zh': '中医名篇',
+            'en': 'Famous Classics'
+        },
+
+        'doctor_names_1': {
+            'zh': '扁鹊',
+            'en': 'Bian Que'
+        },
+        'doctor_titles_1': {
+            'zh': '中医医祖',
+            'en': 'The Founding Father of Traditional Chinese Medicine'
+        },
+        'doctor_info_1': {
+            'zh': '春秋战国时期名医，创立"望、闻、问、切"四诊法。',
+            'en': 'A renowned physician during the Spring and Autumn and Warring States periods, credited with establishing the "Four Diagnostic Methods" (inspection, auscultation & olfaction, inquiry, and palpation).'
+        },
+
+        'doctor_names_2': {
+            'zh': '华佗',
+            'en': 'Hua Tuo'
+        },
+        'doctor_titles_2': {
+            'zh': '外科鼻祖',
+            'en': 'The Founder of Surgery'
+        },
+        'doctor_info_2': {
+            'zh': '东汉末年医学家，开创中药麻醉法，提倡体育疗法，创立五禽戏。',
+            'en': 'A renowned medical scholar in the late Eastern Han Dynasty, who pioneered herbal anesthesia, advocated physical exercise therapy, and created the Five-Animal Exercises (Wu Qin Xi).'
+        },
+
+        'doctor_names_3': {
+            'zh': '张仲景',
+            'en': 'Zhang Zhongjing'
+        },
+        'doctor_titles_3': {
+            'zh': '医圣',
+            'en': 'Sage of Medicine'
+        },
+        'doctor_info_3': {
+            'zh': '东汉末年医学家，著有《伤寒杂病论》，确立"辨证论治"原则。',
+            'en': 'Medical scholar of the late Eastern Han Dynasty, authored Treatise on Cold Damage and Miscellaneous Diseases, establishing the principle of "syndrome differentiation and treatment'
+        },
+
+        'doctor_names_4': {
+            'zh': '孙思邈',
+            'en': 'Sun Simiao'
+        },
+        'doctor_titles_4': {
+            'zh': '药王',
+            'en': 'King of Medicines'
+        },
+        'doctor_info_4': {
+            'zh': '唐代医学家，著有《千金要方》（《千金翼方》），对中医药学发展有重大贡献。',
+            'en': 'Tang Dynasty medical scholar, authored Essential Formulas Worth a Thousand in Gold for Emergencies, making monumental contributions to Chinese medicine development.'
+        },
+
+        'doctor_names_5': {
+            'zh': '李时珍',
+            'en': 'Li Shizhen'
+        },
+        'doctor_titles_5': {
+            'zh': '本草学家',
+            'en': 'Master Herbalist'
+        },
+        'doctor_info_5': {
+            'zh': '明代医学家，著有《本草纲目》，集我国16世纪之前药学成就之大成。',
+            'en': 'Ming Dynasty medical scholar, compiled Compendium of Materia Medica (Bencao Gangmu), synthesizing all pre-16th century Chinese pharmacological achievements.'
+        },
+
+        'doctor_names_6': {
+            'zh': '葛洪',
+            'en': 'Ge Hong'
+        },
+        'doctor_titles_6': {
+            'zh': '东晋医学家',
+            'en': 'Jin Dynasty Physician'
+        },
+        'doctor_info_6': {
+            'zh': '著有《肘后备急方》，最早记载传染病如天花、恙虫病症侯及诊治。',
+            'en': 'Authored Handbook of Prescriptions for Emergencies, containing the earliest records of infectious diseases like smallpox and tsutsugamushi disease symptoms/treatments.'
+        },
+
+        'doctor_names_7': {
+            'zh': '钱乙',
+            'en': 'Qian Yi'
+        },
+        'doctor_titles_7': {
+            'zh': '儿科之圣',
+            'en': 'Sage of Pediatrics'
+        },
+        'doctor_info_7': {
+            'zh': '宋代医学家，著有《小儿药证直诀》，对儿科医学的发展有重要影响。',
+            'en': `Song Dynasty physician, wrote Key to Therapeutics of Children's Diseases, profoundly influencing pediatric medicine development.`
+        },
+
+        'doctor_names_8': {
+            'zh': '叶桂',
+            'en': 'Ye Gui'
+        },
+        'doctor_titles_8': {
+            'zh': '天医星',
+            'en': 'Celestial Medical Star'
+        },
+        'doctor_info_8': {
+            'zh': '清代医学家，温病学派集大成者，创立卫气营血辨证体系，代表著作《温热论》《临证指南医案》，被誉为“天医星”。',
+            'en': `Qing Dynasty physician, synthesized Warm Disease theory school, created the Wei-Qi-Ying-Xue diagnostic system. Representative works: Discussion of Warm-Febrile Diseases and Clinical Guide Medical Records, revered as "Celestial Medical Star".`
+        },
+
+        'doctor_names_9': {
+            'zh': '皇甫谧',
+            'en': 'Huangfu Mi'
+        },
+        'doctor_titles_9': {
+            'zh': '针灸鼻祖',
+            'en': 'Originator of Acupuncture'
+        },
+        'doctor_info_9': {
+            'zh': '晋代医学家，著有《针灸甲乙经》，系统总结了针灸学的理论实践。',
+            'en': `Jin Dynasty physician, authored Systematic Classic of Acupuncture and Moxibustion, comprehensively summarizing acupuncture theory and practice.`
+        },
+
+
+        // 
         
         // 页脚
         'footer_desc': {
@@ -744,6 +1399,37 @@ document.addEventListener('DOMContentLoaded', function() {
             'zh': '© 2025 "五行×中医"一站式智能教育网站 版权所有',
             'en': '© 2025 "Five Elements × TCM" One-stop Intelligent Education Website. All Rights Reserved'
         },
+
+        'learning_resources_1':{
+            'zh': '中药材库',
+            'en': 'Herbs'
+        },
+
+        'learning_resources_2':{
+            'zh': '人体五脏',
+            'en': '人体五脏'
+        },
+
+        'learning_resources_3':{
+            'zh': '诊疗方法',
+            'en': 'Diagnostic & Treatment Methods'
+        },
+
+        'learning_resources_4':{
+            'zh': '发展变革',
+            'en': 'TCM History'
+        },
+
+        'learning_resources_5':{
+            'zh': '名医名篇',
+            'en': 'Famous Doctors and Classics'
+        },
+
+        'learning_resources_6':{
+            'zh': '五行知识',
+            'en': 'The Theory of Five Elements'
+        },
+
         
         // AI李时珍页面
         'ai_title': {
@@ -775,6 +1461,80 @@ document.addEventListener('DOMContentLoaded', function() {
             'en': 'Provide professional TCM knowledge answers, including TCM theory, diagnostic methods, treatment means, etc.'
         },
         
+
+        // 游戏页面
+        'games_title': {
+            'zh': '五行智弈',
+            'en': 'Games'
+        },
+
+        'games_desc': {
+            'zh': '寓教于乐，通过有趣的游戏体验中医文化的魅力',
+            'en': 'Learn through play, experience the charm of TCM culture through fun games'
+        },
+
+        // 具体的游戏
+        'game_title_1': {
+            'zh': '五行归类大挑战',
+            'en': 'Five-Element Categorization Challenge'
+        },
+
+        'game_desc_1': {
+            'zh': '理解中医五行理论的基本概念及其在中医体系中的应用。',
+            'en': "Master the fundamental concepts of TCM's Five-Element Theory and its clinical applications in traditional Chinese medicine."
+        },
+
+        'game_title_2': {
+            'zh': '中药配伍大师',
+            'en': 'Herbal Formulation Master'
+        },
+
+        'game_desc_2': {
+            'zh': '根据不同症状选择合适的中药组合，体验中医配伍的奥妙。',
+            'en': 'Select optimal herbal combinations for different symptoms and discover the profound wisdom of TCM compatibility principles.'
+        },
+
+        'game_title_3': {
+            'zh': '经络穴位探索',
+            'en': 'Meridian & Acupoint Explorer'
+        },
+
+        'game_desc_3': {
+            'zh': '通过互动人体模型，学习重要经络穴位的位置和作用。',
+            'en': 'Explore key acupuncture pathways and points through interactive 3D human anatomy models, learning their locations and therapeutic functions.'
+        },
+
+        'game_title_4': {
+            'zh': '名医诊断挑战',
+            'en': "Diagnosis Challenge: Physician's Journey"
+        },
+
+        'game_desc_4': {
+            'zh': '扮演中医师角色，通过望闻问切为虚拟患者进行诊断和治疗。',
+            'en': 'Role-play as a TCM doctor - practice inspection, auscultation, inquiry, and palpation to diagnose and treat virtual patients.'
+        },
+
+        'game_title_5': {
+            'zh': '五行平衡',
+            'en': 'Five Elements Balance'
+        },
+        
+        'game_desc_5': {
+            'zh': '通过调整五行元素的比例，达成阴阳平衡，体验中医五行理论。',
+            'en': 'Adjust Wood, Fire, Earth, Metal, and Water ratios to achieve yin-yang harmony, experiencing Wuxing theory applications.'
+        },
+        
+        'game_title_6': {
+            'zh': '中药材识别挑战',
+            'en': 'Herbal Recognition Challenge'
+        },
+        
+        'game_desc_6': {
+            'zh': '通过图像识别常用中药材，学习它们的性味归经和功效。',
+            'en': 'Identify common Chinese herbs via image recognition while studying their nature (性味), channel tropism (归经), and clinical effects.'
+        },
+        
+
         // 论坛页面
         'forum_title': {
             'zh': '全球五行研究所 - 智联杏林',
