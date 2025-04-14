@@ -613,7 +613,7 @@ document.addEventListener('DOMContentLoaded', function() {
             'en': 'Intelligent dialogue with Ming Dynasty medical scientist Li Shizhen, explore the mysteries of TCM culture, and get professional TCM knowledge guidance.'
         },
         'feature_games_title': {
-            'zh': '五行智羿',
+            'zh': '五行智弈',
             'en': 'Interactive Games'
         },
         'feature_games_desc': {
