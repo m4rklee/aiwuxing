@@ -179,9 +179,9 @@ document.addEventListener('DOMContentLoaded', function() {
         
         const features = [
             {
-                titleSelector: '.feature-card:nth-child(1) h3',
-                descSelector: '.feature-card:nth-child(1) p',
-                btnSelector: '.feature-card:nth-child(1) .feature-link',
+                titleSelector: '.feature-card:nth-child(3) h3',
+                descSelector: '.feature-card:nth-child(3) p',
+                btnSelector: '.feature-card:nth-child(3) .feature-link',
                 titleKey: 'feature_ai_title',
                 descKey: 'feature_ai_desc',
                 btnKey: 'btn_start_chat'
@@ -195,9 +195,9 @@ document.addEventListener('DOMContentLoaded', function() {
                 btnKey: 'btn_more'
             },
             {
-                titleSelector: '.feature-card:nth-child(3) h3',
-                descSelector: '.feature-card:nth-child(3) p',
-                btnSelector: '.feature-card:nth-child(3) .feature-link',
+                titleSelector: '.feature-card:nth-child(1) h3',
+                descSelector: '.feature-card:nth-child(1) p',
+                btnSelector: '.feature-card:nth-child(1) .feature-link',
                 titleKey: 'feature_courses_title',
                 descKey: 'feature_courses_desc',
                 btnKey: 'btn_more'
