@@ -1,9 +1,10 @@
 document.addEventListener('DOMContentLoaded', function () {
     // 导航栏激活状态
     const navLinks = document.querySelectorAll('nav a');
+    const currentPage = window.location.pathname.split('/').pop() || 'index.html';
     
     navLinks.forEach(link => {
-        if (link.getAttribute('href') === 'index.html') {
+        if (link.getAttribute('href') === currentPage) {
             link.classList.add('active');
         } else {
             link.classList.remove('active');
@@ -20,6 +21,8 @@ document.addEventListener('DOMContentLoaded', function () {
     let slideInterval;
     slides[1].style='display: none'
     slides[2].style='display: none'
+    slides[3].style='display: none'
+    slides[4].style='display: none'
     function showSlide(n) {
         slides.forEach(slide => slide.classList.remove('active'));
         dots.forEach(dot => dot.classList.remove('active'));

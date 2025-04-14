@@ -67,8 +67,16 @@ document.addEventListener('DOMContentLoaded', function() {
         // 根据当前页面路径翻译不同页面内容
         if (window.location.pathname.endsWith('index.html') || window.location.pathname.endsWith('/')) {
             translateHomePage();
+        } else if (window.location.pathname.includes('microcourses.html') || window.location.pathname.includes('course-detail.html')) {
+            translateMicrocoursesPage();
         } else if (window.location.pathname.includes('knowledge.html')) {
             translateKnowledgePage();
+        } else if (window.location.pathname.includes('ailishizhen.html')) {
+            translateAILiShizhenPage();
+        } else if (window.location.pathname.includes('games.html') || window.location.pathname.includes('game-detail.html')) {
+            translateGamesPage();
+        } else if (window.location.pathname.includes('forum.html')) {
+            translateForumPage();
         }
         
         // 翻译页脚（所有页面通用）
@@ -81,8 +89,8 @@ document.addEventListener('DOMContentLoaded', function() {
             { selector: 'nav ul li:nth-child(1) a', key: 'nav_home' },
             { selector: 'nav ul li:nth-child(2) a', key: 'nav_courses' },
             { selector: 'nav ul li:nth-child(3) a', key: 'nav_knowledge' },
-            { selector: 'nav ul li:nth-child(4) a', key: 'nav_games' },
-            { selector: 'nav ul li:nth-child(5) a', key: 'nav_ai' },
+            { selector: 'nav ul li:nth-child(4) a', key: 'nav_ai' },
+            { selector: 'nav ul li:nth-child(5) a', key: 'nav_games' },
             { selector: 'nav ul li:nth-child(6) a', key: 'nav_forum' }
         ];
         
@@ -134,6 +142,26 @@ document.addEventListener('DOMContentLoaded', function() {
                 titleKey: 'hero_title_3',
                 descKey: 'hero_desc_3',
                 btnLearnKey: 'hero_btn_play',
+                btnExploreKey: 'hero_btn_explore'
+            },
+            {
+                titleSelector: '.slide:nth-child(4) .slide-content h1',
+                descSelector: '.slide:nth-child(4) .slide-content p',
+                btnLearnSelector: '.slide:nth-child(4) .hero-buttons a:first-child',
+                btnExploreSelector: '.slide:nth-child(4) .hero-buttons a:last-child',
+                titleKey: 'hero_title_4',
+                descKey: 'hero_desc_4',
+                btnLearnKey: 'hero_btn_dialog',
+                btnExploreKey: 'hero_btn_explore'
+            },
+            {
+                titleSelector: '.slide:nth-child(5) .slide-content h1',
+                descSelector: '.slide:nth-child(5) .slide-content p',
+                btnLearnSelector: '.slide:nth-child(5) .hero-buttons a:first-child',
+                btnExploreSelector: '.slide:nth-child(5) .hero-buttons a:last-child',
+                titleKey: 'hero_title_5',
+                descKey: 'hero_desc_5',
+                btnLearnKey: 'hero_btn_share',
                 btnExploreKey: 'hero_btn_explore'
             }
         ];
@@ -260,6 +288,151 @@ document.addEventListener('DOMContentLoaded', function() {
         // 翻译中药材库
         translateElement('#herbs .section-header h2', 'herbs_title');
         translateElement('#herbs .section-header p', 'herbs_desc');
+        
+        // 翻译人体五脏
+        translateElement('#meridians .section-header h2', 'meridians_title');
+        translateElement('#meridians .section-header p', 'meridians_desc');
+        
+        // 翻译诊疗方法
+        translateElement('#diagnosis .section-header h2', 'diagnosis_title');
+        translateElement('#diagnosis .section-header p', 'diagnosis_desc');
+        
+        // 翻译tabs内容
+        // 中医起源
+        translateElement('#origin h3', 'origin_title');
+        translateElement('#origin h4:nth-of-type(1)', 'ancient_times_title');
+        translateElement('#origin p:nth-of-type(1)', 'ancient_times_desc');
+        translateElement('#origin h4:nth-of-type(2)', 'shang_zhou_title');
+        translateElement('#origin p:nth-of-type(2)', 'shang_zhou_desc');
+        translateElement('#origin h4:nth-of-type(3)', 'spring_autumn_title');
+        translateElement('#origin p:nth-of-type(3)', 'spring_autumn_desc');
+        
+        // 中医发展
+        translateElement('#development h3', 'development_title');
+        translateElement('#development .timeline-item:nth-of-type(1) h4', 'qin_han_title');
+        translateElement('#development .timeline-item:nth-of-type(1) p', 'qin_han_desc');
+        translateElement('#development .timeline-item:nth-of-type(2) h4', 'three_kingdoms_title');
+        translateElement('#development .timeline-item:nth-of-type(2) p', 'three_kingdoms_desc');
+        translateElement('#development .timeline-item:nth-of-type(3) h4', 'sui_tang_title');
+        translateElement('#development .timeline-item:nth-of-type(3) p', 'sui_tang_desc');
+        translateElement('#development .timeline-item:nth-of-type(4) h4', 'song_yuan_title');
+        translateElement('#development .timeline-item:nth-of-type(4) p', 'song_yuan_desc');
+        translateElement('#development .timeline-item:nth-of-type(5) h4', 'ming_qing_title');
+        translateElement('#development .timeline-item:nth-of-type(5) p', 'ming_qing_desc');
+        
+        // 文化内涵
+        translateElement('#culture h3', 'culture_title');
+        translateElement('#culture .culture-item:nth-of-type(1) h4', 'holistic_concept_title');
+        translateElement('#culture .culture-item:nth-of-type(1) p', 'holistic_concept_desc');
+        translateElement('#culture .culture-item:nth-of-type(2) h4', 'syndrome_differentiation_title');
+        translateElement('#culture .culture-item:nth-of-type(2) p', 'syndrome_differentiation_desc');
+        translateElement('#culture .culture-item:nth-of-type(3) h4', 'yin_yang_five_elements_title');
+        translateElement('#culture .culture-item:nth-of-type(3) p', 'yin_yang_five_elements_desc');
+        translateElement('#culture .culture-item:nth-of-type(4) h4', 'prevention_first_title');
+        translateElement('#culture .culture-item:nth-of-type(4) p', 'prevention_first_desc');
+        
+        // 翻译中药材库抽屉
+        document.querySelectorAll('.cabinet-drawer').forEach(drawer => {
+            const herbKey = drawer.getAttribute('data-herb');
+            if (herbKey && translations['herb_' + herbKey]) {
+                const span = drawer.querySelector('span');
+                if (span) {
+                    span.textContent = translations['herb_' + herbKey][currentLang];
+                }
+            }
+        });
+        
+        // 翻译药材详情弹出层
+        translateElement('#herbModal .herb-details p:nth-of-type(1) strong', 'herb_nature');
+        translateElement('#herbModal .herb-details p:nth-of-type(2) strong', 'herb_meridian');
+        translateElement('#herbModal .herb-details p:nth-of-type(3) strong', 'herb_effect');
+        translateElement('#herbModal .herb-description h4', 'herb_description_title');
+        translateElement('#herbModal .herb-usage h4', 'herb_usage_title');
+        translateElement('#herbModal .herb-model h4', 'herb_model_title');
+        
+        // 翻译诊疗方法卡片
+        translateElement('.method-card:nth-of-type(1) h4', 'inspection_title');
+        translateElement('.method-card:nth-of-type(1) > p', 'inspection_desc');
+        translateElement('.method-card:nth-of-type(2) h4', 'auscultation_title');
+        translateElement('.method-card:nth-of-type(2) > p', 'auscultation_desc');
+        translateElement('.method-card:nth-of-type(3) h4', 'inquiry_title');
+        translateElement('.method-card:nth-of-type(3) > p', 'inquiry_desc');
+        translateElement('.method-card:nth-of-type(4) h4', 'pulse_taking_title');
+        translateElement('.method-card:nth-of-type(4) > p', 'pulse_taking_desc');
+        
+        // 翻译知识内容
+        translateElementsByClass('knowledge-item-title', 'knowledge_item_title_');
+        translateElementsByClass('knowledge-item-desc', 'knowledge_item_desc_');
+    }
+    
+    // 翻译微课页面
+    function translateMicrocoursesPage() {
+        // 翻译页面标题和描述
+        translateElement('.section-header h1', 'courses_title');
+        translateElement('.section-header p', 'courses_desc');
+        
+        // 翻译课程卡片内容
+        translateElementsByClass('course-card h3', 'course_title_');
+        translateElementsByClass('course-card p', 'course_desc_');
+        translateElementsByClass('course-card .btn', 'btn_view_course');
+    }
+    
+    // 翻译游戏页面
+    function translateGamesPage() {
+        // 翻译页面标题和描述
+        translateElement('.section-header h1', 'games_title');
+        translateElement('.section-header p', 'games_desc');
+        
+        // 翻译游戏卡片内容
+        translateElementsByClass('game-card h3', 'game_title_');
+        translateElementsByClass('game-card p', 'game_desc_');
+        translateElementsByClass('game-card .btn', 'btn_play_game');
+    }
+    
+    // 翻译AI李时珍页面
+    function translateAILiShizhenPage() {
+        // 翻译页面标题和描述
+        translateElement('.ai-hero-content h1', 'ai_title');
+        translateElement('.ai-hero-content p', 'ai_desc');
+        translateElement('.ai-hero-content .btn-primary', 'btn_start_chat');
+        translateElement('.ai-hero-content .btn-secondary', 'btn_learn_features');
+        
+        // 翻译功能部分
+        translateElement('#ai-features .section-header h2', 'ai_features_title');
+        translateElement('#ai-features .section-header p', 'ai_features_desc');
+        
+        // 翻译AI功能卡片
+        translateElementsByClass('ai-feature-card h3', 'ai_feature_title_');
+        translateElementsByClass('ai-feature-card p', 'ai_feature_desc_');
+    }
+    
+    // 翻译论坛页面
+    function translateForumPage() {
+        // 翻译页面标题和描述
+        translateElement('.section-header h2', 'forum_title');
+        translateElement('.section-header p', 'forum_desc');
+        
+        // 翻译论坛导航
+        translateElement('.tab-btn[data-tab="personality"]', 'forum_tab_personality');
+        translateElement('.tab-btn[data-tab="creative"]', 'forum_tab_creative');
+        translateElement('.tab-btn[data-tab="cultural"]', 'forum_tab_cultural');
+        translateElement('.tab-btn[data-tab="tags"]', 'forum_tab_tags');
+        
+        // 翻译论坛内容
+        translateElementsByClass('forum-post-title', 'forum_post_title_');
+        translateElementsByClass('forum-post-content', 'forum_post_content_');
+        translateElement('.forum-action-btn.reply', 'btn_reply');
+        translateElement('.forum-action-btn.like', 'btn_like');
+    }
+    
+    // 通过类名批量翻译元素
+    function translateElementsByClass(className, keyPrefix) {
+        document.querySelectorAll(`.${className}`).forEach((element, index) => {
+            const key = `${keyPrefix}${index + 1}`;
+            if (translations[key]) {
+                element.textContent = translations[key][currentLang];
+            }
+        });
     }
     
     // 翻译页脚
@@ -274,8 +447,9 @@ document.addEventListener('DOMContentLoaded', function() {
             { selector: '.footer-links:nth-child(2) ul li:nth-child(1) a', key: 'nav_home' },
             { selector: '.footer-links:nth-child(2) ul li:nth-child(2) a', key: 'nav_courses' },
             { selector: '.footer-links:nth-child(2) ul li:nth-child(3) a', key: 'nav_knowledge' },
-            { selector: '.footer-links:nth-child(2) ul li:nth-child(4) a', key: 'nav_games' },
-            { selector: '.footer-links:nth-child(2) ul li:nth-child(5) a', key: 'nav_forum' }
+            { selector: '.footer-links:nth-child(2) ul li:nth-child(4) a', key: 'nav_ai' },
+            { selector: '.footer-links:nth-child(2) ul li:nth-child(5) a', key: 'nav_games' },
+            { selector: '.footer-links:nth-child(2) ul li:nth-child(6) a', key: 'nav_forum' }
         ];
         
         quickLinks.forEach(link => {
@@ -299,29 +473,49 @@ document.addEventListener('DOMContentLoaded', function() {
             'en': 'Home'
         },
         'nav_courses': {
-            'zh': '系列微课',
+            'zh': '智课星链',
             'en': 'Courses'
         },
         'nav_knowledge': {
-            'zh': '知识科普',
+            'zh': '智识中医',
             'en': 'Knowledge'
         },
         'nav_games': {
-            'zh': '互动游戏',
+            'zh': '五行智弈',
             'en': 'Games'
         },
         'nav_ai': {
-            'zh': 'AI李时珍',
+            'zh': '时珍智脑',
             'en': 'AI Li Shizhen'
         },
         'nav_forum': {
-            'zh': '社区分享',
+            'zh': '智联杏林',
             'en': 'Community'
+        },
+        
+        // 微课页面标题
+        'courses_title': {
+            'zh': '系列微课',
+            'en': 'Courses'
+        },
+        'courses_desc': {
+            'zh': '中医知识锦囊',
+            'en': 'Treasure Trove of TCM'
+        },
+        
+        // 微课内容
+        'course_title_1': {
+            'zh': '一分钟了解五行相生',
+            'en': 'One Minute Guide to the Five-Element Mutual Generation (Wuxing Theory)'
+        },
+        'course_desc_1': {
+            'zh': '解析木、火、土、金、水五种元素间"相互滋生"的关系',
+            'en': 'Analysis of the "mutual generation" relationship between the five elements: wood, fire, earth, metal, and water'
         },
         
         // 首页轮播图
         'hero_title_1': {
-            'zh': '传承千年中医智慧',
+            'zh': '智识中医',
             'en': 'Inheriting Thousand Years of TCM Wisdom'
         },
         'hero_desc_1': {
@@ -337,7 +531,7 @@ document.addEventListener('DOMContentLoaded', function() {
             'en': 'Explore Features'
         },
         'hero_title_2': {
-            'zh': '中医微课学习',
+            'zh': '智课星链',
             'en': 'TCM Micro Courses'
         },
         'hero_desc_2': {
@@ -349,7 +543,7 @@ document.addEventListener('DOMContentLoaded', function() {
             'en': 'Start Learning'
         },
         'hero_title_3': {
-            'zh': '中医互动游戏',
+            'zh': '五行智弈',
             'en': 'TCM Interactive Games'
         },
         'hero_desc_3': {
@@ -359,6 +553,30 @@ document.addEventListener('DOMContentLoaded', function() {
         'hero_btn_play': {
             'zh': '开始游戏',
             'en': 'Start Playing'
+        },
+        'hero_title_4': {
+            'zh': '时珍智脑',
+            'en': 'AI Li Shizhen'
+        },
+        'hero_desc_4': {
+            'zh': '中医跨越千载，对话AI李时珍学习中医知识',
+            'en': 'Traditional Chinese Medicine spans millennia. Engage in dialogue with AI Li Shizhen to learn TCM knowledge.'
+        },
+        'hero_btn_dialog': {
+            'zh': '开始对话',
+            'en': 'Start Dialogue'
+        },
+        'hero_title_5': {
+            'zh': '智联杏林',
+            'en': 'TCM Community'
+        },
+        'hero_desc_5': {
+            'zh': '智慧社区分享空间，与国内外友人共学中医',
+            'en': 'Smart Community Sharing Space: Learn Traditional Chinese Medicine with Friends from Home and Abroad.'
+        },
+        'hero_btn_share': {
+            'zh': '开始分享',
+            'en': 'Start Sharing'
         },
         
         // 特色功能
@@ -525,6 +743,70 @@ document.addEventListener('DOMContentLoaded', function() {
         'footer_copyright': {
             'zh': '© 2025 "五行×中医"一站式智能教育网站 版权所有',
             'en': '© 2025 "Five Elements × TCM" One-stop Intelligent Education Website. All Rights Reserved'
+        },
+        
+        // AI李时珍页面
+        'ai_title': {
+            'zh': 'AI李时珍智能体',
+            'en': 'AI Li Shizhen Intelligent Agent'
+        },
+        'ai_desc': {
+            'zh': '与明代医药学家李时珍对话，探索中医药文化的奥秘，接受专业的中医知识指导与考核',
+            'en': 'Dialogue with Ming Dynasty medical scientist Li Shizhen, explore the mysteries of TCM culture, and receive professional TCM knowledge guidance and assessment'
+        },
+        'btn_learn_features': {
+            'zh': '了解功能',
+            'en': 'Learn Features'
+        },
+        'ai_features_title': {
+            'zh': 'AI李时珍功能',
+            'en': 'AI Li Shizhen Features'
+        },
+        'ai_features_desc': {
+            'zh': '探索AI李时珍的多种功能',
+            'en': 'Explore the various features of AI Li Shizhen'
+        },
+        'ai_feature_title_1': {
+            'zh': '中医知识问答',
+            'en': 'TCM Knowledge Q&A'
+        },
+        'ai_feature_desc_1': {
+            'zh': '提供专业的中医知识解答，包括中医理论、诊断方法、治疗手段等',
+            'en': 'Provide professional TCM knowledge answers, including TCM theory, diagnostic methods, treatment means, etc.'
+        },
+        
+        // 论坛页面
+        'forum_title': {
+            'zh': '全球五行研究所 - 智联杏林',
+            'en': 'Global Five Elements Research Institute - Community'
+        },
+        'forum_desc': {
+            'zh': '探索五行智慧，连接世界灵感',
+            'en': 'Explore Five Elements wisdom, connect global inspiration'
+        },
+        'forum_tab_personality': {
+            'zh': '五行人格报告',
+            'en': 'Five Elements Personality'
+        },
+        'forum_tab_creative': {
+            'zh': '五行生活创意',
+            'en': 'Five Elements Creativity'
+        },
+        'forum_tab_cultural': {
+            'zh': '文化讨论角',
+            'en': 'Cultural Discussion'
+        },
+        'forum_tab_tags': {
+            'zh': '热门标签',
+            'en': 'Popular Tags'
+        },
+        'btn_reply': {
+            'zh': '回复',
+            'en': 'Reply'
+        },
+        'btn_like': {
+            'zh': '点赞',
+            'en': 'Like'
         }
     };
     
