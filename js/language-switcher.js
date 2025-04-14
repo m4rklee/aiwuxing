@@ -588,13 +588,13 @@ document.addEventListener('DOMContentLoaded', function() {
             'zh': '多元化的中医文化学习体验',
             'en': 'Diverse TCM cultural learning experience'
         },
-        'feature_ai_title': {
-            'zh': '时珍智脑',
-            'en': 'AI Li Shizhen'
+        'feature_courses_title': {
+            'zh': '智课星链',
+            'en': 'TCM Micro Courses'
         },
-        'feature_ai_desc': {
-            'zh': '与明代医药学家李时珍智能对话，探索中医药文化的奥秘，获取专业的中医知识指导。',
-            'en': 'Intelligent dialogue with Ming Dynasty medical scientist Li Shizhen, explore the mysteries of TCM culture, and get professional TCM knowledge guidance.'
+        'feature_courses_desc': {
+            'zh': '精选优质中医课程，短小精悍，深入浅出，让您轻松掌握中医知识。',
+            'en': 'Selected quality TCM courses, concise and easy to understand, helping you master TCM knowledge effortlessly.'
         },
         'feature_knowledge_title': {
             'zh': '智识中医',
@@ -604,13 +604,13 @@ document.addEventListener('DOMContentLoaded', function() {
             'zh': '系统全面的中医基础知识，包括中医发展史、中药材库、人体五脏、诊疗方法、名医名篇等。',
             'en': 'Comprehensive TCM basic knowledge, including TCM history, herbal database, five organs, diagnostic methods, famous doctors and classics.'
         },
-        'feature_courses_title': {
-            'zh': '智课星链',
-            'en': 'TCM Micro Courses'
+        'feature_ai_title': {
+            'zh': '时珍智脑',
+            'en': 'AI Li Shizhen'
         },
-        'feature_courses_desc': {
-            'zh': '精选优质中医课程，短小精悍，深入浅出，让您轻松掌握中医知识。',
-            'en': 'Selected quality TCM courses, concise and easy to understand, helping you master TCM knowledge effortlessly.'
+        'feature_ai_desc': {
+            'zh': '与明代医药学家李时珍智能对话，探索中医药文化的奥秘，获取专业的中医知识指导。',
+            'en': 'Intelligent dialogue with Ming Dynasty medical scientist Li Shizhen, explore the mysteries of TCM culture, and get professional TCM knowledge guidance.'
         },
         'feature_games_title': {
             'zh': '五行智羿',
