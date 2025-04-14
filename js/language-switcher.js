@@ -814,5 +814,5 @@ document.addEventListener('DOMContentLoaded', function() {
     createLanguageSwitcher();
     
     // 初始化页面语言
-    // translatePage();
+    translatePage();
 });
