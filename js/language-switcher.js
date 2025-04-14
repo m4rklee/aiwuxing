@@ -593,7 +593,7 @@ document.addEventListener('DOMContentLoaded', function() {
             'en': 'TCM Micro Courses'
         },
         'feature_courses_desc': {
-            'zh': '精选优质中医课程，短小精悍，深入浅出，让您轻松掌握中医知识。',
+            'zh': 'AI生成式系列微课，精选优质中医课程，短小精悍，深入浅出，让您轻松掌握中医知识。',
             'en': 'Selected quality TCM courses, concise and easy to understand, helping you master TCM knowledge effortlessly.'
         },
         'feature_knowledge_title': {
@@ -639,11 +639,11 @@ document.addEventListener('DOMContentLoaded', function() {
         
         // 最新课程
         'latest_courses_title': {
-            'zh': '最新微课',
+            'zh': '智课星链',
             'en': 'Latest Courses'
         },
         'latest_courses_desc': {
-            'zh': '精选优质中医微课程，随时随地学习',
+            'zh': 'AI生成式系列微课，随时随地学习',
             'en': 'Selected quality TCM micro-courses, learn anytime, anywhere'
         },
         'course_duration': {
@@ -661,7 +661,7 @@ document.addEventListener('DOMContentLoaded', function() {
         
         // 热门游戏
         'popular_games_title': {
-            'zh': '热门互动游戏',
+            'zh': '五行智弈',
             'en': 'Popular Interactive Games'
         },
         'popular_games_desc': {
