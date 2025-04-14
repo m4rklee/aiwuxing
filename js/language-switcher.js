@@ -589,7 +589,7 @@ document.addEventListener('DOMContentLoaded', function() {
             'en': 'Diverse TCM cultural learning experience'
         },
         'feature_ai_title': {
-            'zh': 'AI李时珍',
+            'zh': '时珍智脑',
             'en': 'AI Li Shizhen'
         },
         'feature_ai_desc': {
@@ -597,7 +597,7 @@ document.addEventListener('DOMContentLoaded', function() {
             'en': 'Intelligent dialogue with Ming Dynasty medical scientist Li Shizhen, explore the mysteries of TCM culture, and get professional TCM knowledge guidance.'
         },
         'feature_knowledge_title': {
-            'zh': '中医知识科普',
+            'zh': '智识中医',
             'en': 'TCM Knowledge'
         },
         'feature_knowledge_desc': {
@@ -605,7 +605,7 @@ document.addEventListener('DOMContentLoaded', function() {
             'en': 'Comprehensive TCM basic knowledge, including TCM history, herbal database, five organs, diagnostic methods, famous doctors and classics.'
         },
         'feature_courses_title': {
-            'zh': '中医微课',
+            'zh': '智课星链',
             'en': 'TCM Micro Courses'
         },
         'feature_courses_desc': {
@@ -613,7 +613,7 @@ document.addEventListener('DOMContentLoaded', function() {
             'en': 'Selected quality TCM courses, concise and easy to understand, helping you master TCM knowledge effortlessly.'
         },
         'feature_games_title': {
-            'zh': '互动游戏',
+            'zh': '五行智羿',
             'en': 'Interactive Games'
         },
         'feature_games_desc': {
@@ -621,7 +621,7 @@ document.addEventListener('DOMContentLoaded', function() {
             'en': 'Educational TCM-themed games, learn while playing, enhance memory, and increase learning interest.'
         },
         'feature_community_title': {
-            'zh': '社区分享',
+            'zh': '智联杏林',
             'en': 'Community Sharing'
         },
         'feature_community_desc': {
