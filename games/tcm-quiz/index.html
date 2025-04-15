@@ -5,6 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>五行归类大挑战</title>
     <link rel="stylesheet" href="css/game_style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+
 </head>
 <body>
     <div class="game-container">
@@ -28,7 +30,7 @@
             <div class="elements-container">
                 <div class="element-box" data-element="木">
                     <div class="element-icon">
-                        <img src="images/wood.png" alt="木">
+                        <i class="fas fa-tree"></i>
                     </div>
                     <div class="element-name">木</div>
                     <div class="element-drop-zone" id="wood-zone"></div>
@@ -36,7 +38,7 @@
                 
                 <div class="element-box" data-element="火">
                     <div class="element-icon">
-                        <img src="images/fire.png" alt="火">
+                        <i class="fas fa-fire"></i>
                     </div>
                     <div class="element-name">火</div>
                     <div class="element-drop-zone" id="fire-zone"></div>
@@ -44,7 +46,7 @@
                 
                 <div class="element-box" data-element="土">
                     <div class="element-icon">
-                        <img src="images/earth.png" alt="土">
+                        <i class="fas fa-mountain"></i>
                     </div>
                     <div class="element-name">土</div>
                     <div class="element-drop-zone" id="earth-zone"></div>
@@ -52,7 +54,7 @@
                 
                 <div class="element-box" data-element="金">
                     <div class="element-icon">
-                        <img src="images/metal.png" alt="金">
+                        <i class="fas fa-coins"></i>
                     </div>
                     <div class="element-name">金</div>
                     <div class="element-drop-zone" id="metal-zone"></div>
@@ -60,7 +62,7 @@
                 
                 <div class="element-box" data-element="水">
                     <div class="element-icon">
-                        <img src="images/water.png" alt="水">
+                        <i class="fas fa-water"></i>
                     </div>
                     <div class="element-name">水</div>
                     <div class="element-drop-zone" id="water-zone"></div>
@@ -98,13 +100,26 @@
     <div class="level-transition" id="level-transition">
         <div class="transition-content">
             <h2>恭喜通过第<span id="completed-level">1</span>关!</h2>
+            <h2>你知道吗？</h2>
+            <img id='bonus-card' src="imgs/1.png">
             <p>即将进入第<span id="next-level-num">2</span>关</p>
             <div class="loading-bar">
                 <div class="loading-progress"></div>
             </div>
         </div>
     </div>
-    
+
+    <div class="level-transition" id="finished-level-transition">
+        <div class="transition-content">
+            <h2>恭喜通关!</h2>
+            <h2>你知道吗？</h2>
+            <img id='bonus-card' src="imgs/1.png">
+            <div class="restart" id="transition-restart">
+                <button id="restart">重新开始</button>
+            </div>
+        </div>
+    </div>
+
     <script src="js/game_script.js"></script>
 </body>
 </html>
