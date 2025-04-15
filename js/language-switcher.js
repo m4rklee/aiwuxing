@@ -242,7 +242,7 @@ document.addEventListener('DOMContentLoaded', function() {
         translateElement('#latest-courses .section-header p', 'latest_courses_desc');
         
         // 翻译具体课程
-        translateMicrocoursesPage();
+        // translateMicrocoursesPage();
 
         // 翻译课程按钮
         document.querySelectorAll('#latest-courses .btn-outline').forEach(btn => {
@@ -258,8 +258,19 @@ document.addEventListener('DOMContentLoaded', function() {
         
         // 翻译游戏难度
         // document.querySelectorAll('.game-difficulty').forEach(element => {
-        //     const stars = element.innerHTML.split('难度:')[1];
-        //     element.innerHTML = translations['game_difficulty'][currentLang] + stars;
+        //     for (const node of element.childNodes){
+                
+        //         if (node.nodeType === Node.TEXT_NODE){                    
+        //             // 中译英
+        //             if (node.textContent.includes('难度')) {
+        //                 node.textContent = node.textContent.replace('难度', translations['game_difficulty'][currentLang])
+        //             }else{
+        //                 // 英译中
+        //                 node.textContent = node.textContent.replace('Difficulty', translations['game_difficulty'][currentLang])
+    
+        //             }
+        //         }
+        //     }    
         // });
         
         // 翻译游戏按钮
@@ -272,7 +283,7 @@ document.addEventListener('DOMContentLoaded', function() {
         });
         
         // 翻译具体游戏
-        translateGamesPage();
+        // translateGamesPage();
 
         // 翻译查看全部游戏按钮
         translateElement('#popular-games .text-center .btn-primary', 'btn_view_all_games');
@@ -284,27 +295,33 @@ document.addEventListener('DOMContentLoaded', function() {
     
     // 翻译知识科普页面
     function translateKnowledgePage() {
+        // 翻译标题
+        const titleTranslations = ['herbs_title', 'meridians_title', 'wuxing_title', 'tcm_history_title', 'diagnosis_title', 'masters_title']
+        document.querySelectorAll('.section-header h2').forEach((title, i) => {
+            translateTitle(title, titleTranslations[i])
+        })
+
         // 翻译中医发展史
-        translateElement('#history .section-header h2', 'tcm_history_title');
+        // translateElement('#history .section-header h2', 'tcm_history_title');
         translateElement('#history .section-header p', 'tcm_history_desc');
         translateElement('.tab-btn[data-tab="origin"]', 'tab_origin');
         translateElement('.tab-btn[data-tab="development"]', 'tab_development');
         translateElement('.tab-btn[data-tab="culture"]', 'tab_culture');
         
         // 翻译中药材库
-        translateElement('#herbs .section-header h2', 'herbs_title');
+        // translateElement('#herbs .section-header h2', 'herbs_title');
         translateElement('#herbs .section-header p', 'herbs_desc');
         
         // 翻译人体五脏
-        translateElement('#meridians .section-header h2', 'meridians_title');
+        // translateElement('#meridians .section-header h2', 'meridians_title');
         translateElement('#meridians .section-header p', 'meridians_desc');
         
         // 翻译诊疗方法
-        translateElement('#diagnosis .section-header h2', 'diagnosis_title');
+        // translateElement('#diagnosis .section-header h2', 'diagnosis_title');
         translateElement('#diagnosis .section-header p', 'diagnosis_desc');
         
         // 翻译五行知识
-        translateElement('#knowledge .section-header h2', 'wuxing_title');
+        // translateElement('#knowledge .section-header h2', 'wuxing_title');
         translateElement('#knowledge .section-header p', 'wuxing_desc');
         translateElement('.tab-btn[data-tab="five-elements"]', 'tab_five_elements');
         translateElement('.tab-btn[data-tab="five-music"]', 'tab_music');
@@ -395,41 +412,109 @@ document.addEventListener('DOMContentLoaded', function() {
         // 五行学说
         // 五行学说与身心调节
         translateElement('#knowledge h3:nth-of-type(1)', 'wuxing_theory_title');
+        translateElement('#five-elements > p', 'wuxing_theory_desc')
+
         // 五行学说的起源与核心思想
         translateElement('#knowledge h4:nth-of-type(1)', 'wuxing_origin_title');
         translateElement('#knowledge .knowledge-section p:nth-of-type(1)', 'wuxing_origin_desc');
+        
+        translateElement('.wood h5', 'mu_title');
+        translateElement('.wood p', 'mu_desc');
 
-        translateElement('#knowledge .knowledge-section p:nth-of-type(2)', 'mu_desc');
+        translateElement('.fire h5', 'huo_title');
+        translateElement('.fire p', 'huo_desc');
 
-        translateElement('#knowledge .knowledge-section p:nth-of-type(3)', 'huo_desc');
+        translateElement('.earth h5', 'tu_title');
+        translateElement('.earth p', 'tu_desc');
 
-        translateElement('#knowledge .knowledge-section p:nth-of-type(4)', 'tu_desc');
+        translateElement('.metal h5', 'jin_title');
+        translateElement('.metal p', 'jin_desc');
 
-        translateElement('#knowledge .knowledge-section p:nth-of-type(5)', 'jin_desc');
-
-        translateElement('#knowledge .knowledge-section p:nth-of-type(6)', 'shui_desc');
+        translateElement('.water h5', 'shui_title');
+        translateElement('.water p', 'shui_desc');
 
         // 五行生克——动态平衡的宇宙观
-        translateElement('#knowledge h4:nth-of-type(2)', 'wuxing_relationship');
-        // translateElement('#knowledge p:nth-of-type(2)', 'shang_zhou_desc');
-
+        translateElement('#five-elements > div:nth-child(4) > h4', 'wuxing_relationship');
+        translateElement('#five-elements > div:nth-child(4) > p', 'wuxing_relationship_desc');
+        translateElement('#five-elements > div:nth-child(4) > div.five-cycles > div:nth-child(1) > h5', 'wuxing_xiangsheng_title');
+        translateElement('#five-elements > div:nth-child(4) > div.five-cycles > div:nth-child(2) > h5', 'wuxing_xiangke_title');
+        
+        translateElement('#five-elements > div:nth-child(4) > div.balance-theory > h5', 'theory_of_balance_title');
+        translateElement('#five-elements > div:nth-child(4) > div.balance-theory > p', 'theory_of_balance_desc');
+        
         // 五音疗法
-        translateElement('#knowledge h3:nth-of-type(2)', 'wuyin_title');
-        translateElement('#five-music .knowledge-section p:nth-of-type(1)', 'wuyin_desc')
+        translateElement('#five-music > h3', 'wuyin_title');
+        translateElement('#five-music > p', 'wuyin_title_desc');
+        translateElement('#five-music .knowledge-section p:nth-of-type(1)', 'wuyin_desc');
+        // 五音的表格
+        // 标题
+        translateElementsByClass('music-therapy-table tr th', 'wuyin_table_title_');
+        // 第二栏
+        translateElementsByClass('music-therapy-table tr td:nth-of-type(2)', 'wuyin_wuxing_');
+        // 第三栏
+        translateElementsByClass('music-therapy-table tr td:nth-of-type(3)', 'wuyin_organ_');
+        // 第四栏
+        translateElementsByClass('music-therapy-table tr td:nth-of-type(4)', 'wuyin_char_');
+        // 第五栏
+        translateElementsByClass('music-therapy-table tr td:nth-of-type(5)', 'wuyin_effect_');
+        // 五音科学小贴士
+        const tip_title = document.querySelector('#five-music > div > div.science-tip > h5');
+        translateTitle(tip_title, 'wuyin_tips_title');
+        const tip_desc = document.querySelector('#five-music > div > div.science-tip > p');
+        tip_desc.innerHTML = translations['wuyin_tips_desc'][currentLang];
+
+        // 五行音乐疗愈仓
+        translateElement('#five-music > div > div.music-therapy-player > h5', 'wuxing_music_therapy_cell_title');
+        translateElementsByClass('music-player p', 'wuxing_music_therapy_cell_desc_')
 
         // 五味title
         translateElement('#five-tastes h3:nth-of-type(1)', 'wuwei_title');
-        // translateElement('#five-tastes p:nth-of-type(1)', 'wuwei_title');
+        translateElement('#five-tastes > p', 'wuwei_title_desc');
         
         
         // 五味起源发展
         translateElement('#five-tastes .knowledge-section h4:nth-of-type(1)', 'wuwei_origin_title');
         translateElement('#five-tastes .knowledge-section p:nth-of-type(1)', 'wuwei_origin_desc');
         
+        // 核心学说
+        translateElement('#five-tastes > div:nth-child(3) > div > h5', 'wuwei_core_theory');
+        translateElementsByClass('classic-quotes blockquote', 'wuwei_core_theory_');
+
         // 五味大讲堂
-        translateElement('#knowledge h4:nth-of-type(3)', 'spring_autumn_title');
-        translateElement('#knowledge p:nth-of-type(3)', 'spring_autumn_desc');
+        translateElement('#five-tastes > div:nth-child(4) > h4', 'wuwei_lecture_title');
         
+        // 五行-五味-五脏对应关系
+        translateElement('#five-tastes > div:nth-child(4) > div.tastes-table > h5', 'wuxing-wuwei-organ_title');
+        // 关系表
+        // 标题
+        translateElementsByClass('tastes-table tr th', 'wuwei_table_title_');
+        // 第一栏
+        translateElementsByClass('tastes-table tr td:nth-of-type(1)', 'wuyin_wuxing_');
+        // 第二栏
+        translateElementsByClass('tastes-table tr td:nth-of-type(2)', 'wuwei_');
+        // 第三栏
+        translateElementsByClass('tastes-table tr td:nth-of-type(3)', 'wuwei_organ_');
+        // 第四栏
+        translateElementsByClass('tastes-table tr td:nth-of-type(4)', 'wuwei_food_');
+        // 第五栏
+        translateElementsByClass('tastes-table tr td:nth-of-type(5)', 'wuwei_effect_');
+        // 第六栏
+        translateElementsByClass('tastes-table tr td:nth-of-type(6)', 'wuwei_disease_');
+
+        // 五味作用的生理病理机制
+        translateElement('#five-tastes > div:nth-child(4) > div.taste-mechanism > h5', 'wuwei_disease_title');
+        // 卡片的标题
+        translateElementsByClass('mechanism-card h6', 'wuwei_disease_card_title_');
+        // 单独的一个p
+        translateElement('#five-tastes > div:nth-child(4) > div.taste-mechanism > div > div:nth-child(1) > p', 'wuwei_disease_card_p');
+        // 多个 li
+        translateElementsByClass('mechanism-card ul li', 'wuwei_disease_card_li_');
+        
+        // 趣味冷知识
+        translateElement('#five-tastes > div:nth-child(4) > div.fun-facts > h5', 'wuwei_fun_tips_title');
+        // 冷知识内容
+        translateElementsByClass('fact-item p', 'wuwei_fun_tips_');
+
         // 五行人格
         // 理论渊源与经典文献
         translateElement('#five-personality .knowledge-section h4:nth-of-type(1)', 'wuren_origin_title');
@@ -444,7 +529,7 @@ document.addEventListener('DOMContentLoaded', function() {
         translateElement('#knowledge p:nth-of-type(3)', 'spring_autumn_desc');
 
         // 翻译名医名篇
-        translateElement('#masters h2', 'masters_title');
+        // translateElement('#masters h2', 'masters_title');
         translateElement('.tab-btn[data-tab="famous-doctors"]', 'tab_famous_doctors');
         translateElement('.tab-btn[data-tab="famous-books"]', 'tab_famouse_books');
 
@@ -454,30 +539,131 @@ document.addEventListener('DOMContentLoaded', function() {
         translateElementsByClass('doctor-card p:not(.doctor-title)', 'doctor_info_')
         
         // 名篇
+        translateElementsByClass('book-info h3', 'classics_names_')
+        translateElementsByClass('book-info .book-author', 'classics_author_')
+        translateElementsByClass('book-info .book-period', 'classics_period_')
+        translateElementsByClass('book-info .book-info', 'classics_info_')
+
+        // 了解更多
+        const btn_mores = document.querySelectorAll('.btn-more').forEach(btn => {
+            btn.textContent = translations['btn_more'][currentLang];
+            // translateElement(btn, 'btn_more');
+        })
     }
     
+    // 翻译标题，保留符号
+    function translateTitle(title, translation){
+        for (const node of title.childNodes){
+            if(node.nodeType === Node.TEXT_NODE){
+                node.textContent = translations[translation][currentLang];
+            }
+        }
+    }
+
     // 翻译微课页面
     function translateMicrocoursesPage() {
         // 翻译页面标题和描述
-        translateElement('.section-header h2', 'courses_title');
+        // 标题只翻译文本内容
+        const title_1 = document.querySelectorAll('.section-header')[0];
+        const title_1_title = title_1.childNodes[1];
+        translateTitle(title_1_title, 'courses_title')
+        // for (const node of title_1_title.childNodes){
+        //     if(node.nodeType === Node.TEXT_NODE){
+        //         node.textContent = translations['courses_title'][currentLang];
+        //     }
+        // }
+        // translateElement('.section-header:nth-of-type(1) h2', 'courses_title');
         translateElement('.section-header p', 'courses_desc');
+
+        const title_2 = document.querySelectorAll('.section-header')[1];
+        const title_2_title = title_2.childNodes[1];
+        translateTitle(title_2_title, 'ai_tcm_title');
+        // translateElement('.section-header:nth-of-type(3) h2', 'ai_tcm_title');
         
         // 翻译课程卡片内容
         translateElementsByClass('course-card h3', 'course_title_');
         translateElementsByClass('course-card p', 'course_desc_');
         translateElementsByClass('course-card .btn', 'btn_view_course');
+        
+        // 翻译时间
+        document.querySelectorAll('.course-duration').forEach(time => {
+            // const content = time.textContent;
+            // const clock = time.children[0];
+            // console.log(clock)
+
+            // 只替换文本节点部分
+            for (const node of time.childNodes) {
+                if (node.nodeType === Node.TEXT_NODE) {
+                    // 中译英
+                    if (node.textContent.includes('分钟')){
+                        node.textContent = node.textContent.replace('分钟', translations['course_duration'][currentLang]);
+                    }
+                    if (node.textContent.includes('秒')){
+                        node.textContent = node.textContent.replace('秒', translations['course_duration_seconds'][currentLang]);
+                    }
+                    // 英译中
+                    if (node.textContent.includes('min')){
+                        node.textContent = node.textContent.replace('min', translations['course_duration'][currentLang]);
+                    }
+                    if (node.textContent.includes('seconds')){
+                        node.textContent = node.textContent.replace('seconds', translations['course_duration_seconds'][currentLang]);
+                    }
+                }
+            }
+            // 中译英
+            // if (content.includes('分钟')){
+            //     time.textContent = content.replace('分钟', translations['course_duration'][currentLang]);
+            // }
+            // if (content.includes('秒')){
+            //     time.textContent = time.textContent.replace('秒', translations['course_duration_seconds'][currentLang]);
+            // }
+            
+            // // 英译中
+            // if (content.includes('min')){
+            //     time.textContent = time.textContent.replace('min', translations['course_duration'][currentLang]);
+            // }
+            // if (content.includes('seconds')){
+            //     time.textContent = time.textContent.replace('seconds', translations['course_duration_seconds'][currentLang]);
+            // }
+            
+        });
+
+        // 翻译课程按钮
+        document.querySelectorAll('.course-card .btn-more').forEach(btn => {
+            btn.textContent = translations['btn_start_learning'][currentLang];
+        });
+        
     }
     
     // 翻译游戏页面
     function translateGamesPage() {
         // 翻译页面标题和描述
-        translateElement('.section-header h2', 'games_title');
+        const title = document.querySelector('.section-header h2');
+        translateTitle(title, 'games_title')
+        // translateElement('.section-header h2', 'games_title');
         translateElement('.section-header p', 'games_desc');
         
         // 翻译游戏卡片内容
         translateElementsByClass('game-card h3', 'game_title_');
         translateElementsByClass('game-card p', 'game_desc_');
         translateElementsByClass('game-card .btn', 'btn_play_game');
+
+        // 翻译游戏难度
+        document.querySelectorAll('.game-difficulty').forEach(element => {
+            for (const node of element.childNodes){
+                
+                if (node.nodeType === Node.TEXT_NODE){                    
+                    // 中译英
+                    if (node.textContent.includes('难度')) {
+                        node.textContent = node.textContent.replace('难度', translations['game_difficulty'][currentLang])
+                    }else{
+                        // 英译中
+                        node.textContent = node.textContent.replace('Difficulty', translations['game_difficulty'][currentLang])
+    
+                    }
+                }
+            }    
+        });
 
         // 翻译按钮
         document.querySelectorAll('.btn-more').forEach(btn => {
@@ -491,6 +677,7 @@ document.addEventListener('DOMContentLoaded', function() {
     
     // 翻译AI李时珍页面
     function translateAILiShizhenPage() {
+
         // 翻译页面标题和描述
         translateElement('.ai-hero-content h1', 'ai_title');
         translateElement('.ai-hero-content p', 'ai_desc');
@@ -502,14 +689,28 @@ document.addEventListener('DOMContentLoaded', function() {
         translateElement('#ai-features .section-header p', 'ai_features_desc');
         
         // 翻译AI功能卡片
-        translateElementsByClass('ai-feature-card h3', 'ai_feature_title_');
-        translateElementsByClass('ai-feature-card p', 'ai_feature_desc_');
+        translateElementsByClass('feature-content h3', 'ai_feature_title_');
+        translateElementsByClass('feature-content p', 'ai_feature_desc_');
+
+        // 翻译与李时珍对话标题和描述
+        translateElement('#ai-chat .section-header h2', 'ai_chat_title');
+        translateElement('#ai-chat .section-header p', 'ai_chat_desc');
+        
+        // 翻译使用指南标题和描述
+        translateElement('#ai-guide .section-header h2', 'ai_guides_title');
+        translateElement('#ai-guide .section-header p', 'ai_guides_desc');
+        
+        // 翻译使用指南卡片
+        translateElementsByClass('guide-content h3', 'ai_guide_title_');
+        translateElementsByClass('guide-content p', 'ai_guide_desc_');
     }
     
     // 翻译论坛页面
     function translateForumPage() {
         // 翻译页面标题和描述
-        translateElement('.section-header h2', 'forum_title');
+        const title = document.querySelector('.section-header h2');
+        translateTitle(title, 'forum_title')
+        // translateElement('.section-header h2', 'forum_title');
         translateElement('.section-header p', 'forum_desc');
         
         // 翻译论坛导航
@@ -606,6 +807,11 @@ document.addEventListener('DOMContentLoaded', function() {
             'zh': '中医知识锦囊',
             'en': 'Treasure Trove of TCM'
         },
+
+        'ai_tcm_title': {
+            'zh': 'AI朋友说中医',
+            'en': 'AI Health Coach Introduces TCM'
+        },
         
         // 微课内容
         'course_title_1': {
@@ -665,6 +871,11 @@ document.addEventListener('DOMContentLoaded', function() {
             'en': "Li Shizhen's guide to correspondences between The Five Organs and their healing flavors."
         },
 
+        // 微课按钮
+        'btn_start_learning': {
+            'zh': '开始学习',
+            'en': 'Start Learning'
+        },
         
         // 首页轮播图
         'hero_title_1': {
@@ -803,6 +1014,10 @@ document.addEventListener('DOMContentLoaded', function() {
             'zh': '分钟',
             'en': 'min'
         },
+        'course_duration_seconds': {
+            'zh': '秒',
+            'en': 'seconds'
+        },
         'btn_view_course': {
             'zh': '查看课程',
             'en': 'View Course'
@@ -822,8 +1037,8 @@ document.addEventListener('DOMContentLoaded', function() {
             'en': 'Learn while playing TCM knowledge'
         },
         'game_difficulty': {
-            'zh': '难度:',
-            'en': 'Difficulty:'
+            'zh': '难度',
+            'en': 'Difficulty'
         },
         'btn_play_game': {
             'zh': '开始游戏',
@@ -927,7 +1142,7 @@ document.addEventListener('DOMContentLoaded', function() {
         // 药材抽屉翻译
         'herb_ginseng': {
             'zh': '人参',
-            'en': 'ginseng'
+            'en': 'Ginseng'
         },
         
         'herb_astragalus': {
@@ -992,14 +1207,27 @@ document.addEventListener('DOMContentLoaded', function() {
         // },
 
         // 人体五脏
-        // 'meridians_title': {
-        //     'zh': '中药材库',
-        //     'en': 'Herbal Database'
-        // },
-        // 'maridians_desc': {
-        //     'zh': '探索传统中药的神奇力量',
-        //     'en': 'Explore the magical power of traditional Chinese herbs'
-        // },
+        'meridians_title': {
+            'zh': '人体五脏',
+            'en': 'Five Organs'
+        },
+        'maridians_desc': {
+            'zh': '探索人体的神秘地图',
+            'en': 'Exploring the Mysterious Map of the Human Body'
+        },
+        'meridian_info_title': {
+            'zh': '五行与脏腑对应',
+            'en': 'Five Elements and Their Corresponding Organs'
+        },
+        'meridian_info_desc': {
+            'zh': '点击人体图上的脏腑，了解相关脏腑的五行属性和中医文化内涵。',
+            'en': 'Click on the Five Organs in the body diagram to learn about their Five Elements attributes and TCM cultural significance.'
+        },
+        'meridian_click_desc': {
+            'zh': '请点击左侧人体图上的穴位查看详情',
+            'en': 'Please select an organ on the left-side body diagram to view details.'
+        },
+
 
         // 五行知识
         'wuxing_title': {
@@ -1023,6 +1251,11 @@ document.addEventListener('DOMContentLoaded', function() {
             'en': 'The Five-Element Theory and Mind-Body Regulation'
         },
 
+        'wuxing_theory_desc': {
+            'zh': '中国传统哲学的身心平衡之道',
+            'en': 'The Ancient Chinese Philosophy of Holistic Balance'
+        },
+
         'wuxing_origin_title': {
             'zh': '五行学说的起源与核心思想',
             'en': 'Origins and Core Principles of the Five-Element Theory'
@@ -1033,34 +1266,76 @@ document.addEventListener('DOMContentLoaded', function() {
             'en': "Five-Element Theory (Wuxing) stands as one of the foundational doctrines of classical Chinese philosophy, originating from systematic observation and abstraction of natural phenomena. First documented in Book of Documents·Hong Fan and maturing during the Warring States period, this theory emerged from ancient scholars' contemplation of material properties and transformational patterns in nature. By distilling the essence of cosmic operations into five fundamental elements—Metal, Wood, Water, Fire, and Earth—the theory posits that all phenomena manifest through these categorical substances. Through dynamic interactions like mutual generation (相生) and restraint (相克), it constructs a comprehensive framework explaining cosmic order, natural laws, and human health—bridging macrocosm and microcosm in a unified system of correspondences."
         },
 
+        'mu_title': {
+            'zh': '木（生长之机）',
+            'en': 'Wood (The Vitality of Growth)'
+        },
         'mu_desc': {
             'zh': '象征生长、升发、条达，对应春季、东方、青色，在人体中关联肝脏与胆腑。如《黄帝内经》言："木曰曲直"，指木能屈能伸，如草木破土而出，寓意生命力与适应力。',
-            'en': ''
+            'en': `Symbolizing growth, ascending, and unobstructed expansion, it corresponds to spring season, the eastern direction, and the color cyan/blue-green. In the human body, it governs the liver organ and gallbladder腑. As stated in The Yellow Emperor's Inner Classic: "Wood is said to bend and straighten" — referring to wood's flexible yet resilient nature, like young plants breaking through soil, embodying vitality and adaptability.`
         },
-
+        'huo_title': {
+            'zh': '火（热情之光）',
+            'en': 'Fire (The Radiance of Passion)'
+        },
         'huo_desc': {
             'zh': '代表温热、上升、光明，对应夏季、南方、红色，关联心脏与小肠。如《黄帝内经》言："火曰炎上"描述火焰向上燃烧的特性，象征热情与活力。',
-            'en': ''
+            'en': `Symbolizing warmth, ascent, and radiance, it corresponds to summer, the southern direction, and the color red, governing the heart organ and small intestine in the human body. As articulated in The Yellow Emperor's Inner Classic: "Fire is said to flare upward" — capturing fire's inherent upward-surging nature, embodying passion and vitality.`
         },
-        
+        'tu_title': {
+            'zh': '土（包容之母）',
+            'en': 'Earth (The Embracing Mother)'
+        },
         'tu_desc': {
             'zh': '象征承载、生化、稳定，对应长夏（夏秋之交）、中央、黄色，关联脾胃。如《黄帝内经》言："土爰稼穑"指土地孕育万物，如农耕依赖土壤，强调包容与滋养。',
-            'en': ''
+            'en': `Symbolizing containment, transformation, and stability, it corresponds to late summer (the seasonal transition between summer and autumn), the central direction, and the color yellow, governing the spleen and stomach system in the human body. As elucidated in The Yellow Emperor's Inner Classic: "Earth is said to sow and reap" — signifying the soil's role in nurturing all life, much like agriculture depends on fertile land, emphasizing receptiveness and nourishment.`
         },
-
+        'jin_title':{
+            'zh': '金（变革之力）',
+            'en': 'Metal (The Power of Transformation)'
+        },
         'jin_desc': {
             'zh': '代表收敛、变革、肃杀，对应秋季、西方、白色，关联肺脏与大肠。如《黄帝内经》言："金曰从革"意为金属可锻造变革，象征决断与秩序。',
-            'en': ''
+            'en': `Symbolizing astringency, transformation, and purging austerity, it corresponds to autumn, the western direction, and the color white, governing the lung organ and large intestine in human physiology. As articulated in The Yellow Emperor's Inner Classic: "Metal is said to obey and reform" — denoting metal's malleable yet defining quality, embodying decisiveness and systemic order.`
         },
-
+        'shui_title':{
+            'zh': '水（智慧之源）',
+            'en': 'Water (The Source of Wisdom)'
+        },
         'shui_desc': {
             'zh': '象征寒凉、流动、润下，对应冬季、北方、黑色，关联肾脏与膀胱。如《黄帝内经》言："水曰润下"指水向下渗透，如江河奔流，寓意柔韧与智慧。',
-            'en': ''
+            'en': `Symbolizing coldness, fluidity, and downward nourishment, it corresponds to winter, the northern direction, and the color black, governing the kidney organ and bladder in human physiology. As proclaimed in The Yellow Emperor's Inner Classic: "Water is said to moisten and descend" — epitomizing water's permeating downward movement, like rivers flowing seaward, embodying resilience and primordial wisdom.`
         },
 
         'wuxing_relationship': {
             'zh': '五行生克——动态平衡的宇宙观',
-            'en': '五行生克——动态平衡的宇宙观'
+            'en': `The Five Elements' Generation and Restraint — A Cosmology of Dynamic Balance`
+        },
+
+        'wuxing_relationship_desc': {
+            'zh': '五行通过"相生"与"相克"形成循环，维持自然与人体系统的动态平衡，不仅是物质的分类，更体现动态平衡的宇宙观。',
+            'en': 'The Five Elements (Wood, Fire, Earth, Metal, Water) achieve cyclical harmony through: Generative Cycle (相生, Xiāngshēng) and Restraining Cycle (相克, Xiāngkè). This interplay sustains dynamic equilibrium in both nature and the human body, transcending mere material classification to embody a profound cosmological principle of perpetual motion and balance.'
+        },
+
+        'wuxing_xiangsheng_title': {
+            'zh': '相生关系',
+            'en': 'Generative Cycle'
+        },
+
+        'wuxing_xiangke_title': {
+            'zh': '相克关系',
+            'en': 'Restraining Cycle'
+        },
+
+        // 平衡之道
+        'theory_of_balance_title': {
+            'zh': '平衡之道',
+            'en': 'The Dao of Balance: Dynamic Equilibrium in the Five Elements'
+        },
+
+        'theory_of_balance_desc': {
+            'zh': '五行生克并非对立，而是相互制约与依存。例如，木过旺会克土，但土生金又能克木，形成自我调节机制。中医借此解释人体病理：肝火过旺（木亢）可能影响脾胃（土虚），需通过调理肺（金）或肾（水）恢复平衡。',
+            'en': `The generative (相生) and restraining (相克) cycles of the Five Elements do not represent opposition, but rather mutual regulation and interdependence. For example: 1.Excess Wood overacting on Earth: Overgrown trees deplete soil, but Earth's subsequent production of Metal (e.g., tools) can prune Wood, creating a self-correcting loop. 2.Medical Application in TCM: A patient with Liver-fire overabundance (木亢, manifesting as irritability) may develop Spleen deficiency (土虚, causing poor digestion). Treatment follows the cycle: (1) Strengthen Metal (Lung/colon function) to restrain Wood. (2) Nourish Water (Kidneys) to support Wood's healthy growth.`
         },
 
         // 五音疗法 tab
@@ -1074,9 +1349,171 @@ document.addEventListener('DOMContentLoaded', function() {
             'en': 'Five-Tone Therapy'
         },
 
+        'wuyin_title_desc': {
+            'zh': '音乐调节身心的智慧',
+            'en': 'The Wisdom of Harmonizing Body and Mind Through Music'
+        },
+
         'wuyin_desc': {
             'zh': '古代将五声音阶（角、徵、宫、商、羽）与五行、五脏对应，发展出"五行音乐疗法"，认为特定音调可调节气血与情绪。',
             'en': 'In ancient China, the pentatonic scale (Jue, Zhi, Gong, Shang, Yu) was systematically correlated with the Five Elements and corresponding organs, giving rise to the development of "Five-Element Music Therapy." This therapeutic approach posits that specific musical tones can regulate qi-blood flow and emotional states through their resonant properties.'
+        },
+
+        'wuyin_table_title_1': {
+            'zh': '五音',
+            'en': 'Five-Tone'
+        },
+
+        'wuyin_table_title_2': {
+            'zh': '五行',
+            'en': 'Five Elements'
+        },
+
+        'wuyin_table_title_3': {
+            'zh': '对应脏腑',
+            'en': 'Corresponding Organs'
+        },
+
+        'wuyin_table_title_4': {
+            'zh': '音乐特点',
+            'en': 'Musical Characteristics'
+        },
+
+        'wuyin_table_title_5': {
+            'zh': '身心作用',
+            'en': 'Physiological & Psychological Effects'
+        },
+
+        'wuyin_wuxing_1': {
+            'zh': '木',
+            'en': 'Wood'
+        },
+
+        'wuyin_wuxing_2': {
+            'zh': '火',
+            'en': 'Fire'
+        },
+
+        'wuyin_wuxing_3': {
+            'zh': '土',
+            'en': 'Earth'
+        },
+        
+        'wuyin_wuxing_4': {
+            'zh': '金',
+            'en': 'Metal'
+        },
+
+        'wuyin_wuxing_5': {
+            'zh': '水',
+            'en': 'Water'
+        },
+
+        'wuyin_organ_1': {
+            'zh': '肝、胆',
+            'en': 'Liver, Gallbladder'
+        },
+
+        'wuyin_organ_2': {
+            'zh': '心、小肠',
+            'en': 'Heart, Small Intestine'
+        },
+
+        'wuyin_organ_3': {
+            'zh': '脾、胃',
+            'en': 'Spleen, Stomach'
+        },
+
+        'wuyin_organ_4': {
+            'zh': '肺、大肠',
+            'en': 'Lungs, Large Intestine'
+        },
+        
+        'wuyin_organ_5': {
+            'zh': '肾、膀胱',
+            'en': 'Kidneys, Bladder'
+        },
+
+        'wuyin_char_1': {
+            'zh': '柔和舒展的古琴曲：轻快、悠扬（如古琴曲《高山流水》）',
+            'en': 'Soft and expansive guqin melodies: Light, flowing (e.g., High Mountains and Flowing Water)'
+        },
+
+        'wuyin_char_2': {
+            'zh': '欢快活泼的竹笛乐：热烈、欢快（如琵琶曲《十面埋伏》）',
+            'en': 'Lively dizi bamboo flute music: Vigorous, joyful (e.g., Ambush from Ten Sides for pipa)'
+        },
+
+        'wuyin_char_3': {
+            'zh': '沉稳庄重的编钟声：沉稳、平和（如埙曲《寒山钟声》）',
+            'en': 'Steady and solemn bronze bell tones: Calm, balanced (e.g., Cold Mountain Bell Sound for xun)'
+        },
+
+        'wuyin_char_4': {
+            'zh': '清亮高亢的磬石音：清亮、悲壮（如编钟曲《楚商》）',
+            'en': 'Clear and resonant stone chime notes: Bright, heroic (e.g., Chu Shang for bianzhong)'
+        },
+        
+        'wuyin_char_5': {
+            'zh': '流水般的洞箫旋律：柔和、哀婉（如箫曲《梅花三弄》）',
+            'en': 'Flowing xiao bamboo flute melodies: Gentle, melancholic (e.g., Three Variations of Plum Blossom)'
+        },
+
+        'wuyin_effect_1': {
+            'zh': '疏肝解郁，缓解焦虑',
+            'en': 'Soothes liver qi, relieves anxiety'
+        },
+
+        'wuyin_effect_2': {
+            'zh': '振奋心气，改善抑郁',
+            'en': 'Invigorates heart qi, alleviates depression'
+        },
+
+        'wuyin_effect_3': {
+            'zh': '健脾安神，缓解思虑过度',
+            'en': 'Strengthens the spleen, calms the mind, eases overthinking'
+        },
+
+        'wuyin_effect_4': {
+            'zh': '宣肺理气，舒缓悲伤',
+            'en': 'Regulates lung qi, soothes grief'
+        },
+
+        'wuyin_effect_5': {
+            'zh': '滋肾宁心，缓解恐惧',
+            'en': 'Nourishes kidneys, quiets the heart, reduces fear'
+        },
+        'wuyin_tips_title': {
+            'zh': '科学小贴士',
+            'en': 'Did You Know?'
+        },
+        'wuyin_tips_desc':{
+            'zh': '临床实验表明，五行音乐可调节脑电波与心率。例如，α波助放松，角调音乐能降低皮质醇（压力激素）水平，宫调音乐可改善消化不良（《世界睡眠医学杂志》2023）。同时，五行音乐搭配中医时辰理论效果更佳哦！',
+            'en': 'Clinical studies show that Five-Element Music (五行音乐) can modulate brainwaves and heart rate. For example: Alpha waves aid relaxation. Jue-tone (角调) music reduces cortisol (the stress hormone). Gong-tone (宫调) music improves digestive discomfort (World Journal of Sleep Medicine, 2023). <br>Pro Tip: Pairing Five-Element Music with TCM circadian theory (中医时辰理论) enhances its effects!'
+        },
+        'wuxing_music_therapy_cell_title': {
+            'zh': '五行音乐疗愈舱',
+            'en': 'Five-Element Music Healing Pod'
+        },
+        'wuxing_music_therapy_cell_desc_1': {
+            'zh': '角调·疏肝解郁',
+            'en': 'Jue Tone (Wood Element) • Liver Soothing & Qi Regulation'
+        },
+        'wuxing_music_therapy_cell_desc_2': {
+            'zh': '徵调·振奋心气',
+            'en': 'Zhi Tone (Fire Element) • Heart Qi Activation'
+        },
+        'wuxing_music_therapy_cell_desc_3': {
+            'zh': '宫调·健脾安神',
+            'en': 'Gong Tone (Earth Element) • Spleen Harmony & Mental Grounding'
+        },
+        'wuxing_music_therapy_cell_desc_4': {
+            'zh': '商调·宣肺理气',
+            'en': 'Shang Tone (Metal Element) • Lung Qi Diffusion'
+        },
+        'wuxing_music_therapy_cell_desc_5': {
+            'zh': '羽调·滋肾宁心',
+            'en': 'Yu Tone (Water Element) • Kidney Nourishment'
         },
 
         // 五味学说 tab
@@ -1090,6 +1527,11 @@ document.addEventListener('DOMContentLoaded', function() {
             'en': 'The Five-Flavor Theory'
         },
 
+        'wuwei_title_desc': {
+            'zh': '饮食养生的五行密码',
+            'en': 'The Dietary Code of Health Through Five Elements'
+        },
+
         'wuwei_origin_title': {
             'zh': '起源发展',
             'en': 'Origin and Development'
@@ -1098,6 +1540,267 @@ document.addEventListener('DOMContentLoaded', function() {
         'wuwei_origin_desc': {
             'zh': '五味学说是中医基础理论的重要组成部分，其雏形可追溯至先秦时期的《尚书·洪范》，书中首次提出"五行配五味"思想："水曰润下，火曰炎上，木曰曲直，金曰从革，土爰稼穑。润下作咸，炎上作苦，曲直作酸，从革作辛，稼穑作甘。"至《黄帝内经》，五味学说与脏腑、经络、病理等系统结合，形成完整的"药食同源"理论体系。',
             'en': `The Five-Flavor Theory constitutes a fundamental component of Traditional Chinese Medicine (TCM) theory. Its prototype dates back to the pre-Qin era’s Book of Documents·Hong Fan, which first proposed the concept of "Five Elements corresponding to Five Flavors": "Water moistens and descends (salty), Fire flares upward (bitter), Wood bends and straightens (sour), Metal yields and reforms (pungent), Earth permits sowing and reaping (sweet)." By the time of The Yellow Emperor's Inner Canon, the Five-Flavor Theory had become systematically integrated with zang-fu organs, meridians, and pathology, forming a complete theoretical framework of "medicinal and dietary homology".`
+        },
+
+        'wuwei_core_theory':{
+            'zh': '核心学说',
+            'en': 'Core Theory of Five Flavors'
+        },
+
+        'wuwei_core_theory_1': {
+            'zh': '《素问·宣明五气》："五味所入：酸入肝，辛入肺，苦入心，咸入肾，甘入脾，是谓五入。"',
+            'en': `"The Classic of Plain Questions: Declaration of Five Qi" states: "Five flavors enter specific organs: Sour enters the Liver, Pungent enters the Lungs, Bitter enters the Heart, Salty enters the Kidneys, Sweet enters the Spleen. This is called the Five Entries."`
+        },
+
+        'wuwei_core_theory_2': {
+            'zh': '《灵枢·五味》："谷味酸，先走肝；谷味苦，先走心；谷味甘，先走脾；谷味辛，先走肺；谷味咸，先走肾。"',
+            'en': '《Lingshu · Five Flavors》: "Grain flavors exhibit targeted organ tropism: Sour primarily acts on the Liver, bitter on the Heart, sweet on the Spleen, pungent on the Lungs, and salty on the Kidneys."'
+        },
+
+        'wuwei_lecture_title': {
+            'zh': '五味大讲堂',
+            'en': 'Five Flavors Masterclass'
+        },
+
+        'wuxing-wuwei-organ_title': {
+            'zh': '五行-五味-五脏的对应关系',
+            'en': 'The Corresponding Relationships Between Five Elements, Five Flavors, and Five Organs'
+        },
+        
+        'wuwei_table_title_1': {
+            'zh': '五行',
+            'en': 'Element'
+        },
+
+        'wuwei_table_title_2': {
+            'zh': '五味',
+            'en': 'Flavor'
+        },
+
+        'wuwei_table_title_3': {
+            'zh': '归经',
+            'en': 'Organs'
+        },
+        
+        'wuwei_table_title_4': {
+            'zh': '代表食物',
+            'en': 'Representative Foods'
+        },
+
+        'wuwei_table_title_5': {
+            'zh': '生理作用',
+            'en': 'Key Actions'
+        },
+
+        'wuwei_table_title_6': {
+            'zh': '病理关联',
+            'en': 'Clinical Indications'
+        },
+
+        'wuwei_1': {
+            'zh': '酸',
+            'en': 'Sour'
+        },
+
+        'wuwei_2': {
+            'zh': '苦',
+            'en': 'Bitter'
+        },
+    
+        'wuwei_3': {
+            'zh': '甘',
+            'en': 'Sweet'
+        },
+
+        'wuwei_4': {
+            'zh': '辛',
+            'en': 'Pungent'
+        },
+
+        'wuwei_5': {
+            'zh': '咸',
+            'en': 'Salty'
+        },
+
+        'wuwei_organ_1': {
+            'zh': '肝、胆',
+            'en': 'Liver, Gallbladder'
+        },
+
+        'wuwei_organ_2': {
+            'zh': '心、小肠',
+            'en': 'Heart, Small Intestine'
+        },
+
+        'wuwei_organ_3': {
+            'zh': '脾、胃',
+            'en': 'Spleen, Stomach'
+        },
+
+        'wuwei_organ_4': {
+            'zh': '肺、大肠',
+            'en': 'Lungs, Large Intestine'
+        },
+
+        'wuwei_organ_5': {
+            'zh': '肾、膀胱',
+            'en': 'Kidneys, Urinary Bladder'
+        },
+
+        'wuwei_food_1': {
+            'zh': '山楂、柠檬',
+            'en': 'Hawthorn, Lemon'
+        },
+
+        'wuwei_food_2': {
+            'zh': '苦瓜、黄连',
+            'en': 'Bitter melon, Coptis'
+        },
+
+        'wuwei_food_3': {
+            'zh': '红枣、蜂蜜',
+            'en': 'Jujube, Honey'
+        },
+
+        'wuwei_food_4': {
+            'zh': '生姜、薄荷',
+            'en': 'Ginger, Peppermint'
+        },
+
+        'wuwei_food_5': {
+            'zh': '海带、盐',
+            'en': 'Kelp, Salt'
+        },
+
+        'wuwei_effect_1': {
+            'zh': '收敛固涩（止汗、止血）',
+            'en': 'Astringes & consolidates (stops sweat, bleeding)'
+        },
+
+        'wuwei_effect_2': {
+            'zh': '清热泻火、燥湿坚阴',
+            'en': 'Clears heat, dries dampness, firms Yin'
+        },
+
+        'wuwei_effect_3': {
+            'zh': '补益和中、缓急止痛',
+            'en': 'Tonifies, harmonizes, relieves cramping'
+        },
+
+        'wuwei_effect_4': {
+            'zh': '发散解表、行气活血',
+            'en': 'Releases exterior, moves Qi & blood'
+        },
+
+        'wuwei_effect_5': {
+            'zh': '软坚散结、泻下通便',
+            'en': 'Softens hardness, purges bowels'
+        },
+
+        'wuwei_disease_1': {
+            'zh': '肝气郁结、筋脉挛急',
+            'en': 'Liver Qi stagnation, tendon spasms'
+        },
+
+        'wuwei_disease_2': {
+            'zh': '心火上炎、失眠多梦',
+            'en': 'Heart fire rising, insomnia with dreams'
+        },
+
+        'wuwei_disease_3': {
+            'zh': '脾虚湿盛、食欲不振',
+            'en': 'Spleen deficiency with dampness, poor appetite'
+        },
+
+        'wuwei_disease_4': {
+            'zh': '肺气壅滞、咳嗽痰多',
+            'en': 'Lung Qi congestion, phlegmy cough'
+        },
+
+        'wuwei_disease_5': {
+            'zh': '肾虚水肿、瘿瘤瘰疬',
+            'en': 'Kidney deficiency edema, goiter/scrofula'
+        },
+
+        'wuwei_disease_title': {
+            'zh': '五味作用的生理病理机制',
+            'en': 'Physiological and Pathological Mechanisms of Five Flavors'
+        },
+
+        'wuwei_disease_card_title_1': {
+            'zh': '阴阳五行动态平衡',
+            'en': 'Dynamic Equilibrium of Yin-Yang and the Five Elements'
+        },
+
+        'wuwei_disease_card_title_2': {
+            'zh': '气机升降理论',
+            'en': 'Theory of Qi Dynamic Ascension-Descension'
+        },
+
+        'wuwei_disease_card_title_3': {
+            'zh': '现代药理学相关',
+            'en': 'Modern Pharmacological Correlation'
+        },        
+        
+        'wuwei_disease_card_p': {
+            'zh': '五味通过五行生克调节人体阴阳：',
+            'en': 'The Five Flavors Regulate Human Yin-Yang through Five-Element Generation-Restriction Cycles: '
+        },
+
+        'wuwei_disease_card_li_1':{
+            'zh': '相生调节：如"酸（木）生苦（火）"，肝藏血（酸）充足可滋心火（苦），维持心血运行。',
+            'en': 'Generative regulation: The sour (Wood) flavor nurtures bitter (Fire) - adequate liver blood storage (sour) nourishes heart fire (bitter), sustaining proper cardiac circulation.'
+        },
+
+        'wuwei_disease_card_li_2':{
+            'zh': '相克制约：如"甘（土）克咸（水）"，过食咸味（伤肾）可用甘味（健脾）制水，治疗水肿。',
+            'en': 'Restrictive regulation: The sweet (Earth) flavor controls salty (Water) - excessive salt intake (kidney-harming) can be counterbalanced by sweet flavors (spleen-strengthening) to manage edema.'
+        },
+
+        'wuwei_disease_card_li_3':{
+            'zh': '辛甘发散为阳：辛味（金）主升散（如麻黄发汗），甘味（土）主升清（如黄芪补气）。',
+            'en': 'Pungent-sweet dispersing as Yang: Pungent flavors (Metal) promote outward dispersion (e.g., ephedra induces sweating), while sweet flavors (Earth) elevate the clear (e.g., astragalus boosts Qi).'
+        },
+
+        'wuwei_disease_card_li_4':{
+            'zh': '酸苦涌泄为阴：酸味（木）主收敛（如五味子敛肺），苦味（火）主降泄（如大黄通便）。',
+            'en': 'Sour-bitter draining as Yin: Sour flavors (Wood) promote astringency (e.g., schisandra consolidates the lungs), while bitter flavors (Fire) induce downward drainage (e.g., rhubarb purges the bowels).'
+        },
+
+        'wuwei_disease_card_li_5':{
+            'zh': '酸味（木）：含有机酸（如柠檬酸）可调节肝细胞代谢（《中国中药杂志》，2021）。',
+            'en': 'Sour flavor (Wood element): Contains organic acids (e.g., citric acid) that modulate hepatocyte metabolism (China Journal of Chinese Materia Medica, 2021).'
+        },
+
+        'wuwei_disease_card_li_6':{
+            'zh': '苦味（火）：生物碱（如黄连素）抑制NF-κB通路，抗炎护心（《Phytomedicine》，2022）。',
+            'en': 'Bitter flavor (Fire element): Alkaloids (e.g., berberine) inhibit the NF-κB pathway, providing anti-inflammatory and cardioprotective effects (Phytomedicine, 2022).'
+        },
+
+        'wuwei_disease_card_li_7':{
+            'zh': '咸味（水）：碘（海带）调节甲状腺功能，印证"咸入肾"理论（《Journal of Ethnopharmacology》，2023）。',
+            'en': 'Salty flavor (Water element): Iodine (from kelp) modulates thyroid function, validating the "salty enters kidney" theory (Journal of Ethnopharmacology, 2023).'
+        },
+
+        // 趣味冷知识
+        'wuwei_fun_tips_title': {
+            'zh': '趣味冷知识',
+            'en': 'Did you know?'
+        },
+
+        'wuwei_fun_tips_1': {
+            'zh': '中医"五味"涵盖药物与食物的自然属性，而非单纯味觉感受。如"咸味"包括海带、芒硝等，既指口感咸，亦指其下行、软坚的药性。',
+            'en': `The 'Five Flavors' (五味) in Traditional Chinese Medicine describe the inherent nature of both herbs and foods, transcending mere taste perception. For instance, the 'salty' flavor encompasses kelp (海带) and mirabilite (芒硝), referring not only to their actual salty taste but also to their medicinal properties of promoting downward movement and softening hardness.`
+        },
+
+        'wuwei_fun_tips_2': {
+            'zh': '五味学说需结合个体差异，肝郁者（木失调）宜食酸味（如醋泡黑豆），但胃溃疡患者需避免过量酸食。糖尿病患者需控制甘味摄入（《合作经济与科技》2023）。',
+            'en': 'Wood-type individuals (Liver Qi stagnation) benefit from sour foods (e.g., vinegar-soaked black beans), while ulcer patients should limit acidity. Diabetics require strict sweet-flavor control – Cooperative Economy & Science 2023 confirms.'
+        },
+
+        'wuwei_fun_tips_3': {
+            'zh': '古人通过"尝百草"发现五味药性，辣椒明代才传入中国，古人吃辣靠茱萸哦！',
+            'en': `Chilies didn't reach China until Ming Dynasty! Scholars found in Compendium of Materia Medica that prickly ash (Zanthoxylum) was the OG 'ancient Sichuan pepper' with recorded warming properties.`
         },
 
         // 五行人格 tab
@@ -1378,9 +2081,174 @@ document.addEventListener('DOMContentLoaded', function() {
             'zh': '晋代医学家，著有《针灸甲乙经》，系统总结了针灸学的理论实践。',
             'en': `Jin Dynasty physician, authored Systematic Classic of Acupuncture and Moxibustion, comprehensively summarizing acupuncture theory and practice.`
         },
+        // 名篇卡片
+        'classics_names_1': {
+            'zh': '《黄帝内经》',
+            'en': 'The compilation of The Yellow Emperor\'s Inner Canon'
+        },
+        'classics_author_1': {
+            'zh': '佚名',
+            'en': 'Anonymous'
+        },
+        'classics_period_1': {
+            'zh': '春秋战国时期',
+            'en': 'Spring and Autumn and Warring States Periods'
+        },
+        'classics_info_1': {
+            'zh': '中医理论体系的奠基之作，分为《素问》和《灵枢》两部分，总结了古代医学的理论和实践经验。',
+            'en': 'The foundational work of TCM theory, divided into Suwen (Basic Questions) and Lingshu (Spiritual Pivot), systematically summarizes ancient medical theories and practical experience.'
+        },
 
+        'classics_names_2': {
+            'zh': '《伤寒杂病论》',
+            'en': 'Treatise on Cold Damage and Miscellaneous Diseases'
+        },
+        'classics_author_2': {
+            'zh': '张仲景',
+            'en': 'Zhang Zhongjing'
+        },
+        'classics_period_2': {
+            'zh': '东汉末年',
+            'en': 'Late Eastern Han Dynasty'
+        },
+        'classics_info_2': {
+            'zh': '确立了"辨证论治"原则，是中医临床的基本原则。现存《伤寒论》和《金匮要略》两部分。',
+            'en': 'It established the principle of "treatment based on syndrome differentiation," which serves as the fundamental clinical approach in Traditional Chinese Medicine (TCM). The currently extant versions are divided into two parts: Treatise on Cold Damage (Shang Han Lun) and Synopsis of the Golden Chamber (Jin Gui Yao Lue).'
+        },
 
-        // 
+        'classics_names_3': {
+            'zh': '《本草纲目》',
+            'en': 'Compendium of Materia Medica'
+        },
+        'classics_author_3': {
+            'zh': '李时珍',
+            'en': 'Li Shizhen'
+        },
+        'classics_period_3': {
+            'zh': '明代',
+            'en': 'Ming Dynasty'
+        },
+        'classics_info_3': {
+            'zh': '集我国16世纪之前药学成就之大成，是具有世界性影响的博物学著作。',
+            'en': 'This compendium represents the pinnacle of Chinese pharmaceutical knowledge before the 16th century, standing as an encyclopedic work of natural history with worldwide influence.'
+        },
+
+        'classics_names_4': {
+            'zh': '《千金要方》',
+            'en': 'Essential Formulas Worth a Thousand Gold'
+        },
+        'classics_author_4': {
+            'zh': '孙思邈',
+            'en': 'Sun Simiao'
+        },
+        'classics_period_4': {
+            'zh': '唐代',
+            'en': 'Tang Dynasty'
+        },
+        'classics_info_4': {
+            'zh': '对中医药学的发展有重大贡献，是我国现存最早的医学百科全书。',
+            'en': 'This work made groundbreaking contributions to the development of Chinese medicine and represents the earliest surviving medical encyclopedia in China.'
+        },
+
+        'classics_names_5': {
+            'zh': '《难经》',
+            'en': 'Classic of Difficult Issues'
+        },
+        'classics_author_5': {
+            'zh': '佚名',
+            'en': 'Anonymous'
+        },
+        'classics_period_5': {
+            'zh': '战国至秦汉时期',
+            'en': 'Warring States to Qin-Han Period'
+        },
+        'classics_info_5': {
+            'zh': '中医经典著作之一，对《黄帝内经》中的难点和疑点进行了解释和阐发。',
+            'en': 'ritative interpretations and elucidations of challenging concepts and ambiguities in the Yellow Emperor\'s Inner Classic.'
+        },
+
+        'classics_names_6': {
+            'zh': '《神农本草经》',
+            'en': 'Divine Farmer\'s Materia Medica'
+        },
+        'classics_author_6': {
+            'zh': '佚名',
+            'en': 'Anonymous'
+        },
+        'classics_period_6': {
+            'zh': '战国至秦汉时期',
+            'en': 'Warring States to Qin-Han Period'
+        },
+        'classics_info_6': {
+            'zh': '最早的中药学专著，总结了当时的用药经验，共载药物365种。',
+            'en': 'As the earliest specialized monograph on Chinese materia medica, this work systematically compiled contemporary pharmaceutical knowledge, documenting 365 medicinal substances.'
+        },
+
+        'classics_names_7': {
+            'zh': '《肘后备急方》',
+            'en': 'Emergency Formulas to Keep Close at Hand'
+        },
+        'classics_author_7': {
+            'zh': '葛洪',
+            'en': 'Ge Hong'
+        },
+        'classics_period_7': {
+            'zh': '东晋',
+            'en': 'Eastern Jin Dynasty'
+        },
+        'classics_info_7': {
+            'zh': '最早记载一些传染病如天花、恙虫病症侯及诊治。',
+            'en': 'This text contains the earliest documented descriptions of infectious diseases such as smallpox and tsutsugamushi disease, including their clinical manifestations and treatments.'
+        },
+
+        'classics_names_8': {
+            'zh': '《针灸甲乙经》',
+            'en': 'Systematic Classic of Acupuncture and Moxibustion'
+        },
+        'classics_author_8': {
+            'zh': '皇甫谧',
+            'en': 'Huangfu Mi'
+        },
+        'classics_period_8': {
+            'zh': '西晋',
+            'en': 'Western Jin Dynasty'
+        },
+        'classics_info_8': {
+            'zh': '系统总结了针灸学的理论和实践。',
+            'en': 'This work systematically summarizes both the theoretical principles and clinical applications of acupuncture and moxibustion.'
+        },
+        'classics_names_9': {
+            'zh': '《小儿药证直诀》',
+            'en': 'Key to Pediatric Medicinal Syndromes'
+        },
+        'classics_author_9': {
+            'zh': '钱乙',
+            'en': 'Qian Yi'
+        },
+        'classics_period_9': {
+            'zh': '宋代',
+            'en': 'Song Dynasty'
+        },
+        'classics_info_9': {
+            'zh': '系统总结了针灸学的理论和实践。',
+            'en': 'This work systematically synthesized both the theoretical foundations and clinical practices of acupuncture and moxibustion therapy.'
+        },
+        'classics_names_10': {
+            'zh': '《丹溪心法》',
+            'en': 'Danxi\'s Master Methods'
+        },
+        'classics_author_10': {
+            'zh': '朱震亨',
+            'en': 'Zhu Zhenheng'
+        },
+        'classics_period_10': {
+            'zh': '元代',
+            'en': 'Yuan Dynasty'
+        },
+        'classics_info_10': {
+            'zh': '对中医温病学的发展有重要影响。',
+            'en': 'It exerted significant influence on the development of Warm Disease theory in Traditional Chinese Medicine.'
+        },
         
         // 页脚
         'footer_desc': {
@@ -1407,7 +2275,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
         'learning_resources_2':{
             'zh': '人体五脏',
-            'en': '人体五脏'
+            'en': 'Five Organs'
         },
 
         'learning_resources_3':{
@@ -1459,6 +2327,89 @@ document.addEventListener('DOMContentLoaded', function() {
         'ai_feature_desc_1': {
             'zh': '提供专业的中医知识解答，包括中医理论、诊断方法、治疗手段等',
             'en': 'Provide professional TCM knowledge answers, including TCM theory, diagnostic methods, treatment means, etc.'
+        },
+        'ai_feature_title_2': {
+            'zh': '历史文化探索',
+            'en': 'Historical and Cultural Exploration'
+        },
+        'ai_feature_desc_2': {
+            'zh': '了解李时珍的生平事迹、《本草纲目》的编撰历程，感受中医药发展的历史脉络。',
+            'en': `Learn about Li Shizhen's life story and the compilation journey of the Compendium of Materia Medica, and experience the historical context of Traditional Chinese Medicine's development.`
+        },
+        'ai_feature_title_3': {
+            'zh': '知识考核评估',
+            'en': 'Knowledge Assessment and Evaluation'
+        },
+        'ai_feature_desc_3':{
+            'zh': '在对话结束后，AI李时珍会对您的学习情况进行考核，检验您对中医知识的掌握程度。',
+            'en': 'To help you learn better, AI Li Shizhen will review your understanding of TCM at the end of our conversation.'
+        },
+        'ai_feature_title_4': {
+            'zh': '个性化学习建议',
+            'en': 'Personalized Learning Recommendations'
+        },
+        'ai_feature_desc_4': {
+            'zh': '根据您的对话内容和考核结果，提供有针对性的学习建议和资源推荐。',
+            'en': 'Based on your conversation and assessment results, we will provide targeted learning suggestions and personalized resource recommendations.'
+        },
+        
+        // 与李时珍对话
+        'ai_chat_title': {
+            'zh': '与李时珍的对话',
+            'en': 'Dialogue with AI Li Shizhen'
+        },
+
+        'ai_chat_desc': {
+            'zh': '探索中医药文化的奥秘',
+            'en': 'Unravel the Mysteries of Traditional Chinese Medicine Culture'
+        },
+
+        // 李时珍使用指南
+        'ai_guides_title': {
+            'zh': '使用指南',
+            'en': 'User Guide'
+        },
+
+        'ai_guides_desc': {
+            'zh': '如何与AI李时珍进行有效对话',
+            'en': 'How to Have Effective Conversations with AI Li Shizhen'
+        },
+
+        // 李时珍使用指南卡片
+        'ai_guide_title_1': {
+            'zh': '提问技巧',
+            'en': 'Tips for Asking Questions'
+        },
+        'ai_guide_desc_1': {
+            'zh': '清晰表达您的问题，可以询问中医基础理论、药材特性、方剂配伍、李时珍生平等内容。',
+            'en': 'Clearly articulate your questions—you may inquire about: Fundamental theories of Traditional Chinese Medicine (TCM). Properties of medicinal herbs. Formula compatibility. The life of Li Shizhen'
+        },
+
+        'ai_guide_title_2': {
+            'zh': '持续对话',
+            'en': 'Context-Aware Chat'
+        },
+        'ai_guide_desc_2': {
+            'zh': '与AI李时珍进行连续对话，深入探讨感兴趣的话题，AI会记住对话上下文。',
+            'en': 'Engage in continuous dialogue with AI Li Shizhen to deeply explore topics of interest, with AI remembering the conversation context.'
+        },
+
+        'ai_guide_title_3': {
+            'zh': '知识考核',
+            'en': 'Knowledge Assessment'
+        },
+        'ai_guide_desc_3': {
+            'zh': '在一系列对话结束后，AI李时珍会对您进行知识考核，检验您的学习成果。',
+            'en': 'After completing a series of conversations, AI Li Shizhen will conduct a knowledge assessment to evaluate your learning outcomes.'
+        },
+
+        'ai_guide_title_4': {
+            'zh': '学习建议',
+            'en': 'Learning Suggestions'
+        },
+        'ai_guide_desc_4': {
+            'zh': '根据您的对话内容和考核结果，AI李时珍会提供个性化的学习建议。',
+            'en': 'Based on your conversation history and assessment results, AI Li Shizhen will provide personalized learning suggestions.'
         },
         
 
