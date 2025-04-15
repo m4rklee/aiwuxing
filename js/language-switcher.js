@@ -752,12 +752,72 @@ document.addEventListener('DOMContentLoaded', function() {
         translateElement('.tab-btn[data-tab="creative"]', 'forum_tab_creative');
         translateElement('.tab-btn[data-tab="cultural"]', 'forum_tab_cultural');
         translateElement('.tab-btn[data-tab="tags"]', 'forum_tab_tags');
+
+        // 我的五行人格测试
+        translateElement('#personality > div > h3', 'my_wuren_test_title');
+        translateElement('#personality > div > p', 'my_wuren_test_desc');
+        translateElement('#generate-report', 'my_wuren_test_btn');
+
+        // 五行生活创意集
+        translateElement('#creative > div > h3', 'wuxing_creative_title');
+        translateElement('#creative > div > p', 'wuxing_creative_desc');
+
+        // 精选创意
+        translateElement('#creative > div > div.featured-ideas > h4', 'wuxing_creative_selected_title');
+
+        // 文化讨论
+        translateElement('#cultural > div > p', 'cultural_corner_desc');
+
+        // 热门议题
+        translateElement('#cultural > div > div > div.topic-card > h4', 'hot_topic_title');
+
+        // 支持方观点
+        translateElement('#cultural > div > div > div.topic-card > div.debate-sides > div.debate-side.support > h5', 'discuss_pro_title');
+        translateElement('#cultural > div > div > div.topic-card > div.debate-sides > div.debate-side.support > p', 'discuss_pro_desc');
+
+        // 反对方观点
+        translateElement('#cultural > div > div > div.topic-card > div.debate-sides > div.debate-side.oppose > h5', 'discuss_con_title');
+        translateElement('#cultural > div > div > div.topic-card > div.debate-sides > div.debate-side.oppose > p', 'discuss_con_desc');
+
+        // 支持按钮
+        const pro_button = document.querySelector('#cultural > div > div > div.topic-card > div.topic-poll > div.poll-options > button.poll-option.support');
+        translateTitle(pro_button, 'pro_btn');
+        // 反对按钮
+        const con_button = document.querySelector('#cultural > div > div > div.topic-card > div.topic-poll > div.poll-options > button.poll-option.oppose');
+        translateTitle(con_button, 'con_btn');
         
+        // 文化碰撞
+        translateElement('#cultural > div > div > div.comparison-table > h4', 'cultural_exchange_title');
+        // 与古希腊对照表格
+        translateElementsByClass('discussion-topics tr th', 'cultural_exchange_table_title_');
+        // 第一列
+        translateElementsByClass('discussion-topics tr td:nth-of-type(1)', 'comparison_item_');
+        // 第二列
+        translateElementsByClass('discussion-topics tr td:nth-of-type(2)', 'chinese_wuxing_');
+        // 第三列
+        translateElementsByClass('discussion-topics tr td:nth-of-type(3)', 'greek_elements_');
+
+        // 热门标签
+        translateElement('#tags > div > h3', 'hot_tags_title');
+        translateElement('#tags > div > p', 'hot_tags_desc');
+
+        // 标签云
+        translateElementsByClass('tags-cloud a', 'hot_tags_');
+
+        // 用户激励计划
+        translateElement('#tags > div > div.user-incentives > h4', 'user_award_plan_title');
+        
+        // 徽章标题
+        translateElementsByClass('incentive-info h5', 'award_title_');
+        
+        // 徽章介绍
+        translateElementsByClass('incentive-info p', 'award_title_desc_');
+
         // 翻译论坛内容
-        translateElementsByClass('forum-post-title', 'forum_post_title_');
-        translateElementsByClass('forum-post-content', 'forum_post_content_');
-        translateElement('.forum-action-btn.reply', 'btn_reply');
-        translateElement('.forum-action-btn.like', 'btn_like');
+        // translateElementsByClass('forum-post-title', 'forum_post_title_');
+        // translateElementsByClass('forum-post-content', 'forum_post_content_');
+        // translateElement('.forum-action-btn.reply', 'btn_reply');
+        // translateElement('.forum-action-btn.like', 'btn_like');
     }
     
     // 通过类名批量翻译元素
@@ -815,7 +875,247 @@ document.addEventListener('DOMContentLoaded', function() {
     
     // 翻译字典
     const translations = {
+        // 社区
+        'my_wuren_test_title': {
+            'zh': '我的五行人格测试',
+            'en': 'My Five Elements Personality Test'
+        },
+
+        'my_wuren_test_desc': {
+            'zh': '输入您的出生日期，探索您的五行属性',
+            'en': 'Enter your date of birth to explore your Five Elements attribute.'
+        },
+
+        'my_wuren_test_birth_date': {
+            'zh': '出生日期：',
+            'en': 'Date of Birth: Y/M/D'
+        },
+
+        'my_wuren_test_btn': {
+            'zh': '生成五行人格报告',
+            'en': 'Generate a Report'
+        },
+
+        'wuxing_creative_title': {
+            'zh': '五行生活创意集',
+            'en': 'Five Elements Life Creativity Collection'
+        },
+
+        'wuxing_creative_desc': {
+            'zh': '分享您的五行实践经验和创意想法',
+            'en': 'Share your practical experiences and creative ideas about the Five Elements.'
+        },
+
+        'wuxing_creative_selected_title': {
+            'zh': '精选创意',
+            'en': 'Selected Creative Ideas'
+        },
+
+        'cultural_corner_desc': {
+            'zh': '探讨五行理论与现代科学、世界文化的交融与碰撞',
+            'en': 'Exploring the Convergence and Dialogue Between the Five Elements Theory and Modern Science/Global Culture'
+        },
+
+        'hot_topic_title': {
+            'zh': '热门议题：五行学说是否该进入现代医学教材？',
+            'en': 'Hot Topic: Should the Five Elements Theory Be Included in Modern Medical Curricula?'
+        },
+
+        'discuss_pro_title': {
+            'zh': '支持方观点',
+            'en': 'Supporting Arguments'
+        },
+
+        'discuss_pro_desc': {
+            'zh': '引用《Scientific Reports》2023年研究：五行针灸对慢性疼痛有效率68%，证明五行理论有科学依据。',
+            'en': 'Citing a 2023 Scientific Reports study: Five-Element acupuncture demonstrated 68% efficacy in chronic pain management, providing empirical validation for this traditional theory.'
+        },
+
+        'discuss_con_title': {
+            'zh': '反对方观点',
+            'en': 'Opposing Arguments'
+        },
+
+        'discuss_con_desc': {
+            'zh': '五行归类缺乏分子生物学证据，现代医学教材应基于可重复验证的科学研究。',
+            'en': 'The Five-Element classification lacks molecular biological evidence; modern medical education should be grounded in reproducible scientific research.'
+        },
+
+        'pro_btn': {
+            'zh': '支持',
+            'en': 'Support'
+        },
+
+        'con_btn': {
+            'zh': '反对',
+            'en': 'Oppose'
+        },
+
+        'cultural_exchange_title': {
+            'zh': '文化碰撞：五行 vs 希腊元素',
+            'en': 'Cultural Collision: Five Elements vs. Greek Humoral Theory'
+        },
         
+        'cultural_exchange_table_title_1': {
+            'zh': '比较项',
+            'en': 'Comparison Item'
+        },
+
+        'cultural_exchange_table_title_2': {
+            'zh': '中国五行',
+            'en': 'Chinese Five Elements'
+        },
+
+        'cultural_exchange_table_title_3': {
+            'zh': '希腊四元素',
+            'en': 'Greek Four Elements'
+        },
+
+        'comparison_item_1': {
+            'zh': '体系',
+            'en': 'System'
+        },
+
+        'comparison_item_2': {
+            'zh': '核心思想',
+            'en': 'Core Concept'
+        },
+
+        'comparison_item_3': {
+            'zh': '动态性',
+            'en': 'Dynamism'
+        },
+
+        'comparison_item_4': {
+            'zh': '应用领域',
+            'en': 'Applications'
+        },
+
+        'chinese_wuxing_1': {
+            'zh': '木、火、土、金、水',
+            'en': 'Wood, Fire, Earth, Metal, Water'
+        },
+
+        'chinese_wuxing_2': {
+            'zh': '生克循环（动态）',
+            'en': 'Generative-Destructive Cycles (Dynamic)'
+        },
+
+        'chinese_wuxing_3': {
+            'zh': '强（相生相克）',
+            'en': 'Strong (Mutal Promotion/Restriction)'
+        },
+
+        'chinese_wuxing_4': {
+            'zh': '医学、农业、建筑、音乐',
+            'en': 'Medicine, Agriculture, Architecture, Music'
+        },
+
+        'greek_elements_1': {
+            'zh': '地、水、火、风',
+            'en': 'Earth, Water, Fire, Air'
+        },
+
+        'greek_elements_2': {
+            'zh': '静态物质组成',
+            'en': 'Static Material Composition'
+        },
+
+        'greek_elements_3': {
+            'zh': '弱（静态存在）',
+            'en': 'Weak (Static Existence)'
+        },
+
+        'greek_elements_4': {
+            'zh': '哲学、占星学',
+            'en': 'Philosophy, Astrology'
+        },
+
+        'hot_tags_title': {
+            'zh': '热门标签',
+            'en': 'Trending Tags'
+        },
+
+        'hot_tags_desc': {
+            'zh': '探索社区最热门的话题和讨论',
+            'en': 'Discover the hottest topics and discussions in our community'
+        },
+
+        'hot_tags_1': {
+            'zh': '#能量平衡挑战',
+            'en': '#EnergyBalanceChallenge'
+        },
+
+        'hot_tags_2': {
+            'zh': '#五行黑科技',
+            'en': '#FiveElementsTech'
+        },
+
+        'hot_tags_3': {
+            'zh': '#全球文化实验室',
+            'en': '#GlobalCultureLab'
+        },
+
+        'hot_tags_4': {
+            'zh': '#争议话题投票箱',
+            'en': '#DebateVotingBox'
+        },
+
+        'hot_tags_5': {
+            'zh': '#古籍今译',
+            'en': '#AncientTextsModernTranslation'
+        },
+
+        'hot_tags_6': {
+            'zh': '#五行艺术创作',
+            'en': '#FiveElementsArt'
+        },
+
+        'hot_tags_7': {
+            'zh': '#中医现代化',
+            'en': '#TCMModernization'
+        },
+
+        'hot_tags_8': {
+            'zh': '#五行饮食法',
+            'en': '#FiveElementsDiet'
+        },
+
+        'hot_tags_9': {
+            'zh': '#音乐疗法',
+            'en': '#MusicTherapy'
+        },
+
+        'hot_tags_10': {
+            'zh': '#东西方医学融合',
+            'en': '#EastWestMedicineIntegration'
+        },
+
+        'user_award_plan_title': {
+            'zh': '用户激励计划',
+            'en': 'User Incentive Program'
+        },
+
+        'award_title_1': {
+            'zh': '月度"五行灵感大使"',
+            'en': 'Monthly "Five Elements Inspiration Ambassador"'
+        },
+
+        'award_title_desc_1': {
+            'zh': '每月评选最具创意的社区贡献者，获奖者将获得定制五行能量手链',
+            'en': 'Each month, we honor the most creative community contributors with custom Five Elements energy bracelets'
+        },
+
+        'award_title_2': {
+            'zh': '《全球五行实践年鉴》收录',
+            'en': 'Featured in 《Global Five Elements Practice Yearbook》'
+        },
+
+        'award_title_desc_2': {
+            'zh': '优质投稿将被收录至年度电子刊，向全球读者展示',
+            'en': 'Top submissions will be published in our annual digital edition, showcasing innovative ideas to readers worldwide'
+        },
+
         // 导航栏
         'nav_home': {
             'zh': '首页',
