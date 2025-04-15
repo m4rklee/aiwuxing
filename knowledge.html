@@ -115,21 +115,24 @@
                             </div>
                             <div class="herb-properties">
                                 <p><strong>性味：</strong><span id="herbNature"></span></p>
+                                <p><strong>Properties & Flavors：</strong><span id="herbNatureEng"></span></p>
                                 <p><strong>归经：</strong><span id="herbMeridian"></span></p>
+                                <p><strong>Channel Tropism：</strong><span id="herbMeridianEng"></span></p>
                                 <p><strong>功效：</strong><span id="herbEffect"></span></p>
+                                <p><strong>Efficacy：</strong><span id="herbEffectEng"></span></p>
                             </div>
                         </div>
                         <div class="herb-description">
-                            <h4>药材介绍</h4>
+                            <h4>药材介绍 Herbal Profile</h4>
                             <p id="herbDescription"></p>
                         </div>
                         <div class="herb-usage">
-                            <h4>用法用量</h4>
+                            <h4>用法用量 Dosage and Administration</h4>
                             <p id="herbUsage"></p>
                         </div>
                         <!-- 药材模型 -->
                         <div class="herb-model">
-                            <h4>药材模型</h4>
+                            <h4>药材模型 3D Model</h4>
                             <p id="herbModel"></p>
                         </div>
                     </div>
@@ -163,7 +166,7 @@
                     <div class="organ-info" id="organInfo">
                         <div class="organ-placeholder">
                             <i class="fas fa-hand-pointer"></i>
-                            <p>请点击左侧人体图上的穴位查看详情</p>
+                            <p>请点击左侧人体图上的脏腑查看详情</p>
                         </div>
                     </div>
                 </div>
@@ -200,40 +203,35 @@
                                     <i class="fas fa-tree"></i>
                                 </div>
                                 <h5>木（生长之机）</h5>
-                                <p>象征生长、升发、条达，对应春季、东方、青色，在人体中关联肝脏与胆腑。</p>
-                                <p>如《黄帝内经》言："木曰曲直"，指木能屈能伸，如草木破土而出，寓意生命力与适应力。</p>
+                                <p>象征生长、升发、条达，对应春季、东方、青色，在人体中关联肝脏与胆腑。如《黄帝内经》言："木曰曲直"，指木能屈能伸，如草木破土而出，寓意生命力与适应力。</p>
                             </div>
                             <div class="element-card fire">
                                 <div class="element-icon">
                                     <i class="fas fa-fire"></i>
                                 </div>
                                 <h5>火（热情之光）</h5>
-                                <p>代表温热、上升、光明，对应夏季、南方、红色，关联心脏与小肠。</p>
-                                <p>如《黄帝内经》言："火曰炎上"描述火焰向上燃烧的特性，象征热情与活力。</p>
+                                <p>代表温热、上升、光明，对应夏季、南方、红色，关联心脏与小肠。如《黄帝内经》言："火曰炎上"描述火焰向上燃烧的特性，象征热情与活力。</p>
                             </div>
                             <div class="element-card earth">
                                 <div class="element-icon">
                                     <i class="fas fa-mountain"></i>
                                 </div>
                                 <h5>土（包容之母）</h5>
-                                <p>象征承载、生化、稳定，对应长夏（夏秋之交）、中央、黄色，关联脾胃。</p>
-                                <p>如《黄帝内经》言："土爰稼穑"指土地孕育万物，如农耕依赖土壤，强调包容与滋养。</p>
+                                <p>象征承载、生化、稳定，对应长夏（夏秋之交）、中央、黄色，关联脾胃。如《黄帝内经》言："土爰稼穑"指土地孕育万物，如农耕依赖土壤，强调包容与滋养。</p>
                             </div>
                             <div class="element-card metal">
                                 <div class="element-icon">
                                     <i class="fas fa-coins"></i>
                                 </div>
                                 <h5>金（变革之力）</h5>
-                                <p>代表收敛、变革、肃杀，对应秋季、西方、白色，关联肺脏与大肠。</p>
-                                <p>如《黄帝内经》言："金曰从革"意为金属可锻造变革，象征决断与秩序。</p>
+                                <p>代表收敛、变革、肃杀，对应秋季、西方、白色，关联肺脏与大肠。如《黄帝内经》言："金曰从革"意为金属可锻造变革，象征决断与秩序。</p>
                             </div>
                             <div class="element-card water">
                                 <div class="element-icon">
                                     <i class="fas fa-water"></i>
                                 </div>
                                 <h5>水（智慧之源）</h5>
-                                <p>象征寒凉、流动、润下，对应冬季、北方、黑色，关联肾脏与膀胱。</p>
-                                <p>如《黄帝内经》言："水曰润下"指水向下渗透，如江河奔流，寓意柔韧与智慧。</p>
+                                <p>象征寒凉、流动、润下，对应冬季、北方、黑色，关联肾脏与膀胱。如《黄帝内经》言："水曰润下"指水向下渗透，如江河奔流，寓意柔韧与智慧。</p>
                             </div>
                         </div>
                     </div>
@@ -1076,13 +1074,13 @@
                                         </div>
                                     </div>
                                     <div class="doctor-detail-content">
-                                        <h4>生平简介</h4>
+                                        <h4>生平简介 Biographical Sketch</h4>
                                         <p id="doctorDetailBio"></p>
-                                        <h4>医学贡献</h4>
+                                        <h4>医学贡献 Medical Contributions</h4>
                                         <p id="doctorDetailContribution"></p>
-                                        <h4>代表著作</h4>
+                                        <h4>代表著作 Major Works:</h4>
                                         <p id="doctorDetailWorks"></p>
-                                        <h4>典故轶事</h4>
+                                        <h4>典故轶事 Legacy and Anecdotes</h4>
                                         <p id="doctorDetailStories"></p>
                                     </div>
                                 </div>
@@ -1100,7 +1098,7 @@
                                     <h3>《黄帝内经》</h3>
                                     <p class="book-author">作者：佚名</p>
                                     <p class="book-period">春秋战国时期</p>
-                                    <p>中医理论体系的奠基之作，分为《素问》和《灵枢》两部分，总结了古代医学的理论和实践经验。</p>
+                                    <p class="book-info">中医理论体系的奠基之作，分为《素问》和《灵枢》两部分，总结了古代医学的理论和实践经验。</p>
                                     <button class="btn-more" data-book="huangdi-neijing">了解更多</button>
                                 </div>
                             </div>
@@ -1112,7 +1110,7 @@
                                     <h3>《伤寒杂病论》</h3>
                                     <p class="book-author">作者：张仲景</p>
                                     <p class="book-period">东汉末年</p>
-                                    <p>确立了"辨证论治"原则，是中医临床的基本原则。现存《伤寒论》和《金匮要略》两部分。</p>
+                                    <p class="book-info">确立了"辨证论治"原则，是中医临床的基本原则。现存《伤寒论》和《金匮要略》两部分。</p>
                                     <button class="btn-more" data-book="shanghan-zabinglun">了解更多</button>
                                 </div>
                             </div>
@@ -1124,7 +1122,7 @@
                                     <h3>《本草纲目》</h3>
                                     <p class="book-author">作者：李时珍</p>
                                     <p class="book-period">明代</p>
-                                    <p>集我国16世纪之前药学成就之大成，是具有世界性影响的博物学著作。</p>
+                                    <p class="book-info">集我国16世纪之前药学成就之大成，是具有世界性影响的博物学著作。</p>
                                     <button class="btn-more" data-book="bencao-gangmu">了解更多</button>
                                 </div>
                             </div>
@@ -1136,7 +1134,7 @@
                                     <h3>《千金要方》（《千金翼方》）</h3>
                                     <p class="book-author">作者：孙思邈</p>
                                     <p class="book-period">唐代</p>
-                                    <p>对中医药学的发展有重大贡献，是我国现存最早的医学百科全书。</p>
+                                    <p class="book-info">对中医药学的发展有重大贡献，是我国现存最早的医学百科全书。</p>
                                     <button class="btn-more" data-book="qianjin-yaofang">了解更多</button>
                                 </div>
                             </div>
@@ -1148,7 +1146,7 @@
                                     <h3>《难经》</h3>
                                     <p class="book-author">作者：佚名</p>
                                     <p class="book-period">战国至秦汉时期</p>
-                                    <p>中医经典著作之一，对《黄帝内经》中的难点和疑点进行了解释和阐发。</p>
+                                    <p class="book-info">中医经典著作之一，对《黄帝内经》中的难点和疑点进行了解释和阐发。</p>
                                     <button class="btn-more" data-book="nanjing">了解更多</button>
                                 </div>
                             </div>
@@ -1160,8 +1158,8 @@
                                     <h3>《神农本草经》</h3>
                                     <p class="book-author">作者：佚名</p>
                                     <p class="book-period">秦汉时期</p>
-                                    <p>最早的中药学专著，总结了当时的用药经验，共载药物365种。</p>
-                                    <button class="btn-more" data-book="shennong-baicaojing">了解更多</button>
+                                    <p class="book-info">最早的中药学专著，总结了当时的用药经验，共载药物365种。</p>
+                                    <button class="btn-more" data-book="shennong-bencaojing">了解更多</button>
                                 </div>
                             </div>
                             <div class="book-item">
@@ -1172,7 +1170,7 @@
                                     <h3>《肘后备急方》</h3>
                                     <p class="book-author">作者：葛洪</p>
                                     <p class="book-period">东晋</p>
-                                    <p>最早记载一些传染病如天花、恙虫病症侯及诊治。</p>
+                                    <p class="book-info">最早记载一些传染病如天花、恙虫病症侯及诊治。</p>
                                     <button class="btn-more" data-book="zhouhou-beijifang">了解更多</button>
                                 </div>
                             </div>
@@ -1184,7 +1182,7 @@
                                     <h3>《针灸甲乙经》</h3>
                                     <p class="book-author">作者：皇甫谧</p>
                                     <p class="book-period">西晋</p>
-                                    <p>系统总结了针灸学的理论和实践。</p>
+                                    <p class="book-info">系统总结了针灸学的理论和实践。</p>
                                     <button class="btn-more" data-book="zhenjiu-jiayijing">了解更多</button>
                                 </div>
                             </div>
@@ -1196,7 +1194,7 @@
                                     <h3>《小儿药证直诀》</h3>
                                     <p class="book-author">作者：钱乙</p>
                                     <p class="book-period">宋代</p>
-                                    <p>对儿科医学的发展有重要影响。</p>
+                                    <p class="book-info">对儿科医学的发展有重要影响。</p>
                                     <button class="btn-more" data-book="xiaoer-yaozhengzhijue">了解更多</button>
                                 </div>
                             </div>
@@ -1208,7 +1206,7 @@
                                     <h3>《丹溪心法》</h3>
                                     <p class="book-author">作者：朱震亨</p>
                                     <p class="book-period">元代</p>
-                                    <p>对中医温病学的发展有重要影响。</p>
+                                    <p class="book-info">对中医温病学的发展有重要影响。</p>
                                     <button class="btn-more" data-book="danxi-xinfa">了解更多</button>
                                 </div>
                             </div>
@@ -1225,18 +1223,18 @@
                                         </div>
                                         <div class="book-detail-info">
                                             <h3 id="bookDetailTitle"></h3>
-                                            <p><strong>作者：</strong><span id="bookDetailAuthor"></span></p>
-                                            <p><strong>年代：</strong><span id="bookDetailPeriod"></span></p>
+                                            <p><strong>作者 Author：</strong><span id="bookDetailAuthor"></span></p>
+                                            <p><strong>年代 Period：</strong><span id="bookDetailPeriod"></span></p>
                                         </div>
                                     </div>
                                     <div class="book-detail-content">
-                                        <h4>著作背景</h4>
+                                        <h4>著作背景 Background of the Work</h4>
                                         <p id="bookDetailBackground"></p>
-                                        <h4>主要内容</h4>
+                                        <h4>主要内容 Main Content</h4>
                                         <p id="bookDetailContent"></p>
-                                        <h4>医学价值</h4>
+                                        <h4>医学价值 Medical Value</h4>
                                         <p id="bookDetailValue"></p>
-                                        <h4>历史影响</h4>
+                                        <h4>历史影响 Historical Influence</h4>
                                         <p id="bookDetailInfluence"></p>
                                     </div>
                                 </div>
