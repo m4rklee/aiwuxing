@@ -516,18 +516,52 @@ document.addEventListener('DOMContentLoaded', function() {
         translateElementsByClass('fact-item p', 'wuwei_fun_tips_');
 
         // 五行人格
+        translateElement('#five-personality > h3', 'wuren_title');
+        translateElement('#five-personality > p', 'wuren_desc');
+        
         // 理论渊源与经典文献
         translateElement('#five-personality .knowledge-section h4:nth-of-type(1)', 'wuren_origin_title');
         translateElement('#five-personality .knowledge-section p:nth-of-type(1)', 'wuren_origin_desc1');
         translateElement('#five-personality .knowledge-section p:nth-of-type(2)', 'wuren_origin_desc2');
         // translateElement('#knowledge p:nth-of-type(3)', 'spring_autumn_desc');
         // 五行人格的分类与特征
-        translateElement('#knowledge h4:nth-of-type(3)', 'spring_autumn_title');
-        translateElement('#knowledge p:nth-of-type(3)', 'spring_autumn_desc');
-        // 五行人格测算方法
-        translateElement('#knowledge h4:nth-of-type(3)', 'spring_autumn_title');
-        translateElement('#knowledge p:nth-of-type(3)', 'spring_autumn_desc');
+        translateElement('#five-personality > div:nth-child(4) > h4', 'wuren_classification_title');
+        
+        // 五行人格分类表
+        translateElementsByClass('personality-table tr th', 'wuren_table_title_');
+        // 第一列
+        translateElementsByClass('personality-table tr td:nth-of-type(1)', 'wuyin_wuxing_');
+        // 第二列
+        translateElementsByClass('personality-table tr td:nth-of-type(2)', 'wuren_yang_traits_');
+        // 第三列
+        translateElementsByClass('personality-table tr td:nth-of-type(3)', 'wuren_yin_traits_');
+        // 第四列
+        translateElementsByClass('personality-table tr td:nth-of-type(4)', 'wuren_perform_');
 
+        // 注
+        translateElement('#five-personality > div:nth-child(4) > div > div > p', 'wuren_tip_title');
+        translateElementsByClass('table-notes li', 'wuren_tip_');
+
+        // 五行人格测算方法
+        translateElement('#five-personality > div:nth-child(5) > h4', 'wuren_test_title');
+        translateElement('#five-personality > div:nth-child(5) > p', 'wuren_test_desc');
+
+        translateElementsByClass('method-step h5', 'wuren_test_method_title_');
+        translateElementsByClass('method-step:nth-of-type(1) ul li', 'wuren_test_method_1_')
+        translateElementsByClass('method-step:nth-of-type(2) ul li', 'wuren_test_method_2_')
+        translateElementsByClass('method-step:nth-of-type(2) ul li ul li', 'wuren_test_method_2_min_')
+        
+        // 表格
+        translateElement('#five-personality > div:nth-child(5) > div.personality-comparison > table > thead > tr > th:nth-child(1)', 'wuyin_table_title_2');
+        translateElementsByClass('personality-comparison tr td:nth-of-type(1)', 'wuyin_wuxing_');
+
+        // 测算方法示例
+        translateElement('#five-personality > div:nth-child(5) > div.method-example > h5', 'method_example_title');
+        translateElementsByClass('method-example p', 'method_example_');
+        // 灯泡
+        translateElement('#five-personality > div:nth-child(5) > div.personality-comparison > h5', 'wuren_comparison_title');
+        translateElementsById('five-personality .fun-facts p', 'wuren_light_bulb_');
+        
         // 翻译名医名篇
         // translateElement('#masters h2', 'masters_title');
         translateElement('.tab-btn[data-tab="famous-doctors"]', 'tab_famous_doctors');
@@ -729,6 +763,16 @@ document.addEventListener('DOMContentLoaded', function() {
     // 通过类名批量翻译元素
     function translateElementsByClass(className, keyPrefix) {
         document.querySelectorAll(`.${className}`).forEach((element, index) => {
+            const key = `${keyPrefix}${index + 1}`;
+            if (translations[key]) {
+                element.textContent = translations[key][currentLang];
+            }
+        });
+    }
+
+    // 通过id批量翻译元素
+    function translateElementsById(className, keyPrefix) {
+        document.querySelectorAll(`#${className}`).forEach((element, index) => {
             const key = `${keyPrefix}${index + 1}`;
             if (translations[key]) {
                 element.textContent = translations[key][currentLang];
@@ -1119,14 +1163,110 @@ document.addEventListener('DOMContentLoaded', function() {
             'zh': '历史发展',
             'en': 'Historical Development'
         },
-        // 'development_title': {
-        //     'zh': '历史发展',
-        //     'en': '历史发展'
-        // },
+
+        'development_title': {
+            'zh': '历史发展',
+            'en': 'Historical Development'
+        },
+
+        'qin_han_title': {
+            'zh': '秦汉时期',
+            'en': 'the Qin and Han dynasties'
+        },
+
+        'qin_han_desc': {
+            'zh': '《神农本草经》总结了当时的用药经验，共载药物365种。张仲景著《伤寒杂病论》，确立了"辨证论治"原则，是中医临床的基本原则。',
+            'en': `The Shennong Bencao Jing (Divine Farmer's Materia Medica) systematically compiled contemporary medicinal knowledge, documenting 365 distinct herbs/minerals. Zhang Zhongjing's Shanghan Zabing Lun (Treatise on Cold Damage and Miscellaneous Diseases) established the "pattern differentiation and treatment" (bianzheng lunzhi) principle, which remains the cornerstone of clinical Traditional Chinese Medicine (TCM) practice.`
+        },
+
+        'three_kingdoms_title': {
+            'zh': '三国、魏晋及南北朝时期',
+            'en': 'Three Kingdoms, Wei-Jin, and Northern and Southern Dynasties period'
+        },
+
+        'three_kingdoms_desc': {
+            'zh': '葛洪著《肘后备急方》，最早记载一些传染病如天花、恙虫病症侯及诊治。皇甫谧著《针灸甲乙经》，系统总结了针灸学的理论和实践。',
+            'en': 'Ge Hong authored Zhouhou Beiji Fang (Emergency Formulas to Keep at Hand), which contains the earliest recorded descriptions of infectious diseases such as smallpox and scrub typhus, including their symptoms and treatments. Huangfu Mi compiled Zhenjiu Jia Yi Jing (The Systematic Classic of Acupuncture and Moxibustion), comprehensively synthesizing the theory and practice of acupuncture and moxibustion.'
+        },
+
+        'sui_tang_title': {
+            'zh': '隋唐时期',
+            'en': 'The Sui and Tang Dynasties'
+        },
+
+        'sui_tang_desc': {
+            'zh': '孙思邈著《千金要方》《千金翼方》，对中医药学的发展有重大贡献。',
+            'en': 'Sun Simiao authored Qianjin Yaofang (Essential Formulas Worth a Thousand Gold) and Qianjin Yifang (Supplemental Formulas Worth a Thousand Gold), which made seminal contributions to the development of Traditional Chinese Medicine.'
+        },
+
+        'song_yuan_title': {
+            'zh': '宋元时期',
+            'en': 'Song and Yuan Dynasties'
+        },
+
+        'song_yuan_desc':{
+            'zh': '钱乙著《小儿药证直诀》，对儿科医学的发展有重要影响。李东垣著《脾胃论》，提出"脾胃内伤"学说。朱震亨著《丹溪心法》，对中医温病学的发展有重要影响。',
+            'en': `Qian Yi authored Xiao'er Yaozheng Zhijue (Key to Therapeutics of Children's Diseases), which significantly influenced the development of pediatric medicine. Li Dongyuan wrote Piwei Lun (Treatise on the Spleen and Stomach), proposing the "internal injury of spleen-stomach" theory. Zhu Zhenheng compiled Danxi Xinfa (Danxi's Mastery of Medicine), making important contributions to the development of warm disease theory in Traditional Chinese Medicine.`
+        },
+
+        'ming_qing_title': {
+            'zh': '明清时期',
+            'en': 'Ming and Qing Dynasties'
+        },
+
+        'ming_qing_desc': {
+            'zh': '李时珍著《本草纲目》，集我国16世纪之前药学成就之大成，是具有世界性影响的博物学著作。吴谦著《医宗金鉴》，对中医各科的理论和实践进行了系统的总结。',
+            'en': `Li Shizhen compiled Bencao Gangmu (Compendium of Materia Medica), synthesizing China's pharmaceutical achievements prior to the 16th century into a work of global significance in natural history. Wu Qian authored Yizong Jinjian (Golden Mirror of the Medical Tradition), which systematically summarized both theory and practice across all branches of Traditional Chinese Medicine.`
+        },
 
         'tab_culture': {
             'zh': '文化内涵',
             'en': 'Cultural Connotation'
+        },
+
+        'culture_title': {
+            'zh': '文化内涵',
+            'en': 'Cultural Connotation'
+        },
+
+        'holistic_concept_title': {
+            'zh': '整体观念',
+            'en': 'Holistic Concept'
+        },
+
+        'holistic_concept_desc': {
+            'zh': '中医强调人体是一个有机的整体，人体与自然环境也是一个统一的整体。人体的各个脏腑、组织和器官之间相互联系、相互影响，形成一个有机的整体。同时，人体的健康状态也受到自然环境的影响，如四季变化、气候变化等。',
+            'en': `Traditional Chinese Medicine (TCM) emphasizes that the human body is an organic whole, and that humans exist in unity with the natural environment. The body's organs, tissues, and systems are interconnected and influence one another, forming a complete, integrated entity. At the same time, human health is affected by natural environmental factors, such as seasonal changes and climatic variations.`
+        },
+
+        'syndrome_differentiation_title': {
+            'zh': '辨证论治',
+            'en': 'Pattern Differentiation and Treatment',
+        },
+
+        'syndrome_differentiation_desc': {
+            'zh': '中医根据患者的具体症状和体征，进行综合分析，确定病因、病机和病位，制定相应的治疗方案。辨证论治是中医临床的基本原则，强调个体化治疗，根据患者的具体情况调整治疗方案。',
+            'en': `TCM practitioners conduct a comprehensive analysis of a patient's symptoms and signs to determine the cause, mechanism, and location of disease, then formulate an appropriate treatment plan. Pattern differentiation and treatment is a fundamental clinical principle in TCM, emphasizing personalized care where therapeutic approaches are tailored to the individual patient.`
+        },
+
+        'yin_yang_five_elements_title': {
+            'zh': '阴阳五行',
+            'en': 'Yin-Yang and the Five Elements'
+        },
+
+        'yin_yang_five_elements_desc': {
+            'zh': '阴阳五行学说是中医理论的基础。阴阳学说认为，自然界的一切事物都可以分为阴阳两个方面，阴阳之间存在着对立、互根、消长和转化的关系。五行学说则将世界分为木、火、土、金、水五种基本物质，五行之间存在着相生、相克、相乘、相侮等关系。阴阳五行学说为中医的生理、病理、诊断和治疗提供了重要的理论基础。',
+            'en': `The theories of Yin-Yang and the Five Elements form the foundation of TCM. The Yin-Yang theory holds that all natural phenomena can be divided into two opposing yet complementary aspects—Yin and Yang—which interact through opposition, interdependence, waxing-waning, and transformation. The Five Elements theory (Wood, Fire, Earth, Metal, Water) describes the mutual generation, restriction, overacting, and counteracting relationships among these elemental forces. Together, these doctrines provide the theoretical basis for TCM's understanding of physiology, pathology, diagnosis, and treatment.`
+        },
+
+        'prevention_first_title': {
+            'zh': '预防为主',
+            'en': 'Prevention as Priority'
+        },
+
+        'prevention_first_desc': {
+            'zh': '中医注重预防疾病，提倡"治未病"，通过养生保健的方法，增强体质，预防疾病的发生。中医的养生方法包括饮食调养、情志调节、运动锻炼、针灸推拿等。',
+            'en': 'TCM prioritizes disease prevention, advocating "treating disease before it arises" (zhi weibing) through health preservation methods that enhance constitution and prevent illness. TCM preventive approaches include dietary therapy, emotional regulation, exercise (e.g., Tai Chi, Qigong), and therapeutic techniques like acupuncture and tuina massage.'
         },
         
         // 中药材库
@@ -1813,6 +1953,11 @@ document.addEventListener('DOMContentLoaded', function() {
             'zh': '五行人格',
             'en': 'Five-Element Personality Theory'
         },
+        
+        'wuren_desc': {
+            'zh': '性格分析的古典智慧',
+            'en': 'The Ancient Wisdom of Character Analysis'
+        },
 
         'wuren_origin_title': {
             'zh': '理论渊源与经典文献',
@@ -1827,6 +1972,209 @@ document.addEventListener('DOMContentLoaded', function() {
         'wuren_origin_desc2': {
             'zh': '近代发展清末民初思想家王凤仪提出"五行性理学说"，将性格缺陷（阴性）与美德（阳性）纳入五行体系，主张通过修身转化人格（如"化阴木为阳木"）。其理论融合儒家伦理与中医思想，成为民间性格修养的重要参考。',
             'en': 'During the late Qing and early Republican period, philosopher Wang Fengyi advanced the "Five-Element Nature and Principle Theory," integrating character flaws (yin aspects) and virtues (yang aspects) into the elemental system. His teachings advocated self-cultivation to transform personalities (e.g., "converting yin wood to yang wood"), blending Confucian ethics with TCM principles to create influential guidelines for moral refinement in folk traditions.'
+        },
+
+        'wuren_classification_title': {
+            'zh': '五行人格的分类与特征',
+            'en': 'Classification and Characteristics of Five-Element Personality Theory'
+        },
+
+        // 分类表
+        'wuren_table_title_1': {
+            'zh': '五行',
+            'en': 'Five Elements'
+        },
+
+        'wuren_table_title_2': {
+            'zh': '阳性特质（推崇）',
+            'en': 'Yang Traits'
+        },
+
+        'wuren_table_title_3': {
+            'zh': '阴性特质（调节）',
+            'en': 'Yin Traits'
+        },
+
+        'wuren_table_title_4': {
+            'zh': '生理-心理联动表现',
+            'en': 'Psycho-Physiological Interplay Manifestations'
+        },
+
+        'wuren_yang_traits_1':{
+            'zh': '正直仁德、创造力强、领导力卓越',
+            'en': 'Integrity, creativity, leadership'
+        },
+
+        'wuren_yang_traits_2':{
+            'zh': '热情开朗、思维敏捷、富有同理心',
+            'en': 'Passion, quick-witted, empathetic'
+        },
+
+        'wuren_yang_traits_3':{
+            'zh': '包容宽厚、诚信务实、情绪稳定',
+            'en': 'Tolerance, practicality, calmness'
+        },
+
+        'wuren_yang_traits_4':{
+            'zh': '果断坚毅、重义轻利、逻辑清晰',
+            'en': 'Decisiveness, honor, logic'
+        },
+
+        'wuren_yang_traits_5':{
+            'zh': '智慧深邃、灵活变通、洞察力敏锐',
+            'en': 'Wisdom, adaptability, insight'
+        },
+
+        'wuren_yin_traits_1': {
+            'zh': '固执傲慢、易怒偏激、嫉妒心重',
+            'en': 'Stubbornness, irritability, jealousy'
+        },
+
+        'wuren_yin_traits_2': {
+            'zh': '急躁虚荣、计较得失、控制欲强',
+            'en': 'Impatience, vanity, controlling'
+        },
+
+        'wuren_yin_traits_3': {
+            'zh': '保守僵化、反应迟钝、优柔寡断',
+            'en': 'Rigidity, slow response, indecisiveness'
+        },
+
+        'wuren_yin_traits_4': {
+            'zh': '刻薄挑剔、好斗争胜、冷漠疏离',
+            'en': 'Harshness, competitiveness, aloofness'
+        },
+
+        'wuren_yin_traits_5': {
+            'zh': '多疑恐惧、消极逃避、情感压抑',
+            'en': 'Suspicion, avoidance, emotional repression'
+        },
+
+        'wuren_perform_1': {
+            'zh': '肝气郁结（胁痛）、甲状腺功能亢进',
+            'en': 'Liver Qi stagnation (hypochondriac pain), hyperthyroidism'
+        },
+
+        'wuren_perform_2': {
+            'zh': '心火上炎（失眠）、高血压',
+            'en': 'Heart Fire flaming upward (insomnia), hypertension'
+        },
+        
+        'wuren_perform_3': {
+            'zh': '脾胃失调（腹胀）、代谢综合征',
+            'en': 'Spleen-Stomach disharmony (bloating), metabolic syndrome'
+        },
+        
+        'wuren_perform_4': {
+            'zh': '肺气壅滞（咳嗽）、皮肤过敏',
+            'en': 'Lung Qi stagnation (cough), skin allergies'
+        },
+        
+        'wuren_perform_5': {
+            'zh': '肾气不足（腰酸）、泌尿系统疾病',
+            'en': 'Kidney Qi deficiency (lumbar soreness), urinary disorders'
+        },
+
+        'wuren_tip_title': {
+            'zh': '注：',
+            'en': 'Note:'
+        },
+        
+        'wuren_tip_1': {
+            'zh': '阴阳转化机制：阴性特质过盛可导致对应脏腑病变（如"阴木人"易患肝病），通过修养心性（如培养慈悲心）可转化为阳性特质，促进身心健康。',
+            'en': `Excessive Yin traits may lead to corresponding organ pathologies (e.g., 'Yin-Wood' individuals being prone to liver disorders). Through cultivating mental refinement (such as developing compassion), these can transform into Yang traits, promoting holistic health.`
+        },
+
+        'wuren_tip_2': {
+            'zh': '五行失衡表现：某一行过旺或过弱会引发性格极端化（如"木过旺"者独断专行，"水过弱"者缺乏安全感）。',
+            'en': 'An excess or deficiency in any elemental phase may lead to personality polarization—for example: Wood excess manifests as authoritarian dominance. Water deficiency presents as chronic insecurity'
+        },
+
+        'wuren_test_title': {
+            'zh': '五行人格测算方法',
+            'en': 'Five-Element Personality Assessment'
+        },
+
+        'wuren_test_desc': {
+            'zh': '（基于生辰八字的古典模型）',
+            'en': '(Classical Model Based on BaZi Astrology)'
+        },
+
+        'wuren_test_method_title_1':{
+            'zh': '天干地支五行赋值',
+            'en': 'Heavenly Stems & Earthly Branches Elemental Mapping'
+        },
+
+        'wuren_test_method_title_2':{
+            'zh': '测算步骤',
+            'en': 'Steps'
+        },
+
+        'wuren_test_method_1_1': {
+            'zh': '天干：甲/乙→木，丙/丁→火，戊/己→土，庚/辛→金，壬/癸→水',
+            'en': 'The Heavenly Stems: Jia/Yi → Wood, Bing/Ding → Fire, Wu/Ji → Earth, Geng/Xin → Metal, Ren/Gui → Water.'
+        },
+
+        'wuren_test_method_1_2': {
+            'zh': '地支：寅/卯→木，巳/午→火，申/酉→金，亥/子→水，辰/戌/丑/未→土',
+            'en': 'Earthly Branches elemental correspondence: Yin/Mao→Wood, Si/Wu→Fire, Shen/You→Metal, Hai/Zi→Water, Chen/Xu/Chou/Wei→Earth.'
+        },
+
+        'wuren_test_method_2_1': {
+            'zh': '将出生年、月、日、时转换为八字（如：乙未年 丁亥月 庚午日 壬辰时）',
+            'en': 'Convert the birth year, month, day, and hour into the BaZi (Four Pillars of Destiny) format (e.g., Yi-Wei Year, Ding-Hai Month, Geng-Wu Day, Ren-Chen Hour).'
+        },
+
+        'wuren_test_method_2_2': {
+            'zh': '统计各五行出现次数，确定主属性（占比最高者）与缺失属性',
+            'en': 'Tally the occurrences of each element (Wood, Fire, Earth, Metal, Water) to determine the dominant element (highest frequency) and missing element (zero occurrence).'
+        },
+
+        'wuren_test_method_2_min_1': {
+            'zh': '相生加持：主属性受生（如木主遇水多）→ 正向特质强化',
+            'en': 'Generative Reinforcement: When the dominant element receives nourishment (e.g., Wood element predominance with abundant Water) → Positive traits are amplified.'
+        },
+
+        'wuren_test_method_2_min_2': {
+            'zh': '相克抑制：主属性被克（如木主遇金多）→ 负面特质凸显',
+            'en': 'Restrictive Inhibition: When the dominant element is suppressed (e.g., Wood element predominance with excessive Metal) → Negative traits become pronounced.'
+        },
+
+        'method_example_title': {
+            'zh': '示例',
+            'en': 'Example'
+        },
+
+        'method_example_1': {
+            'zh': '八字：甲寅（木） 丙寅（火） 戊辰（土） 庚申（金）',
+            'en': 'Bazi: Jia-Yin (Wood) Bing-Yin (Fire) Wu-Chen (Earth) Geng-Shen (Metal)'
+        },
+
+        'method_example_2': {
+            'zh': '五行统计：木3、火2、土2、金2、水0 → 木为主，缺水',
+            'en': 'Elemental Frequency: Wood:3 | Fire:2 | Earth:2 | Metal:2 | Water:0 → Dominant: Wood | Missing: Water'
+        },
+
+        'method_example_3': {
+            'zh': '性格解析：创造力强（阳木），但缺乏变通（水弱无法生木），易怒（木克土不受制）',
+            'en': 'Personality Profile: Enhanced creativity (Yang Wood dominance) Inflexibility (Water deficiency fails to nourish Wood) Irritability (Unchecked Wood overacting on Earth)'
+        },
+
+        // 与主流人格模型对比
+        'wuren_comparison_title': {
+            'zh': '与主流人格模型的对比',
+            'en': 'Comparative Analysis with Mainstream Personality Models'
+        },
+
+        // 灯泡中的内容
+        'wuren_light_bulb_1': {
+            'zh': '根据生辰八字，若某五行元素出现4次以上为"旺"，需平衡；缺失则为"弱"，可通过饮食、色彩（如缺木者穿绿色）调节。',
+            'en': 'A Bazi chart with 4+ occurrences of an element indicates excess (旺), needing balance; missing elements (弱) may be supplemented via diet/colors (e.g., green for lacking Wood).'
+        },
+
+        'wuren_light_bulb_2': {
+            'zh': '五行人格理论是东方"全息论"思维的人格学表达，其价值不在于预测精确性，而在于提供一种动态平衡的自我认知框架。未来研究需打破"传统-现代"二元对立，在批判中继承，在实证中创新，使古典智慧真正服务于当代人的心理健康与人格完善。',
+            'en': 'The Five-Element Personality Theory is the personality science expression of Eastern "holographic thinking." Its value lies not in predictive accuracy, but in offering a dynamic equilibrium framework for self-awareness. Future research must transcend the "tradition-modernity" dichotomy—critically inheriting while innovating through empirical study—to genuinely apply classical wisdom in promoting contemporary mental health and personality development.'
         },
 
         // 诊疗方法 
