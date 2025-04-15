@@ -83,8 +83,10 @@ const introModal = document.getElementById('intro-modal');
 const startGameButton = document.getElementById('start-game');
 const levelTransition = document.getElementById('level-transition');
 const completedLevelElement = document.getElementById('completed-level');
+const imgCard = document.getElementById('bonus-card')
 const nextLevelNumElement = document.getElementById('next-level-num');
 const dropZones = document.querySelectorAll('.element-drop-zone');
+const finishedLevelTransition = document.getElementById('finished-level-transition');
 
 // 初始化游戏
 function initGame() {
@@ -267,12 +269,14 @@ function drop(e) {
 function checkLevelCompletion() {
     if (gameState.cardsPlaced === gameState.totalCards) {
         feedbackElement.textContent = `恭喜！你已完成第${gameState.currentLevel + 1}关！`;
+        imgCard.src = `imgs/${gameState.currentLevel + 1}.png`;
         feedbackElement.className = 'feedback-container correct';
         
         // 如果不是最后一关，启用下一关按钮
         if (gameState.currentLevel < gameData.levels.length - 1) {
             nextLevelButton.disabled = false;
         } else {
+            finished();
             feedbackElement.textContent = '恭喜！你已完成所有关卡！最终得分：' + gameState.score;
         }
     }
@@ -288,7 +292,7 @@ function showLevelTransition() {
     // 启动进度条动画
     const progressBar = document.querySelector('.loading-progress');
     progressBar.style.width = '0%';
-    
+
     setTimeout(() => {
         progressBar.style.width = '100%';
     }, 100);
@@ -300,12 +304,16 @@ function showLevelTransition() {
     }, 3000);
 }
 
+function finished(){
+    finishedLevelTransition.classList.add('show')
+}
+
 // 重置游戏
 function resetGame() {
     gameState.currentLevel = 0;
     gameState.score = 0;
     gameState.cardsPlaced = 0;
-    
+    transitionRestart.style = 'display: none';
     scoreElement.textContent = '0';
     loadLevel(0);
 }
