@@ -202,7 +202,7 @@ const gameData = {
         related: ['herb-matching', 'meridian-explorer', 'tcm-quiz']
     },
     "tcm-quiz": {
-        title: "中医知识竞赛",
+        title: "五行归类大挑战",
         description: "通过五行归类挑战，测试您的中医知识水平，了解中医五行相生相克的基本理论。",
         instructions: [
             "将左侧的中医概念卡片拖动到右侧对应的五行分类区域",
