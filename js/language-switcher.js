@@ -57,6 +57,7 @@ document.addEventListener('DOMContentLoaded', function() {
         
         // 翻译页面
         translatePage();
+
     }
     
     // 翻译页面内容
@@ -242,6 +243,53 @@ document.addEventListener('DOMContentLoaded', function() {
         translateElement('#latest-courses .section-header p', 'latest_courses_desc');
         
         // 翻译具体课程
+        // 翻译课程卡片内容
+        translateElementsByClass('course-card h3', 'course_title_');
+        translateElementsByClass('course-card p', 'course_desc_');
+        translateElementsByClass('course-card .btn', 'btn_view_course');
+        
+        // 翻译时间
+        document.querySelectorAll('.course-duration').forEach(time => {
+            // const content = time.textContent;
+            // const clock = time.children[0];
+            // console.log(clock)
+
+            // 只替换文本节点部分
+            for (const node of time.childNodes) {
+                if (node.nodeType === Node.TEXT_NODE) {
+                    // 中译英
+                    if (node.textContent.includes('分钟')){
+                        node.textContent = node.textContent.replace('分钟', translations['course_duration'][currentLang]);
+                    }
+                    if (node.textContent.includes('秒')){
+                        node.textContent = node.textContent.replace('秒', translations['course_duration_seconds'][currentLang]);
+                    }
+                    // 英译中
+                    if (node.textContent.includes('min')){
+                        node.textContent = node.textContent.replace('min', translations['course_duration'][currentLang]);
+                    }
+                    if (node.textContent.includes('seconds')){
+                        node.textContent = node.textContent.replace('seconds', translations['course_duration_seconds'][currentLang]);
+                    }
+                }
+            }
+            // 中译英
+            // if (content.includes('分钟')){
+            //     time.textContent = content.replace('分钟', translations['course_duration'][currentLang]);
+            // }
+            // if (content.includes('秒')){
+            //     time.textContent = time.textContent.replace('秒', translations['course_duration_seconds'][currentLang]);
+            // }
+            
+            // // 英译中
+            // if (content.includes('min')){
+            //     time.textContent = time.textContent.replace('min', translations['course_duration'][currentLang]);
+            // }
+            // if (content.includes('seconds')){
+            //     time.textContent = time.textContent.replace('seconds', translations['course_duration_seconds'][currentLang]);
+            // }
+            
+        });
         // translateMicrocoursesPage();
 
         // 翻译课程按钮
@@ -284,6 +332,36 @@ document.addEventListener('DOMContentLoaded', function() {
         
         // 翻译具体游戏
         // translateGamesPage();
+        // 翻译游戏卡片内容
+        translateElementsByClass('game-card h3', 'game_title_');
+        translateElementsByClass('game-card p', 'game_desc_');
+        translateElementsByClass('game-card .btn', 'btn_play_game');
+
+        // 翻译游戏难度
+        document.querySelectorAll('.game-difficulty').forEach(element => {
+            for (const node of element.childNodes){
+                
+                if (node.nodeType === Node.TEXT_NODE){                    
+                    // 中译英
+                    if (node.textContent.includes('难度')) {
+                        node.textContent = node.textContent.replace('难度', translations['game_difficulty'][currentLang])
+                    }else{
+                        // 英译中
+                        node.textContent = node.textContent.replace('Difficulty', translations['game_difficulty'][currentLang])
+    
+                    }
+                }
+            }    
+        });
+
+        // 翻译按钮
+        document.querySelectorAll('.btn-more').forEach(btn => {
+            if (btn.textContent.includes('开始游戏') || btn.textContent.includes('Game')) {
+                btn.textContent = translations['btn_play_game'][currentLang];
+            } else if (btn.textContent.includes('敬请期待') || btn.textContent.includes('Soon')) {
+                btn.textContent = translations['btn_coming_soon'][currentLang];
+            }
+        });
 
         // 翻译查看全部游戏按钮
         translateElement('#popular-games .text-center .btn-primary', 'btn_view_all_games');
@@ -301,6 +379,24 @@ document.addEventListener('DOMContentLoaded', function() {
             translateTitle(title, titleTranslations[i])
         })
 
+        // 五行相生相克ul
+        if (currentLang === 'zh'){
+            document.querySelectorAll('.cycle-list').forEach(ul => {
+                ul.style ='display: block';
+            });
+            document.querySelectorAll('.cycle-list-en').forEach(ul => {
+                ul.style ='display: none';
+            });
+
+        }else{
+            document.querySelectorAll('.cycle-list').forEach(ul => {
+                ul.style ='display: none';
+            });
+            document.querySelectorAll('.cycle-list-en').forEach(ul => {
+                ul.style ='display: block';
+            });
+        }
+
         // 翻译中医发展史
         // translateElement('#history .section-header h2', 'tcm_history_title');
         translateElement('#history .section-header p', 'tcm_history_desc');
@@ -314,7 +410,10 @@ document.addEventListener('DOMContentLoaded', function() {
         
         // 翻译人体五脏
         // translateElement('#meridians .section-header h2', 'meridians_title');
-        translateElement('#meridians .section-header p', 'meridians_desc');
+        translateElement('#meridians .section-header p', 'maridians_desc');
+        translateElement('#meridians > div > div.meridian-container > div.meridian-info > h3', `meridian_info_title`);
+        translateElement('#meridians > div > div.meridian-container > div.meridian-info > p', `meridian_info_desc`); 
+        translateElement('#organInfo > div > p', `meridian_click_desc`); 
         
         // 翻译诊疗方法
         // translateElement('#diagnosis .section-header h2', 'diagnosis_title');
@@ -322,7 +421,7 @@ document.addEventListener('DOMContentLoaded', function() {
         
         // 翻译五行知识
         // translateElement('#knowledge .section-header h2', 'wuxing_title');
-        translateElement('#knowledge .section-header p', 'wuxing_desc');
+        translateElement('#knowledge > div > div.section-header > p', 'wuxing_desc');
         translateElement('.tab-btn[data-tab="five-elements"]', 'tab_five_elements');
         translateElement('.tab-btn[data-tab="five-music"]', 'tab_music');
         translateElement('.tab-btn[data-tab="five-tastes"]', 'tab_taste');
@@ -382,6 +481,7 @@ document.addEventListener('DOMContentLoaded', function() {
         translateElement('#herbModal .herb-model h4', 'herb_model_title');
         
         // 翻译四诊法卡片
+        translateElement('#diagnosis > div > div.diagnosis-container > div.diagnosis-methods > h3', 'four_diagnosis');
         translateElement('.method-card:nth-of-type(1) h4', 'inspection_title');
         translateElement('.method-card:nth-of-type(1) > p', 'inspection_desc');
         translateElement('.method-card:nth-of-type(2) h4', 'auscultation_title');
@@ -392,6 +492,7 @@ document.addEventListener('DOMContentLoaded', function() {
         translateElement('.method-card:nth-of-type(4) > p', 'pulse_taking_desc');
 
         // 翻译治疗方法卡片
+        translateElement('#diagnosis > div > div.diagnosis-container > div.treatment-methods > h3', 'cure_methods');
         translateElement('.treatment-item:nth-of-type(1) h4', 'bianzheng_title');
         translateElement('.treatment-item:nth-of-type(1) > p', 'bianzheng_desc');
         translateElement('.treatment-item:nth-of-type(2) h4', 'bagang_title');
@@ -563,8 +664,8 @@ document.addEventListener('DOMContentLoaded', function() {
         translateElementsById('five-personality .fun-facts p', 'wuren_light_bulb_');
         
         // 翻译名医名篇
-        // translateElement('#masters h2', 'masters_title');
-        translateElement('.tab-btn[data-tab="famous-doctors"]', 'tab_famous_doctors');
+        translateElement('#masters > div > div.section-header > p', 'famous_doctors_desc')
+        translateElement('#masters .tab-header .tab-btn', 'tab_famouse_doctors');
         translateElement('.tab-btn[data-tab="famous-books"]', 'tab_famouse_books');
 
         // 翻译名医卡片内容
@@ -730,6 +831,11 @@ document.addEventListener('DOMContentLoaded', function() {
         translateElement('#ai-chat .section-header h2', 'ai_chat_title');
         translateElement('#ai-chat .section-header p', 'ai_chat_desc');
         
+        // 翻译李时珍信息
+        translateElement('#ai-chat > div > div.chat-container > div.chat-header > div.chat-title > h3', 'ai_lishizhen_name');
+        translateElement('#ai-chat > div > div.chat-container > div.chat-header > div.chat-title > p', 'ai_lishizhen_desc');
+
+
         // 翻译使用指南标题和描述
         translateElement('#ai-guide .section-header h2', 'ai_guides_title');
         translateElement('#ai-guide .section-header p', 'ai_guides_desc');
@@ -756,11 +862,16 @@ document.addEventListener('DOMContentLoaded', function() {
         // 我的五行人格测试
         translateElement('#personality > div > h3', 'my_wuren_test_title');
         translateElement('#personality > div > p', 'my_wuren_test_desc');
+        translateElement('#personality > div > div.test-form > div > label', 'my_wuren_test_birth_date');
         translateElement('#generate-report', 'my_wuren_test_btn');
 
         // 五行生活创意集
         translateElement('#creative > div > h3', 'wuxing_creative_title');
         translateElement('#creative > div > p', 'wuxing_creative_desc');
+
+        // 提交创意
+        translateElement('#creative > div > div.idea-submission > h4', 'submit_your_ideas_title');
+        translateElement('#creative > div > div.idea-submission > p', 'submit_your_ideas_desc');        
 
         // 精选创意
         translateElement('#creative > div > div.featured-ideas > h4', 'wuxing_creative_selected_title');
@@ -904,6 +1015,16 @@ document.addEventListener('DOMContentLoaded', function() {
         'wuxing_creative_desc': {
             'zh': '分享您的五行实践经验和创意想法',
             'en': 'Share your practical experiences and creative ideas about the Five Elements.'
+        },
+        
+        'submit_your_ideas_title': {
+            'zh': '提交您的创意',
+            'en': 'Submit your creativity.'
+        },
+
+        'submit_your_ideas_desc': {
+            'zh': '扫描二维码提交您的创意和问题',
+            'en': 'Scan the QR code to submit your creativity and questions.'
         },
 
         'wuxing_creative_selected_title': {
@@ -1664,7 +1785,7 @@ document.addEventListener('DOMContentLoaded', function() {
             'en': 'Click on the Five Organs in the body diagram to learn about their Five Elements attributes and TCM cultural significance.'
         },
         'meridian_click_desc': {
-            'zh': '请点击左侧人体图上的穴位查看详情',
+            'zh': '请点击左侧人体图上的脏腑查看详情',
             'en': 'Please select an organ on the left-side body diagram to view details.'
         },
 
@@ -1677,7 +1798,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
         'wuxing_desc': {
             'zh': '传统中医文化的智慧精髓',
-            'en': '传统中医文化的智慧精髓'
+            'en': 'The Quintessential Wisdom of Traditional Chinese Medicine'
         },
 
         // 五行元素 tab
@@ -2484,8 +2605,14 @@ document.addEventListener('DOMContentLoaded', function() {
         },
         'diagnosis_desc': {
             'zh': '传统中医的诊断与治疗智慧',
-            'en': '传统中医的诊断与治疗智慧'
+            'en': 'The Diagnostic and Therapeutic Wisdom of Traditional Chinese Medicine'
         },
+
+        'four_diagnosis': {
+            'zh': '四诊法',
+            'en': 'The Four Diagnostic Methods of Traditional Chinese Medicine'
+        },
+
         // 望诊
         'inspection_title': {
             'zh': '望诊',
@@ -2521,6 +2648,11 @@ document.addEventListener('DOMContentLoaded', function() {
         'pulse_taking_desc': {
             'zh': '通过触摸脉搏、按压身体部位等，了解病情。',
             'en': "Evaluating health status by feeling pulses and palpating body areas."
+        },
+
+        'cure_methods': {
+            'zh': '治疗方法',
+            'en': 'Therapeutic Approaches in Traditional Chinese Medicine'
         },
 
         // 辨证论治
@@ -2601,6 +2733,11 @@ document.addEventListener('DOMContentLoaded', function() {
         'masters_title': {
             'zh': '名医名篇',
             'en': 'Famous Doctors and Classics'
+        },
+
+        'famous_doctors_desc': {
+            'zh': '传承千年的医学智慧',
+            'en': 'Millennia-Honed Medical Wisdom'
         },
 
         'tab_famouse_doctors': {
@@ -3010,6 +3147,16 @@ document.addEventListener('DOMContentLoaded', function() {
         'ai_chat_desc': {
             'zh': '探索中医药文化的奥秘',
             'en': 'Unravel the Mysteries of Traditional Chinese Medicine Culture'
+        },
+
+        'ai_lishizhen_name': {
+            'zh': '李时珍 (1518-1593)',
+            'en': 'Li Shizhen (1518-1593)'
+        },
+
+        'ai_lishizhen_desc': {
+            'zh': '明代医学家、药物学家、《本草纲目》作者',
+            'en': 'A medical scientist and pharmacologist in the Ming Dynasty, and the author of 《Bencao Gangmu》(Compendium of Materia Medica)'
         },
 
         // 李时珍使用指南
