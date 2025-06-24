@@ -47,6 +47,15 @@
         box-shadow: none !important;
     }
 
+    .video-placeholder{
+        background-size: auto 100%;  /* 高度 100%，宽度按比例缩放 */
+        background-image: url('pics/courses/joint_reading.jpg');
+        /* background-image: url('path/to/your/cover-image.jpg');  替换为你的封面图片路径 */
+        /* background-size: cover;  确保图片覆盖整个区域 */
+        background-position: center;  /* 图片居中 */
+        background-repeat: no-repeat;  /* 不重复图片 */
+        /* z-index: 1;  确保在播放按钮和文字之下 */
+    }
 </style>
 <body>
     <!-- 导航栏 -->
@@ -1426,6 +1435,24 @@
                             </div>
                         </div>
                     </div>
+
+                    <div class="course-video-container">
+                        <div id="courseVideo" class="course-video">
+                            <video id="videoPlayer" controls>
+                                <source src="courses/joint_reading.mp4" type="video/mp4">
+                                您的浏览器不支持 HTML5 视频。
+                            </video>
+                            
+                            <div class="video-placeholder">
+                                <i class="fas fa-play-circle"></i>
+                                <div class="placeholder-text">点击播放视频</div>
+                            </div>
+                            
+                            <div class="loading-spinner">
+                                <div class="spinner"></div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
@@ -1508,6 +1535,91 @@
                     });
                 });
             });
+    </script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const video = document.getElementById('videoPlayer');
+            const placeholder = document.querySelector('.video-placeholder');
+            const playIcon = document.querySelector('.video-placeholder i');
+            const spinner = document.querySelector('.loading-spinner');
+            
+            // 点击播放
+            placeholder.addEventListener('click', function() {
+                // 显示加载指示器
+                spinner.style.display = 'block';
+                
+                // 隐藏封面
+                placeholder.style.opacity = '0';
+                
+                // 显示视频元素
+                video.style.display = 'block';
+                video.controls = true;
+                
+                // 尝试播放视频
+                const playPromise = video.play();
+                
+                if (playPromise !== undefined) {
+                    playPromise.catch(error => {
+                        console.error("播放失败:", error);
+                        // 出错时恢复显示封面
+                        placeholder.style.opacity = '1';
+                        spinner.style.display = 'none';
+                    });
+                }
+            });
+            
+            // 视频开始播放时隐藏加载指示器
+            video.addEventListener('playing', function() {
+                spinner.style.display = 'none';
+                
+                // 完全隐藏封面
+                setTimeout(() => {
+                    placeholder.style.display = 'none';
+                }, 400);
+            });
+            
+            // 视频结束播放时显示封面
+            video.addEventListener('ended', function() {
+                placeholder.style.display = 'flex';
+                placeholder.style.opacity = '1';
+                video.controls = false;
+            });
+            
+            // 点击视频暂停/播放
+            // video.addEventListener('click', function() {
+            //     if (video.paused) {
+            //         video.play();
+            //     } else {
+            //         video.pause();
+            //     }
+            // });
+        });
+    </script>
+    <script>
+        // 监听选项卡切换事件
+        document.addEventListener('DOMContentLoaded', function() {
+            const tabButtons = document.querySelectorAll('.tab-btn');
+            const video = document.getElementById('videoPlayer');
+            const placeholder = document.querySelector('.video-placeholder');
+            const spinner = document.querySelector('.loading-spinner');
+            
+            tabButtons.forEach(button => {
+                button.addEventListener('click', function() {
+                    if (!video.paused) {
+                        video.pause();
+                        video.currentTime = 0; // 重置视频到开始位置
+                        
+                        // 恢复封面显示
+                        placeholder.style.display = 'flex';
+                        placeholder.style.opacity = '1';
+                        video.controls = false;
+                        spinner.style.display = 'none';
+                    }
+                });
+            });
+        });
+
+
     </script>
 </body>
 </html>
