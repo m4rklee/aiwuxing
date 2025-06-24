@@ -133,6 +133,33 @@ const courseData = {
             { title: '四季养生食谱', type: 'doc', url: '#' }
         ],
         related: ['seasonal-health', 'herb-identification', 'basic-theory']
+    },
+
+    'AI_baduanjin': {
+        title: 'AI八段锦教学',
+        img_name: 'AI_baduanjin',
+        description: '李时珍教你八段锦。',
+        videoSrc: 'courses/AI_baduanjin.mp4',
+        duration: '30秒',
+        related: ['light_brisk', 'tickle8', 'basic-theory']
+    },
+
+    'light_brisk': {
+        title: '轻快健身操',
+        img_name: 'light_brisk',
+        description: '跟着AI跳健身操',
+        videoSrc: 'courses/light_brisk.mp4',
+        duration: '18秒',
+        related: ['light_brisk', 'tickle8', 'basic-theory']
+    },
+
+    'tickle8': {
+        title: '拍八虚',
+        img_name: 'tickle8',
+        description: 'AI教你拍八虚',
+        videoSrc: 'courses/tickle8.mp4',
+        duration: '24秒',
+        related: ['light_brisk', 'tickle8', 'basic-theory']
     }
 };
 
@@ -305,16 +332,43 @@ function loadCourseDetail() {
             <i class="fas fa-play-circle"></i>
         </div>
     `;
+        
+        // const video_placeholder = document.querySelector('.video-placeholder');
+        // // console.log(video_placeholder)
+        // // 添加视频点击事件
+        // video_placeholder.addEventListener('click', function () {
+        //     this.innerHTML = `
+        //     <video controls autoplay>
+        //         <source src="${course.videoSrc}" type="video/mp4">
+        //         您的浏览器不支持HTML5视频标签。
+        //     </video>
+        //     `;
+        // });
+        const videoPlaceholder = document.querySelector('.video-placeholder');
+        let isVideoLoaded = false;
+        let videoElement = null;
 
-        // 添加视频点击事件
-        videoContainer.addEventListener('click', function () {
-            this.innerHTML = `
-            <video controls autoplay>
-                <source src="${course.videoSrc}" type="video/mp4">
-                您的浏览器不支持HTML5视频标签。
-            </video>
-            `;
+        videoPlaceholder.addEventListener('click', function() {
+            if (!isVideoLoaded) {
+                // 第一次点击：创建视频元素
+                this.innerHTML = `
+                    <video controls autoplay>
+                        <source src="${course.videoSrc}" type="video/mp4">
+                        您的浏览器不支持HTML5视频标签。
+                    </video>;`
+                videoElement = document.querySelector('video');
+                isVideoLoaded = true;
+            } else {
+                // 后续点击：控制播放/暂停
+                // if (videoElement.paused) {
+                //     videoElement.play();
+                // } else {
+                //     videoElement.pause();
+                // }
+            }
         });
+
+        
         
 
         // 加载章节列表
