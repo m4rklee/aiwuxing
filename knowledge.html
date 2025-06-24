@@ -7,6 +7,47 @@
     <link rel="stylesheet" href="css/styles.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 </head>
+<style>
+    .herb-categories {
+        text-align: center;
+        margin-bottom: 20px;
+    }
+
+    .category-btn {
+        background-color: #f8f9fa;
+        border: 1px solid #dee2e6;
+        padding: 10px 20px;
+        margin: 0 5px;
+        cursor: pointer;
+        border-radius: 4px;
+        font-size: 16px;
+        transition: all 0.3s;
+    }
+
+    .category-btn:hover {
+        background-color: #e9ecef;
+    }
+
+    .category-btn.active {
+        background-color: #28a745;
+        color: white;
+        border-color: #28a745;
+    }
+    
+    /* 占位抽屉样式 - 透明不可见但保持尺寸 */
+    .placeholder-drawer {
+        visibility: hidden; /* 隐藏内容 */
+        pointer-events: none; /* 防止点击 */
+    }
+
+    /* 保持抽屉尺寸 */
+    .placeholder-drawer .drawer-front {
+        background: transparent !important;
+        border: 1px solid transparent !important;
+        box-shadow: none !important;
+    }
+
+</style>
 <body>
     <!-- 导航栏 -->
     <header>
@@ -27,7 +68,7 @@
             </nav>
         </div>
     </header>
-   <!-- 中药材库 -->
+    <!-- 中药材库 -->
     <section id="herbs" class="section">
         <div class="container">
             <div class="section-header">
@@ -35,43 +76,46 @@
                 <p>探索传统中药的神奇力量</p>
             </div>
             
-            <div class="medicine-cabinet">
+            <!-- 分类导航 -->
+            <div class="herb-categories">
+                <button class="category-btn active" data-category="cold">寒性药材</button>
+                <button class="category-btn" data-category="warm">温热药材</button>
+                <button class="category-btn" data-category="neutral">平性药材</button>
+            </div>
+            
+            <!-- 寒性药材 -->
+            <div class="medicine-cabinet" id="cold-herbs">
                 <div class="cabinet-row">
-                    <div class="cabinet-drawer" data-herb="ginseng">
+                    <div class="cabinet-drawer" data-herb="rhinoceros-horn">
                         <div class="drawer-front">
-                            <span>人参</span>
+                            <span>犀角</span>
                         </div>
                     </div>
-                    <div class="cabinet-drawer" data-herb="astragalus">
+                    <div class="cabinet-drawer" data-herb="gypsum">
                         <div class="drawer-front">
-                            <span>黄芪</span>
+                            <span>石膏</span>
                         </div>
                     </div>
-                    <div class="cabinet-drawer" data-herb="angelica">
+                    <div class="cabinet-drawer" data-herb="coptis">
                         <div class="drawer-front">
-                            <span>当归</span>
+                            <span>黄连</span>
                         </div>
                     </div>
-                    <div class="cabinet-drawer" data-herb="licorice">
+                    <div class="cabinet-drawer" data-herb="scutellaria">
                         <div class="drawer-front">
-                            <span>甘草</span>
+                            <span>黄芩</span>
                         </div>
                     </div>
                 </div>
                 <div class="cabinet-row">
-                    <div class="cabinet-drawer" data-herb="cinnamon">
-                        <div class="drawer-front">
-                            <span>肉桂</span>
-                        </div>
-                    </div>
-                    <div class="cabinet-drawer" data-herb="ginger">
-                        <div class="drawer-front">
-                            <span>生姜</span>
-                        </div>
-                    </div>
                     <div class="cabinet-drawer" data-herb="rhubarb">
                         <div class="drawer-front">
                             <span>大黄</span>
+                        </div>
+                    </div>
+                    <div class="cabinet-drawer" data-herb="ophiopogon">
+                        <div class="drawer-front">
+                            <span>麦冬</span>
                         </div>
                     </div>
                     <div class="cabinet-drawer" data-herb="peony">
@@ -79,21 +123,73 @@
                             <span>芍药</span>
                         </div>
                     </div>
+                    <div class="cabinet-drawer" data-herb="gardenia">
+                        <div class="drawer-front">
+                            <span>栀子</span>
+                        </div>
+                    </div>
                 </div>
                 <div class="cabinet-row">
+                    <div class="cabinet-drawer" data-herb="scrophularia">
+                        <div class="drawer-front">
+                            <span>元参</span>
+                        </div>
+                    </div>
                     <div class="cabinet-drawer" data-herb="chrysanthemum">
                         <div class="drawer-front">
                             <span>菊花</span>
                         </div>
                     </div>
-                    <div class="cabinet-drawer" data-herb="wolfberry">
+                    <div class="cabinet-drawer" data-herb="sophora-flower">
                         <div class="drawer-front">
-                            <span>枸杞</span>
+                            <span>槐花</span>
                         </div>
                     </div>
-                    <div class="cabinet-drawer" data-herb="poria">
+                    <!-- 透明占位抽屉 -->
+                    <div class="cabinet-drawer placeholder-drawer">
+                        <div class="drawer-front"><span></span></div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- 温热药材 -->
+            <div class="medicine-cabinet" id="warm-herbs" style="display:none;">
+                <div class="cabinet-row">
+                    <div class="cabinet-drawer" data-herb="aconite">
                         <div class="drawer-front">
-                            <span>茯苓</span>
+                            <span>附子</span>
+                        </div>
+                    </div>
+                    <div class="cabinet-drawer" data-herb="ephedra">
+                        <div class="drawer-front">
+                            <span>麻黄</span>
+                        </div>
+                    </div>
+                    <div class="cabinet-drawer" data-herb="cinnamon-twigs">
+                        <div class="drawer-front">
+                            <span>桂枝</span>
+                        </div>
+                    </div>
+                    <div class="cabinet-drawer" data-herb="cinnamon">
+                        <div class="drawer-front">
+                            <span>肉桂</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="cabinet-row">
+                    <div class="cabinet-drawer" data-herb="ginger">
+                        <div class="drawer-front">
+                            <span>生姜</span>
+                        </div>
+                    </div>
+                    <div class="cabinet-drawer" data-herb="asarum">
+                        <div class="drawer-front">
+                            <span>细辛</span>
+                        </div>
+                    </div>
+                    <div class="cabinet-drawer" data-herb="pinellia">
+                        <div class="drawer-front">
+                            <span>半夏</span>
                         </div>
                     </div>
                     <div class="cabinet-drawer" data-herb="atractylodes">
@@ -102,9 +198,77 @@
                         </div>
                     </div>
                 </div>
+                <div class="cabinet-row">
+                    <div class="cabinet-drawer" data-herb="astragalus">
+                        <div class="drawer-front">
+                            <span>黄芪</span>
+                        </div>
+                    </div>
+                    <div class="cabinet-drawer" data-herb="donkey-hide-glue">
+                        <div class="drawer-front">
+                            <span>阿胶</span>
+                        </div>
+                    </div>
+                    <!-- 透明占位抽屉 -->
+                    <div class="cabinet-drawer placeholder-drawer">
+                        <div class="drawer-front"><span></span></div>
+                    </div>
+                    <!-- 透明占位抽屉 -->
+                    <div class="cabinet-drawer placeholder-drawer">
+                        <div class="drawer-front"><span></span></div>
+                    </div>
+                </div>
             </div>
             
-            <!-- 药材详情弹出层 -->
+            <!-- 平性药材 -->
+            <div class="medicine-cabinet" id="neutral-herbs" style="display:none;">
+                <div class="cabinet-row">
+                    <div class="cabinet-drawer" data-herb="ginseng">
+                        <div class="drawer-front">
+                            <span>人参</span>
+                        </div>
+                    </div>
+                    <div class="cabinet-drawer" data-herb="licorice">
+                        <div class="drawer-front">
+                            <span>甘草</span>
+                        </div>
+                    </div>
+                    <div class="cabinet-drawer" data-herb="poria">
+                        <div class="drawer-front">
+                            <span>茯苓</span>
+                        </div>
+                    </div>
+                    <div class="cabinet-drawer" data-herb="jujube">
+                        <div class="drawer-front">
+                            <span>大枣</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="cabinet-row">
+                    <div class="cabinet-drawer" data-herb="tangerine-peel">
+                        <div class="drawer-front">
+                            <span>陈皮</span>
+                        </div>
+                    </div>
+                    <div class="cabinet-drawer" data-herb="dendrobium">
+                        <div class="drawer-front">
+                            <span>石斛</span>
+                        </div>
+                    </div>
+                    <div class="cabinet-drawer" data-herb="mume-fruit">
+                        <div class="drawer-front">
+                            <span>乌梅</span>
+                        </div>
+                    </div>
+                    <div class="cabinet-drawer" data-herb="wolfberry">
+                        <div class="drawer-front">
+                            <span>枸杞</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- 药材详情弹出层（保持不变） -->
             <div class="herb-modal" id="herbModal">
                 <div class="herb-modal-content">
                     <span class="close-modal">&times;</span>
@@ -1322,6 +1486,28 @@
 
     <script src="js/script.js"></script>
     <script src="js/language-switcher.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+                const categoryBtns = document.querySelectorAll('.category-btn');
+                categoryBtns.forEach(btn => {
+                    btn.addEventListener('click', function() {
+                        // 移除所有按钮的active类
+                        categoryBtns.forEach(b => b.classList.remove('active'));
+                        // 添加active类到当前按钮
+                        this.classList.add('active');
+                        
+                        // 隐藏所有药材分类
+                        document.getElementById('cold-herbs').style.display = 'none';
+                        document.getElementById('warm-herbs').style.display = 'none';
+                        document.getElementById('neutral-herbs').style.display = 'none';
+                        
+                        // 显示当前选择的分类
+                        const category = this.getAttribute('data-category');
+                        document.getElementById(`${category}-herbs`).style.display = 'block';
+                    });
+                });
+            });
+    </script>
 </body>
 </html>
 
