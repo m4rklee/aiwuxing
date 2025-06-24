@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>时珍智脑 - "五行语宙"一站式中医智能教育网站</title>
+    <link rel="stylesheet" href="css/td.css">
+    <link rel="stylesheet" href="css/unified-colors.css">
+    <link rel="stylesheet" href="css/styles.css">
+    <!-- <link rel="stylesheet" href="css/overlapping-cards.css"> -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+    <!-- 导航栏 -->
+    <header>
+        <div class="container">
+            <div class="logo">
+                <img src='pics/tittle/1.svg' alt="五行×中医一站式智能教育网站">
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="index.html"><i class="fas fa-home"></i> 首页</a></li>
+                    <li><a href="microcourses.html"><i class="fas fa-video"></i> 智课星链</a></li>
+                    <li><a href="knowledge.html"><i class="fas fa-brain"></i> 智识中医</a></li>
+                    <li><a href="ailishizhen.html"><i class="fas fa-user-md"></i> 时珍智脑</a></li>
+                    <li><a href="games.html"><i class="fas fa-gamepad"></i> 五行智弈</a></li>           
+                    <li><a href="forum.html"><i class="fas fa-comments"></i> 智联杏林</a></li>
+                    <li><a href="tongue-diagnosis.html" class="active"><i class="fas fa-user-md"></i> 智能舌诊</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- 主要内容 -->
+    <section class="section tongue-diagnosis-section">
+        <div class="container">
+            <div class="section-header">
+                <h2><i class="fas fa-user-md"></i> 智能舌诊分析系统</h2>
+                <p>上传您的舌部照片，获取专业中医舌诊分析</p>
+            </div>
+            
+            <div class="main-content">
+                <div class="input-section">
+                    <div class="upload-area" id="dropZone">
+                        <i class="fas fa-cloud-upload-alt"></i>
+                        <p>点击或拖拽上传舌部照片</p>
+                        <input type="file" id="imageUpload" accept="image/*" hidden>
+                        <div class="preview-container" id="imagePreview"></div>
+                    </div>
+                    
+                    <div class="controls">
+                        <div class="gender-selection">
+                            <label>性别：</label>
+                            <label><input type="radio" name="gender" value="男" checked> 男</label>
+                            <label><input type="radio" name="gender" value="女"> 女</label>
+                        </div>
+                        
+                        <button id="analyzeBtn" class="btn">开始分析</button>
+                        <div class="loading" id="loadingIndicator">
+                            <div class="spinner"></div>
+                            <p>分析中，请稍候...</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="results-section" id="resultsSection">
+                    <h2><i class="fas fa-clipboard-list"></i> 舌诊分析报告</h2>
+                    
+                    <div class="overall-score">
+                        <div class="score-circle">
+                            <div class="score-value"></div>
+                            <div class="score-label">健康评分</div>
+                        </div>
+                        <div class="score-description">
+                            <div class="score-item">
+                                <span class="score-title">体质类型：</span>
+                                <span class="score-text"></span>
+                            </div>
+                            <div class="score-item">
+                                <span class="score-title">证候名称：</span>
+                                <span class="score-text"></span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="results-container">
+                        <div class="results-column">
+                            <div class="result-card">
+                                <h3><i class="fas fa-file-medical-alt"></i> 舌部特征分析</h3>
+                                <ul class="feature-list" id="featuresList"></ul>
+                            </div>
+                            
+                            <div class="result-card">
+                                <h3><i class="fas fa-heartbeat"></i> 体质分析</h3>
+                                <p class="physique-analysis" id="physiqueAnalysis"></p>
+                            </div>
+                        </div>
+                        
+                        <div class="results-column">
+                            <div class="result-card">
+                                <h3><i class="fas fa-exclamation-triangle"></i> 风险提示</h3>
+                                <p class="risk-warning" id="riskWarning"></p>
+                            </div>
+                            
+                            <div class="result-card">
+                                <h3><i class="fas fa-stethoscope"></i> 健康建议</h3>
+                                <div class="advice-section" id="advicesContainer"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        
+            <!-- <footer>
+                <p>© 2023 智能中医舌诊分析系统 | 数据来源于中医舌诊API</p>
+            </footer> -->
+        </div>
+    </section>
+
+    <!-- 页脚 -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-logo">
+                    <img src='pics/tittle/1.svg' alt="五行×中医一站式智能教育网站">
+                    <p>传承中医文化，弘扬国粹精华</p>
+                </div>
+                <div class="footer-links">
+                    <h4>快速链接</h4>
+                    <ul>
+                        <li><a href="index.html">首页</a></li>
+                        <li><a href="microcourses.html">智课星链</a></li>
+                        <li><a href="knowledge.html">智识中医</a></li>
+                        <li><a href="ailishizhen.html">时珍智脑</a></li>
+                        <li><a href="games.html">五行智弈</a></li>
+                        <li><a href="forum.html">智联杏林</a></li>
+                        <li><a href="tongue-diagnosis.html">智能舌诊</a></li>
+                    </ul>
+                </div>
+                <div class="footer-links">
+                    <h4>学习资源</h4>
+                    <ul>
+                        <li><a href="knowledge.html#herbs">中药材库</a></li>
+                        <li><a href="knowledge.html#meridians">人体五脏</a></li>
+                        <li><a href="knowledge.html#diagnosis">诊疗方法</a></li>
+                        <li><a href="knowledge.html#history">发展变革</a></li>
+                        <li><a href="knowledge.html#masters">名医名篇</a></li>
+                        <li><a href="knowledge.html#knowledge">五行知识</a></li>
+                    </ul>
+                </div>
+                <!-- <div class="footer-newsletter">
+                    <h4>订阅我们</h4>
+                    <p>订阅我们的电子通讯，获取最新的中医资讯</p>
+                    <form id="newsletterForm">
+                        <input type="email" placeholder="请输入您的邮箱" required>
+                        <button type="submit"><i class="fas fa-paper-plane"></i></button>
+                    </form>
+                </div> -->
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 “五行语宙”一站式中医智能教育网站 版权所有</p>
+                <!-- <div class="social-links">
+                    <a href="#"><i class="fab fa-weixin"></i></a>
+                    <a href="#"><i class="fab fa-weibo"></i></a>
+                    <a href="#"><i class="fab fa-qq"></i></a>
+                    <a href="#"><i class="fab fa-youtube"></i></a>
+                </div> -->
+            </div>
+        </div>
+    </footer>
+    
+    <script src="js/td_test.js"></script>
+    <!-- <script src="js/overlapping-cards.js"></script> -->
+    <script src="js/language-switcher.js"></script>
+</body>
+</html>
