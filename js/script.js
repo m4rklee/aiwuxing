@@ -91,11 +91,247 @@ document.addEventListener('DOMContentLoaded', function () {
     });
 
     // 中药材库
-    const cabinetDrawers = document.querySelectorAll('.cabinet-drawer');
+    // const cabinetDrawers = document.querySelectorAll('.cabinet-drawer');
+    // const herbModal = document.getElementById('herbModal');
+    // const closeHerbModal = herbModal.querySelector('.close-modal');
+
+    // 中药材库 - 新增分类切换功能
+    const categoryBtns = document.querySelectorAll('.category-btn');
+    categoryBtns.forEach(btn => {
+        btn.addEventListener('click', function() {
+            // 分类切换逻辑（之前已实现）
+            
+        });
+    });
+
+    // 更新药材抽屉选择器（选择所有分类中的抽屉）
+    const cabinetDrawers = document.querySelectorAll('.medicine-cabinet .cabinet-drawer');
     const herbModal = document.getElementById('herbModal');
     const closeHerbModal = herbModal.querySelector('.close-modal');
 
     const herbData = {
+        // 寒性药材
+        'rhinoceros-horn': {
+            name: '犀角 Rhinoceros Horn',
+            nature: '性寒，味酸',
+            natureEng: 'Cold in nature, sour in taste',
+            meridian: '归心、肝经',
+            meridianEng: 'Enters the Heart and Liver Meridians',
+            effect: '清热，凉血，定惊，解毒',
+            effectEng: 'Clears heat, cools blood, calms convulsions, and detoxifies',
+            description: '犀角是传统名贵药材，具有强大的清热凉血作用。',
+            usage: '内服：磨汁或研末，1-2g；煎汤，1.5-6g；或入丸、散；外用：磨汁涂。<br>For internal use: Grind into juice or powder, 1-2g; decoct in water, 1.5-6g; or prepare into pills or powder.',
+            model: '暂无'
+        },
+        'gypsum': {
+            name: '石膏 Gypsum',
+            nature: '甘、辛，大寒',
+            natureEng: 'Sweet, pungent, extremely cold',
+            meridian: '归肺、胃经',
+            meridianEng: 'Enters the Lung and Stomach channels',
+            effect: '生用：清热泻火，除烦止渴；煅用：收湿，生肌，敛疮，止血',
+            effectEng: 'Crude: Clears heat and purges fire; Calcined: Absorbs dampness, promotes tissue regeneration, heals sores, stops bleeding',
+            description: '本品为硫酸盐类矿物石膏族石膏，主含含水硫酸钙(CaSO₄·2H₂O)。主产于湖北、安徽、山东，以湖北应城产者最佳。<br>This product is a sulfate mineral of the gypsum group, primarily containing hydrated calcium sulfate (CaSO₄·2H₂O). It is mainly produced in Hubei, Anhui, and Shandong provinces, with the highest quality specimens originating from Yingcheng, Hubei. It can be harvested year-round. After excavation, soil, sand, and impurities are removed. The material has a faint odor and a mild taste. The best quality specimens are white, large, semi-transparent, and exhibit a fibrous texture when longitudinally fractured. It is used either crushed in its raw form or calcined.',
+            usage: '生石膏煎服，15～60g，宜打碎先煎。煅石膏外用适量，研末撒敷患处。<br>Gypsum Fibrosum should be decocted for oral administration, with a dosage of 15–60g. It should be crushed and decocted first. Calcined Gypsum is for external use only, applied in appropriate amounts by grinding into powder and sprinkling on the affected area.',
+            model: '暂无'
+        },
+        'coptis': {
+            name: '黄连 Coptis',
+            nature: '苦，寒',
+            natureEng: 'Bitter, cold',
+            meridian: '归心、脾、胃、肝、胆、大肠经',
+            meridianEng: 'Enters heart, spleen, stomach, liver, gallbladder, large intestine channels<br>The dried rhizomes of three plants from the Ranunculaceae family: Coptis chinensis, Coptis deltoidea, or Coptis teeta. These three varieties are commonly referred to as "Weilian,""Yalian,"and "Yunlian,"respectively.',
+            effect: '清热燥湿，泻火解毒',
+            effectEng: 'Clears heat and dries dampness, purges fire and detoxifies',
+            description: '为毛茛科植物黄连、三角叶黄连或云连的干燥根茎，分别称"味连"、"雅连"、"云连"。',
+            usage: '黄连煎汤内服时，成人每天的常规用量为2~5克，也可以入丸、散剂；外用适量研末调敷，或煎水洗，或熬膏涂，或浸汁用。黄连生用清热力较强，炒用能降低黄连的苦寒。酒黄连善于清上焦火热，可以用于治疗眼睛红、口疮等。姜黄连善于清胃和胃止呕，可以用于治疗寒热互结、湿热中阻、胀满呕吐等。萸黄连善于疏肝和胃止呕，可以用于治疗肝胃不和、呕吐吞酸等。<br>When taken as a decoction, the usual daily dose of Coptis chinensis for adults is 2–5 grams. It can also be prepared in pill or powder form. For external use, an appropriate amount can be ground into powder and applied as a paste, decocted for washing, boiled into an ointment for topical application, or soaked for liquid use.Raw Coptis has stronger heat-clearing properties, while stir-frying reduces its bitter and cold nature. Wine-processed Coptis is particularly effective for clearing upper-jiao heat and can be used to treat red eyes and mouth ulcers. Ginger-processed Coptis excels at clearing stomach heat and stopping vomiting, making it suitable for treating conditions such as cold-heat complex, damp-heat obstruction in the middle jiao, abdominal distension, and vomiting. Evodia-processed Coptis is adept at soothing the liver and stomach to stop vomiting, and is used for liver-stomach disharmony, vomiting, and acid regurgitation.',
+            model: '暂无'
+        },
+        'scutellaria': {
+            name: '黄芩 Scutellaria',
+            nature: '苦，寒',
+            natureEng: 'Bitter, cold',
+            meridian: '归肺、胆、脾、大肠、小肠经',
+            meridianEng: 'Enters lung, gallbladder, spleen, large intestine, small intestine channels',
+            effect: '清热燥湿，泻火解毒，止血，安胎',
+            effectEng: 'Clears heat and dries dampness, purges fire and detoxifies, stops bleeding, calms fetus',
+            description: '黄芩，中药名。为唇形科黄芩属植物黄芩的干燥根。茎分枝，近无毛，或被向上至开展微柔毛；根茎肉质，分枝；叶披针形或线状披针形，先端钝，基部圆，全缘，两面无毛或疏被微柔毛；花梗被微柔毛；花萼密被微柔毛，具缘毛；花冠紫红或蓝色，密被腺柔毛，下唇中裂片三角状卵形；小坚果黑褐色，卵球形，腹面近基部具脐状突起；花期7至8月；果期8至9月。<br>Scutellaria baicalensis, a traditional Chinese medicinal herb. It refers to the dried root of the Scutellaria baicalensis plant from the Lamiaceae family. The stems are branched, nearly glabrous or sparsely covered with ascending to spreading fine hairs; the rhizome is fleshy and branched; the leaves are lanceolate or linear-lanceolate, blunt at the apex, rounded at the base, entire, and glabrous or sparsely covered with fine hairs on both surfaces; the pedicels are covered with fine hairs; the calyx is densely covered with fine hairs and has marginal hairs; the corolla is purple-red or blue, densely covered with glandular hairs, with the middle lobe of the lower lip being triangular-ovate; the nutlets are black-brown, ovoid, with a navel-like protrusion near the base on the ventral side; the flowering period is from July to August; the fruiting period is from August to September.',
+            usage: '黄芩煎汁内服时，成人每天的常规用量为3~10克。也可入丸剂或散剂中，成人每天的常规用量为3～9克。外用适量，将黄芩研成粉末，调敷，或熬膏贴敷。除消食药（应该在饭后及时服药）、镇静安神药（临睡前服用）等药物以外，一般药物无论饭前还是饭后服，服药与进食都应间隔1小时左右，以免影响药效的发挥与食物的消化。用于清热燥湿时，适合生用。用于安胎时，适合炒用。用于清上焦热时，适合酒炙使用。用于止血时，适合炒炭使用。<br>For oral decoction of Scutellaria baicalensis, the conventional daily dosage for adults is 3–10 grams. It can also be incorporated into pills or powders, with a conventional daily dosage of 3–9 grams for adults. For external use, an appropriate amount of Scutellaria baicalensis should be ground into powder and applied as a poultice or prepared into an ointment for topical application.Except for digestant medications (which should be taken promptly after meals) and sedative-hypnotic drugs (taken before bedtime), most medications should be taken either before or after meals with an interval of approximately one hour to avoid interference with drug efficacy and food digestion.When used for clearing heat and drying dampness, the raw form is suitable. For preventing miscarriage, the stir-fried form is recommended. For clearing upper-jiao heat, the wine-fried preparation is appropriate. For hemostasis, the charred form should be used.',
+            model: '暂无'
+        },
+        'ophiopogon': {
+            name: '麦冬 Ophiopogon',
+            nature: '甘、微苦，微寒',
+            natureEng: 'Sweet, slightly bitter, slightly cold',
+            meridian: '归心、肺、胃经',
+            meridianEng: 'Enters heart, lung, stomach channels',
+            effect: '养阴润肺、益胃生津、清心除烦',
+            effectEng: 'Nourishes yin and moistens lungs, benefits stomach and promotes fluids, clears heart and relieves restlessness',
+            description: '百合科植物麦冬的干燥块根。<br>This product is the dried tuberous root of the lily family plant Ophiopogon japonicus.',
+            usage: '麦冬煎汁内服时，成人每天的常规用量为6～12克。或熬膏使用，或入丸、散。用于清养肺胃的阴津时，多去心用；滋阴清心时，大多连心用。<br>When decocted for oral administration, the conventional daily dosage of Ophiopogon japonicus for adults is 6-12 grams. It can also be used in concentrated paste form or incorporated into pills or powders.For nourishing the yin fluids of the lungs and stomach, the core is often removed before use. When used to nourish yin and clear heart heat, the core is typically retained.',
+            model: '暂无'
+        },
+        'gardenia': {
+            name: '栀子 Gardenia',
+            nature: '苦，寒',
+            natureEng: 'Bitter, cold',
+            meridian: '归心、肺、三焦经',
+            meridianEng: 'Enters heart, lung, triple energizer channels',
+            effect: '泻火除烦，清热利湿，凉血解毒；外用消肿止痛',
+            effectEng: 'Clears fire to relieve irritability, clears heat and promotes diuresis, cools blood and detoxifies; external use reduces swelling and pain',
+            description: '本品为茜草科植物栀子的干燥成熟果实。主产于江西、湖南、湖 北、浙江。9～11月果实成熟呈红黄色时采收，除去果梗及杂质，蒸至上气或置沸水中略烫， 取出，干燥。本品气微，味微酸而苦。以皮薄、饱满、色黄、完整者为佳。生用或炒焦用。<br>This product is the dried ripe fruit of Gardenia jasminoides Ellis, belonging to the Rubiaceae family. It is primarily produced in Jiangxi, Hunan, Hubei, and Zhejiang provinces. Harvesting occurs from September to November when the fruit ripens and turns reddish-yellow. The fruit stalks and impurities are removed, followed by steaming until vapor rises or briefly scalding in boiling water. Afterward, the fruit is dried. This product has a faint odor and a slightly sour and bitter taste. Those with thin skin, plumpness, yellow color, and intact appearance are considered superior. It is used either in its raw form or after stir-frying until charred.',
+            usage: '栀子煎汤内服时，成人每天的常规用量为6~10克，外用适量可以研末调敷。栀子也可以入丸、散服用。用于清热泻火时适合选用生栀子，用于凉血止血时适合选用焦栀子。<br>When taken as a decoction, the usual daily dosage of Gardenia for adults is 6–10 grams. For external use, an appropriate amount can be ground into powder and applied topically. Gardenia can also be consumed in pill or powder form.For clearing heat and purging fire, raw Gardenia is recommended, while charred Gardenia is suitable for cooling blood and stopping bleeding.',
+            model: '暂无'
+        },
+        'scrophularia': {
+            name: '元参（玄参） Scrophularia',
+            nature: '甘、苦、咸，微寒',
+            natureEng: 'Sweet, bitter, salty, slightly cold',
+            meridian: '归肺、胃、肾经',
+            meridianEng: 'Enters lung, stomach, kidney channels',
+            effect: '清热凉血，滋阴降火，解毒散结',
+            effectEng: 'Clears heat and cools blood, nourishes yin and reduces fire, detoxifies and dissipates nodules',
+            description: '玄参科植物玄参及北玄参的干燥根。<br>Scrophularia, a traditional Chinese medicinal herb, refers to the dried roots of Scrophularia ningpoensis and Scrophularia buergeriana from the Scrophulariaceae family.',
+            usage: '玄参煎汁内服时，成人每天的常规用量为9~15克。玄参寒滑，故脾胃虚寒，食少便溏者不宜使用。<br>When decocting Scrophulariae Radix for oral administration, the conventional daily dosage for adults is 9–15 grams.Scrophulariae Radix is cold and slippery in nature, so it should not be used by individuals with spleen-stomach deficiency-cold, poor appetite, or loose stools.',
+            model: '暂无'
+        },
+        'sophora-flower': {
+            name: '槐花 Sophora Flower',
+            nature: '苦，微寒',
+            natureEng: 'Bitter, slightly cold',
+            meridian: '归肝、大肠经',
+            meridianEng: 'Enters liver and large intestine channels',
+            effect: '凉血止血，清肝泻火',
+            effectEng: 'Cools blood to stop bleeding, clears liver fire and drains fire',
+            description: '本品为豆科植物槐的干燥花及花蕾。前者称为“槐花”，后者习称“槐米”。<br>This product consists of the dried flowers and flower buds of the Sophora japonica L. plant from the Fabaceae family. The former is referred to as "Sophora Flower,"while the latter is commonly known as "Sophora Bud."',
+            usage: '槐花煎汁内服时，成⼈每天的常规用量为5~10克；还可以入丸、散及外用。止血多炒炭用，清热泻火宜生用。<br>When taken orally as a decoction, the usual daily dosage for adults is 5–10 grams of Sophora japonica flowers. It can also be prepared into pills or powders for internal use or applied externally. For hemostatic purposes, it is often used in charred form, while for clearing heat and purging fire, the raw form is preferred.',
+            model: '暂无'
+        },
+        
+        // 温热药材
+        'aconite': {
+            name: '附子 Aconite',
+            nature: '辛、甘，大热；有毒',
+            natureEng: 'Pungent, sweet, extremely hot; toxic',
+            meridian: '归心、肾、脾经',
+            meridianEng: 'Enters Heart, Kidney, Spleen channels',
+            effect: '回阳救逆，补火助阳，散寒止痛',
+            effectEng: 'Restores yang to rescue from collapse, supplements fire to assist yang, disperses cold to relieve pain',
+            description: '本品为毛莨科植物乌头的子根的加工品。主产于四川。6月下旬至8月上旬采挖，除去母根、须根及泥沙，习称“泥附子”，加工制成盐附子、黑附片（黑顺片）、白附片。盐附子气微，味咸而麻，刺舌；以个大、体重、色灰黑、表面起盐霜者为佳。黑附片（黑顺片）气微，味淡；以皮黑褐、切面油润有光泽者为佳。白附片气微，味淡；以片大、 色黄白、油润半透明者为佳。饮片炮制品有黑附片、白附片、淡附片、炮附片。<br>This product is the processed product of the daughter root of Aconitum carmichaelii Debx. of the Ranunculaceae family. It is mainly produced in Sichuan. Harvested from late June to early August, the mother root, fibrous roots, and soil are removed, commonly referred to as "mud aconite,"and processed into salt-processed aconite, black aconite slices (black shun slices), and white aconite slices. Salt-processed aconite has a slight odor, a salty and numbing taste, and a tingling sensation on the tongue; the best quality is characterized by large size, heavy weight, gray-black color, and a surface covered with salt crystals. Black aconite slices (black shun slices) have a slight odor and a bland taste; the best quality features a dark brown skin and an oily, glossy cross-section. White aconite slices have a slight odor and a bland taste; the best quality is marked by large size, yellowish-white color, and an oily, semi-transparent appearance. Processed herbal slices include black aconite slices, white aconite slices, lightly processed aconite slices, and blast-processed aconite slices.',
+            usage: '附子煎汁内服时，成人每天的常规用量为3～15克，需要先煎、久煎。附子有毒，煎汁内服时应当先煎0.5~1小时，口尝至无麻辣感为度。附子还可以入丸、散。外用时适量，研末调敷。附子内服时宜用炮制品，生品外用。<br>When taking aconite decoction orally, the conventional daily dosage for adults is 3–15 grams, which requires prolonged decoction. Aconite is toxic, so when preparing the decoction for oral use, it should be boiled for 0.5–1 hour first, until tasting reveals no numbing or spicy sensation. Aconite can also be used in pills or powders. For external use, apply an appropriate amount after grinding into powder and mixing. When taken orally, processed aconite should be used, while the raw product is for external application only.',
+            model: '暂无'
+        },
+        'ephedra': {
+            name: '麻黄 Ephedra',
+            nature: '辛、微苦，温',
+            natureEng: 'Pungent, slightly bitter, warm',
+            meridian: '归肺、膀胱经',
+            meridianEng: 'Enters lung and bladder channels',
+            effect: '发汗解表，宣肺平喘，利水消肿',
+            effectEng: 'Induces sweating to relieve exterior, diffuses lung to relieve asthma, promotes diuresis to reduce edema',
+            description: '本品为麻黄科植物草麻黄、中麻黄或木贼麻黄的干燥草质茎。主产于山西、河北、甘肃、内蒙古、 新疆。秋季采割绿色的草质茎，晒干，除去木质茎、残根及杂质，切段。本品气微香，味涩、微苦。以干燥，茎粗，淡绿色，内心充实、色红棕，味苦涩者为佳。生用、蜜炙或捣绒用。<br>This product is the dried herbaceous stem of Ephedra sinica, Ephedra intermedia, or Ephedra equisetina from the Ephedraceae family. It is primarily produced in Shanxi, Hebei, Gansu, Inner Mongolia, and Xinjiang. The green herbaceous stems are harvested in autumn, dried in the sun, and then processed by removing the woody stems, residual roots, and impurities before being cut into segments. This product has a faint aromatic odor and a taste that is astringent and slightly bitter. The preferred quality features include dryness, thick stems, light green color, a solid and reddish-brown core, and a bitter, astringent taste. It is used in its raw form, honey-fried, or crushed into wool-like fibers.',
+            usage: '麻黄煎汁内服时，成人每天的常规用量为2～10克。入丸、散剂时用量为2～9克，外用时适量，研末调敷。<br>When decocting Ephedra for oral use, the conventional daily dosage for adults is 2–10 grams.For pill or powder preparations, the dosage ranges from 2–9 grams. For external use, apply an appropriate amount by grinding into powder and mixing for topical application.',
+            model: '暂无'
+        },
+        'cinnamon-twigs': {
+            name: '桂枝 Cinnamon Twigs',
+            nature: '辛、甘，温',
+            natureEng: 'Pungent, sweet, warm',
+            meridian: '归心、肺、膀胱经',
+            meridianEng: 'Enters Heart, Lung, Bladder channels',
+            effect: '发汗解肌，温通经脉，助阳化气，平冲降逆',
+            effectEng: 'Promotes sweating and relieves muscles, warms and unblocks meridians, assists yang transformation of qi, pacifies rebellious qi',
+            description: '本品为樟科植物肉桂的干燥嫩枝。主产于广东、广西。春、夏二季采收，除去叶，晒干或切片晒干。本品有特异香气，味甜、微辛，皮部味较浓。以质嫩、色红 棕、香气浓者为佳。生用。<br>This product is the dried young branch of the Cinnamomum cassia plant from the Lauraceae family. It is primarily produced in Guangdong and Guangxi. Harvested in spring and summer, the leaves are removed, and the branches are dried in the sun or sliced before drying. This product has a distinctive aroma, with a sweet and slightly pungent taste, and the bark portion has a stronger flavor. The best quality is characterized by tender texture, reddish-brown color, and strong fragrance. It is used in its raw form.',
+            usage: '煎服3～10g。<br>Decoct and take orally, 3-10g.',
+            model: '暂无'
+        },
+        'asarum': {
+            name: '细辛 Asarum',
+            nature: '辛，温；有小毒',
+            natureEng: 'Pungent, warm; slightly toxic',
+            meridian: '归心、肺、肾经',
+            meridianEng: 'Enters Heart, Lung, Kidney channels',
+            effect: '解表散寒，祛风止痛，通窍，温肺化饮',
+            effectEng: 'Dispels external cold, expels wind to relieve pain, unblocks orifices, warms lungs to resolve phlegm',
+            description: '本品为马兜铃科植物北细辛、汉城细辛或华细辛的干燥根和根茎。前两种习称“辽细辛”,主产于辽宁、吉林、黑龙江；后一种习称“华细辛”,主产于 陕西。夏季果熟期或初秋采挖，除净地上部分和泥沙，阴干。切段。本品气辛香，味辛辣、麻舌。均以根多色灰黄，干燥，味辛辣而麻舌者为佳。生用。<br>This product consists of the dried roots and rhizomes of Asarum heterotropoides var. mandshuricum, Asarum sieboldii var. seoulense, or Asarum sieboldii from the Aristolochiaceae family. The first two are commonly referred to as "Liaoxixin"and are primarily produced in Liaoning, Jilin, and Heilongjiang provinces. The latter is known as "Huaxixin"and is mainly cultivated in Shaanxi province. It is harvested during the fruit ripening period in summer or in early autumn, with the aerial parts and soil removed, then dried in the shade and cut into segments.This herb has a pungent aroma and a spicy, numbing taste. High-quality specimens are characterized by abundant roots with a grayish-yellow color, dryness, and a strongly spicy, tongue-numbing flavor. It is used in its raw form.',
+            usage: '细辛煎汁内服时，成人每天的常规用量为1~3克。散剂每次服用0.5~1克。外用适量。可以研末外敷、吹鼻或煎水含漱。<br>When taken orally as a decoction, the conventional daily dosage for adults is 1–3 grams of Asarum. For powder preparations, take 0.5–1 gram per dose. For external use, apply an appropriate amount. It can be ground into powder for topical application, blown into the nose, or used as a gargle by decocting in water.',
+            model: '暂无'
+        },
+        'pinellia': {
+            name: '半夏 Pinellia',
+            nature: '辛，温；有毒',
+            natureEng: 'Pungent, warm; toxic',
+            meridian: '归脾、胃、肺经',
+            meridianEng: 'Enters spleen, stomach, lung channels',
+            effect: '燥湿化痰，降逆止呕，消痞散结',
+            effectEng: 'Dries dampness and resolves phlegm, directs qi downward to stop vomiting, dissipates masses and disperses stagnation',
+            description: '本品为天南星科植物半夏的干燥块茎。<br>This product is the dried tuber of Pinellia ternata, a plant belonging to the Araceae family.',
+            usage: '半夏煎汁内服时，成人每天的常规用量为3～9克。内服一般选择炮制过的药品使用，如姜半夏、法半夏、清半夏等。姜半夏长于降逆止呕，法半夏长于燥湿和胃，清半夏长于化湿痰，半夏曲长于化痰消食，竹沥半夏长于清化热痰。半夏也可入丸、散剂使用。外用时取适量生品，研末用水调敷，或者用酒、醋调敷。<br>When taken orally as a decoction, the conventional daily dosage of Pinellia ternata (Banxia) for adults is 3–9 grams. For oral administration, processed forms are generally used, such as ginger-processed Pinellia (Jiang Banxia), alum-processed Pinellia (Fa Banxia), or purified Pinellia (Qing Banxia). Ginger-processed Pinellia is particularly effective for stopping vomiting and counteracting adverse rising energy, alum-processed Pinellia excels in drying dampness and harmonizing the stomach, purified Pinellia is adept at resolving damp phlegm, fermented Pinellia (Banxia Qu) is specialized in dissolving phlegm and promoting digestion, while bamboo juice-processed Pinellia (Zhuli Banxia) is best for clearing heat-phlegm. Pinellia can also be prepared in pill or powder form for oral use. For external application, an appropriate amount of the raw herb is ground into powder and mixed with water, wine, or vinegar for topical application.',
+            model: '暂无'
+        },
+        'donkey-hide-glue': {
+            name: '阿胶 Donkey-hide Glue',
+            nature: '甘，平',
+            natureEng: 'Sweet, neutral',
+            meridian: '归肺、肝、肾经',
+            meridianEng: 'Enters lung, liver, kidney channels',
+            effect: '补血，止血，滋阴润燥',
+            effectEng: 'Enriches blood, stops bleeding, nourishes yin, moistens dryness',
+            description: '本品为马科动物驴的干燥皮或鲜皮经煎煮、浓缩制成的固体胶。<br>This product is a solid glue made from the dried or fresh hide of the donkey (Equus asinus) through decoction and concentration.',
+            usage: '阿胶一般需要先加黄酒烊化，再加入到汤剂中服用（即烊化兑服），成人每天的常规用量为3～9克。阿胶用于润肺、清肺化痰宜蛤粉炒，止血宜蒲黄炒，滋阴补血多生用。炒阿胶可入汤剂或丸散。阿胶因入丸散剂不宜粉碎，可用蛤粉烫成珠后，便于粉碎，并且可以改善因滋腻影响脾胃消化功能的副作用。<br>Ejiao (donkey-hide gelatin) generally needs to be dissolved first in yellow rice wine before being added to decoctions for oral administration (i.e., dissolved and mixed). The conventional daily dosage for adults is 3–9 grams. When used for moistening the lungs, clearing lung phlegm, Ejiao is preferably stir-fried with clam powder; for hemostasis, it is stir-fried with cattail pollen; for nourishing yin and enriching blood, it is mostly used in its raw form. Stir-fried Ejiao can be added to decoctions or prepared into pills or powders. Since Ejiao is difficult to pulverize for use in pills or powders, it can be heated with clam powder to form pearls, which facilitates pulverization and mitigates the side effect of impairing spleen and stomach digestive functions due to its greasy nature.',
+            model: '暂无'
+        },
+        
+        // 平性药材
+        'jujube': {
+            name: '大枣 Jujube',
+            nature: '甘，温',
+            natureEng: 'Sweet, warm',
+            meridian: '归脾、胃、心经',
+            meridianEng: 'Enters spleen, stomach, heart channels',
+            effect: '补中益气，养血安神',
+            effectEng: 'Tonifies middle burner and augments qi, nourishes blood and calms spirit',
+            description: '鼠李科植物枣的干燥成熟果实。<br>This product is the dried ripe fruit of the jujube plant from the Rhamnaceae family.',
+            usage: '煎服6～15g，宜剪破入煎。<br>Decoct and take orally, 6-15g. It is advisable to crush before decocting.',
+            model: '暂无'
+        },
+        'tangerine-peel': {
+            name: '陈皮 Tangerine Peel',
+            nature: '辛、苦，温',
+            natureEng: 'Pungent, bitter, warm',
+            meridian: '归脾、肺经',
+            meridianEng: 'Enters spleen and lung channels',
+            effect: '理气健脾，燥湿化痰',
+            effectEng: 'Regulates qi and strengthens spleen, dries dampness and resolves phlegm',
+            description: '芸香科柑橘属植物橘及其栽培变种的干燥成熟果皮。<br>Tangerine Peel, also known as Chenpi, is a traditional Chinese medicinal herb. It refers to the dried mature peel of the citrus plant from the Rutaceae family, specifically the species Citrus reticulata and its cultivated varieties.',
+            usage: '陈皮煎汁内服时，成人每天的常规用量为3~10克。陈皮也可以入丸、散服用。<br>When taken as a decoction, the conventional daily dosage of dried tangerine peel for adults is 3–10 grams. Dried tangerine peel can also be consumed in pill or powder form.',
+            model: '暂无'
+        },
+        'dendrobium': {
+            name: '石斛 Dendrobium',
+            nature: '甘，微寒',
+            natureEng: 'Sweet, slightly cold',
+            meridian: '归胃、肾经',
+            meridianEng: 'Enters stomach and kidney channels',
+            effect: '益胃生津，滋阴清热',
+            effectEng: 'Benefits stomach and promotes fluids, nourishes yin and clears heat',
+            description: '本品为兰科植物金钗石斛、霍山石斛、鼓槌石斛或流苏石斛的栽培品及其同属植物近似种的新鲜或干燥茎。<br>This product is the fresh or dried stem of cultivated Dendrobium nobile, Dendrobium huoshanense, Dendrobium chrysotoxum, or Dendrobium fimbriatum, as well as closely related species of the same genus in the Orchidaceae family.',
+            usage: '石斛煎汁内服时，成人每天的常规用量为6～12克，鲜品15～30克。切断，生用。干品入汤剂宜先下。入复方宜先煎，单用久煎；研末，3～6克；或入丸、散；或熬膏。<br>When Dendrobium is decocted for oral administration, the conventional daily dosage for adults is 6–12 grams for dried product and 15–30 grams for fresh product. It should be cut into pieces and used raw. Dried product should be added first when used in decoctions. In compound prescriptions, it should be decocted first; when used alone, it requires prolonged decoction. For powder form, the dosage is 3–6 grams; it can also be prepared into pills or powders, or made into paste.',
+            model: '暂无'
+        },
+        'mume-fruit': {
+            name: '乌梅 Mume Fruit',
+            nature: '酸、涩，平',
+            natureEng: 'Sour, astringent, neutral',
+            meridian: '归肝、脾、肺、大肠经',
+            meridianEng: 'Enters liver, spleen, lung, large intestine channels',
+            effect: '敛肺，涩肠，生津，安蛔',
+            effectEng: 'Astringes lungs, constricts intestines, promotes fluids, calms roundworms',
+            description: '蔷薇科植物梅的干燥近成熟果实。<br>This product is the dried nearly mature fruit of the Rosaceae plant Prunus mume.',
+            usage: '乌梅水煎服，成人每天的常规用量为6~12克，也可以入丸、散剂；外用适量，可以烧灰存性，研末撒或者调敷。乌梅止泻适合炒炭用；乌梅敛肺、生津、安蛔适合生用。<br>Fructus Mume can be decocted in water for oral administration. The conventional daily dosage for adults is 6–12 grams. It can also be prepared into pills or powders. For external use, an appropriate amount can be charred to preserve its properties, ground into powder for sprinkling or mixed into a paste. For antidiarrheal purposes, Fructus Mume is best used in its charred form. To astringe the lungs, promote fluid production, or expel parasites, it should be used in its raw form.',
+            model: '暂无'
+        },
+        // 原有药材保持不变（人参、黄芪等）
         'ginseng': {
             name: '人参 Ginseng',
             nature: '甘、微苦，微温',
