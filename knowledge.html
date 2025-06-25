@@ -57,7 +57,7 @@
         /* z-index: 1;  确保在播放按钮和文字之下 */
     }
 </style>
-<style>
+<!-- <style>
     .video-content-wrapper {
     display: flex;
     gap: 20px;
@@ -127,7 +127,7 @@
             max-width: 280px;
         }
     }
-</style>
+</style> -->
 <body>
     <!-- 导航栏 -->
     <header>
@@ -1208,7 +1208,7 @@
                 <div class="tab-header">
                     <div class="tab-btn active" data-tab="famous-doctors">中医名人</div>
                     <div class="tab-btn" data-tab="famous-books">中医名篇</div>
-                    <div class="tab-btn" data-tab="huangdi_neijing_joint_reading">黄帝内经共读</div>
+                    <!-- <div class="tab-btn" data-tab="huangdi_neijing_joint_reading">黄帝内经共读</div> -->
                 </div>
                 <div class="tab-content">
                     <div class="tab-pane active" id="famous-doctors">
@@ -1507,9 +1507,9 @@
                         </div>
                     </div>
 
-                    <div class="tab-pane course-video-container" id="huangdi_neijing_joint_reading">
+                    <!-- <div class="tab-pane course-video-container" id="huangdi_neijing_joint_reading">
                         <div class="video-content-wrapper">
-                            <!-- 左侧视频区域 -->
+                            左侧视频区域
                             <div id="courseVideo" class="course-video">
                                 <video id="videoPlayer" controls poster="path/to/thumbnail.jpg">
                                     <source src="courses/joint_reading.mp4" type="video/mp4">
@@ -1528,7 +1528,7 @@
                             </div>
                             
                             
-                            <!-- 右侧二维码区域 -->
+                            右侧二维码区域
                             <div class="qr-sidebar">
                                 <div class="qr-container">
                                     <img src="pics/forum/assistant.jpg" alt="微信二维码">
@@ -1538,12 +1538,12 @@
                             </div>
                             
                         </div>
-                        <!-- 视频标题 -->
+                        视频标题
                         <div class="video-title">
                             <h2>《黄帝内经》001｜读黄帝内经真的可以改命</h2>
-                            <h3>"Huangdi Neijing" 001 | Can Reading Huangdi Neijing Really Change One's Destiny?</h3>
+                            <h3>Huangdi Neijing" 001 | Can Reading Huangdi Neijing Really Change One's Destiny?</h3>
                         </div>
-                    </div>
+                    </div> -->
                 </div>
             </div>
         </div>
@@ -1627,7 +1627,7 @@
                 });
             });
     </script>
-    <script>
+    <!-- <script>
         document.addEventListener('DOMContentLoaded', function() {
             const video = document.getElementById('videoPlayer');
             const placeholder = document.querySelector('.video-placeholder');
@@ -1685,34 +1685,31 @@
             //     }
             // });
         });
-    </script>
-    <script>
+    </script> -->
+    <!-- <script>
         // 监听选项卡切换事件
         document.addEventListener('DOMContentLoaded', function() {
-        const tabButtons = document.querySelectorAll('.tab-btn');
-        const video = document.getElementById('videoPlayer');
-        const placeholder = document.querySelector('.video-placeholder');
-        const spinner = document.querySelector('.loading-spinner');
-        
-        tabButtons.forEach(button => {
-            button.addEventListener('click', function() {
-                if (!video.paused) {
-                    video.pause();
-                    video.currentTime = 0; // 重置视频到开始位置
-                    
-                    // 恢复封面显示
-                    placeholder.style.display = 'flex';
-                    placeholder.style.opacity = '1';
-                    video.controls = false;
-                    spinner.style.display = 'none';
-                }
+            const tabButtons = document.querySelectorAll('.tab-btn');
+            const video = document.getElementById('videoPlayer');
+            const placeholder = document.querySelector('.video-placeholder');
+            const spinner = document.querySelector('.loading-spinner');
+            
+            tabButtons.forEach(button => {
+                button.addEventListener('click', function() {
+                    if (!video.paused) {
+                        video.pause();
+                        video.currentTime = 0; // 重置视频到开始位置
+                        
+                        // 恢复封面显示
+                        placeholder.style.display = 'flex';
+                        placeholder.style.opacity = '1';
+                        video.controls = false;
+                        spinner.style.display = 'none';
+                    }
+                });
             });
         });
-    });
-
-
-
-    </script>
+    </script> -->
 </body>
 </html>
 

@@ -7,6 +7,77 @@
     <link rel="stylesheet" href="css/styles.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 </head>
+<style>
+    .video-content-wrapper {
+    display: flex;
+    gap: 20px;
+    align-items: flex-start;
+    }
+
+    .course-video {
+        flex: 1;
+        position: relative;
+    }
+
+    .video-title {
+        margin-top: 15px;
+        padding: 10px;
+        background: #f9f9f9;
+        border-radius: 4px;
+    }
+    .video-title h2 {
+        font-size: 18px;
+        margin-bottom: 5px;
+        color: #333;
+    }
+    .video-title h3 {
+        font-size: 14px;
+        color: #666;
+        font-weight: normal;
+    }
+
+    .qr-sidebar {
+        width: 340px;
+        padding: 15px;
+        background: #fff;
+        border-radius: 8px;
+        box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+        position: sticky;
+        top: 20px;
+    }
+
+    .qr-container {
+        text-align: center;
+    }
+    .qr-container img {
+        width: 100%;
+        margin-bottom: 10px;
+    }
+    .qr-text {
+        font-size: 14px;
+        line-height: 1.5;
+    }
+    .qr-text span {
+        color: #e74c3c;
+        font-weight: bold;
+    }
+
+    /* 响应式设计 */
+    @media (max-width: 768px) {
+        .video-content-wrapper {
+            flex-direction: column;
+        }
+        .qr-sidebar {
+        width: 100%;
+        margin-top: 30px;
+        display: flex;
+        justify-content: center;
+        }
+        .qr-container {
+            max-width: 280px;
+        }
+    }
+</style>
 <body>
     <!-- 导航栏 -->
     <header>
@@ -37,11 +108,18 @@
                     <h2 id="courseTitle">课程标题</h2>
                 </div>
                 
-                <div class="course-video-container">
+                <div class="video-content-wrapper course-video-container">
                     <div id="courseVideo" class="course-video">
                         <div class="video-placeholder">
                             <i class="fas fa-play-circle"></i>
                             <p>视频加载中...</p>
+                        </div>
+                    </div>
+                    <div class="qr-sidebar" style="display:none">
+                        <div class="qr-container">
+                            <img src="pics/forum/assistant.jpg" alt="微信二维码">
+                            <p class="qr-text">获取后续共读视频及黄帝内经笔记等，请扫描二维码添加小助手微信，备注<span>"健康"</span></p>
+                            <p class="qr-text">To get subsequent joint reading videos and notes on Huangdi Neijing, please scan the QR code to add the assistant's WeChat and note <span>'Health'</span>.</p>
                         </div>
                     </div>
                 </div>
@@ -97,6 +175,7 @@
                         <li><a href="ailishizhen.html">时珍智脑</a></li>
                         <li><a href="games.html">五行智弈</a></li>
                         <li><a href="forum.html">智联杏林</a></li>
+                        <li><a href="tongue-diagnosis.html">智能舌诊</a></li>
                     </ul>
                 </div>
                 <div class="footer-links">
