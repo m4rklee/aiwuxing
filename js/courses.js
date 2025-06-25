@@ -58,6 +58,25 @@ const courseData = {
         ],
         related: ['basic-theory', 'diagnosis-methods', 'seasonal-health']
     },
+    'huangdi_neijing': {
+        title: '《黄帝内经》001｜读黄帝内经真的可以改命',
+        img_name: 'wuxing_music',
+        description: '读黄帝内经真的可以改命。',
+        videoSrc: 'courses/joint_reading.mp4',
+        duration: '5分钟',
+        // chapters: [
+        //     { title: '第一章：经络系统概述', duration: '5:20' },
+        //     { title: '第二章：十二经脉分布规律', duration: '6:45' },
+        //     { title: '第三章：常用腧穴定位方法', duration: '7:30' },
+        //     { title: '第四章：穴位按压保健法', duration: '5:25' }
+        // ],
+        // resources: [
+        //     { title: '经络穴位图谱', type: 'pdf', url: '#' },
+        //     { title: '常用穴位定位与功效表', type: 'doc', url: '#' },
+        //     { title: '经络穴位保健操视频', type: 'video', url: '#' }
+        // ],
+        related: ['basic-theory', 'diagnosis-methods', 'seasonal-health']
+    },
     'seasonal-health': {
         title: '中医与人体',
         img_name: 'zhongyi_body',
@@ -316,22 +335,27 @@ function loadCourseDetail() {
     const courseId = urlParams.get('id');
 
     if (courseId && courseData[courseId]) {
-        const course = courseData[courseId];
 
+        const course = courseData[courseId];
         // 更新页面标题
         document.title = `${course.title} - 中医文化平台`;
 
         // 更新课程信息
         document.getElementById('courseTitle').textContent = course.title;
         document.getElementById('courseDescription').textContent = course.description;
-
+            
         // 模拟视频加载
         const videoContainer = document.getElementById('courseVideo');
         videoContainer.innerHTML = `
-        <div class="video-placeholder">
-            <i class="fas fa-play-circle"></i>
-        </div>
-    `;
+            <div class="video-placeholder">
+                <i class="fas fa-play-circle"></i>
+            </div>
+        `;
+        // 黄帝内经处理
+        if (courseId == 'huangdi_neijing'){
+            document.querySelector('.qr-sidebar').style.display = "block";   
+        }
+
         
         // const video_placeholder = document.querySelector('.video-placeholder');
         // // console.log(video_placeholder)
