@@ -1436,7 +1436,7 @@
                         </div>
                     </div>
 
-                    <div class="course-video-container">
+                    <div class="tab-pane course-video-container" id="huangdi_neijing_joint_reading">
                         <div id="courseVideo" class="course-video">
                             <video id="videoPlayer" controls>
                                 <source src="courses/joint_reading.mp4" type="video/mp4">
@@ -1598,26 +1598,27 @@
     <script>
         // 监听选项卡切换事件
         document.addEventListener('DOMContentLoaded', function() {
-            const tabButtons = document.querySelectorAll('.tab-btn');
-            const video = document.getElementById('videoPlayer');
-            const placeholder = document.querySelector('.video-placeholder');
-            const spinner = document.querySelector('.loading-spinner');
-            
-            tabButtons.forEach(button => {
-                button.addEventListener('click', function() {
-                    if (!video.paused) {
-                        video.pause();
-                        video.currentTime = 0; // 重置视频到开始位置
-                        
-                        // 恢复封面显示
-                        placeholder.style.display = 'flex';
-                        placeholder.style.opacity = '1';
-                        video.controls = false;
-                        spinner.style.display = 'none';
-                    }
-                });
+        const tabButtons = document.querySelectorAll('.tab-btn');
+        const video = document.getElementById('videoPlayer');
+        const placeholder = document.querySelector('.video-placeholder');
+        const spinner = document.querySelector('.loading-spinner');
+        
+        tabButtons.forEach(button => {
+            button.addEventListener('click', function() {
+                if (!video.paused) {
+                    video.pause();
+                    video.currentTime = 0; // 重置视频到开始位置
+                    
+                    // 恢复封面显示
+                    placeholder.style.display = 'flex';
+                    placeholder.style.opacity = '1';
+                    video.controls = false;
+                    spinner.style.display = 'none';
+                }
             });
         });
+    });
+
 
 
     </script>
