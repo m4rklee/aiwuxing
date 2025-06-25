@@ -57,6 +57,77 @@
         /* z-index: 1;  确保在播放按钮和文字之下 */
     }
 </style>
+<style>
+    .video-content-wrapper {
+    display: flex;
+    gap: 20px;
+    align-items: flex-start;
+    }
+
+    .course-video {
+        flex: 1;
+        position: relative;
+    }
+
+    .video-title {
+        margin-top: 15px;
+        padding: 10px;
+        background: #f9f9f9;
+        border-radius: 4px;
+    }
+    .video-title h2 {
+        font-size: 18px;
+        margin-bottom: 5px;
+        color: #333;
+    }
+    .video-title h3 {
+        font-size: 14px;
+        color: #666;
+        font-weight: normal;
+    }
+
+    .qr-sidebar {
+        width: 340px;
+        padding: 15px;
+        background: #fff;
+        border-radius: 8px;
+        box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+        position: sticky;
+        top: 20px;
+    }
+
+    .qr-container {
+        text-align: center;
+    }
+    .qr-container img {
+        width: 100%;
+        margin-bottom: 10px;
+    }
+    .qr-text {
+        font-size: 14px;
+        line-height: 1.5;
+    }
+    .qr-text span {
+        color: #e74c3c;
+        font-weight: bold;
+    }
+
+    /* 响应式设计 */
+    @media (max-width: 768px) {
+        .video-content-wrapper {
+            flex-direction: column;
+        }
+        .qr-sidebar {
+        width: 100%;
+        margin-top: 30px;
+        display: flex;
+        justify-content: center;
+        }
+        .qr-container {
+            max-width: 280px;
+        }
+    }
+</style>
 <body>
     <!-- 导航栏 -->
     <header>
@@ -1437,20 +1508,39 @@
                     </div>
 
                     <div class="tab-pane course-video-container" id="huangdi_neijing_joint_reading">
-                        <div id="courseVideo" class="course-video">
-                            <video id="videoPlayer" controls>
-                                <source src="courses/joint_reading.mp4" type="video/mp4">
-                                您的浏览器不支持 HTML5 视频。
-                            </video>
-                            
-                            <div class="video-placeholder">
-                                <i class="fas fa-play-circle"></i>
-                                <div class="placeholder-text">点击播放视频</div>
+                        <div class="video-content-wrapper">
+                            <!-- 左侧视频区域 -->
+                            <div id="courseVideo" class="course-video">
+                                <video id="videoPlayer" controls poster="path/to/thumbnail.jpg">
+                                    <source src="courses/joint_reading.mp4" type="video/mp4">
+                                    您的浏览器不支持 HTML5 视频。
+                                </video>
+                                
+                                <div class="video-placeholder">
+                                    <i class="fas fa-play-circle"></i>
+                                    <div class="placeholder-text">点击播放视频</div>
+                                </div>
+                                
+                                <div class="loading-spinner">
+                                    <div class="spinner"></div>
+                                </div>
+                                
                             </div>
                             
-                            <div class="loading-spinner">
-                                <div class="spinner"></div>
+                            
+                            <!-- 右侧二维码区域 -->
+                            <div class="qr-sidebar">
+                                <div class="qr-container">
+                                    <img src="pics/forum/assistant.jpg" alt="微信二维码">
+                                    <p class="qr-text">获取后续共读视频及黄帝内经笔记等，请扫描二维码添加小助手微信，备注<span>"健康"</span></p>
+                                </div>
                             </div>
+                            
+                        </div>
+                        <!-- 视频标题 -->
+                        <div class="video-title">
+                            <h2>《黄帝内经》001｜读黄帝内经真的可以改命</h2>
+                            <h3>"Huangdi Neijing" 001 | Can Reading Huangdi Neijing Really Change One's Destiny?</h3>
                         </div>
                     </div>
                 </div>
