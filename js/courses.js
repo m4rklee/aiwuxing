@@ -61,7 +61,7 @@ const courseData = {
     'huangdi_neijing': {
         title: '《黄帝内经》001｜读黄帝内经真的可以改命',
         img_name: 'wuxing_music',
-        description: '读黄帝内经真的可以改命。',
+        description: '《天年》第一章《人和比天时地利更重要》：如何唤醒中国人骨子里的贵族意识？一、人贵有自知之明 二、贵生 三、和为贵',
         videoSrc: 'courses/joint_reading.mp4',
         duration: '5分钟',
         // chapters: [
