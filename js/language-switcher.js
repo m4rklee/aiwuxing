@@ -1312,34 +1312,42 @@ document.addEventListener('DOMContentLoaded', function() {
             'en': '\"Huangdi Neijing\" 001 | Can Reading Huangdi Neijing Really Change One\'s Destiny?'
         },
         'course_title_5': {
+            'zh': '北京同仁堂的前世今生',
+            'en': 'The Past and Present of Beijing Tongrentang'
+        },
+        'course_desc_5': {
+            'zh': 'AI数来宝演绎北京同仁堂的前世今生',
+            'en': ''
+        },
+        'course_title_6': {
             'zh': '中医与人体',
             'en': 'TCM and the Human Body'
         },
-        'course_desc_5': {
+        'course_desc_6': {
             'zh': '探讨五行学说在中医中的应用，如五脏（肝心脾肺肾）与五行的对应关系及生理功能联动',
             'en': 'This section explores the Application of Five-Element Theory in TCM, examining how the Wood, Fire, Earth, Metal, and Water elements correspond to the Five Organs (liver, heart, spleen, lungs, and kidneys) and their interconnected physiological functions.'
         },
-        'course_title_6': {
+        'course_title_7': {
             'zh': '五行学说简介',
             'en': 'Introduction to the Five-Element Theory'
         },
-        'course_desc_6': {
+        'course_desc_7': {
             'zh': '概述五行理论的核心概念及应用领域',
             'en': 'This section provides an overview of the core concepts and applications of the Five-Element Theory.'
         },
-        'course_title_7': {
+        'course_title_8': {
             'zh': '假如五行人格会说话',
             'en': 'If the Five-Element Personalities Could Speak'
         },
-        'course_desc_7': {
+        'course_desc_8': {
             'zh': '了解阳木和阴木人格的特点及适合的职业发展方向',
             'en': 'Understanding Yang Wood & Yin Wood Traits with Career Guidance.'
         },
-        'course_title_8': {
+        'course_title_9': {
             'zh': '五脏与五味的对应',
             'en': 'Five Organs & Five Flavors'
         },
-        'course_desc_8': {
+        'course_desc_9': {
             'zh': '李时珍教你五脏与五味的对应。',
             'en': "Li Shizhen's guide to correspondences between The Five Organs and their healing flavors."
         },
