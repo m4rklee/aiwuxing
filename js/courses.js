@@ -77,6 +77,25 @@ const courseData = {
         // ],
         related: ['basic-theory', 'diagnosis-methods', 'seasonal-health']
     },
+    'tongrentang': {
+        title: '北京同仁堂的前世今生',
+        img_name: 'tongrentang',
+        description: 'AI数来宝演绎北京同仁堂的前世今生',
+        videoSrc: 'courses/tongrentang.mp4',
+        duration: '21秒',
+        chapters: [
+            { title: '第一章：春季养生', duration: '4:15' },
+            { title: '第二章：夏季养生', duration: '4:30' },
+            { title: '第三章：秋季养生', duration: '4:45' },
+            { title: '第四章：冬季养生', duration: '4:30' }
+        ],
+        resources: [
+            { title: '四季养生食材表', type: 'pdf', url: '#' },
+            { title: '四季养生穴位保健图', type: 'image', url: '#' },
+            { title: '四季养生食疗方案', type: 'doc', url: '#' }
+        ],
+        related: ['food-therapy', 'herb-identification', 'basic-theory']
+    },
     'seasonal-health': {
         title: '中医与人体',
         img_name: 'zhongyi_body',
