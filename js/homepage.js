@@ -19,18 +19,23 @@ document.addEventListener('DOMContentLoaded', function () {
     
     let currentSlide = 0;
     let slideInterval;
-    slides[1].style='display: none'
-    slides[2].style='display: none'
-    slides[3].style='display: none'
-    slides[4].style='display: none'
+    slides.forEach((slide, index) => {
+        slide.style.display = index === 0 ? 'block' : 'none';
+    });
+
     function showSlide(n) {
+        if (!slides.length) return;
         slides.forEach(slide => slide.classList.remove('active'));
         dots.forEach(dot => dot.classList.remove('active'));
-        slides.forEach(slide => slide.style='display: none');
+        slides.forEach(slide => {
+            slide.style.display = 'none';
+        });
         currentSlide = (n + slides.length) % slides.length;
-        slides[currentSlide].style = 'display: block';
+        slides[currentSlide].style.display = 'block';
         slides[currentSlide].classList.add('active');
-        dots[currentSlide].classList.add('active');
+        if (dots[currentSlide]) {
+            dots[currentSlide].classList.add('active');
+        }
     }
 
     function nextSlide() {
@@ -50,16 +55,18 @@ document.addEventListener('DOMContentLoaded', function () {
     }
 
     // 初始化轮播图
-    startSlideShow();
+    if (slides.length > 1) {
+        startSlideShow();
+    }
 
     // 轮播图控制
-    nextBtn.addEventListener('click', function() {
+    nextBtn && nextBtn.addEventListener('click', function() {
         stopSlideShow();
         nextSlide();
         startSlideShow();
     });
 
-    prevBtn.addEventListener('click', function() {
+    prevBtn && prevBtn.addEventListener('click', function() {
         stopSlideShow();
         prevSlide();
         startSlideShow();
@@ -75,8 +82,10 @@ document.addEventListener('DOMContentLoaded', function () {
 
     // 鼠标悬停暂停轮播
     const slider = document.querySelector('.slider');
-    slider.addEventListener('mouseenter', stopSlideShow);
-    slider.addEventListener('mouseleave', startSlideShow);
+    if (slider) {
+        slider.addEventListener('mouseenter', stopSlideShow);
+        slider.addEventListener('mouseleave', startSlideShow);
+    }
     
     // 祥云和仙鹤动画增强
     function enhanceFloatingElements() {
@@ -102,7 +111,7 @@ document.addEventListener('DOMContentLoaded', function () {
     }
 
     // 调用祥云和仙鹤动画增强函数
-    document.addEventListener('DOMContentLoaded', enhanceFloatingElements);
+    enhanceFloatingElements();
     // 用户评价轮播
     const testimonialSlides = document.querySelectorAll('.testimonial-slide');
     const testimonialDots = document.querySelectorAll('.testimonial-dots .dot');
@@ -130,7 +139,9 @@ document.addEventListener('DOMContentLoaded', function () {
     }
 
     // 初始化用户评价轮播
-    startTestimonialShow();
+    if (testimonialSlides.length > 1) {
+        startTestimonialShow();
+    }
 
     // 用户评价点击控制
     testimonialDots.forEach((dot, index) => {
@@ -143,8 +154,10 @@ document.addEventListener('DOMContentLoaded', function () {
 
     // 鼠标悬停暂停用户评价轮播
     const testimonialSlider = document.querySelector('.testimonials-slider');
-    testimonialSlider.addEventListener('mouseenter', stopTestimonialShow);
-    testimonialSlider.addEventListener('mouseleave', startTestimonialShow);
+    if (testimonialSlider) {
+        testimonialSlider.addEventListener('mouseenter', stopTestimonialShow);
+        testimonialSlider.addEventListener('mouseleave', startTestimonialShow);
+    }
 
     // 平滑滚动
     document.querySelectorAll('a[href^="#"]').forEach(anchor => {

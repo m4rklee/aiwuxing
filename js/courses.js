@@ -337,12 +337,12 @@ document.addEventListener('DOMContentLoaded', function () {
     console.log(currentPage)
 
     // 处理微课详情页
-    if ('course-detail.html'.includes(currentPage)) {
+    if (currentPage === 'course-detail.html') {
         loadCourseDetail();
     }
 
     // 处理游戏详情页
-    if ('game-detail.html'.includes(currentPage)) {
+    if (currentPage === 'game-detail.html') {
         loadGameDetail();
     }
 });
@@ -371,8 +371,11 @@ function loadCourseDetail() {
             </div>
         `;
         // 黄帝内经处理
-        if (courseId == 'huangdi_neijing'){
-            document.querySelector('.qr-sidebar').style.display = "block";   
+        if (courseId === 'huangdi_neijing'){
+            const qrSidebar = document.querySelector('.qr-sidebar');
+            if (qrSidebar) {
+                qrSidebar.style.display = "block";
+            }
         }
 
         
@@ -398,7 +401,7 @@ function loadCourseDetail() {
                     <video controls autoplay>
                         <source src="${course.videoSrc}" type="video/mp4">
                         您的浏览器不支持HTML5视频标签。
-                    </video>;`
+                    </video>`
                 videoElement = document.querySelector('video');
                 isVideoLoaded = true;
             } else {
@@ -568,13 +571,17 @@ function loadGameDetail() {
         // 更新游戏规则
         const instructionsEl = document.getElementById('gameInstructions');
         instructionsEl.innerHTML = '';
-        const instructionsList = document.createElement('ul');
-        game.instructions.forEach(instruction => {
-            const li = document.createElement('li');
-            li.textContent = instruction;
-            instructionsList.appendChild(li);
-        });
-        instructionsEl.appendChild(instructionsList);
+        if (Array.isArray(game.instructions)) {
+            const instructionsList = document.createElement('ul');
+            game.instructions.forEach(instruction => {
+                const li = document.createElement('li');
+                li.textContent = instruction;
+                instructionsList.appendChild(li);
+            });
+            instructionsEl.appendChild(instructionsList);
+        } else {
+            instructionsEl.innerHTML = game.instructions || '<p>暂无游戏规则。</p>';
+        }
         
         // 更新学习要点
         const learningPointsEl = document.getElementById('gameLearningPoints');
@@ -587,7 +594,16 @@ function loadGameDetail() {
         
         // 加载游戏
         const gameFrame = document.getElementById('gameFrame');
-        gameFrame.innerHTML = `<iframe src="${game.gameUrl}" width="100%" height="600" frameborder="0"></iframe>`;
+        if (game.gameUrl) {
+            gameFrame.innerHTML = `<iframe src="${game.gameUrl}" width="100%" height="600" frameborder="0"></iframe>`;
+        } else {
+            gameFrame.innerHTML = `
+                <div class="game-placeholder">
+                    <i class="fas fa-gamepad"></i>
+                    <p>该游戏正在制作中，敬请期待。</p>
+                </div>
+            `;
+        }
         // 加载相关游戏
         const relatedContainer = document.getElementById('relatedGames');
         if (relatedContainer && game.related) {
