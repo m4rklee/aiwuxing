@@ -18,9 +18,9 @@
 本项目是静态网站，无需安装依赖或执行构建命令。
 
 0.直接访问：
-```
+[```
 [htt](https://aiwuxing.maozi.io)
-```
+```](https://aiwuxing.maozi.io)
 
 1. 克隆仓库：
 
